@@ -1,5 +1,6 @@
 @import url('home-final.css?v=20260909');
 /* final visual overrides matching the approved reference */
+.hero-visual{background-image:url('assets/hero-right.webp')!important;background-position:center center!important;background-size:cover!important;background-repeat:no-repeat!important}
 .thumb{position:relative;overflow:hidden;background:#0b1620;color:#fff}
 .thumb.ridi{background:radial-gradient(circle at 22% 68%,rgba(52,157,255,.95) 0 4%,rgba(52,157,255,.15) 5% 12%,transparent 13%),radial-gradient(circle at 78% 68%,rgba(239,183,71,.95) 0 4%,rgba(239,183,71,.15) 5% 12%,transparent 13%),linear-gradient(155deg,#07131f,#102d4d)}
 .thumb.ridi:before{content:'System A                                   System B';white-space:pre;position:absolute;top:16px;left:18px;right:18px;font:13px Georgia,serif;color:#e8e4db}
