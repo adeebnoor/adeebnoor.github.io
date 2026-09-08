@@ -1,0 +1,18 @@
+@import url('home-final.css?v=20260909');
+/* final visual overrides matching the approved reference */
+.thumb{position:relative;overflow:hidden;background:#0b1620;color:#fff}
+.thumb.ridi{background:radial-gradient(circle at 22% 68%,rgba(52,157,255,.95) 0 4%,rgba(52,157,255,.15) 5% 12%,transparent 13%),radial-gradient(circle at 78% 68%,rgba(239,183,71,.95) 0 4%,rgba(239,183,71,.15) 5% 12%,transparent 13%),linear-gradient(155deg,#07131f,#102d4d)}
+.thumb.ridi:before{content:'System A                                   System B';white-space:pre;position:absolute;top:16px;left:18px;right:18px;font:13px Georgia,serif;color:#e8e4db}
+.thumb.ridi:after{content:'';position:absolute;left:-8%;right:-8%;bottom:34%;height:2px;background:linear-gradient(90deg,transparent,#2d89d8 28%,#d2a748 72%,transparent);transform:rotate(4deg);box-shadow:0 16px 0 rgba(44,127,197,.42),0 32px 0 rgba(208,159,69,.28)}
+.thumb.genome{background:radial-gradient(circle at 62% 36%,rgba(113,178,255,.45),transparent 26%),linear-gradient(135deg,#1d3269,#74469f 55%,#315c94)}
+.thumb.genome:before{content:'🧬';position:absolute;font-size:94px;left:18px;top:14px;filter:saturate(1.15)}
+.thumb.genome:after{content:'From\A Genomes to\A Better Lives';white-space:pre;position:absolute;right:17px;bottom:16px;text-align:right;font:17px/1.15 Georgia,serif;color:#fff}
+.thumb.healthx{background:linear-gradient(135deg,#113447,#1a718c)}
+.thumb.healthx:before{content:'';position:absolute;left:15px;bottom:-5px;width:44%;height:91%;background:linear-gradient(#e8f1f4,#a9c4cf);clip-path:polygon(35% 0,60% 0,72% 12%,80% 32%,90% 100%,5% 100%,14% 31%,23% 12%);opacity:.86}
+.thumb.healthx:after{content:'AI  HEALTH';position:absolute;right:13px;top:20px;width:48%;height:80px;border:1px solid rgba(185,237,255,.55);display:grid;place-items:center;font:18px Georgia,serif;color:#c8f6ff;background:linear-gradient(180deg,rgba(143,224,255,.15),rgba(0,0,0,.08));box-shadow:0 0 25px rgba(89,208,245,.16)}
+.thumb.cpit{background:linear-gradient(135deg,#080e14,#153247)}
+.thumb.cpit:before{content:'class Reliable {\A  safe();\A  secure();\A  resilient();\A}';white-space:pre;position:absolute;left:20px;top:18px;font:12px/1.55 ui-monospace,monospace;color:#75d0ff}
+.thumb.cpit:after{content:'Reliable\A Safe\A Secure\A Resilient\A At Scale';white-space:pre;position:absolute;right:16px;top:17px;font:15px/1.2 Georgia,serif;color:#fff}
+.card-visual-label{position:absolute;left:16px;bottom:10px;font:21px Georgia,serif;color:#fff;z-index:2}
+/* keep exact desktop proportions from the approved 1122px reference */
+@media(min-width:1001px){.wrap{width:1122px;max-width:calc(100% - 24px)}.shell .wrap{width:1122px;max-width:calc(100% - 24px)}.topbar{height:62px}.hero-grid{min-height:355px}.hero-copy{padding-left:0}.hero-visual{min-height:355px}.stats-grid{min-height:106px}}
