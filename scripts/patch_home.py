@@ -4,48 +4,39 @@ import re
 p = Path('index.html')
 s = p.read_text(encoding='utf-8')
 
-# Keep the approved visual homepage. Only add metadata and small functional overlays.
-old_desc = '<meta name="description" content="Adeeb Noor — Professor, Researcher, Builder. AI, decision intelligence, digital health, education and institutional transformation.">'
-new_meta = '''<meta name="description" content="Adeeb Noor — Saudi Professor of Data Science and Artificial Intelligence. Research, decision intelligence, digital health, education, ventures and institutional transformation.">
-<link rel="canonical" href="https://adeebnoor.github.io/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="site.webmanifest">
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Adeeb Noor — Professor of Data Science and Artificial Intelligence">
-<meta property="og:description" content="Saudi professor, researcher and builder working across AI, decision intelligence, digital health, education, ventures and institutional transformation.">
-<meta property="og:url" content="https://adeebnoor.github.io/">
-<meta property="og:image" content="https://adeebnoor.github.io/assets/hero-right.webp">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Adeeb Noor — Professor of Data Science and Artificial Intelligence">
-<meta name="twitter:description" content="Saudi professor working across AI, decision intelligence, digital health, education, ventures and institutional transformation.">
-<meta name="twitter:image" content="https://adeebnoor.github.io/assets/hero-right.webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Adeeb Noor","jobTitle":"Professor of Data Science and Artificial Intelligence","nationality":{"@type":"Country","name":"Saudi Arabia"},"url":"https://adeebnoor.github.io/","affiliation":{"@type":"CollegeOrUniversity","name":"King Abdulaziz University"},"sameAs":["https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en","https://www.linkedin.com/in/adeeb-noor","https://www.researchgate.net/profile/Adeeb-Noor-2","https://cemse.kaust.edu.sa/profiles/adeeb-noor"]}</script>'''
-if old_desc in s and 'og:title' not in s:
-    s = s.replace(old_desc, new_meta, 1)
-
-# Remove the previous top-left identity patch so the original ADEEB NOOR brand is visible again.
+# Preserve the approved image-based homepage and add only precise live overlays.
+# Remove any previous homepage overlays first so repeated deploys remain idempotent.
+s = re.sub(r'<div class="top-identity-live"[^>]*>.*?</div>\s*', '', s, count=1, flags=re.S)
+s = re.sub(r'<nav class="top-nav-live"[^>]*>.*?</nav>\s*', '', s, count=1, flags=re.S)
+s = re.sub(r'<div class="experience-live"[^>]*>.*?</div>\s*', '', s, count=1, flags=re.S)
 s = re.sub(r'<div class="identity-label"[^>]*>.*?</div>\s*', '', s, count=1, flags=re.S)
 s = re.sub(r'<a class="writing-tab"[^>]*>.*?</a>\s*', '', s, count=1, flags=re.S)
+s = re.sub(r'<a class="writing-nav-home"[^>]*>.*?</a>\s*', '', s, count=1, flags=re.S)
 
-# Add Writing as a real top-nav item by replacing the baked Contact label visually.
-# Contact remains available through the Let's Connect button.
-nav_css = '''.writing-nav-home{position:absolute;left:63.25%;top:.62%;width:6.15%;height:3.25%;z-index:40;display:flex;align-items:center;justify-content:center;background:rgba(8,20,28,.985);color:#f4eee4;text-decoration:none;font:600 clamp(7px,.69vw,11px)/1 Arial,Helvetica,sans-serif}.writing-nav-home:hover{color:#d8ad58}.writing-nav-home:after{content:"";position:absolute;left:24%;right:24%;bottom:11%;height:1px;background:#d8ad58;opacity:.0}.writing-nav-home:hover:after{opacity:1}@media(max-width:700px){.writing-nav-home{display:none}}'''
+# Remove earlier injected CSS blocks when present.
+s = re.sub(r'\.top-identity-live\{.*?\.experience-live\{.*?\}', '', s, count=1, flags=re.S)
+s = re.sub(r'\.writing-nav-home\{.*?@media\(max-width:700px\)\{\.writing-nav-home\{display:none\}\}', '', s, count=1, flags=re.S)
+
+css = '''
+.top-identity-live{position:absolute;left:3.75%;top:.12%;width:25.2%;height:4.2%;z-index:70;display:flex;flex-direction:column;justify-content:center;padding:0 .65%;background:linear-gradient(90deg,#0b151c 0%,#0b151c 86%,rgba(11,21,28,.98) 94%,rgba(11,21,28,0) 100%);font-family:Arial,Helvetica,sans-serif;line-height:1.08;text-transform:uppercase;pointer-events:none}.top-identity-live .nat{display:block;color:#f3eee5;font-size:clamp(6px,.53vw,9px);font-weight:700;letter-spacing:.19em;margin-bottom:4px}.top-identity-live .title{display:block;color:#d8ad58;font-size:clamp(7px,.66vw,11px);font-weight:700;letter-spacing:.05em;white-space:nowrap}.top-identity-live:after{content:"";position:absolute;left:.65%;bottom:7%;width:31%;height:1px;background:#d8ad58;opacity:.72}.top-nav-live{position:absolute;left:28.8%;top:.1%;width:66.2%;height:4.25%;z-index:68;display:flex;align-items:center;justify-content:flex-end;gap:clamp(8px,1.18vw,20px);padding:0 .35% 0 1.1%;background:#0b151c;font-family:Georgia,'Times New Roman',serif;line-height:1}.top-nav-live a{color:#f2ede4;text-decoration:none;font-size:clamp(7px,.69vw,12px);font-weight:600;white-space:nowrap;padding:9px 1px;position:relative}.top-nav-live a:hover,.top-nav-live a:focus-visible{color:#d8ad58;outline:none}.top-nav-live a.active:after{content:"";position:absolute;left:4%;right:4%;bottom:2px;height:1px;background:#d8ad58}.top-nav-live .professional{margin-left:clamp(6px,.7vw,12px);border:1px solid #d8ad58;color:#e7c77f;padding:10px clamp(10px,1vw,18px);font-style:normal}.top-nav-live .professional:hover{background:#d8ad58;color:#0b151c}.experience-live{position:absolute;left:10.05%;top:31.28%;width:12.4%;height:2.25%;z-index:55;display:flex;align-items:center;background:#f7f3eb;color:#1d1710;font-family:Georgia,'Times New Roman',serif;font-size:clamp(10px,1.25vw,20px);font-weight:700;line-height:1;white-space:nowrap;padding-left:.35%}@media(max-width:700px){.top-identity-live,.top-nav-live,.experience-live{display:none}}
+'''
 marker = '.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}'
-if '.writing-nav-home{' not in s:
-    s = s.replace(marker, marker + nav_css, 1)
+if '.top-identity-live{' not in s:
+    s = s.replace(marker, marker + css, 1)
 
-writing_link = '<a class="writing-nav-home" href="writing/" aria-label="Writing">Writing</a>'
-if 'class="writing-nav-home"' not in s:
-    s = s.replace('<div class="stage">\n', '<div class="stage">\n' + writing_link + '\n', 1)
+identity = '<div class="top-identity-live" aria-label="Saudi National; Professor of Data Science and Artificial Intelligence"><span class="nat">Saudi National</span><span class="title">Professor of Data Science and Artificial Intelligence</span></div>'
+nav = '<nav class="top-nav-live" aria-label="Primary navigation"><a class="active" href="index.html">Home</a><a href="research.html">Research</a><a href="ventures.html">Ventures</a><a href="teaching.html">Teaching</a><a href="impact.html">Impact</a><a href="writing/">Writing</a><a href="about.html">About</a><a class="professional" href="collaborate.html">Professional Inquiries →</a></nav>'
+experience = '<div class="experience-live" aria-label="More than 18 years of experience">18+ Years</div>'
+s = s.replace('<div class="stage">\n', '<div class="stage">\n' + identity + '\n' + nav + '\n' + experience + '\n', 1)
 
-# Ensure Impact points to the expanded Impact/CV area.
-old_impact = '<div class="navgroup ng-impact"><a class="hit navhit impact" href="collaborate.html" aria-label="Impact"></a><div class="dropdown"><a href="collaborate.html#researchers">For Researchers</a><a href="collaborate.html#organizations">For Organizations</a><a href="collaborate.html#investors">For Investors & Partners</a></div></div>'
-new_impact = '<div class="navgroup ng-impact"><a class="hit navhit impact" href="impact.html" aria-label="Impact"></a><div class="dropdown"><a href="impact.html">Impact Overview</a><a href="master-cv.html">Master CV</a><a href="executive-cv.html">Executive CV</a><a href="academic-cv.html">Academic CV</a></div></div>'
-if old_impact in s:
-    s = s.replace(old_impact, new_impact, 1)
+# Ensure the HEALTHx card opens the English project page.
+s = s.replace('href="healthx/" aria-label="Explore HEALTHx"', 'href="healthx/" aria-label="Explore HEALTHx"')
 
-# Accessible heading/metadata only; does not change the approved visual composition.
-s = s.replace('<h1>Adeeb Noor — Professor, Researcher, Builder</h1>', '<h1>Adeeb Noor — Saudi Professor of Data Science and Artificial Intelligence</h1>', 1)
+# Impact should open the expanded Impact/CV area.
+s = re.sub(r'<div class="navgroup ng-impact">.*?</div></div>', '<div class="navgroup ng-impact"><a class="hit navhit impact" href="impact.html" aria-label="Impact"></a><div class="dropdown"><a href="impact.html">Impact Overview</a><a href="master-cv.html">Master CV</a><a href="executive-cv.html">Executive CV</a><a href="academic-cv.html">Academic CV</a></div></div>', s, count=1, flags=re.S)
+
+# Make hidden/legacy contact hotspot formal as well.
+s = s.replace('aria-label="Let\'s Connect"', 'aria-label="Professional Inquiries"')
 
 p.write_text(s, encoding='utf-8')
-print('Approved homepage preserved: ADEEB NOOR restored at top-left and Writing added to top navigation.')
+print('Homepage patched: About moved to the end, Professional Inquiries CTA, Saudi identity, and 18+ years.')
