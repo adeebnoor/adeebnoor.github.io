@@ -27,6 +27,9 @@ jobs:
       - name: Patch homepage presentation
         run: python scripts/patch_home.py
 
+      - name: Patch site identity
+        run: python scripts/patch_identity.py
+
       - name: Validate site
         run: |
           test -s index.html
