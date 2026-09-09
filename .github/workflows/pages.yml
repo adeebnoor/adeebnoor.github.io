@@ -24,11 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Patch homepage presentation
+        run: python scripts/patch_home.py
+
       - name: Validate site
         run: |
           test -s index.html
           test -s style.css
           test -s inner.css
+          test -s cv.css
           test -s about.html
           test -s research.html
           test -s publications.html
@@ -36,6 +40,9 @@ jobs:
           test -s teaching.html
           test -s phd.html
           test -s speaking.html
+          test -s impact.html
+          test -s executive-cv.html
+          test -s academic-cv.html
           test -s collaborate.html
           test -s 404.html
           test -s favicon.svg
@@ -52,7 +59,8 @@ jobs:
           pages = [
               Path('index.html'), Path('about.html'), Path('research.html'),
               Path('publications.html'), Path('ventures.html'), Path('teaching.html'),
-              Path('phd.html'), Path('speaking.html'), Path('collaborate.html'),
+              Path('phd.html'), Path('speaking.html'), Path('impact.html'),
+              Path('executive-cv.html'), Path('academic-cv.html'), Path('collaborate.html'),
               Path('404.html')
           ]
 
