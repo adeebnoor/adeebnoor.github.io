@@ -1,0 +1,12 @@
+{
+  "name": "Adeeb Noor",
+  "short_name": "Adeeb Noor",
+  "description": "Professor, Researcher and Builder working across AI, decision intelligence, digital health, education and institutional transformation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07131c",
+  "theme_color": "#07131c",
+  "icons": [
+    {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}
