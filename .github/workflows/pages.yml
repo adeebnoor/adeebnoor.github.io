@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build CV variants from master data
+        run: python scripts/build_cvs.py
+
       - name: Patch homepage presentation
         run: python scripts/patch_home.py
 
@@ -36,6 +39,8 @@ jobs:
           test -s style.css
           test -s inner.css
           test -s cv.css
+          test -s data/master_cv.json
+          test -s scripts/build_cvs.py
           test -s about.html
           test -s research.html
           test -s publications.html
@@ -44,6 +49,7 @@ jobs:
           test -s phd.html
           test -s speaking.html
           test -s impact.html
+          test -s master-cv.html
           test -s executive-cv.html
           test -s academic-cv.html
           test -s collaborate.html
@@ -63,8 +69,8 @@ jobs:
               Path('index.html'), Path('about.html'), Path('research.html'),
               Path('publications.html'), Path('ventures.html'), Path('teaching.html'),
               Path('phd.html'), Path('speaking.html'), Path('impact.html'),
-              Path('executive-cv.html'), Path('academic-cv.html'), Path('collaborate.html'),
-              Path('404.html')
+              Path('master-cv.html'), Path('executive-cv.html'), Path('academic-cv.html'),
+              Path('collaborate.html'), Path('404.html')
           ]
 
           class Links(HTMLParser):
