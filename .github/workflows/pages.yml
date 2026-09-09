@@ -33,6 +33,9 @@ jobs:
       - name: Patch site identity
         run: python scripts/patch_identity.py
 
+      - name: Patch Master CV links
+        run: python scripts/patch_master_cv_links.py
+
       - name: Validate site
         run: |
           test -s index.html
@@ -41,6 +44,7 @@ jobs:
           test -s cv.css
           test -s data/master_cv.json
           test -s scripts/build_cvs.py
+          test -s scripts/patch_master_cv_links.py
           test -s about.html
           test -s research.html
           test -s publications.html
