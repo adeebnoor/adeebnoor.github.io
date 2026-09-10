@@ -1,4 +1,4 @@
-name: Deploy Adeeb Noor personal site
+name: Validate Adeeb Noor personal site
 
 on:
   push:
@@ -7,18 +7,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -78,8 +69,8 @@ jobs:
                   super().__init__(); self.hrefs=[]
               def handle_starttag(self, tag, attrs):
                   if tag == 'a':
-                      d=dict(attrs)
-                      if d.get('href'): self.hrefs.append(d['href'])
+                      href = dict(attrs).get('href')
+                      if href: self.hrefs.append(href)
 
           missing=[]
           for page in pages:
@@ -102,15 +93,3 @@ jobs:
               raise SystemExit('Broken internal links:\n' + '\n'.join(missing))
           print(f'Validated {len(pages)} HTML pages and their internal links.')
           PY
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
