@@ -5,7 +5,7 @@ The existing Arabic homepage is hand-authored; its internal links are localized 
 """
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.parse import urljoin, urlsplit, urlunsplit, parse_qsl, urlencode, quote
 import html
 import json
 import re
@@ -22,6 +22,17 @@ TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
     TRANSLATIONS.update(json.loads(file.read_text()))
 
+EMAIL_COPY = {
+    'Speaking Invitation': 'دعوة لإلقاء محاضرة',
+    'Research Inquiry': 'استفسار بحثي',
+    'Student Research Inquiry': 'استفسار طالب عن البحث والإشراف',
+    'Research Collaboration': 'تعاون بحثي',
+    'Advisory Inquiry': 'استفسار عن تعاون استشاري',
+    'Partnership Inquiry': 'استفسار عن شراكة',
+    'HEALTHx Collaboration or Investment Inquiry': 'استفسار عن التعاون أو الاستثمار في HEALTHx',
+    'Hello Professor Noor,\n\nI am interested in HEALTHx regarding: [investment / research / student project / clinical pilot / industry collaboration].\n\nBriefly: ': 'الأستاذ الدكتور أديب نور،\n\nأرغب في التعاون مع HEALTHx في مجال: [الاستثمار / البحث / مشروع طلابي / تجربة سريرية أولية / تعاون مع قطاع الأعمال].\n\nنبذة عن الفكرة: ',
+}
+
 
 def public_path(page, arabic=False):
     path = ('ar/' if arabic else '') + page
@@ -31,6 +42,9 @@ def public_path(page, arabic=False):
 
 
 def local_url(value, source, arabic, navigation=False):
+    if arabic and value.startswith('mailto:') and '?' in value:
+        address, query = value.split('?', 1)
+        return address + '?' + urlencode([(k, EMAIL_COPY.get(v, v)) for k,v in parse_qsl(query)], quote_via=quote)
     if not value or value.startswith(('#','mailto:','tel:','javascript:','data:')):
         return value
     absolute = urlsplit(urljoin(ORIGIN + source, value))

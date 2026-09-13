@@ -1,7 +1,8 @@
 """Regression checks for full-page translations and language-preserving navigation."""
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit, urljoin
+from urllib.parse import urlsplit, urljoin, parse_qsl
+import re
 from localize_site import PAGES, public_path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,6 +54,10 @@ for page in PAGES:
             href = link.get('href', '')
             if not arabic or not href or 'site-language' in link.get('class','').split():
                 continue
+            if href.startswith('mailto:'):
+                for key, text in parse_qsl(urlsplit(href).query):
+                    if key in ('subject', 'body') and not re.search(r'[\u0600-\u06ff]', text):
+                        errors.append(f'{name}: untranslated email {key}')
             target = urlsplit(urljoin(ORIGIN + '/' + name, href))
             if target.netloc == 'adeebnoor.github.io' and target.path in english_paths:
                 errors.append(f'{name}: Arabic navigation escapes to {href}')
