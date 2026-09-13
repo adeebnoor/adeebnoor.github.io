@@ -15,6 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
       - name: Validate site
         run: |
           test -s index.html
@@ -55,9 +60,13 @@ jobs:
           python scripts/validate_localization.py
           python scripts/validate_identity.py
           python scripts/validate_ideas.py
+          python scripts/validate_analytics.py
+          node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs
           python scripts/build_site.py
           git diff --exit-code
           node --check nav.js
           node --check portfolio.js
           node --check site-nav.js
           node --check ar/writing/share.js
+          node --check analytics/dashboard.js
+          node --check privacy.js

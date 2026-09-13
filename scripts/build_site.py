@@ -10,5 +10,5 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 for script in ('localize_site.py', 'build_featured_projects.py',
-               'build_homepage_positioning.py', 'build_ideas.py', 'sync_identity.py'):
+               'build_homepage_positioning.py', 'build_ideas.py', 'build_analytics.py', 'sync_identity.py'):
     subprocess.run([sys.executable, str(ROOT/'scripts'/script)], cwd=ROOT, check=True)

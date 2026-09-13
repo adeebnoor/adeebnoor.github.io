@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "site": "adeebnoor.github.io",
+  "endpoint": "https://xcirpzxpcpbxpowjbpiq.supabase.co/functions/v1/portfolio-collect",
+  "statsEndpoint": "https://xcirpzxpcpbxpowjbpiq.supabase.co/functions/v1/portfolio-stats",
+  "publicAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhjaXJwenhwY3BieHBvd2picGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNTU3MzQsImV4cCI6MjEwMzgzMTczNH0.9cap24nJf6w2MdWWrfD0CiECcHUt3sEmIykU2EM-kCQ",
+  "retentionDays": 90
+}

@@ -12,7 +12,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io/'
-VERSION = '20260913-ideas1'
+VERSION = '20260913-analytics1'
 PAGES = ['index.html','about.html','impact.html','research.html','publications.html',
          'ventures.html','teaching.html','contact.html','academic-cv.html',
          'executive-cv.html','master-cv.html','phd.html','speaking.html',
@@ -20,7 +20,7 @@ PAGES = ['index.html','about.html','impact.html','research.html','publications.h
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
 IDEAS_FILE = ROOT/'data/ideas-content.json'
 IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
-MANAGED_PAGES = ['ideas/index.html','ideas/position.html','writing/index.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
+MANAGED_PAGES = ['ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
 PAGES = list(dict.fromkeys(PAGES + MANAGED_PAGES))
 TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
@@ -83,6 +83,8 @@ def remove_header(source):
 
 
 def clean_head(source):
+    source = re.sub(r'<!-- site-privacy:start -->.*?<!-- site-privacy:end -->', '', source, flags=re.S)
+    source = re.sub(r'<script\b[^>]*id="portfolio-analytics"[^>]*></script>', '', source)
     source = re.sub(r'<link\b[^>]*rel="(?:canonical|alternate)"[^>]*>', '', source)
     source = re.sub(r'<link\b[^>]*href="[^\"]*(?:nav|portfolio|site-nav|arabic)\.css[^\"]*"[^>]*>',
                     lambda m: m[0] if 'portfolio.css' in m[0] else '', source)
@@ -180,6 +182,12 @@ def finish(source, page, arabic):
     extras += f'<link rel="stylesheet" href="/site-nav.css?v={VERSION}"><script defer src="/site-nav.js?v={VERSION}"></script>'
     if arabic:
         extras += f'<link rel="stylesheet" href="/arabic.css?v={VERSION}">'
+    config_path = ROOT/'data/analytics-config.json'
+    if config_path.exists() and page not in ('analytics/index.html','privacy.html','404.html','collaborate.html'):
+        config = json.loads(config_path.read_text())
+        if config.get('enabled'):
+            routes = [public_path(p,lang) for p in PAGES if p not in ('analytics/index.html','privacy.html','404.html','collaborate.html') for lang in (False,True)]
+            extras += '<script id="portfolio-analytics" defer src="/analytics.js?v=20260913-1" data-endpoint="'+html.escape(config['endpoint'],quote=True)+'" data-key="'+html.escape(config['publicAnonKey'],quote=True)+'" data-pages="'+html.escape(json.dumps(routes,separators=(',',':')),quote=True)+'"></script>'
     source = source.replace('</head>', extras + '</head>')
     if page != 'collaborate.html':
         if '<main' in source:
@@ -213,6 +221,10 @@ def finish(source, page, arabic):
         source = source.replace('</head>', '<style>svg text{direction:rtl;unicode-bidi:plaintext}svg text:not([text-anchor]){text-anchor:middle}.hero-svg g[font-size="16"] text{font-size:14px}.hero-svg g[font-size="12"] text{font-size:11px}.hero h1{line-height:1.35;letter-spacing:0}</style></head>')
     if page == 'demo/index.html' and arabic:
         source = source.replace('</head>', '<style>.hero h1{line-height:1.4;letter-spacing:0}.slots,.metrics{direction:ltr}.same{font-size:16px} .decision strong{font-size:28px}</style></head>')
+    if page not in ('collaborate.html','analytics/index.html'):
+        privacy_path = '/ar/privacy.html' if arabic else '/privacy.html'
+        privacy_label = 'الخصوصية وإعدادات الإحصاءات' if arabic else 'Privacy & analytics preferences'
+        source = source.replace('</body>', '<!-- site-privacy:start --><div class="site-privacy"><a href="'+privacy_path+'">'+privacy_label+'</a></div><!-- site-privacy:end --></body>')
     return source
 
 
@@ -255,13 +267,13 @@ def build():
     # Publish both language variants to crawlers.
     entries = []
     for page in PAGES:
-        if page in ('404.html','collaborate.html'):
+        if page in ('404.html','collaborate.html','analytics/index.html'):
             continue
         for arabic in (False,True):
             links=''.join(f'<xhtml:link rel="alternate" hreflang="{lang}" href="{ORIGIN.rstrip("/")+public_path(page,ar)}"/>' for lang,ar in [('en',False),('ar',True)])
             entries.append(f'<url><loc>{ORIGIN.rstrip("/")+public_path(page,arabic)}</loc>{links}</url>')
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(entries)+'</urlset>')
-    print(f'Localized {len(sources)} existing page pairs; {len(MANAGED_PAGES)} Ideas pages are generated from bilingual content.')
+    print(f'Localized {len(sources)} existing page pairs; {len(MANAGED_PAGES)} managed pages are generated from bilingual content.')
     if missing:
         print('Retained names or terms requiring review:',json.dumps(missing,ensure_ascii=False,indent=2))
 

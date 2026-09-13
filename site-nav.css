@@ -39,3 +39,7 @@ html{scroll-padding-top:94px}
 .identity-evidence p{font-size:15px;line-height:1.8;overflow-wrap:break-word}.identity-evidence h2{line-height:1.5}
 @media(max-width:620px){.identity-cv-guide{padding:14px;font-size:14px}.identity-source-link{font-size:14px!important}}
 @media print{.identity-cv-guide{display:none}}
+
+.site-privacy{padding:1rem 1.25rem;text-align:center;background:#f7f4ec;color:#57534b;font-size:.82rem;line-height:1.7}
+.site-privacy a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media print{.site-privacy{display:none!important}}
