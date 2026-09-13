@@ -48,48 +48,9 @@ jobs:
           test -s sitemap.xml
           test -s robots.txt
           test -s demo/index.html
-          test -s assets/hero-right.webp
-          python - <<'PY'
-          from html.parser import HTMLParser
-          from pathlib import Path
-          from urllib.parse import urlsplit
-
-          pages = [
-              Path('index.html'), Path('about.html'), Path('research.html'),
-              Path('publications.html'), Path('ventures.html'), Path('teaching.html'),
-              Path('phd.html'), Path('speaking.html'), Path('impact.html'),
-              Path('master-cv.html'), Path('executive-cv.html'), Path('academic-cv.html'),
-              Path('contact.html'), Path('collaborate.html'), Path('ar/index.html'),
-              Path('writing/index.html'), Path('writing/same-scores-different-decisions.html'),
-              Path('404.html')
-          ]
-
-          class Links(HTMLParser):
-              def __init__(self):
-                  super().__init__(); self.hrefs=[]
-              def handle_starttag(self, tag, attrs):
-                  if tag == 'a':
-                      href = dict(attrs).get('href')
-                      if href: self.hrefs.append(href)
-
-          missing=[]
-          for page in pages:
-              parser=Links(); parser.feed(page.read_text(encoding='utf-8'))
-              for href in parser.hrefs:
-                  if href.startswith(('#','mailto:','tel:','javascript:','data:')):
-                      continue
-                  u=urlsplit(href)
-                  if u.scheme in ('http','https') or u.netloc:
-                      continue
-                  path=u.path
-                  if not path:
-                      continue
-                  target = Path(path.lstrip('/')) if path.startswith('/') else page.parent / path
-                  if path.endswith('/'):
-                      target = target / 'index.html'
-                  if not target.exists():
-                      missing.append(f'{page}: {href} -> {target}')
-          if missing:
-              raise SystemExit('Broken internal links:\n' + '\n'.join(missing))
-          print(f'Validated {len(pages)} HTML pages and their internal links.')
-          PY
+          test -s assets/portfolio-art.webp
+          test -s portfolio.css
+          test -s portfolio.js
+          python scripts/validate_site.py
+          node --check nav.js
+          node --check portfolio.js
