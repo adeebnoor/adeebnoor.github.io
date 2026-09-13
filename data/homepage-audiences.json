@@ -1,0 +1,22 @@
+[
+  {
+    "id": "students", "contact": "students", "evidenceUrl": "/teaching.html#iscarb",
+    "ar": {"name": "الطلاب", "promise": "من فهم المحتوى إلى بناء الحجة.", "contribution": "تعلّم من حالات هندسية، وطوّر سؤالًا بحثيًا، وقدّم أدلة على ما تستطيع تفسيره والدفاع عنه.", "evidence": "اطّلع على iSCARB وموارد CPIT‑455", "cta": "ناقش مسارك البحثي"},
+    "en": {"name": "Students", "promise": "From understanding to reasoning.", "contribution": "Learn through engineering cases, develop a research question and build evidence of what you can explain and justify.", "evidence": "Explore iSCARB and CPIT‑455 resources", "cta": "Discuss your research path"}
+  },
+  {
+    "id": "researchers", "contact": "researchers", "evidenceUrl": "/research.html",
+    "ar": {"name": "الباحثون", "promise": "أسئلة بحثية تتصل بقرارات حقيقية.", "contribution": "تعاون في تقييم الذكاء الاصطناعي والمعلوماتية الطبية والتعليم، بفرضيات واضحة وأدلة قابلة للفحص.", "evidence": "اطّلع على RIDI وأبحاث التداخلات الدوائية", "cta": "اقترح تعاونًا بحثيًا"},
+    "en": {"name": "Researchers", "promise": "Research connected to real decisions.", "contribution": "Collaborate on AI evaluation, biomedical informatics and education through clear hypotheses and evidence that can be examined.", "evidence": "Explore RIDI and drug-interaction research", "cta": "Propose a research collaboration"}
+  },
+  {
+    "id": "organizations", "contact": "organizations", "evidenceUrl": "/executive-cv.html",
+    "ar": {"name": "الجهات الحكومية والمؤسسات", "promise": "من أولوية الجهة إلى قدرة مؤسسية.", "contribution": "أربط حوكمة البيانات وتخطيط القوى العاملة والاستراتيجية البحثية بنماذج تشغيل قابلة للتطبيق.", "evidence": "خبرة في وزارة التعليم وجامعة الملك عبدالعزيز", "cta": "ناقش أولويات الجهة"},
+    "en": {"name": "Government & Institutions", "promise": "From priorities to capability.", "contribution": "Connect data governance, workforce planning and research strategy with practical operating models.", "evidence": "Experience: Ministry of Education and KAU", "cta": "Discuss institutional priorities"}
+  },
+  {
+    "id": "companies", "contact": "investors", "evidenceUrl": "/ventures.html",
+    "ar": {"name": "الشركات والقطاع الخاص", "promise": "حدّد أين يضيف البحث قيمة للمنتج.", "contribution": "تعاون في البحث والتطوير والصحة الرقمية وتقنيات التعليم، وحدّد مسارًا عمليًا للتجربة والشراكة.", "evidence": "تجربتا شفاء وGenomeFit والمشاريع الحالية", "cta": "استكشف شراكة"},
+    "en": {"name": "Companies & Private Sector", "promise": "Connect research to product value.", "contribution": "Collaborate on applied R&D, digital health and education technology, with a practical route to experimentation and partnership.", "evidence": "SHIFAA, GenomeFit and current projects", "cta": "Explore a partnership"}
+  }
+]
