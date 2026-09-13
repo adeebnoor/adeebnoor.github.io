@@ -1,0 +1,249 @@
+{
+  "healthx/index.html": {
+    "text": {
+      "HEALTHx — From Clinical Insight to Scalable Digital Health": "HEALTHx — من الرؤى السريرية إلى صحة رقمية قابلة للتوسع",
+      "ADEEB NOOR": "أديب نور",
+      "Model": "النموذج",
+      "Investors": "المستثمرون",
+      "Research": "الأبحاث",
+      "Collaborate": "التعاون",
+      "Start a conversation →": "ابدأ الحوار ←",
+      "KAU · Innovation & Entrepreneurship": "KAU · الابتكار وريادة الأعمال",
+      "IP review in progress": "مراجعة الملكية الفكرية جارية",
+      "HEALTHx": "HEALTHx",
+      "Turn clinical knowledge into scalable digital-health value.": "حوّل المعرفة السريرية إلى قيمة في الصحة الرقمية قابلة للتوسع.",
+      "HEALTHx is a digital medical innovation platform designed to translate clinical know-how, treatment protocols, algorithms and research outputs into discoverable, protectable and commercially deployable digital-health assets.": "HEALTHx منصة للابتكار الطبي الرقمي، صُممت لتحويل الخبرات السريرية وبروتوكولات العلاج والخوارزميات ومخرجات البحث إلى أصول في الصحة الرقمية يمكن اكتشافها وحمايتها وتوظيفها تجارياً.",
+      "Explore the investment thesis": "استكشف التصور الاستثماري",
+      "Research & student opportunities": "فرص البحث والمشروعات الطلابية",
+      "King Abdulaziz University · Jeddah, Saudi Arabia · Vision 2030 aligned innovation": "جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية · ابتكار يتوافق مع رؤية 2030",
+      "HEALTHx innovation engine": "محرك الابتكار في HEALTHx",
+      "CLINICAL → DIGITAL → MARKET": "سريري ← رقمي ← السوق",
+      "HEALTHx CORE": "نواة HEALTHx",
+      "Clinical Insight": "الرؤى السريرية",
+      "AI Translation": "التحويل بالذكاء الاصطناعي",
+      "Protected IP": "ملكية فكرية محمية",
+      "Global Market": "السوق العالمية",
+      "Protocols · algorithms": "بروتوكولات · خوارزميات",
+      "Structure · explain · match": "تنظيم · شرح · مواءمة",
+      "Governance · licensing": "حوكمة · ترخيص",
+      "Partners · investors · users": "شركاء · مستثمرون · مستخدمون",
+      "Intellectual-property status": "حالة الملكية الفكرية",
+      "The HEALTHx concept is currently under intellectual-property protection review at": "يخضع مفهوم HEALTHx حالياً لمراجعة حماية الملكية الفكرية لدى",
+      "King Abdulaziz University — Innovation & Entrepreneurship Center": "جامعة الملك عبدالعزيز — مركز الابتكار وريادة الأعمال",
+      ". Status:": ". الحالة:",
+      "under review": "قيد المراجعة",
+      "Research already in motion": "البحث بدأ بالفعل",
+      "A master’s student is currently working on a defined component of the broader HEALTHx concept. The project is intentionally designed to support further theses, prototypes and joint research.": "يعمل طالب ماجستير حالياً على مكوّن محدد من مفهوم HEALTHx الأوسع. وقد صُمم المشروع لدعم مزيد من الرسائل العلمية والنماذج الأولية والأبحاث المشتركة.",
+      "Why it matters": "لماذا يهم؟",
+      "Universities create medical value. HEALTHx helps it travel.": "الجامعات تنتج قيمة طبية. وHEALTHx يساعد على توسيع أثرها.",
+      "Clinical teams routinely produce protocols, algorithms, operational know-how and research outputs with value beyond a single hospital. HEALTHx provides the translation layer between": "تنتج الفرق السريرية باستمرار بروتوكولات وخوارزميات وخبرات تشغيلية ومخرجات بحثية تتجاوز قيمتها حدود مستشفى واحد. ويوفر HEALTHx حلقة الوصل بين",
+      "knowledge creation": "إنتاج المعرفة",
+      "and": "و",
+      "market adoption": "تبنّي السوق",
+      "—without turning the platform into a patient-data marketplace.": "— دون تحويل المنصة إلى سوق لبيانات المرضى.",
+      "Clinical": "سريري",
+      "Starts from real healthcare expertise": "ينطلق من خبرات فعلية في الرعاية الصحية",
+      "Digital": "رقمي",
+      "Transforms knowledge into scalable assets": "يحوّل المعرفة إلى أصول قابلة للتوسع",
+      "Protected": "محمي",
+      "Builds around IP and governance": "يقوم على الملكية الفكرية والحوكمة",
+      "Collaborative": "تعاوني",
+      "Links students, researchers and industry": "يربط الطلاب والباحثين وقطاع الأعمال",
+      "The model": "النموذج",
+      "One innovation engine. Four value transitions.": "محرك ابتكار واحد. أربع مراحل لتحويل القيمة.",
+      "VALUE TRANSLATION": "تحويل القيمة",
+      "knowledge → impact": "المعرفة ← الأثر",
+      "1 · DISCOVER": "1 · اكتشاف",
+      "2 · TRANSLATE": "2 · تحويل",
+      "3 · PROTECT": "3 · حماية",
+      "4 · SCALE": "4 · توسع",
+      "Discover the innovation": "اكتشاف الابتكار",
+      "Capture protocols, diagnostic logic, clinical workflows, research outputs and digital-health ideas in a structured form.": "توثيق البروتوكولات ومنطق التشخيص ومسارات العمل السريري ومخرجات البحث وأفكار الصحة الرقمية في صورة منظمة.",
+      "Translate with AI": "التحويل بالذكاء الاصطناعي",
+      "Explain the value, identify use cases, prepare multilingual investor-facing material and map potential product forms.": "شرح القيمة، وتحديد حالات الاستخدام، وإعداد مواد متعددة اللغات موجهة للمستثمرين، ورسم تصورات للأشكال المحتملة للمنتج.",
+      "Protect & govern": "الحماية والحوكمة",
+      "Keep ownership, disclosure, licensing logic, privacy and approval gates visible before commercialization.": "توضيح الملكية والإفصاح وأسس الترخيص والخصوصية ومراحل الموافقة قبل الاستغلال التجاري.",
+      "Scale through partners": "التوسع عبر الشركاء",
+      "Connect validated innovations with hospitals, technology companies, researchers, students and investors.": "ربط الابتكارات التي جرى التحقق منها بالمستشفيات وشركات التقنية والباحثين والطلاب والمستثمرين.",
+      "What can become an asset?": "ما الذي يمكن أن يصبح أصلاً ذا قيمة؟",
+      "More than apps.": "أبعد من التطبيقات.",
+      "Clinical algorithms": "الخوارزميات السريرية",
+      "Decision logic, diagnostic support and predictive models that can become software, APIs or validated modules.": "منطق اتخاذ القرار ودعم التشخيص والنماذج التنبؤية، التي يمكن تحويلها إلى برمجيات أو واجهات برمجة تطبيقات (APIs) أو وحدات جرى التحقق من صحتها.",
+      "Treatment protocols": "بروتوكولات العلاج",
+      "Structured pathways that can be digitized, localized, licensed, evaluated and embedded into care delivery.": "مسارات منظمة يمكن رقمنتها ومواءمتها محلياً وترخيصها وتقييمها ودمجها في تقديم الرعاية.",
+      "Research outputs": "مخرجات البحث",
+      "Methods, models, evidence summaries and analytic tools that can move toward translational or commercial use.": "منهجيات ونماذج وملخصات للأدلة وأدوات تحليلية يمكن تطويرها للاستخدام التطبيقي أو التجاري.",
+      "Hospital know-how": "خبرات المستشفيات",
+      "Operational innovations in scheduling, resource use, quality, safety and workflow optimization.": "ابتكارات تشغيلية في الجدولة واستخدام الموارد والجودة والسلامة وتحسين مسارات العمل.",
+      "Digital services": "الخدمات الرقمية",
+      "Remote advisory, analytics and expert services delivered as project-based or recurring offerings.": "خدمات استشارية وتحليلية وخبرات متخصصة تُقدَّم عن بُعد، ضمن مشروعات محددة أو بصورة دورية.",
+      "Co-development opportunities": "فرص التطوير المشترك",
+      "Early concepts that need technical, clinical, regulatory or commercial partners to reach the next milestone.": "مفاهيم أولية تحتاج إلى شركاء تقنيين أو سريريين أو تنظيميين أو تجاريين للوصول إلى المرحلة التالية.",
+      "For investors & industry": "للمستثمرين وقطاع الأعمال",
+      "A platform thesis built around repeatable commercialization.": "تصور لمنصة تقوم على نموذج استغلال تجاري قابل للتكرار.",
+      "HEALTHx is not positioned as a single medical product. It is a repeatable commercialization architecture designed to continuously surface, structure, protect and connect multiple medical innovations.": "لا يُطرح HEALTHx بوصفه منتجاً طبياً واحداً، بل إطاراً للاستغلال التجاري قابلًا للتكرار، صُمم لإبراز ابتكارات طبية متعددة وتنظيمها وحمايتها وربطها بالفرص بصورة مستمرة.",
+      "Portfolio, not one bet": "محفظة متنوعة، لا رهان واحد",
+      "The model can host multiple innovations across specialties, creating diversified opportunity rather than dependence on one product.": "يمكن للنموذج أن يستوعب ابتكارات متعددة عبر التخصصات، بما يتيح فرصاً متنوعة بدلاً من الاعتماد على منتج واحد.",
+      "University-originated pipeline": "مسار ابتكار ينطلق من الجامعة",
+      "Clinical and research environments can provide a recurring source of problems, ideas, expertise and validation opportunities.": "يمكن للبيئات السريرية والبحثية أن توفر مصدراً متجدداً للمشكلات والأفكار والخبرات وفرص التحقق.",
+      "Multiple deal structures": "صيغ متعددة للشراكات والاتفاقيات",
+      "Licensing, co-development, SaaS, research collaboration, consulting and startup formation can coexist under one platform logic.": "يمكن أن يجمع إطار منصة واحدة بين الترخيص والتطوير المشترك والبرمجيات كخدمة (SaaS) والتعاون البحثي والاستشارات وتأسيس الشركات الناشئة.",
+      "De-risk through stages": "خفض المخاطر عبر مراحل",
+      "Ideas can be filtered through IP, evidence, technical readiness and partnership gates before larger investment commitments.": "يمكن تقييم الأفكار عبر مراحل للملكية الفكرية والأدلة والجاهزية التقنية والشراكات، قبل الالتزام باستثمارات أكبر.",
+      "Investor note:": "ملاحظة للمستثمرين:",
+      "financial figures shown in earlier concept material are illustrative scenarios, not audited forecasts or guaranteed returns. The current priority is validation of the operating model, IP pathway and high-value pilot opportunities.": "الأرقام المالية الواردة في مواد سابقة للمفهوم هي سيناريوهات توضيحية، وليست توقعات مدققة أو عوائد مضمونة. وتتمثل الأولوية الحالية في التحقق من نموذج التشغيل ومسار الملكية الفكرية وفرص المشروعات التجريبية ذات القيمة العالية.",
+      "For students & researchers": "للطلاب والباحثين",
+      "A living research platform, not a closed project.": "منصة بحثية متجددة، لا مشروع مغلق.",
+      "Master’s work is already underway.": "العمل البحثي لمرحلة الماجستير جارٍ بالفعل.",
+      "A master’s student is working on one component of the broader HEALTHx idea. This creates a practical foundation for additional academic work while preserving clear boundaries around ownership, scope and contribution.": "يعمل طالب ماجستير على أحد مكونات فكرة HEALTHx الأوسع. ويوفر ذلك أساساً عملياً لمزيد من العمل الأكاديمي، مع الحفاظ على حدود واضحة للملكية والنطاق والمساهمة.",
+      "We welcome collaboration": "نرحب بالتعاون",
+      "from students, faculty, clinicians, designers, engineers and industry researchers who can advance a defined part of the platform.": "مع الطلاب وأعضاء هيئة التدريس والممارسين السريريين والمصممين والمهندسين والباحثين في قطاع الأعمال، ممن يمكنهم تطوير جزء محدد من المنصة.",
+      "AI & NLP": "الذكاء الاصطناعي ومعالجة اللغة الطبيعية (AI وNLP)",
+      "Digital Health": "الصحة الرقمية",
+      "Clinical Informatics": "المعلوماتية السريرية",
+      "HCI / UX": "التفاعل بين الإنسان والحاسوب وتجربة المستخدم (HCI / UX)",
+      "Cybersecurity": "الأمن السيبراني",
+      "Health Economics": "اقتصاديات الصحة",
+      "Commercialization": "الاستغلال التجاري",
+      "IP & Governance": "الملكية الفكرية والحوكمة",
+      "collaboration core": "نواة التعاون",
+      "CLINICIANS": "الممارسون السريريون",
+      "problems + validation": "مشكلات + تحقق",
+      "INDUSTRY": "قطاع الأعمال",
+      "build + scale": "بناء + توسع",
+      "STUDENTS": "الطلاب",
+      "theses + prototypes": "رسائل + نماذج أولية",
+      "INVESTORS": "المستثمرون",
+      "capital + networks": "رأس مال + علاقات",
+      "FACULTY": "هيئة التدريس",
+      "research": "أبحاث",
+      "INNOVATION": "الابتكار",
+      "IP + venture": "ملكية فكرية + مشروع",
+      "Responsible by design": "المسؤولية جزء من التصميم",
+      "Innovation without treating patient identity as a product.": "ابتكار دون التعامل مع هوية المريض بوصفها منتجاً.",
+      "Privacy-first scope": "نطاق يضع الخصوصية أولاً",
+      "The commercialization target is knowledge, innovation and digital-health capability—not publication of patient-identifying information.": "يستهدف الاستغلال التجاري المعرفة والابتكار وقدرات الصحة الرقمية، ولا يستهدف نشر معلومات تكشف هوية المرضى.",
+      "Governance gates": "مراحل الحوكمة",
+      "Clinical, legal, ethical and IP review can be built into the path from idea to external partnership.": "يمكن تضمين المراجعات السريرية والقانونية والأخلاقية ومراجعة الملكية الفكرية في المسار من الفكرة إلى الشراكة الخارجية.",
+      "Evidence before claims": "الأدلة قبل الادعاءات",
+      "Performance and commercial claims should be supported by appropriate validation before external use.": "ينبغي دعم الادعاءات المتعلقة بالأداء والقيمة التجارية بعمليات تحقق مناسبة قبل استخدامها خارجياً.",
+      "Open collaboration": "باب التعاون مفتوح",
+      "Have a clinical problem, research capability or investment thesis that fits?": "هل لديك مشكلة سريرية أو قدرة بحثية أو تصور استثماري يتوافق مع المنصة؟",
+      "We welcome focused collaboration with students, researchers, clinicians, health-tech companies and investors. The best starting point is a clearly defined component, pilot, dataset, validation question or commercialization pathway.": "نرحب بالتعاون المحدد الأهداف مع الطلاب والباحثين والممارسين السريريين وشركات التقنية الصحية والمستثمرين. وأفضل نقطة انطلاق هي مكوّن أو مشروع تجريبي أو مجموعة بيانات أو سؤال تحقق أو مسار استغلال تجاري محدد بوضوح.",
+      "Contact HEALTHx →": "تواصل مع HEALTHx ←",
+      "Intellectual-property wording reflects the current status described by the project owner: under review at King Abdulaziz University, Innovation & Entrepreneurship Center. It does not imply final patent grant, registration or commercial approval.": "تعكس صياغة الملكية الفكرية الحالة الحالية كما وصفها صاحب المشروع: قيد المراجعة لدى مركز الابتكار وريادة الأعمال بجامعة الملك عبدالعزيز. ولا تعني منح براءة اختراع نهائية أو إتمام التسجيل أو الحصول على موافقة تجارية.",
+      "HEALTHx · Digital Medical Innovation Platform · King Abdulaziz University ecosystem · Jeddah, Saudi Arabia": "HEALTHx · منصة الابتكار الطبي الرقمي · منظومة جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية"
+    },
+    "attrs": {
+      "HEALTHx visual innovation pipeline": "المسار المرئي للابتكار في HEALTHx",
+      "HEALTHx four-stage value transition": "مراحل تحويل القيمة الأربع في HEALTHx",
+      "HEALTHx collaboration ecosystem": "منظومة التعاون في HEALTHx",
+      "HEALTHx is a protected digital-health innovation concept at King Abdulaziz University, connecting clinical innovation, AI, commercialization, research and collaboration.": "HEALTHx مفهوم محمي للابتكار في الصحة الرقمية بجامعة الملك عبدالعزيز، يربط الابتكار السريري والذكاء الاصطناعي والاستغلال التجاري والبحث والتعاون."
+    },
+    "replacements": []
+  },
+  "demo/index.html": {
+    "text": {
+      "RIDI Demo · Adeeb Noor": "عرض RIDI التوضيحي · أديب نور",
+      "ADEEB NOOR": "أديب نور",
+      "Home": "الرئيسية",
+      "Evidence": "الأدلة",
+      "GitHub": "GitHub",
+      "RIDI · PREREGISTERED RAG · SCIFACT 275": "RIDI · توليد معزز بالاسترجاع (RAG) مسجل مسبقاً · SCIFACT 275",
+      "Identical audits can yield different AI decisions.": "قد تؤدي عمليات تدقيق متطابقة إلى قرارات مختلفة للذكاء الاصطناعي.",
+      "17.27% of benchmark-defined RAG decisions flip": "تتغير 17.27% من قرارات RAG وفق تعريف المعيار المرجعي",
+      "at the preregistered primary condition, even when the registered retrieval audit is held exactly fixed.": "عند الشرط الأساسي المسجل مسبقاً، حتى مع إبقاء تدقيق الاسترجاع المسجل ثابتاً تماماً.",
+      "Run the decisive case": "شغّل الحالة الحاسمة",
+      "Same positive passage. Same rank. Same retrieval metrics.": "المقطع الإيجابي نفسه. والترتيب نفسه. ومقاييس الاسترجاع نفسها.",
+      "Run demo": "تشغيل العرض",
+      "Claim 275": "الادعاء 275",
+      "Combining phosphatidylinositide 3-kinase and MEK 1/2 inhibitors is effective at treating KRAS mutant tumors.": "الجمع بين مثبطات فوسفاتيديل إينوزيتيد 3-كيناز ومثبطات MEK 1/2 فعّال في علاج الأورام ذات طفرات KRAS.",
+      "AUDIT SIGNATURE: IDENTICAL": "بصمة التدقيق: متطابقة",
+      "Context A · reference": "السياق A · المرجعي",
+      "Context B · identity substitution": "السياق B · استبدال الهوية",
+      "precision@10": "الدقة@10",
+      "recall@10": "الاستدعاء@10",
+      "Context A verdict": "حكم السياق A",
+      "SUPPORTS": "يؤيد",
+      "Context B verdict": "حكم السياق B",
+      "REFUTES": "يدحض",
+      "Press": "اضغط",
+      "RIDI · Adeeb Noor · King Abdulaziz University · Research software and evidence.": "RIDI · أديب نور · جامعة الملك عبدالعزيز · برمجيات بحثية وأدلة.",
+      "to reveal the decisions.": "لعرض القرارات."
+    },
+    "attrs": {
+      "Interactive RIDI SciFact 275 replay.": "إعادة عرض تفاعلية لحالة SciFact 275 في RIDI."
+    },
+    "replacements": [
+      {
+        "old": ".innerHTML='<strong>Same audit. Different allocation. Different decision.</strong>'",
+        "new": ".innerHTML='<strong>التدقيق نفسه. توزيع مختلف. قرار مختلف.</strong>'"
+      },
+      {
+        "old": "this.textContent='Replay complete'",
+        "new": "this.textContent='اكتمل العرض'"
+      }
+    ]
+  },
+  "404.html": {
+    "text": {
+      "Page Not Found — Adeeb Noor": "الصفحة غير موجودة — أديب نور",
+      "ADEEB NOOR": "أديب نور",
+      "This path does not exist.": "هذا المسار غير موجود.",
+      "The site has moved from a single page into a structured research, venture and teaching portfolio. Use one of the paths below to continue.": "تطور الموقع من صفحة واحدة إلى ملف منظم للأبحاث والمشروعات والتدريس. اختر أحد المسارات التالية للمتابعة.",
+      "Home →": "الرئيسية ←",
+      "Research": "الأبحاث",
+      "Ventures": "المشروعات",
+      "Collaborate": "التعاون"
+    },
+    "attrs": {},
+    "replacements": []
+  },
+  "collaborate.html": {
+    "text": {
+      "Contact — Adeeb Noor": "تواصل — أديب نور",
+      "This page has moved to": "انتقلت هذه الصفحة إلى",
+      "Contact": "صفحة التواصل"
+    },
+    "attrs": {},
+    "replacements": []
+  },
+  "writing/share.js": {
+    "text": {},
+    "attrs": {},
+    "replacements": [
+      {
+        "old": "btn.innerText='Copied'",
+        "new": "btn.innerText='تم النسخ'"
+      },
+      {
+        "old": "prompt('Copy this link:',location.href)",
+        "new": "prompt('انسخ هذا الرابط:',location.href)"
+      },
+      {
+        "old": "'\\n\\nRead: '",
+        "new": "'\\n\\nاقرأ: '"
+      },
+      {
+        "old": "prompt('Copy for Substack:',text)",
+        "new": "prompt('انسخ إلى Substack:',text)"
+      },
+      {
+        "old": "btn.innerText='Copied — opening Substack'",
+        "new": "btn.innerText='تم النسخ — جارٍ فتح Substack'"
+      },
+      {
+        "old": "'\\n\\nOriginally published at '",
+        "new": "'\\n\\nنُشر أولاً على '"
+      },
+      {
+        "old": "prompt('Copy article:',text)",
+        "new": "prompt('انسخ المقال:',text)"
+      },
+      {
+        "old": "btn.innerText='Article copied'",
+        "new": "btn.innerText='تم نسخ المقال'"
+      }
+    ]
+  }
+}

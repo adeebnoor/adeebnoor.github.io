@@ -1,0 +1,29 @@
+/* Arabic typography and RTL geometry for the complete portfolio. */
+html[lang=ar]{direction:rtl;scroll-padding-top:94px}
+html[lang=ar] body{font-family:Tahoma,Arial,sans-serif;font-size:16px;line-height:1.85;letter-spacing:0}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] h4,html[lang=ar] p,html[lang=ar] li,html[lang=ar] .serif,html[lang=ar] .role,html[lang=ar] blockquote{font-family:Tahoma,Arial,sans-serif;letter-spacing:0;overflow-wrap:break-word}
+html[lang=ar] h1{line-height:1.4}html[lang=ar] h2,html[lang=ar] h3{line-height:1.55}
+html[lang=ar] .page-hero h1{font-size:clamp(32px,4.5vw,62px)}
+html[lang=ar] .page-hero p,html[lang=ar] .content p,html[lang=ar] .article-body p,html[lang=ar] .cv-summary{line-height:1.9}
+html[lang=ar] .kicker,html[lang=ar] .crumb,html[lang=ar] .mini,html[lang=ar] .theme-no,html[lang=ar] .vtype,html[lang=ar] .career-year,html[lang=ar] .cv-when,html[lang=ar] .cv-tag,html[lang=ar] .tag,html[lang=ar] .stepno{letter-spacing:0;text-transform:none;font-family:Tahoma,Arial,sans-serif;font-size:14px;line-height:1.65}
+html[lang=ar] .metric b,html[lang=ar] .stat b,html[lang=ar] .cv-box b,html[lang=ar] .now-item b{font-family:Tahoma,Arial,sans-serif;line-height:1.6}
+html[lang=ar] .theme-meta div,html[lang=ar] .proof span,html[lang=ar] .now-item span,html[lang=ar] .profile-links span,html[lang=ar] .cv-box span,html[lang=ar] .cv-contact,html[lang=ar] .cv-role li{font-size:14px;line-height:1.8}
+html[lang=ar] .theme-card:before{left:auto;right:0}
+html[lang=ar] .story-card .lead-quote,html[lang=ar] .quote-block{border-left:0;border-right:3px solid var(--gold,#d4aa55);padding-left:0;padding-right:20px}
+html[lang=ar] .timeline-premium:before{left:auto;right:132px}
+html[lang=ar] .career-row:after{left:auto;right:128px}
+html[lang=ar] .cv-role ul{padding-left:0;padding-right:20px}
+html[lang=ar] .cv-contact,html[lang=ar] .social{text-align:start}
+html[lang=ar] .cv-sheet h1{font-size:42px;line-height:1.5}
+html[lang=ar] .cv-role h3{line-height:1.65}
+html[lang=ar] .cv-title{font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+html[lang=ar] .article-body blockquote{border-left:0;border-right:3px solid #b58d42;padding-right:22px;padding-left:0}
+html[lang=ar] a[href^="mailto:"],html[lang=ar] a[href^="tel:"],html[lang=ar] .slot,html[lang=ar] .metrics b{unicode-bidi:isolate;direction:ltr}
+html[lang=ar] svg text{font-family:Tahoma,Arial,sans-serif;letter-spacing:0}
+html[lang=ar] .site-header .site-brand{font-family:Georgia,serif;direction:ltr}
+html[lang=ar] .site-header a{font-family:Tahoma,Arial,sans-serif}
+html[lang=ar] .hero h1,html[lang=ar] .hero .lede,html[lang=ar] .hero .intro{letter-spacing:0}
+html[lang=ar] .flowcard p,html[lang=ar] .step p{line-height:1.85}
+@media(max-width:980px){html[lang=ar] .timeline-premium:before{right:92px}html[lang=ar] .career-row:after{right:88px}}
+@media(max-width:680px){html[lang=ar] .timeline-premium:before{right:4px}html[lang=ar] .career-row:after{right:0}html[lang=ar] .career-row{padding-left:0;padding-right:23px}html[lang=ar] .page-hero h1{font-size:34px}html[lang=ar] .cv-sheet h1{font-size:34px}}
+@media(max-width:400px){html[lang=ar] .page-hero h1{font-size:30px}}

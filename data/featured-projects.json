@@ -1,0 +1,32 @@
+[
+  {
+    "id":"miyar","name":"MIYAR","image":"/assets/project-miyar.webp","url":"/ventures.html#miyar",
+    "en":{"name":"MIYAR","stage":"Working prototype","domain":"Workforce architecture","description":"A bilingual workspace for designing positions, clarifying responsibilities and making workforce decisions reviewable.","cta":"Explore MIYAR","alt":"Concept illustration of workforce roles and organizational structure"},
+    "ar":{"name":"مِعيار · MIYAR","stage":"نموذج أولي يعمل","domain":"هندسة القوى العاملة","description":"مساحة عمل ثنائية اللغة لتصميم الوظائف وتوضيح المسؤوليات وجعل قرارات القوى العاملة قابلة للمراجعة.","cta":"استكشف مِعيار","alt":"تصور فني لهندسة الوظائف والهيكل التنظيمي"}
+  },
+  {
+    "id":"ridi","name":"RIDI","viewBox":"50 623 247 146","url":"/demo/",
+    "en":{"name":"RIDI","stage":"Research & interactive demo","domain":"Decision intelligence","description":"Investigating what aggregate metrics can hide when AI rankings become decisions about people and opportunities.","cta":"Explore RIDI","alt":"Illustration of two systems allocating outcomes differently"},
+    "ar":{"name":"RIDI","stage":"بحث ونموذج تفاعلي","domain":"ذكاء القرار","description":"بحث في ما تخفيه المقاييس الإجمالية عندما تتحول ترتيبات الذكاء الاصطناعي إلى قرارات تمس الأشخاص والفرص.","cta":"استكشف RIDI","alt":"رسم يوضح اختلاف توزيع النتائج بين نظامين"}
+  },
+  {
+    "id":"shifaa","name":"SHIFAA","image":"/assets/project-shifaa.webp","url":"/ventures.html#shifaa",
+    "en":{"name":"SHIFAA","stage":"Institutional platform experience","domain":"Patient digital services","description":"Founding the KAU Hospital patient portal as part of hospital digital modernization and better access to services.","cta":"Explore SHIFAA","alt":"Concept illustration of patient access to digital hospital services"},
+    "ar":{"name":"شفاء · SHIFAA","stage":"تجربة تطبيق مؤسسي","domain":"الخدمات الرقمية للمرضى","description":"تأسيس بوابة المرضى في مستشفى جامعة الملك عبدالعزيز ضمن التحديث الرقمي وتيسير الوصول إلى الخدمات.","cta":"استكشف شفاء","alt":"تصور فني لوصول المرضى إلى خدمات المستشفى الرقمية"}
+  },
+  {
+    "id":"iscarb","name":"iSCARB","image":"/assets/project-iscarb.webp","url":"/teaching.html#iscarb",
+    "en":{"name":"iSCARB","stage":"Teaching system","domain":"Evidence-centered learning","description":"Course design that connects engineering cases, after-class reasoning and evidence of what students can explain and defend.","cta":"Explore iSCARB","alt":"Concept illustration of engineering learning, systems and student reasoning"},
+    "ar":{"name":"iSCARB","stage":"إطار تعليمي تطبيقي","domain":"التعلّم القائم على الأدلة","description":"تصميم تعليمي يربط الحالات الهندسية بالتفكير بعد المحاضرة وأدلة قدرة الطالب على التفسير والدفاع عن قراره.","cta":"استكشف iSCARB","alt":"تصور فني للتعلم الهندسي وفهم الأنظمة وبناء الحجة"}
+  },
+  {
+    "id":"healthx","name":"HEALTHx","viewBox":"570 623 244 146","url":"/healthx/",
+    "en":{"name":"HEALTHx","stage":"Platform concept","domain":"Clinical innovation","description":"Exploring how hospital innovation can become reusable digital-health services and research-backed products.","cta":"Explore HEALTHx","alt":"Illustration of a clinician exploring digital-health information"},
+    "ar":{"name":"HEALTHx","stage":"تصوّر لمنصة","domain":"الابتكار السريري","description":"استكشاف تحويل ابتكارات المستشفيات إلى خدمات صحية رقمية قابلة لإعادة الاستخدام ومنتجات تستند إلى البحث.","cta":"استكشف HEALTHx","alt":"رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"}
+  },
+  {
+    "id":"genomefit","name":"GenomeFit","viewBox":"311 623 242 146","url":"/ventures.html#genomefit",
+    "en":{"name":"GenomeFit","stage":"Venture experience · KAUST, 2017","domain":"Personalized medicine","description":"Co-founded a genomic screening and drug-response venture supported through the KAUST TAQADAM program.","cta":"Explore GenomeFit","alt":"Illustration of DNA and personalized medicine"},
+    "ar":{"name":"GenomeFit","stage":"تجربة ريادية · كاوست، ٢٠١٧","domain":"الطب الشخصي","description":"مشروع شاركت في تأسيسه لتحليل الجينوم والاستجابة الدوائية، بدعم من برنامج تقدّم في كاوست.","cta":"استكشف GenomeFit","alt":"رسم للحمض النووي والطب الشخصي"}
+  }
+]

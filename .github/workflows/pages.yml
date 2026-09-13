@@ -52,5 +52,8 @@ jobs:
           test -s portfolio.css
           test -s portfolio.js
           python scripts/validate_site.py
+          python scripts/validate_localization.py
           node --check nav.js
           node --check portfolio.js
+          node --check site-nav.js
+          node --check ar/writing/share.js
