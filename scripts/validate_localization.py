@@ -74,7 +74,7 @@ for page in PAGES:
                 if urlsplit(a.get('href','')).netloc and (a.get('target')!='_blank' or 'noopener' not in a.get('rel','').split()):
                     errors.append(f'{name}: external project image needs safe new-tab behavior')
 
-for image in ('project-miyar','project-iscarb','project-shifaa','miyar-actual'):
+for image in ('project-miyar','project-iscarb','project-shifaa','miyar-actual','iscarb-actual'):
     file = ROOT / f'assets/{image}.webp'
     data = file.read_bytes()
     if data[:4] != b'RIFF' or data[8:12] != b'WEBP' or int.from_bytes(data[4:8], 'little') + 8 != len(data):

@@ -87,7 +87,7 @@
   {
     "id": "iscarb",
     "name": "iSCARB",
-    "image": "/assets/project-iscarb.webp",
+    "image": "/assets/iscarb-actual.webp",
     "url": "/teaching.html#iscarb",
     "en": {
       "name": "iSCARB",
@@ -95,7 +95,7 @@
       "domain": "Evidence-centered learning",
       "description": "Course design that connects engineering cases, after-class reasoning and evidence of what students can explain and defend.",
       "cta": "Explore iSCARB",
-      "alt": "Concept illustration of engineering learning, systems and student reasoning",
+      "alt": "Actual iSCARB interface for interactive software engineering lectures",
       "liveCta": "Open iSCARB"
     },
     "ar": {
@@ -104,13 +104,16 @@
       "domain": "التعلّم القائم على الأدلة",
       "description": "تصميم تعليمي يربط الحالات الهندسية بالتفكير بعد المحاضرة وأدلة قدرة الطالب على التفسير والدفاع عن قراره.",
       "cta": "استكشف iSCARB",
-      "alt": "تصور فني للتعلم الهندسي وفهم الأنظمة وبناء الحجة",
+      "alt": "واجهة iSCARB الفعلية للمحاضرات التفاعلية في هندسة البرمجيات",
       "liveCta": "افتح iSCARB"
     },
     "liveUrl": {
       "en": "https://adeebnoor.github.io/CPIT/iscarb.html",
       "ar": "https://adeebnoor.github.io/CPIT/iscarb.html"
-    }
+    },
+    "actualImage": true,
+    "imageWidth": 1348,
+    "imageHeight": 926
   },
   {
     "id": "healthx",
