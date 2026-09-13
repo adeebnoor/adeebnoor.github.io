@@ -6,23 +6,23 @@
     "url": "/ventures.html#miyar",
     "en": {
       "name": "MIYAR",
-      "stage": "Working prototype",
+      "stage": "Position management service",
       "domain": "Workforce architecture",
-      "description": "A bilingual workspace for designing positions, clarifying responsibilities and making workforce decisions reviewable.",
+      "description": "Create position requests, define responsibilities and requirements, and manage job descriptions and approvals in a bilingual workspace.",
       "cta": "Explore MIYAR",
       "alt": "Actual MIYAR interface: workforce architecture and position design",
       "liveCta": "Open MIYAR",
-      "reviewCta": "Review Miyar requirements"
+      "reviewCta": "Create a position request"
     },
     "ar": {
       "name": "مِعيار · MIYAR",
-      "stage": "نموذج أولي يعمل",
+      "stage": "خدمة إدارة المناصب",
       "domain": "هندسة القوى العاملة",
-      "description": "مساحة عمل ثنائية اللغة لتصميم الوظائف وتوضيح المسؤوليات وجعل قرارات القوى العاملة قابلة للمراجعة.",
+      "description": "أنشئ طلبات المناصب، وحدد المسؤوليات والمتطلبات، وتابع الأوصاف الوظيفية والاعتمادات في مساحة عمل ثنائية اللغة.",
       "cta": "استكشف مِعيار",
       "alt": "واجهة مِعيار الفعلية لهندسة القوى العاملة وتصميم المناصب",
       "liveCta": "افتح مِعيار",
-      "reviewCta": "مراجعة متطلبات معيار"
+      "reviewCta": "إنشاء طلب منصب"
     },
     "actualImage": true,
     "imageWidth": 1348,
@@ -31,7 +31,7 @@
       "en": "https://adeebnoor.github.io/Miyar/",
       "ar": "https://adeebnoor.github.io/Miyar/"
     },
-    "reviewUrl": "https://adeebnoor.github.io/Miyar/?review=od"
+    "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create"
   },
   {
     "id": "ridi",
