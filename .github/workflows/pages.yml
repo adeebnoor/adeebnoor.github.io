@@ -53,6 +53,10 @@ jobs:
           test -s portfolio.js
           python scripts/validate_site.py
           python scripts/validate_localization.py
+          python scripts/validate_identity.py
+          python scripts/validate_ideas.py
+          python scripts/build_site.py
+          git diff --exit-code
           node --check nav.js
           node --check portfolio.js
           node --check site-nav.js

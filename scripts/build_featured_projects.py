@@ -30,6 +30,11 @@ for lang, page in [('en','index.html'),('ar','ar/index.html')]:
             visual=f'<svg class="project-image" preserveAspectRatio="xMidYMid slice" viewBox="{item["viewBox"]}" role="img" aria-label="{escape(copy["alt"])}"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg>'
         visual=f'<a class="project-visual-link" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{visual}<span class="project-open" aria-hidden="true">{"↗" if external else "←" if arabic else "→"}</span></a>'
         secondary=f'<a class="project-context" href="{details_url}">{"دوري وخلفية المشروع" if arabic else "My role & project background"}</a>' if destination else ''
+        if item.get('reviewUrl'):
+            secondary=f'<a class="project-context" href="{escape(item["reviewUrl"],quote=True)}">{escape(copy["reviewCta"])}</a>'+secondary
+        if item.get('ideaUrl'):
+            idea_url=('/ar' if arabic else '')+item['ideaUrl']
+            secondary+=f'<a class="project-context" href="{idea_url}">{escape(copy["ideaCta"])}</a>'
         cards.append(f'<article class="card" data-project="{item["id"]}">{visual}<div class="card-copy"><div class="status">{escape(copy["stage"])}</div><h3>{escape(copy["name"])}</h3><div class="subtitle">{escape(copy["domain"])}</div><p>{escape(copy["description"])}</p><div class="project-actions"><a class="button primary" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{escape(open_label)} {"↗" if external else "←" if arabic else "→"}</a>{secondary}</div></div></article>')
     heading='بحث. ابتكار. أثر واقعي.' if arabic else 'Research. Innovation. Real-World Impact.'
     label='مشاريع مختارة' if arabic else 'Selected Projects'

@@ -11,7 +11,8 @@
       "description": "A bilingual workspace for designing positions, clarifying responsibilities and making workforce decisions reviewable.",
       "cta": "Explore MIYAR",
       "alt": "Actual MIYAR interface: workforce architecture and position design",
-      "liveCta": "Open MIYAR"
+      "liveCta": "Open MIYAR",
+      "reviewCta": "Review Miyar requirements"
     },
     "ar": {
       "name": "مِعيار · MIYAR",
@@ -20,7 +21,8 @@
       "description": "مساحة عمل ثنائية اللغة لتصميم الوظائف وتوضيح المسؤوليات وجعل قرارات القوى العاملة قابلة للمراجعة.",
       "cta": "استكشف مِعيار",
       "alt": "واجهة مِعيار الفعلية لهندسة القوى العاملة وتصميم المناصب",
-      "liveCta": "افتح مِعيار"
+      "liveCta": "افتح مِعيار",
+      "reviewCta": "مراجعة متطلبات معيار"
     },
     "actualImage": true,
     "imageWidth": 1348,
@@ -28,7 +30,8 @@
     "liveUrl": {
       "en": "https://adeebnoor.github.io/Miyar/",
       "ar": "https://adeebnoor.github.io/Miyar/"
-    }
+    },
+    "reviewUrl": "https://adeebnoor.github.io/Miyar/?review=od"
   },
   {
     "id": "ridi",
@@ -41,7 +44,8 @@
       "domain": "Decision intelligence",
       "description": "Investigating what aggregate metrics can hide when AI rankings become decisions about people and opportunities.",
       "cta": "Explore RIDI",
-      "alt": "Illustration of two systems allocating outcomes differently"
+      "alt": "Illustration of two systems allocating outcomes differently",
+      "ideaCta": "The idea behind RIDI"
     },
     "ar": {
       "name": "RIDI",
@@ -49,8 +53,10 @@
       "domain": "ذكاء القرار",
       "description": "بحث في ما تخفيه المقاييس الإجمالية عندما تتحول ترتيبات الذكاء الاصطناعي إلى قرارات تمس الأشخاص والفرص.",
       "cta": "استكشف RIDI",
-      "alt": "رسم يوضح اختلاف توزيع النتائج بين نظامين"
-    }
+      "alt": "رسم يوضح اختلاف توزيع النتائج بين نظامين",
+      "ideaCta": "الفكرة التي يختبرها RIDI"
+    },
+    "ideaUrl": "/ideas/position.html#beyond-the-average"
   },
   {
     "id": "shifaa",

@@ -1,7 +1,67 @@
 {
-  "experience_label": "18+ Years",
   "official_title": "Professor — Department of Information Technology, Faculty of Computing & Information Technology",
   "institution": "King Abdulaziz University",
   "location": "Jeddah, Saudi Arabia",
-  "institutional_email": "arnoor@kau.edu.sa"
+  "institutional_email": "arnoor@kau.edu.sa",
+  "legacy_emails": ["adeeb.noor@gmail.com"],
+  "contact_label": {"en": "Contact", "ar": "تواصل"},
+  "experience": {
+    "label": {"en": "18+ Years", "ar": "أكثر من 18 عامًا"},
+    "prose": {"en": "18+ years", "ar": "تزيد على 18 عامًا"},
+    "legacy_labels": ["17+ Years", "18+ Years", "أكثر من 17 عامًا", "أكثر من 18 عامًا", "أكثر من ١٧ عامًا", "أكثر من ١٨ عامًا"],
+    "legacy_prose": ["17+ years", "18+ years", "تزيد على 17 عامًا", "تزيد على 18 عامًا"],
+    "reviewed_on": "2026-09-13",
+    "basis": {
+      "en": "18+ years is my reported cumulative experience in the CV record. The dated career record begins with a university systems role in 2006–2008; this headline is not an automated count of uninterrupted service.",
+      "ar": "أكثر من 18 عامًا هي خبرتي التراكمية بحسب سجل سيرتي الذاتية. يبدأ التسلسل المهني الموثق فيها بدور في أنظمة الجامعة خلال 2006–2008؛ ولا يُحسب هذا العنوان آليًا بوصفه مدة خدمة متصلة."
+    }
+  },
+  "cv": {
+    "heading": {"en": "Choose the CV for your purpose", "ar": "اختر السيرة المناسبة لغرضك"},
+    "executive": {
+      "label": {"en": "Executive CV", "ar": "السيرة التنفيذية"},
+      "purpose": {"en": "For leadership appointments, advisory work, institutional transformation and partnerships.", "ar": "للمناصب القيادية والاستشارات والتحول المؤسسي والشراكات."}
+    },
+    "academic": {
+      "label": {"en": "Academic CV", "ar": "السيرة الأكاديمية"},
+      "purpose": {"en": "For research collaboration, academic appointments, publications, teaching and supervision.", "ar": "للتعاون البحثي والتعيينات الأكاديمية والمنشورات والتدريس والإشراف."}
+    }
+  },
+  "evidence": {
+    "heading": {"en": "How to read the figures", "ar": "كيف تُقرأ الأرقام"},
+    "owner_reported": {"en": "Source: my CV record; these figures are self-reported, without an independent verification report linked here.", "ar": "المصدر: سجل سيرتي الذاتية؛ هذه أرقام أوردها صاحب السيرة، ولا يرفق الموقع بها تقرير تحقق مستقلًا."},
+    "source_label": {"en": "Scope & source", "ar": "النطاق والمصدر"},
+    "projects_label": {"en": "Project record & stage", "ar": "سجل المشاريع ومراحلها"},
+    "metrics": [
+      {
+        "id": "experience",
+        "scope": {"en": "Experience across academia, government, healthcare and advisory work", "ar": "خبرة في الأوساط الأكاديمية والحكومية والرعاية الصحية والاستشارات"},
+        "source_page": "executive-cv.html",
+        "source_anchor": "experience-basis"
+      },
+      {
+        "id": "educators",
+        "headline": {"en": "540,000+", "ar": "540,000+"},
+        "scope": {"en": "Educators within the reported scope of national programs", "ar": "معلم ومعلمة ضمن النطاق المبلّغ عنه للبرامج الوطنية"},
+        "note": {"en": "540,000+ educators: reported coverage of national human-capital and workforce-planning programs across 49 education districts during my 2021–2024 Ministry of Education role. It describes program scope, not a measured individual outcome for every educator.", "ar": "أكثر من 540,000 معلم ومعلمة: نطاق التغطية المبلّغ عنه لبرامج رأس المال البشري وتخطيط القوى العاملة في 49 إدارة تعليمية خلال دوري بوزارة التعليم بين 2021 و2024. يصف الرقم نطاق البرامج، ولا يقيس أثرًا فرديًا تحقق لكل معلم ومعلمة."},
+        "source_page": "executive-cv.html",
+        "source_anchor": "educator-scope"
+      },
+      {
+        "id": "platform_users",
+        "headline": {"en": "1,000,000+", "ar": "1,000,000+"},
+        "scope": {"en": "Users reached by institutional platforms, as reported in my CV", "ar": "مستخدم وصلت إليهم المنصات المؤسسية بحسب سيرتي الذاتية"},
+        "note": {"en": "1,000,000+ users: platform reach reported in my CV. The available record does not specify the measurement period, counting method or treatment of duplicate users. This figure should not be read as a current active-user count or attributed entirely to one product.", "ar": "أكثر من 1,000,000 مستخدم: وصول للمنصات ورد في سيرتي الذاتية. لا يحدد السجل المتاح فترة القياس أو طريقة العد أو معالجة تكرار المستخدمين. لذلك لا يُقرأ الرقم بوصفه عدد المستخدمين النشطين حاليًا، ولا يُنسب كاملًا إلى منتج واحد."},
+        "source_page": "executive-cv.html",
+        "source_anchor": "platform-reach"
+      },
+      {
+        "id": "translation",
+        "headline": {"en": "Research Translation", "ar": "تحويل البحث إلى تطبيق"},
+        "scope": {"en": "Research, prototypes and institutional systems, with each project’s stage stated separately", "ar": "أبحاث ونماذج أولية وأنظمة مؤسسية، مع توضيح مرحلة كل مشروع على حدة"},
+        "source_page": "ventures.html",
+        "source_anchor": ""
+      }
+    ]
+  }
 }

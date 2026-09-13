@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "intro": {
+    "en": "I believe a system should be judged by the decisions it makes possible, the people those decisions affect, and the evidence an institution can defend.",
+    "ar": "أعتقد أن الحكم على أي نظام يبدأ من القرارات التي يتيحها، والأشخاص الذين تمسّهم، والأدلة التي تستطيع المؤسسة أن تدافع عنها."
+  },
+  "theses": [
+    {
+      "id": "beyond-the-average",
+      "title": {
+        "en": "An aggregate score is an incomplete account of a consequential decision.",
+        "ar": "الدرجة المجمّعة لا تقدّم حسابًا كافيًا عن قرار يمسّ الناس."
+      },
+      "body": {
+        "en": "I believe an audit should show who changes when a model or decision rule changes. Similar averages can coexist with different selections; I want that difference examined before an institution calls two systems equivalent. I would narrow this requirement where decisions are demonstrably insensitive to identity and the cost of tracing it outweighs its value.",
+        "ar": "أعتقد أن التدقيق ينبغي أن يُظهر مَن يتغيّر اختياره عندما يتغيّر النموذج أو قاعدة القرار. فقد تتقارب المتوسطات مع اختلاف الأشخاص المختارين؛ وأريد فحص هذا الفرق قبل أن تصف المؤسسة نظامين بأنهما متكافئان. وأقبل تضييق هذا المطلب حين يثبت أن هوية الاختيار لا تغيّر النتائج وأن تكلفة تتبّعها تتجاوز فائدتها."
+      },
+      "evidenceLabel": {
+        "en": "RIDI: the research question behind the position",
+        "ar": "RIDI: السؤال البحثي وراء هذا الموقف"
+      },
+      "evidencePath": "/research.html#ridi",
+      "essaySlug": "same-scores-different-decisions"
+    },
+    {
+      "id": "capacity-is-a-choice",
+      "title": {
+        "en": "Capacity belongs inside the evaluation.",
+        "ar": "السعة المتاحة جزء من التقييم نفسه."
+      },
+      "body": {
+        "en": "I regard the number of interviews, inspections or support places as part of the decision system. Changing capacity changes the boundary that a model acts on. I want institutions to compare plausible capacities and explain who bears the consequences of the chosen limit, rather than treating that limit as an invisible implementation detail.",
+        "ar": "أرى أن عدد المقابلات أو الزيارات الرقابية أو فرص الدعم جزء من نظام القرار. فتغيير السعة يغيّر الحدّ الذي يعمل عنده النموذج. وأريد من المؤسسة مقارنة سعات معقولة وشرح مَن يتحمّل تبعات الحدّ الذي تختاره، بدل أن يبقى هذا الحدّ تفصيلًا تنفيذيًا غير مرئي."
+      },
+      "evidenceLabel": {
+        "en": "Read my argument about capacity and accountability",
+        "ar": "اقرأ موقفي من السعة والمساءلة"
+      },
+      "evidencePath": "/ideas/capacity-is-a-policy-choice.html",
+      "essaySlug": "capacity-is-a-policy-choice"
+    },
+    {
+      "id": "institutional-meaning",
+      "title": {
+        "en": "An institution must be able to explain what its categories mean.",
+        "ar": "على المؤسسة أن تستطيع شرح معنى تصنيفاتها."
+      },
+      "body": {
+        "en": "I believe workforce intelligence starts with an explicit account of the work: its purpose, responsibilities, decision rights and requirements. A title or code cannot carry that meaning by itself. I want AI to make assumptions reviewable while the institution remains responsible for the definitions, revisions and decisions it adopts.",
+        "ar": "أعتقد أن فهم القوى العاملة يبدأ بوصف صريح للعمل: غايته ومسؤولياته وصلاحيات القرار فيه ومتطلباته. ولا يكفي المسمّى أو الرمز وحده لحمل هذا المعنى. وأريد للذكاء الاصطناعي أن يجعل الافتراضات قابلة للمراجعة، مع بقاء المؤسسة مسؤولة عن التعريفات والتعديلات والقرارات التي تعتمدها."
+      },
+      "evidenceLabel": {
+        "en": "MIYAR: an implementation to examine",
+        "ar": "معيار: تطبيق يمكن فحصه"
+      },
+      "evidencePath": "/ventures.html#miyar",
+      "essaySlug": "define-the-position-before-filling-it"
+    },
+    {
+      "id": "readiness-needs-evidence",
+      "title": {
+        "en": "Readiness requires evidence of judgment under changed conditions.",
+        "ar": "الجاهزية تحتاج دليلًا على الحكم عندما تتغيّر الظروف."
+      },
+      "body": {
+        "en": "I believe a learner should explain a choice, test it, and revise it when a relevant constraint changes. Attendance, content coverage and a polished AI-assisted artifact do not establish that capability on their own. I want evidence appropriate to the discipline, including the learner’s reasoning and the limits of what we can infer from one task.",
+        "ar": "أعتقد أن المتعلّم ينبغي أن يشرح اختياره، ويختبره، ويراجعه عندما يتغيّر قيد مؤثر. ولا يكفي الحضور أو تغطية المحتوى أو تقديم عمل مصقول بمساعدة الذكاء الاصطناعي لإثبات هذه القدرة. وأريد دليلًا يناسب التخصص، ويُظهر تفكير المتعلّم وحدود ما يمكن استنتاجه من مهمة واحدة."
+      },
+      "evidenceLabel": {
+        "en": "iSCARB and the educational design behind this position",
+        "ar": "iSCARB والتصميم التعليمي وراء هذا الموقف"
+      },
+      "evidencePath": "/teaching.html#iscarb",
+      "essaySlug": "readiness-needs-evidence"
+    }
+  ],
+  "evidenceBridge": {
+    "title": {
+      "en": "RIDI is one way I put the question to work.",
+      "ar": "RIDI إحدى الطرق التي أحوّل بها السؤال إلى عمل قابل للفحص."
+    },
+    "body": {
+      "en": "I use RIDI to investigate what an evaluation leaves unspecified about a downstream decision. I use the public demonstration as a replay of one SciFact case: the displayed retrieval metrics remain unchanged while the recorded answer changes. I treat that case as a reason to examine the relationship between an audit and an action; it is not a universal estimate of harm or proof that every deployment behaves the same way.",
+      "ar": "أستخدم RIDI لفحص ما يتركه التقييم غير محدّد بشأن القرار الذي يليه. وأستخدم العرض العام لإعادة عرض حالة واحدة من SciFact: تبقى مقاييس الاسترجاع المعروضة ثابتة، بينما تتغيّر الإجابة المسجّلة. وأتعامل مع هذه الحالة بوصفها سببًا لفحص العلاقة بين التدقيق والفعل؛ ولا أعدّها تقديرًا عامًا للضرر أو دليلًا على أن جميع التطبيقات تتصرف بالطريقة نفسها."
+    },
+    "links": [
+      {
+        "label": {
+          "en": "Examine the research demonstration",
+          "ar": "افحص المثال البحثي"
+        },
+        "path": "/demo/"
+      },
+      {
+        "label": {
+          "en": "Read the allocation argument",
+          "ar": "اقرأ حجة هوية التخصيص"
+        },
+        "path": "/writing/same-scores-different-decisions.html"
+      }
+    ]
+  },
+  "cadence": {
+    "en": "I aim to publish one substantial essay every two months. This is an editorial intention from here forward. I will date new essays and explain substantive revisions, so readers can follow how an argument changes.",
+    "ar": "أستهدف نشر مقال متعمّق كل شهرين. وهذه وتيرة تحريرية أطمح إلى الالتزام بها من الآن فصاعدًا. سأؤرّخ المقالات الجديدة وأوضح التعديلات الجوهرية، ليتمكّن القارئ من تتبّع تطوّر الحجة."
+  },
+  "articles": [
+    {
+      "slug": "same-scores-different-decisions",
+      "path": "/writing/same-scores-different-decisions.html",
+      "title": {
+        "en": "Same Scores, Different Decisions: What AI Evaluation Can Miss",
+        "ar": "درجات متشابهة، قرارات مختلفة: ما الذي قد يفوته تقييم الذكاء الاصطناعي؟"
+      },
+      "standfirst": {
+        "en": "I argue that evaluation should follow a score into the decision it produces, including who receives an opportunity when capacity is limited.",
+        "ar": "أدافع عن تقييم يتتبّع الدرجة إلى القرار الذي تنتجه، بما في ذلك مَن يحصل على الفرصة عندما تكون السعة محدودة."
+      },
+      "theme": {
+        "en": "AI & allocation",
+        "ar": "الذكاء الاصطناعي وهوية التخصيص"
+      },
+      "dateLabel": {
+        "en": "September 2026",
+        "ar": "سبتمبر ٢٠٢٦"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "I want evaluation to follow the decision",
+            "ar": "أريد للتقييم أن يتتبّع القرار"
+          },
+          "paragraphs": {
+            "en": [
+              "I value predictive accuracy, calibration and relevant fairness measures. I need them to understand what a model does well and where it fails. But I do not consider them a complete account of a system that allocates interviews, inspections or other limited opportunities. I want to follow the score into the action, because that is where the institution changes something for a person.",
+              "I use a hypothetical comparison to make the question concrete. Two models receive similar aggregate evaluations on the same population. Each is then used to select a fixed number of people. I would not assume that the two lists contain the same individuals. Before calling the systems operationally equivalent, I want to examine whether their apparent similarity survives the decision rule that turns a ranking into a selection."
+            ],
+            "ar": [
+              "أقدّر دقة التنبؤ والمعايرة ومقاييس الإنصاف ذات الصلة. وأحتاج إليها لفهم ما يجيده النموذج ومواضع إخفاقه. لكنني لا أعدّها حسابًا كاملًا عن نظام يوزّع مقابلات أو زيارات رقابية أو فرصًا محدودة أخرى. وأريد تتبّع الدرجة إلى الفعل، لأن المؤسسة تغيّر عند تلك النقطة شيئًا في حياة شخص.",
+              "أستخدم مقارنة افتراضية لتوضيح السؤال. يحصل نموذجان على تقييمات مجمّعة متقاربة في المجتمع نفسه، ثم يُستخدم كل منهما لاختيار عدد محدّد من الأشخاص. ولا أفترض أن القائمتين تضمّان الأفراد أنفسهم. وقبل أن أصف النظامين بأنهما متكافئان تشغيليًا، أريد فحص ما إذا كان تشابههما الظاهر يصمد أمام قاعدة القرار التي تحوّل الترتيب إلى اختيار."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "What I mean by allocation identity",
+            "ar": "ماذا أقصد بهوية التخصيص؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I use allocation identity to focus attention on who receives the outcome. A change near a selection boundary may alter a person’s access even when the overall evaluation changes little. I want to know which individuals enter or leave the selected set, what caused that change, and whether it is justified. I do not treat a changed selection as an error by definition; a correction can properly change who is selected.",
+              "I also want to keep individual and group questions visible together. Similar proportions for groups need not mean the same people were selected within each group. I would examine that distinction where individual access has meaningful consequences. I would not infer fairness or unfairness from identity overlap alone. The applicable goals, evidence, policy and opportunities for review still have to carry that judgment."
+            ],
+            "ar": [
+              "أستخدم هوية التخصيص للتركيز على مَن يحصل على النتيجة. فقد يغيّر تعديل قريب من حدّ الاختيار فرصة شخص، مع تغيّر محدود في التقييم الإجمالي. وأريد معرفة الأفراد الذين يدخلون مجموعة المختارين أو يخرجون منها، وسبب ذلك، وما إذا كان مبرّرًا. ولا أتعامل مع تغيّر الاختيار بوصفه خطأ تلقائيًا؛ فقد يستلزم التصحيح تغيير مَن يُختار.",
+              "وأريد أيضًا إبقاء السؤال الفردي والسؤال الجماعي ظاهرين معًا. فتشابه نسب المجموعات لا يعني بالضرورة اختيار الأشخاص أنفسهم داخل كل مجموعة. وأفحص هذا التمييز عندما تكون للفرصة الفردية تبعات مؤثرة. ولا أستنتج الإنصاف أو غيابه من تداخل الهويات وحده؛ إذ ينبغي أن يستند هذا الحكم إلى الأهداف المعنية والأدلة والسياسة وإمكانات المراجعة."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "The audit I would ask an institution to defend",
+            "ar": "التدقيق الذي أطلب من المؤسسة الدفاع عنه"
+          },
+          "paragraphs": {
+            "en": [
+              "I would ask for an account that connects model performance, relevant group measures, the allocation rule and the available capacity. I would then ask what changes in the selected set when the model or rule changes, including how uncertainty and ties are handled. I want the explanation to identify which choices belong to the institution and which behavior comes from the model, so responsibility does not disappear between them.",
+              "I would apply that expectation proportionately. I do not need a complex identity audit for every low-consequence recommendation. I would be more demanding where opportunities are scarce, repeated decisions accumulate consequences, or a person has little chance to re-enter. I also want identity analysis performed with appropriate access controls. Making the decision inspectable for authorized reviewers does not require exposing identifiable records to the public."
+            ],
+            "ar": [
+              "أطلب وصفًا يربط أداء النموذج والمقاييس الجماعية ذات الصلة وقاعدة التخصيص والسعة المتاحة. ثم أسأل عمّا يتغيّر في مجموعة المختارين عندما يتغيّر النموذج أو القاعدة، بما يشمل التعامل مع عدم اليقين والتعادل. وأريد للتفسير أن يحدّد الاختيارات التي تعود إلى المؤسسة والسلوك الذي يصدر عن النموذج، كي لا تضيع المسؤولية بينهما.",
+              "وأطبّق هذا التوقّع بما يتناسب مع السياق. فلا أحتاج إلى تدقيق معقّد للهويات في كل توصية محدودة الأثر. وأطلب فحصًا أعمق حين تكون الفرص نادرة، أو تتراكم تبعات القرارات المتكررة، أو تقلّ فرصة الشخص في العودة للمنافسة. وأريد كذلك إجراء تحليل الهوية بصلاحيات وصول مناسبة. فإتاحة فحص القرار للمراجعين المخوّلين لا تستلزم كشف السجلات المعرّفة بالأشخاص للجمهور."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "The question behind my research",
+            "ar": "السؤال وراء بحثي"
+          },
+          "paragraphs": {
+            "en": [
+              "I connect this argument to my research on RIDI and on the relationship between evaluation and downstream decisions. I am interested in what a reported audit leaves unspecified about the action that follows it. I see the allocation question as part of a broader obligation to examine systems at the level where they act. When someone tells me two systems perform similarly, my next question is: do they make the same decisions about the same people, and does the difference matter here?"
+            ],
+            "ar": [
+              "أربط هذه الحجة ببحثي في RIDI والعلاقة بين التقييم والقرارات اللاحقة. ويهمّني ما يتركه التدقيق المعلَن غير محدّد بشأن الفعل الذي يليه. وأرى سؤال التخصيص جزءًا من التزام أوسع بفحص الأنظمة عند المستوى الذي تعمل فيه. وعندما يقال لي إن نظامين يتقاربان في الأداء، يكون سؤالي التالي: هل يتخذان القرارات نفسها بشأن الأشخاص أنفسهم، وهل يهمّ الفرق في هذا السياق؟"
+            ]
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "path": "/research.html#ridi",
+          "label": {
+            "en": "The allocation identity research agenda",
+            "ar": "البرنامج البحثي لهوية التخصيص"
+          }
+        },
+        {
+          "path": "/ideas/capacity-is-a-policy-choice.html",
+          "label": {
+            "en": "Continue: Capacity Is a Policy Choice",
+            "ar": "تابع القراءة: السعة المتاحة خيار مؤسسي"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "capacity-is-a-policy-choice",
+      "title": {
+        "en": "Capacity Is a Policy Choice",
+        "ar": "السعة المتاحة خيار مؤسسي"
+      },
+      "standfirst": {
+        "en": "I believe the number of opportunities a system can allocate belongs in the explanation of its decisions. A model cannot take responsibility for a limit the institution chose.",
+        "ar": "أعتقد أن عدد الفرص التي يستطيع النظام توزيعها يجب أن يدخل في تفسير قراراته. ولا يستطيع النموذج أن يتحمّل مسؤولية حدّ اختارته المؤسسة."
+      },
+      "theme": {
+        "en": "AI & institutional decisions",
+        "ar": "الذكاء الاصطناعي والقرار المؤسسي"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "The decision starts before the ranking",
+            "ar": "القرار يبدأ قبل الترتيب"
+          },
+          "paragraphs": {
+            "en": [
+              "I start with a simple hypothetical: an institution has two hundred eligible applicants and twenty interview places. A model ranks the applicants. I cannot evaluate the resulting interview list responsibly by examining prediction quality alone, because the institution has already made a consequential choice about how many people can proceed. I want that choice visible in the account of the system.",
+              "I regard capacity as a policy variable even when a budget makes it difficult to change. Calling twenty places a constraint explains a limit; it does not explain why that limit is appropriate, whether alternatives were considered, or how its consequences will be reviewed. My concern is accountability for the complete decision, including the choices made before a model receives its data."
+            ],
+            "ar": [
+              "أبدأ بمثال افتراضي بسيط: لدى مؤسسة مئتا متقدّم مستوفٍ للشروط، وعشرون فرصة للمقابلة. يرتّب نموذجٌ المتقدّمين. ولا أستطيع تقييم قائمة المقابلات بمسؤولية إذا اكتفيت بجودة التنبؤ، لأن المؤسسة اتخذت مسبقًا قرارًا مؤثرًا بشأن عدد الأشخاص الذين يمكنهم الانتقال إلى المرحلة التالية. وأريد أن يكون هذا الاختيار ظاهرًا في وصف النظام.",
+              "أتعامل مع السعة بوصفها متغيّرًا مؤسسيًا، حتى حين تجعل الميزانية تغييرها صعبًا. فوصف الفرص العشرين بأنها قيد يوضّح وجود حدّ، لكنه لا يفسّر ملاءمته، أو البدائل التي نوقشت، أو كيفية مراجعة تبعاته. وما يعنيني هو المساءلة عن القرار كاملًا، بما يشمل الاختيارات التي تسبق وصول البيانات إلى النموذج."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "What I would require from an evaluation",
+            "ar": "ما الذي أطلبه من التقييم؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I would ask a team to examine several operationally plausible capacities and show which selections change at each boundary. I would inspect predictive performance and relevant group measures alongside that account. I would also ask whether ties, incomplete records or review rules determine who crosses the boundary. Those details help me distinguish a model difference from a policy difference; they do not tell me which choice is automatically fair.",
+              "I would keep such analysis proportionate to the decision. In a hypothetical hiring review, I might examine how an interview list changes when capacity increases from twenty to thirty. I would not publish identifiable applicant records to make that comparison persuasive. I want authorized reviewers to understand the changes, while public reporting describes the method and patterns at a level that protects the people involved."
+            ],
+            "ar": [
+              "أطلب من الفريق فحص عدة سعات معقولة تشغيليًا، وإظهار الاختيارات التي تتغيّر عند كل حدّ. وأفحص معها جودة التنبؤ والمقاييس الجماعية ذات الصلة. وأسأل أيضًا: هل تحسم حالات التعادل أو السجلات الناقصة أو قواعد المراجعة مَن يتجاوز الحدّ؟ تساعدني هذه التفاصيل على التمييز بين أثر النموذج وأثر السياسة؛ لكنها لا تحدّد تلقائيًا أيّ اختيار هو العادل.",
+              "أحرص على أن يتناسب التحليل مع القرار. ففي مراجعة توظيف افتراضية، قد أفحص تغيّر قائمة المقابلات إذا ارتفعت السعة من عشرين إلى ثلاثين. ولا أحتاج إلى نشر سجلات تكشف هويات المتقدّمين لإقناع القارئ بالمقارنة. أريد للمراجعين المخوّلين فهم التغيّرات، وللتقرير العام شرح المنهج والأنماط بالمستوى الذي يحمي الأشخاص المعنيين."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "A better score does not settle the choice",
+            "ar": "الدرجة الأفضل لا تحسم الاختيار"
+          },
+          "paragraphs": {
+            "en": [
+              "I do not infer that a more stable selection is necessarily a better selection. A correction may properly replace people selected under a flawed rule. Equally, identical selections can preserve a mistake. I use allocation identity to ask sharper questions: what changed, why did it change, which evidence supports the change, and who has authority to accept it? Stability is information to interpret within that reasoning.",
+              "I connect this position to the allocation questions in my RIDI research agenda. I want the relationship between a reported audit and an actual action to be inspectable. I would resist using a compelling demonstration to skip the harder evaluation of a particular institution: its population, available resources, decision rules, uncertainty and consequences. Each setting needs an argument supported by evidence appropriate to that setting."
+            ],
+            "ar": [
+              "لا أستنتج أن ثبات قائمة المختارين يعني بالضرورة أنها أفضل. فقد يستلزم تصحيح قاعدة معيبة استبدال أشخاص اختيروا بموجبها. وقد تُبقي القوائم المتطابقة الخطأ نفسه. وأستخدم هوية التخصيص لطرح أسئلة أدق: ما الذي تغيّر؟ ولماذا؟ وأيّ دليل يسند التغيير؟ ومَن يملك صلاحية قبوله؟ الثبات معلومة أفسّرها داخل هذا المنطق.",
+              "أربط هذا الموقف بأسئلة التخصيص في برنامجي البحثي المرتبط بـRIDI. وأريد أن تكون العلاقة بين التدقيق المعلَن والفعل الفعلي قابلة للفحص. وأتحفّظ على استخدام عرض مقنع لتجاوز التقييم الأصعب لمؤسسة بعينها: مجتمعها ومواردها وقواعد قرارها وعدم اليقين والتبعات. فكل سياق يحتاج إلى حجة تدعمها أدلة تناسبه."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "The accountability I want",
+            "ar": "المساءلة التي أريدها"
+          },
+          "paragraphs": {
+            "en": [
+              "My practical test is whether an institution can explain the decision without pointing only to a model score. I want a named owner for the capacity choice, a reason for the selection rule, and a way to reconsider decisions when evidence or resources change. I would accept a lighter process where the consequences are small and easily reversible. Where an opportunity is scarce and consequential, I believe this explanation belongs in the ordinary standard of responsible decision-making."
+            ],
+            "ar": [
+              "اختباري العملي هو قدرة المؤسسة على شرح القرار دون الاكتفاء بالإشارة إلى درجة النموذج. أريد مسؤولًا محدّدًا عن اختيار السعة، ومبرّرًا لقاعدة الاختيار، وطريقة لإعادة النظر حين تتغيّر الأدلة أو الموارد. وأقبل إجراءً أخفّ حين تكون التبعات محدودة ويسهل تداركها. أما حين تكون الفرصة نادرة ومؤثرة، فأعتقد أن هذا التفسير جزء من الممارسة المعتادة لاتخاذ القرار بمسؤولية."
+            ]
+          }
+        }
+      ],
+      "path": "/ideas/capacity-is-a-policy-choice.html",
+      "evidence": [
+        {
+          "label": {
+            "en": "My research on allocation identity",
+            "ar": "بحثي في هوية التخصيص"
+          },
+          "path": "/research.html#ridi"
+        }
+      ]
+    },
+    {
+      "slug": "define-the-position-before-filling-it",
+      "title": {
+        "en": "Define the Position Before Filling It",
+        "ar": "عرّف الوظيفة قبل أن تبحث عمّن يشغلها"
+      },
+      "standfirst": {
+        "en": "I believe institutions need a defensible description of the work before they ask AI to classify a role, recommend a requirement or assess a candidate.",
+        "ar": "أعتقد أن المؤسسة تحتاج وصفًا للعمل تستطيع الدفاع عنه قبل أن تطلب من الذكاء الاصطناعي تصنيف الوظيفة، أو اقتراح متطلباتها، أو تقييم المرشّحين لها."
+      },
+      "theme": {
+        "en": "Workforce & institutional design",
+        "ar": "القوى العاملة وتصميم المؤسسات"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "A title does not explain the work",
+            "ar": "المسمّى لا يشرح العمل"
+          },
+          "paragraphs": {
+            "en": [
+              "I would hesitate to approve a role described only as “AI specialist.” I cannot tell from that title whether the person will develop models, evaluate suppliers, govern data, support users or authorize consequential decisions. I want the institution to describe the work it needs done and the responsibility attached to it. Otherwise, an apparently precise classification may rest on an unresolved organizational question.",
+              "I distinguish the identity of a position from the identity of its current holder. A position should remain intelligible when a person leaves, when reporting lines change or when a new system alters part of the work. I would describe its purpose, expected outputs, responsibilities, authority and essential requirements together. A code can then refer to that account; I would not expect the code to substitute for it."
+            ],
+            "ar": [
+              "أتريّث قبل اعتماد وظيفة لا توصف إلا بأنها «أخصائي ذكاء اصطناعي». فلا أعرف من المسمّى إن كان شاغلها سيطوّر نماذج، أو يقيّم مورّدين، أو يحكم البيانات، أو يدعم المستخدمين، أو يعتمد قرارات مؤثرة. وأريد من المؤسسة وصف العمل المطلوب والمسؤولية المرتبطة به. وإلا فقد يقوم تصنيف يبدو دقيقًا على سؤال تنظيمي لم يُحسم بعد.",
+              "أميّز بين هوية الوظيفة وهوية مَن يشغلها حاليًا. وأرى أن وصف الوظيفة ينبغي أن يظل مفهومًا عندما يغادر الشخص، أو تتغيّر التبعية الإدارية، أو يغيّر نظام جديد جزءًا من العمل. لذلك أجمع غايتها ومخرجاتها المتوقعة ومسؤولياتها وصلاحياتها ومتطلباتها الأساسية في وصف مترابط. ويمكن للرمز أن يشير إلى هذا الوصف؛ ولا أتوقّع أن يحلّ محلّه."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "The questions I want to make explicit",
+            "ar": "الأسئلة التي أريد إظهارها"
+          },
+          "paragraphs": {
+            "en": [
+              "I use a hypothetical pair of identical titles to test this distinction. One data analyst prepares routine reports under supervision; another defines an institutional measurement method and is accountable for its interpretation. I would not assume that the same title implies the same responsibility, seniority or qualification needs. I would ask which decisions each position owns and what evidence justifies the requirements attached to those decisions.",
+              "I also want requirements to be contestable. If a role requires an advanced degree, I want to understand the work that makes that requirement necessary and whether another form of evidence could demonstrate the same capability. I would resist inferring a requirement simply because similar advertisements include it. My concern is that unexplained requirements can become exclusion rules whose organizational purpose nobody can clearly defend."
+            ],
+            "ar": [
+              "أختبر هذا التمييز بوظيفتين افتراضيتين تحملان المسمّى نفسه. يُعدّ محلّل بيانات تقارير دورية تحت الإشراف، بينما يضع الآخر منهج قياس مؤسسيًا ويتحمّل مسؤولية تفسيره. ولا أفترض أن تطابق المسمّى يعني تطابق المسؤولية أو المستوى أو الحاجة إلى المؤهلات. بل أسأل عن القرارات التي تملكها كل وظيفة، والأدلة التي تبرّر المتطلبات المرتبطة بها.",
+              "وأريد أن تكون المتطلبات قابلة للنقاش. فإذا اشترطت وظيفة مؤهلًا متقدمًا، أريد فهم طبيعة العمل التي تجعل هذا الشرط ضروريًا، وما إذا كان دليل آخر يثبت القدرة نفسها. وأتحفّظ على استنتاج المتطلب لمجرّد وروده في إعلانات مشابهة. وما يقلقني هو تحوّل المتطلبات غير المفسّرة إلى قواعد استبعاد لا يستطيع أحد الدفاع بوضوح عن غايتها المؤسسية."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Where I would put AI",
+            "ar": "أين أضع الذكاء الاصطناعي؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I see a useful role for AI in exposing omissions, comparing descriptions and proposing interpretations for review. I would require the system to distinguish user-provided facts from suggestions and to identify the information still missing. I want an authorized person to decide what becomes part of the position record. A fluent recommendation should make the review easier; it should not make the source of authority harder to see.",
+              "I connect this argument to MIYAR, the workforce architecture and position-management prototype developed with Ahmad Raza Khan. I regard a prototype as a way to make an institutional design discussion concrete. I would evaluate an implementation through reviewable definitions, traceable revisions and the quality of the decisions it supports. I would need evidence from actual use before claiming that it improves hiring, productivity or workforce planning."
+            ],
+            "ar": [
+              "أرى دورًا مفيدًا للذكاء الاصطناعي في كشف النواقص ومقارنة الأوصاف واقتراح تفسيرات للمراجعة. وأطلب من النظام التمييز بين الحقائق التي أدخلها المستخدم والمقترحات التي يولّدها، مع تحديد المعلومات التي لا تزال ناقصة. وأريد لشخص مخوّل أن يقرّر ما يُعتمد في سجلّ الوظيفة. ينبغي للتوصية الواضحة أن تسهّل المراجعة، وأن تُبقي مصدر الصلاحية ظاهرًا.",
+              "أربط هذه الحجة بمنصة معيار، النموذج الأولي لبنية القوى العاملة وإدارة الوظائف الذي طوّرته مع أحمد رضا خان. وأتعامل مع النموذج الأولي باعتباره وسيلة لجعل نقاش التصميم المؤسسي ملموسًا. وأقيّم التطبيق من خلال تعريفات قابلة للمراجعة، وتعديلات يمكن تتبّعها، وجودة القرارات التي يدعمها. وأحتاج إلى أدلة من استخدام فعلي قبل الادّعاء بأنه يحسّن التوظيف أو الإنتاجية أو تخطيط القوى العاملة."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Meaning must survive revision",
+            "ar": "المعنى ينبغي أن يبقى مفهومًا بعد التعديل"
+          },
+          "paragraphs": {
+            "en": [
+              "My test for a mature position system is simple: can a reviewer explain why a role exists, how its requirements were chosen, who approved them and what changed since the previous version? I would keep the record compact enough to maintain, with review triggered by meaningful changes in the work. I believe an institution gains control when it can revise its definitions deliberately and explain the consequences of those revisions to the people affected."
+            ],
+            "ar": [
+              "اختباري لنضج نظام الوظائف بسيط: هل يستطيع المراجع شرح سبب وجود الوظيفة، وكيف اختيرت متطلباتها، ومَن اعتمدها، وما الذي تغيّر عن نسختها السابقة؟ وأُبقي السجلّ موجزًا بما يكفي لصيانته، وأربط مراجعته بتغيّرات مؤثرة في العمل. وأعتقد أن المؤسسة تملك زمام قراراتها عندما تعدّل تعريفاتها عن قصد، وتشرح تبعات تلك التعديلات للأشخاص المتأثرين بها."
+            ]
+          }
+        }
+      ],
+      "path": "/ideas/define-the-position-before-filling-it.html",
+      "evidence": [
+        {
+          "label": {
+            "en": "MIYAR: the current prototype and its scope",
+            "ar": "معيار: النموذج الأولي الحالي ونطاقه"
+          },
+          "path": "/ventures.html#miyar"
+        }
+      ]
+    },
+    {
+      "slug": "readiness-needs-evidence",
+      "title": {
+        "en": "Readiness Needs Evidence",
+        "ar": "الجاهزية تحتاج إلى دليل"
+      },
+      "standfirst": {
+        "en": "I want to know what a student can explain, test and defend when the conditions change. A polished submission gives me only part of that answer.",
+        "ar": "أريد أن أعرف ما يستطيع الطالب شرحه واختباره والدفاع عنه عندما تتغيّر الظروف. والعمل المصقول الذي يسلّمه لا يمنحني إلا جزءًا من الإجابة."
+      },
+      "theme": {
+        "en": "Education & judgment",
+        "ar": "التعليم والحكم المهني"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "What I mean by readiness",
+            "ar": "ماذا أقصد بالجاهزية؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I use readiness to describe a learner’s ability to act with reasons within a defined scope. In software engineering, I want a student to connect a requirement to a design choice, anticipate a relevant failure and explain what evidence would change that choice. I would not infer readiness for every professional setting from success in one classroom task. The scope of the claim should match the scope of the evidence.",
+              "I still consider disciplinary knowledge essential. A student cannot reason well about reliability without understanding the mechanisms and assumptions involved. I want explanations, examples and diagrams to make those mechanisms accessible, followed by opportunities to use them. I become concerned when completing content replaces checking what a learner can do with it, or when a visually impressive lesson leaves the important technical reasoning implicit."
+            ],
+            "ar": [
+              "أستخدم الجاهزية لوصف قدرة المتعلّم على التصرّف بأسباب واضحة داخل نطاق محدّد. ففي هندسة البرمجيات، أريد من الطالب ربط متطلب بقرار تصميم، وتوقّع إخفاق ذي صلة، وشرح الدليل الذي قد يغيّر اختياره. ولا أستنتج من نجاحه في مهمة صفية واحدة أنه جاهز لكل سياق مهني. ينبغي أن يطابق نطاق الادّعاء نطاق الدليل.",
+              "وأظلّ أرى المعرفة التخصصية أساسًا لا غنى عنه. فالطالب لا يستطيع التفكير جيدًا في الموثوقية دون فهم الآليات والافتراضات المتصلة بها. وأريد للشروح والأمثلة والرسومات أن تجعل تلك الآليات واضحة، ثم تتيح فرصًا لاستخدامها. ويقلقني أن يحلّ استكمال المحتوى محلّ فحص ما يستطيع المتعلّم فعله به، أو أن يترك درس جذّاب بصريًا منطقه التقني المهم ضمنيًا."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "The smallest useful change in an assessment",
+            "ar": "تغيير صغير يكشف الكثير في التقييم"
+          },
+          "paragraphs": {
+            "en": [
+              "I would begin with a manageable task and then change one consequential condition. In a hypothetical architecture exercise, a student might first explain a proposed redundancy design. I might then reveal a shared power dependency and ask the student to reassess it. I learn more from the resulting revision than from another repetition of the original explanation, because the student has to connect a changed fact to its engineering consequence.",
+              "I would not make difficulty itself the objective. I want an explicit progression from identifying a mechanism, to applying it in a supported example, to comparing alternatives, and finally defending a choice under a changed constraint. I would provide feedback along that progression and allow revision. My purpose is to make developing judgment visible while students still have a realistic opportunity to improve it."
+            ],
+            "ar": [
+              "أبدأ بمهمة يمكن التعامل معها، ثم أغيّر شرطًا واحدًا مؤثرًا. ففي تمرين افتراضي عن معمارية النظام، قد يشرح الطالب أولًا تصميمًا يعتمد على التكرار. ثم أكشف اعتماد مكوّناته على مصدر طاقة مشترك، وأطلب إعادة التقييم. وأتعلّم من المراجعة الناتجة أكثر مما أتعلّم من تكرار الشرح الأول، لأن الطالب يربط حقيقة تغيّرت بتبعتها الهندسية.",
+              "ولا أجعل الصعوبة هدفًا بحدّ ذاتها. أريد تدرّجًا واضحًا من تحديد الآلية، إلى تطبيقها في مثال موجّه، ثم مقارنة البدائل، وأخيرًا الدفاع عن اختيار في ظل قيد تغيّر. وأقدّم تغذية راجعة على طول هذا التدرّج، وأتيح المراجعة. وغايتي إظهار نمو الحكم لدى الطالب بينما لا تزال لديه فرصة واقعية لتحسينه."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "What AI changes in the evidence",
+            "ar": "ما الذي يغيّره الذكاء الاصطناعي في الدليل؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I welcome AI assistance when its role is explicit and consistent with the learning task. If a tool helps produce an artifact, I need evidence of the learner’s contribution and understanding before drawing conclusions about individual capability. I might ask for a short explanation, a modification to the solution or a test of an assumption. I would choose the method to fit the discipline, access needs and available teaching time.",
+              "I connect this position to my educational design work across CIMT, IMAM and the iSCARB teaching system. I use these efforts to investigate how instructional structure, interaction and evidence can remain visible when AI helps produce learning materials. I do not regard a prescribed slide count or a completed design checklist as proof of learning. I would want evidence from student reasoning and performance, interpreted with the limitations of the study or classroom context."
+            ],
+            "ar": [
+              "أرحّب بمساعدة الذكاء الاصطناعي عندما يكون دوره معلنًا ومتّسقًا مع المهمة التعليمية. وإذا ساعدت أداة في إنتاج العمل، أحتاج إلى دليل على إسهام المتعلّم وفهمه قبل أن أستنتج قدرته الفردية. وقد أطلب شرحًا قصيرًا، أو تعديلًا للحل، أو اختبارًا لافتراض. وأختار الطريقة وفق التخصص واحتياجات إتاحة التعلّم والوقت التدريسي المتاح.",
+              "أربط هذا الموقف بعملي في التصميم التعليمي عبر CIMT وIMAM ونظام iSCARB. وأستخدم هذه الجهود لفحص كيفية إبقاء البنية التعليمية والتفاعل والأدلة واضحة عندما يساعد الذكاء الاصطناعي في إنتاج مواد التعلّم. ولا أعدّ عددًا محدّدًا من الشرائح أو اكتمال قائمة فحص التصميم دليلًا على التعلّم. بل أطلب دليلًا من تفكير الطلاب وأدائهم، وأفسّره في ضوء حدود الدراسة أو السياق الصفي."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "What I mean by sovereignty in AI-enabled education",
+            "ar": "ماذا أعني بالسيادة في التعليم المدعوم بالذكاء الاصطناعي؟"
+          },
+          "paragraphs": {
+            "en": [
+              "I connect the identity question in IMAM to who defines the purpose of learning, selects the knowledge and judges the evidence of readiness. I believe a university should be able to explain and revise those choices in its own language and disciplinary context, even when it uses external AI tools. I would judge that control by visible authority over curriculum, assessment and revision; an Arabic interface alone would not establish it."
+            ],
+            "ar": [
+              "أربط سؤال الهوية في IMAM بمَن يحدّد غاية التعلّم، ويختار المعرفة، ويحكم على دليل الجاهزية. وأعتقد أن الجامعة ينبغي أن تستطيع شرح هذه الاختيارات ومراجعتها بلغتها وفي سياق تخصصها، حتى عندما تستخدم أدوات ذكاء اصطناعي خارجية. وأقيس امتلاكها لهذا القرار بوضوح صلاحيتها على المنهج والتقييم والتعديل، ولا أكتفي بوجود واجهة عربية."
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "A claim I am prepared to revise",
+            "ar": "موقف أقبل مراجعته"
+          },
+          "paragraphs": {
+            "en": [
+              "I would reconsider an assessment if it rewards fluent performance without improving the evidence of understanding, imposes excessive workload or disadvantages learners for reasons unrelated to the intended capability. My commitment is to justified inferences about learning. I want students to know what counts as evidence, teachers to see where reasoning breaks down, and institutions to explain what their claims of readiness actually mean."
+            ],
+            "ar": [
+              "أعيد النظر في تقييم يكافئ الأداء الطليق دون أن يحسّن دليل الفهم، أو يفرض عبئًا مفرطًا، أو يضرّ بمتعلّمين لأسباب لا تتصل بالقدرة المقصودة. والتزامي هو الوصول إلى استنتاجات مبرّرة عن التعلّم. أريد للطلاب معرفة ما يُعدّ دليلًا، وللمعلّمين رؤية مواضع ضعف التفكير، وللمؤسسات شرح ما تعنيه ادّعاءاتها عن الجاهزية فعلًا."
+            ]
+          }
+        }
+      ],
+      "path": "/ideas/readiness-needs-evidence.html",
+      "evidence": [
+        {
+          "label": {
+            "en": "My teaching approach and iSCARB",
+            "ar": "منهجي التعليمي وiSCARB"
+          },
+          "path": "/teaching.html#iscarb"
+        }
+      ]
+    }
+  ],
+  "pageCopy": {
+    "eyebrow": {
+      "en": "Ideas & positions",
+      "ar": "أفكار ومواقف"
+    },
+    "title": {
+      "en": "What the metric leaves out.",
+      "ar": "ما الذي يتركه المقياس خارج الصورة؟"
+    },
+    "standfirst": {
+      "en": "I believe a system should be judged by the decisions it makes possible, the people those decisions affect, and the evidence an institution can defend.",
+      "ar": "أعتقد أن الحكم على أي نظام يبدأ من القرارات التي يتيحها، والأشخاص الذين تمسّهم، والأدلة التي تستطيع المؤسسة أن تدافع عنها."
+    },
+    "body": {
+      "en": "I return to one question across AI, institutions and education: what becomes invisible when a complex decision is compressed into a score? I set out my positions here, connect them to work that can be examined, and make clear what would change my mind.",
+      "ar": "أعود إلى سؤال واحد في الذكاء الاصطناعي والمؤسسات والتعليم: ما الذي يختفي عندما نختزل قرارًا معقّدًا في درجة؟ أعرض هنا مواقفي، وأربطها بعمل يمكن فحصه، وأوضح ما الذي قد يدفعني إلى مراجعتها."
+    },
+    "stanceTitle": {
+      "en": "Four positions I am prepared to defend.",
+      "ar": "أربع أطروحات أتبنّاها وأدعو إلى مناقشتها."
+    },
+    "stanceIntro": {
+      "en": "I offer these as arguments to test. I do not treat a working prototype, an attractive demonstration or my own conviction as sufficient evidence that an approach improves outcomes.",
+      "ar": "أطرح هذه المواقف للاختبار والنقاش. ولا أعدّ النموذج الأولي، أو العرض المقنع، أو قناعتي الشخصية دليلًا كافيًا على أن منهجًا ما يحسّن النتائج."
+    }
+  },
+  "archive": {
+    "title": {
+      "en": "Essays",
+      "ar": "المقالات"
+    },
+    "intro": {
+      "en": "I develop my positions through concrete decisions in AI, institutional design and education.",
+      "ar": "أطوّر مواقفي من خلال قرارات ملموسة في الذكاء الاصطناعي وتصميم المؤسسات والتعليم."
+    },
+    "cadenceTitle": {
+      "en": "A growing argument, with room to revise.",
+      "ar": "أفكار تتراكم، ومواقف تقبل المراجعة."
+    }
+  },
+  "imamPosition": {
+    "title": {
+      "en": "IMAM: who owns the purpose of learning?",
+      "ar": "IMAM: مَن يملك قرار التعلّم؟"
+    },
+    "body": {
+      "en": "I connect the identity question in IMAM to who defines the purpose of learning, selects the knowledge and judges the evidence of readiness. I believe a university should be able to explain and revise those choices in its own language and disciplinary context, even when it uses external AI tools. I would judge that control by visible authority over curriculum, assessment and revision; an Arabic interface alone would not establish it.",
+      "ar": "أربط سؤال الهوية في IMAM بمَن يحدّد غاية التعلّم، ويختار المعرفة، ويحكم على دليل الجاهزية. وأعتقد أن الجامعة ينبغي أن تستطيع شرح هذه الاختيارات ومراجعتها بلغتها وفي سياق تخصصها، حتى عندما تستخدم أدوات ذكاء اصطناعي خارجية. وأقيس امتلاكها لهذا القرار بوضوح صلاحيتها على المنهج والتقييم والتعديل، ولا أكتفي بوجود واجهة عربية."
+    }
+  }
+}

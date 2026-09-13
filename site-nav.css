@@ -29,3 +29,13 @@ html{scroll-padding-top:94px}
 @media(max-width:560px){.site-header .site-wrap{width:calc(100% - 32px);gap:12px}.site-header .site-brand{font-size:21px;letter-spacing:.1em}}
 @media(max-width:360px){.site-header .site-brand{font-size:19px}.site-header summary{padding:10px}}
 @media print{.site-header,.site-skip{display:none!important}}
+
+/* Shared CV choice and explicit metric sources, generated from site identity. */
+.identity-cv-guide{margin:20px 0 10px;padding:16px 18px;border:1px solid #b89b6159;border-inline-start:3px solid #b89b61;border-radius:3px;font:15px/1.75 Arial,Tahoma,sans-serif;text-align:start;max-width:850px}
+.identity-cv-guide p{font:inherit!important;line-height:1.75!important;margin:0 0 9px!important;max-width:none!important}
+.identity-cv-guide p:last-child{margin-bottom:0!important}.identity-cv-guide a{text-decoration:underline;text-underline-offset:4px}
+.hero .identity-cv-guide,.page-hero .identity-cv-guide{color:#eee7d7;background:#ffffff06}.hero .identity-cv-guide a,.page-hero .identity-cv-guide a{color:#dfc184}
+.identity-source-link{display:inline-block;min-height:44px;margin-top:7px;padding:7px 0;font:14px/1.7 Arial,Tahoma,sans-serif!important;text-decoration:underline!important;text-underline-offset:4px;color:#6b542b!important}
+.identity-evidence p{font-size:15px;line-height:1.8;overflow-wrap:break-word}.identity-evidence h2{line-height:1.5}
+@media(max-width:620px){.identity-cv-guide{padding:14px;font-size:14px}.identity-source-link{font-size:14px!important}}
+@media print{.identity-cv-guide{display:none}}

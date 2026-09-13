@@ -12,12 +12,16 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io/'
-VERSION = '20260913-ar1'
+VERSION = '20260913-ideas1'
 PAGES = ['index.html','about.html','impact.html','research.html','publications.html',
          'ventures.html','teaching.html','contact.html','academic-cv.html',
          'executive-cv.html','master-cv.html','phd.html','speaking.html',
          'writing/index.html','writing/same-scores-different-decisions.html',
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
+IDEAS_FILE = ROOT/'data/ideas-content.json'
+IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
+MANAGED_PAGES = ['ideas/index.html','ideas/position.html','writing/index.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
+PAGES = list(dict.fromkeys(PAGES + MANAGED_PAGES))
 TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
     TRANSLATIONS.update(json.loads(file.read_text()))
@@ -91,7 +95,11 @@ class Localizer(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.source_name, self.arabic = source_name, arabic
         self.dictionary = translations or {}
-        self.texts = self.dictionary.get('text', {})
+        self.texts = dict(self.dictionary.get('text', {}))
+        self.texts.update({'Contact':'تواصل','Contact →':'تواصل ←',
+            'Research Translation':'تحويل البحث إلى تطبيق',
+            'Research, prototypes and institutional systems, with each project’s stage stated separately':'أبحاث ونماذج أولية وأنظمة مؤسسية، مع بيان مرحلة كل مشروع على حدة',
+            'Patient-facing digital platform created within hospital modernization.':'منصة رقمية موجهة للمرضى أُنشئت ضمن تحديث أنظمة المستشفى.'})
         self.attrs = self.dictionary.get('attrs', {})
         self.parts, self.raw, self.missing = [], 0, set()
 
@@ -145,19 +153,20 @@ class Localizer(HTMLParser):
 
 
 def nav(page, arabic):
-    choices = [('about.html','About','نبذة'),('impact.html','Leadership','القيادة والأثر'),
-               ('research.html','Research','الأبحاث'),('ventures.html','Projects','المشاريع'),
-               ('teaching.html','Teaching','التدريس'),('writing/index.html','Writing','المقالات'),
-               ('contact.html','Contact','تواصل')]
+    identity = json.loads((ROOT/'data/site_identity.json').read_text())
+    items = json.loads((ROOT/'data/site-navigation.json').read_text())
+    choices = [(item['page'], *(identity[item['identity_label']][lang] if 'identity_label' in item else item[lang] for lang in ('en','ar'))) for item in items]
     selected = page
-    if page in ('academic-cv.html','executive-cv.html','master-cv.html','speaking.html'):
+    if page in ('academic-cv.html','master-cv.html','speaking.html'):
         selected = 'about.html'
+    if page == 'executive-cv.html':
+        selected = 'impact.html'
     if page in ('phd.html','publications.html','demo/index.html'):
         selected = 'research.html'
     if page == 'healthx/index.html':
         selected = 'ventures.html'
-    if page.startswith('writing/'):
-        selected = 'writing/index.html'
+    if page.startswith(('writing/','ideas/')):
+        selected = 'ideas/index.html'
     links = ''.join(f'<a href="{public_path(p,arabic)}"'+(' class="site-contact"' if p=='contact.html' else '')+(' aria-current="page"' if selected==p else '')+f'>{ar if arabic else en}</a>' for p,en,ar in choices)
     language = f'<a class="site-language" href="{public_path(page,not arabic)}" lang="{"en" if arabic else "ar"}" hreflang="{"en" if arabic else "ar"}">{"English" if arabic else "العربية"}</a>'
     cvs = ''.join(f'<a href="{public_path(p,arabic)}">{ar if arabic else en}</a>' for p,en,ar in [('executive-cv.html','Executive CV','السيرة التنفيذية'),('academic-cv.html','Academic CV','السيرة الأكاديمية')])
@@ -208,10 +217,14 @@ def finish(source, page, arabic):
 
 
 def build():
+    from sync_identity import strip_generated
     missing = {}
     # Read all sources first; navigation transformations are idempotent on repeat runs.
-    sources = {page:(ROOT/page).read_text() for page in PAGES}
-    arabic_home = (ROOT/'ar/index.html').read_text()
+    sources = {page:strip_generated((ROOT/page).read_text()) for page in PAGES if page not in MANAGED_PAGES}
+    arabic_home = strip_generated((ROOT/'ar/index.html').read_text())
+    sources = {page:re.sub(r'<!-- ideas-gateway:start -->.*?<!-- ideas-gateway:end -->','',text,flags=re.S) for page,text in sources.items()}
+    sources = {page:re.sub(r'<!-- ideas-project:start -->.*?<!-- ideas-project:end -->','',text,flags=re.S) for page,text in sources.items()}
+    arabic_home = re.sub(r'<!-- ideas-gateway:start -->.*?<!-- ideas-gateway:end -->','',arabic_home,flags=re.S)
     for page, original in sources.items():
         clean = clean_head(remove_header(original))
         en = Localizer(page,False)
@@ -248,7 +261,7 @@ def build():
             links=''.join(f'<xhtml:link rel="alternate" hreflang="{lang}" href="{ORIGIN.rstrip("/")+public_path(page,ar)}"/>' for lang,ar in [('en',False),('ar',True)])
             entries.append(f'<url><loc>{ORIGIN.rstrip("/")+public_path(page,arabic)}</loc>{links}</url>')
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(entries)+'</urlset>')
-    print(f'Built {len(PAGES)} English/Arabic page pairs.')
+    print(f'Localized {len(sources)} existing page pairs; {len(MANAGED_PAGES)} Ideas pages are generated from bilingual content.')
     if missing:
         print('Retained names or terms requiring review:',json.dumps(missing,ensure_ascii=False,indent=2))
 

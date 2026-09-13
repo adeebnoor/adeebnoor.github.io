@@ -17,7 +17,7 @@
     .then(r => r.ok ? r.json() : null)
     .then(data => {
       if (!data) return;
-      document.querySelectorAll('[data-site="experience"]').forEach(el => el.textContent = data.experience_label);
+      document.querySelectorAll('[data-site="experience"]').forEach(el => el.textContent = data.experience.label[document.documentElement.lang === 'ar' ? 'ar' : 'en']);
       document.querySelectorAll('[data-site="institutional-email"]').forEach(el => {
         el.textContent = data.institutional_email;
         if (el.tagName === 'A') el.href = 'mailto:' + data.institutional_email;

@@ -3,6 +3,7 @@ from pathlib import Path
 
 D=json.loads(Path('data/master_cv.json').read_text(encoding='utf-8'))
 I=D['identity']
+I['email']=json.loads(Path('data/site_identity.json').read_text(encoding='utf-8'))['institutional_email']
 
 def esc(x): return html.escape(str(x))
 def nav():
