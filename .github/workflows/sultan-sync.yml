@@ -1,0 +1,57 @@
+name: Sync tested SULTAN
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/sultan-sync.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sultan-site-sync
+  cancel-in-progress: true
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the tested SULTAN release
+        run: |
+          mkdir -p SulTaN
+          curl -L --fail --retry 3 --retry-delay 2 \
+            https://github.com/adeebnoor/SulTaN/releases/download/v0.7.0/SULTAN_Beta_AR_EN.html \
+            -o SulTaN/index.html
+      - name: Verify the downloaded artifact
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('SulTaN/index.html')
+          text=p.read_text(encoding='utf-8')
+          assert len(text)>200_000
+          assert 'SultanPortal' in text
+          assert 'Authority Space' in text
+          assert '0.7' in text
+          print('Verified tested SULTAN v0.7 artifact:', len(text), 'characters')
+          PY
+      - name: Record source version
+        run: |
+          cat > SulTaN/release.json <<'EOF'
+          {
+            "product": "SULTAN",
+            "version": "0.7.0",
+            "sourceRepository": "adeebnoor/SulTaN",
+            "sourceCommit": "d5c4b73d9dc313e2c33ef06729a6dec581349f15",
+            "release": "https://github.com/adeebnoor/SulTaN/releases/tag/v0.7.0"
+          }
+          EOF
+      - name: Commit only when the published artifact changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add SulTaN/index.html SulTaN/release.json
+          if git diff --cached --quiet; then
+            echo 'SULTAN site artifact already current.'
+          else
+            git commit -m 'site: publish tested SULTAN v0.7.0'
+            git push
+          fi
