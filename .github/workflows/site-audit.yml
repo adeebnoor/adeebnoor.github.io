@@ -23,40 +23,36 @@ jobs:
         run: |
           python -m pip install 'pillow==11.3.0'
           mkdir -p audit-artifacts
-          if [ -f scripts/apply_site_audit.py ]; then
-            npm install --no-save --package-lock=false playwright @axe-core/playwright agent-browser
-            npx playwright install --with-deps chromium
-          fi
-      - name: Apply audit improvements if present
+          npm install --no-save --package-lock=false playwright @axe-core/playwright agent-browser
+          npx playwright install --with-deps chromium
+      - name: Build and validate candidate
         run: |
-          if [ -f scripts/apply_site_audit.py ]; then
-            python scripts/apply_site_audit.py
-            python scripts/build_site.py
-            python scripts/validate_site.py
-            python scripts/validate_localization.py
-            python scripts/validate_identity.py
-            python scripts/validate_ideas.py
-            python scripts/validate_analytics.py
-            node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs scripts/test_inquiries.mjs
-            python scripts/validate_audit.py
-          fi
-      - name: Browser and live API QA if present
+          python scripts/apply_site_audit.py
+          python scripts/build_site.py
+          python scripts/build_site.py
+          python scripts/validate_site.py
+          python scripts/validate_localization.py
+          python scripts/validate_identity.py
+          python scripts/validate_ideas.py
+          python scripts/validate_analytics.py
+          node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs scripts/test_inquiries.mjs
+          python scripts/validate_audit.py
+      - name: Browser and live API QA
         run: |
-          if [ -f scripts/qa_audit.mjs ]; then
-            python -m http.server 8000 >/tmp/audit-server.log 2>&1 &
-            npx agent-browser open http://127.0.0.1:8000
-            npx agent-browser snapshot -i
-            node scripts/qa_audit.mjs
-            npx agent-browser close
-            node scripts/qa_live_api.mjs
-          fi
-      - name: Commit verified generated pages
+          python -m http.server 8000 >/tmp/audit-server.log 2>&1 &
+          npx agent-browser open http://127.0.0.1:8000
+          npx agent-browser snapshot -i
+          node scripts/qa_audit.mjs
+          npx agent-browser close
+          node scripts/qa_live_api.mjs
+      - name: Save candidate on review branch only
+        if: always()
         run: |
-          if [ -f scripts/apply_site_audit.py ]; then
+          if [ -f scripts/build_audit.py ]; then
             git add -- '*.html' '*.css' '*.js' '*.json' '*.xml' '*.txt' '*.svg' '*.png' '*.webp' '*.py' '*.md' '*.mjs' '*.ts' '*.sql'
             git reset -- node_modules audit-artifacts package.json package-lock.json 2>/dev/null || true
             if ! git diff --cached --quiet; then
-              git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Generate and verify bilingual site audit improvements'
+              git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Save bilingual audit candidate for review; QA remains independently reported'
               git push origin HEAD:site-audit-20260914
             fi
           fi
