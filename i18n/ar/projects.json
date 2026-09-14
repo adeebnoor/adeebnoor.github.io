@@ -149,18 +149,10 @@
       "Home": "الرئيسية",
       "Evidence": "الأدلة",
       "GitHub": "GitHub",
-      "RIDI · PREREGISTERED RAG · SCIFACT 275": "RIDI · توليد معزز بالاسترجاع (RAG) مسجل مسبقاً · SCIFACT 275",
-      "Identical audits can yield different AI decisions.": "قد تؤدي عمليات تدقيق متطابقة إلى قرارات مختلفة للذكاء الاصطناعي.",
-      "17.27% of benchmark-defined RAG decisions flip": "تتغير 17.27% من قرارات RAG وفق تعريف المعيار المرجعي",
-      "at the preregistered primary condition, even when the registered retrieval audit is held exactly fixed.": "عند الشرط الأساسي المسجل مسبقاً، حتى مع إبقاء تدقيق الاسترجاع المسجل ثابتاً تماماً.",
-      "Run the decisive case": "شغّل الحالة الحاسمة",
-      "Same positive passage. Same rank. Same retrieval metrics.": "المقطع الإيجابي نفسه. والترتيب نفسه. ومقاييس الاسترجاع نفسها.",
       "Run demo": "تشغيل العرض",
       "Claim 275": "الادعاء 275",
       "Combining phosphatidylinositide 3-kinase and MEK 1/2 inhibitors is effective at treating KRAS mutant tumors.": "الجمع بين مثبطات فوسفاتيديل إينوزيتيد 3-كيناز ومثبطات MEK 1/2 فعّال في علاج الأورام ذات طفرات KRAS.",
-      "AUDIT SIGNATURE: IDENTICAL": "بصمة التدقيق: متطابقة",
       "Context A · reference": "السياق A · المرجعي",
-      "Context B · identity substitution": "السياق B · استبدال الهوية",
       "precision@10": "الدقة@10",
       "recall@10": "الاستدعاء@10",
       "Context A verdict": "حكم السياق A",
@@ -169,15 +161,29 @@
       "REFUTES": "يدحض",
       "Press": "اضغط",
       "RIDI · Adeeb Noor · King Abdulaziz University · Research software and evidence.": "RIDI · أديب نور · جامعة الملك عبدالعزيز · برمجيات بحثية وأدلة.",
-      "to reveal the decisions.": "لعرض القرارات."
+      "to reveal the decisions.": "لعرض القرارات.",
+      "Interactive RIDI selection-identity replay and RAG evidence example.": "إعادة عرض تفاعلية لهوية الاختيار في RIDI ومثال من أدلة RAG.",
+      "RIDI · SELECTION IDENTITY · PREREGISTERED RAG": "RIDI · هوية الاختيار · RAG مسجل مسبقًا",
+      "Same retrieval evaluation. Different evidence. Different answer.": "تقييم الاسترجاع نفسه. أدلة مختلفة. إجابة مختلفة.",
+      "In the preregistered experiment,": "في التجربة المسجلة مسبقًا،",
+      "answer correctness changed in 17.27% of primary comparisons": "تغيّرت صحة الإجابة في 17.27% من المقارنات الأساسية",
+      "(equal-weight mean across four datasets) while the full assessed relevance-by-rank pattern and five retrieval metrics were held fixed.": "(متوسط متساوي الأوزان عبر أربع مجموعات بيانات)، مع تثبيت نمط درجات الصلة بحسب الرتبة ومقاييس الاسترجاع الخمسة بالكامل.",
+      "Replay one registered example": "أعد تشغيل مثال مسجل",
+      "Same relevant passage. Same rank. Same relevance pattern. Same five metrics.": "المقطع ذو الصلة نفسه، والرتبة نفسها، ونمط الصلة نفسه، والمقاييس الخمسة نفسها.",
+      "RETRIEVAL EVALUATION: IDENTICAL": "تقييم الاسترجاع: متطابق",
+      "Context B · random zero-grade replacement": "السياق B · استبدال عشوائي لمقاطع بدرجة صلة صفرية",
+      "RIDI is the audit toolkit.": "RIDI هو إطار وأداة التدقيق.",
+      "Selection identity is the object being measured; the identity–utility frontier computes the minimum turnover compatible with an explicit utility budget.": "هوية الاختيار هي الكمية التي نقيسها؛ وتحسب جبهة الهوية–المنفعة الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة.",
+      "See the broader research program →": "اطّلع على البرنامج البحثي الأوسع ←",
+      "RIDI · Selection identity auditing · Adeeb Noor · King Abdulaziz University.": "RIDI · تدقيق هوية الاختيار · أديب نور · جامعة الملك عبدالعزيز."
     },
     "attrs": {
-      "Interactive RIDI SciFact 275 replay.": "إعادة عرض تفاعلية لحالة SciFact 275 في RIDI."
+      "Interactive RIDI selection-identity replay and RAG evidence example.": "إعادة عرض تفاعلية لهوية الاختيار في RIDI ومثال من أدلة RAG."
     },
     "replacements": [
       {
-        "old": ".innerHTML='<strong>Same audit. Different allocation. Different decision.</strong>'",
-        "new": ".innerHTML='<strong>التدقيق نفسه. توزيع مختلف. قرار مختلف.</strong>'"
+        "old": ".innerHTML='<strong>Same retrieval evaluation. Different selected evidence. Different model output.</strong>'",
+        "new": ".innerHTML='<strong>تقييم الاسترجاع نفسه. أدلة مختارة مختلفة. مخرج مختلف للنموذج.</strong>'"
       },
       {
         "old": "this.textContent='Replay complete'",
