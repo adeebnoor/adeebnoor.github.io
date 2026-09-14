@@ -42,5 +42,10 @@ with zipfile.ZipFile(io.BytesIO(raw)) as archive:
   content=archive.read(name)
   if hashlib.sha256(content).hexdigest()!=digest:raise RuntimeError('Invalid member checksum')
   dest=ROOT/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(content)
+# Measured contrast repairs on the light legacy content canvas, not dark heroes.
+css=ROOT/'audit.css'
+css.write_text(css.read_text()+'\n/* WCAG AA: small legacy text on ivory and white content surfaces. */\n.content .kicker{color:#6b5c46}.content .venture-body .mini{color:#805c1e}\n')
+qa=ROOT/'scripts/qa_audit.mjs'
+qa.write_text(qa.read_text().replace("headers:{'Access-Control-Allow-Origin':base},body:JSON.stringify({items:","headers:{'Access-Control-Allow-Origin':base,'Access-Control-Allow-Headers':'authorization,apikey,content-type,x-analytics-key','Access-Control-Allow-Methods':'GET,POST,PATCH,DELETE,OPTIONS'},body:JSON.stringify({items:"))
 subprocess.run([sys.executable,str(ROOT/'scripts/record_essay_dates.py')],cwd=ROOT,check=True)
-print('Applied verified readable public-site sources.')
+print('Applied verified readable public-site sources and measured contrast repairs.')
