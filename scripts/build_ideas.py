@@ -8,6 +8,7 @@ from html import escape
 import json
 import re
 from localize_site import finish
+from essay_dates import date_badge
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT/'data/ideas-content.json').read_text())
@@ -42,7 +43,7 @@ def page(path, title, description, body, lang):
     canonical = ORIGIN + url('/'+path.removesuffix('index.html') if path.endswith('index.html') else '/'+path,lang)
     footer = '<footer class="ideas-footer"><div class="ideas-wrap"><span>© 2026 '+label+'</span><nav aria-label="'+('روابط ختامية' if lang=='ar' else 'Footer')+'">'+''.join([
         link('/ideas/','الأفكار' if lang=='ar' else 'Ideas',lang,''),
-        link('/impact.html','القيادة والأثر' if lang=='ar' else 'Executive',lang,''),
+        link('/impact.html','القيادة والأثر' if lang=='ar' else 'Leadership',lang,''),
         link('/contact.html',IDENTITY['contact_label'][lang],lang,'')])+'</nav></div></footer>'
     html = '<!doctype html><html lang="'+lang+'"'+(' dir="rtl"' if lang=='ar' else '')+'><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
     html += f'<title>{escape(title)} — {label}</title><meta name="description" content="{escape(description,quote=True)}"><meta property="og:type" content="website"><meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:url" content="{canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/ideas.css?v=20260913-ideas1"></head><body>{body}{footer}</body></html>'
@@ -57,7 +58,7 @@ def page(path, title, description, body, lang):
 def cards(lang):
     rows = []
     for article in DATA['articles']:
-        rows.append('<article class="idea-card"><div class="idea-meta">'+t(article['theme'],lang)+'</div><h3>'+link(article['path'],article['title'][lang],lang,'')+'</h3><p>'+t(article['standfirst'],lang)+'</p>'+link(article['path'],'اقرأ المقال ←' if lang=='ar' else 'Read the essay →',lang)+'</article>')
+        rows.append('<article class="idea-card"><div class="idea-meta">'+t(article['theme'],lang)+'</div>'+date_badge(article,lang)+'<h3>'+link(article['path'],article['title'][lang],lang,'')+'</h3><p>'+t(article['standfirst'],lang)+'</p>'+link(article['path'],'اقرأ المقال ←' if lang=='ar' else 'Read the essay →',lang)+'</article>')
     return '<div class="ideas-grid">'+''.join(rows)+'</div>'
 
 
