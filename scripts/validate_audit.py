@@ -53,4 +53,5 @@ for lang in ('en','ar'):
  key=[a for t,a in Doc(private).tags if a.get('id')=='inbox-key'][0];assert 'name' not in key
  assert '/inquiries/' not in (ROOT/'sitemap.xml').read_text()
  assert 'inquiry-privacy' in (ROOT/(prefix+'privacy.html')).read_text()
+import validate_followup
 print('Validated seven paired projects, real opt-in forms, private inbox boundaries, three cases, eight Article schemas and two four-item feeds.')

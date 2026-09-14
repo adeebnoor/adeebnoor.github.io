@@ -101,8 +101,8 @@
     ]
   },
   "cadence": {
-    "en": "I aim to publish one substantial essay every two months. This is an editorial intention from here forward. I will date new essays and explain substantive revisions, so readers can follow how an argument changes.",
-    "ar": "أستهدف نشر مقال متعمّق كل شهرين. وهذه وتيرة تحريرية أطمح إلى الالتزام بها من الآن فصاعدًا. سأؤرّخ المقالات الجديدة وأوضح التعديلات الجوهرية، ليتمكّن القارئ من تتبّع تطوّر الحجة."
+    "en": "Each essay displays its first recorded date on this site, with the date of its current edition shown in the article. First-recorded dates come from the public repository history. I aim to publish one substantial essay every two months and explain substantive revisions.",
+    "ar": "يعرض كل مقال تاريخ أول ظهور مسجّل له على هذا الموقع، ويظهر تاريخ نسخته الحالية داخل المقال. تستند تواريخ أول ظهور إلى سجل المستودع العام. أستهدف نشر مقال متعمّق كل شهرين مع توضيح التعديلات الجوهرية."
   },
   "articles": [
     {

@@ -21,7 +21,7 @@ IDENTITY = json.loads((ROOT/'data/site_identity.json').read_text())
 CONFIG = json.loads((ROOT/'data/analytics-config.json').read_text())
 DATES_FILE = ROOT/'data/essay-dates.json'
 DATES = json.loads(DATES_FILE.read_text()) if DATES_FILE.exists() else {}
-VERSION = '20260914-audit1'
+VERSION = '20260914-audit2'
 BLOCK = re.compile(r'<!-- site-audit:([\w-]+):start -->.*?<!-- site-audit:\1:end -->', re.S)
 
 
@@ -197,7 +197,11 @@ def build():
                 source=re.sub(r'<script type="application/ld\+json">[^<]*"@type"\s*:\s*"Person"[^<]*</script>','',source)
                 source=source.replace('</head>',block('person',json_script(person(lang)))+'</head>')
             if page=='contact.html':
-                source=add_to_main(source,'intake',services(lang)+inquiry_form(lang),True)
+                # Put the real form before the five service cards.
+                source=add_to_main(source,'intake',inquiry_form(lang)+services(lang),True)
+                actions='<div class="hero-actions"><a class="primary" href="#inquiry-form">'+text('Open inquiry form','افتح نموذج التواصل',lang)+'</a><a href="mailto:'+IDENTITY['institutional_email']+'">'+text('Email instead','البريد بديلًا',lang)+'</a></div>'
+                source,count=re.subn(r'(<section class="page-hero">.*?)<div class="hero-actions">.*?</div>',lambda m:m[1]+actions,source,count=1,flags=re.S)
+                if count!=1: raise ValueError('Contact hero action target missing')
                 # Keep mail as an explicit fallback, while qualifying audience CTAs.
                 for old,audience in [('Advisory%20Inquiry','institution'),('Partnership%20Inquiry','company'),('Research%20Collaboration','researcher'),('Student%20Research%20Inquiry','student')]:
                     source=re.sub(r'(<a\b[^>]*href=")mailto:[^"]*'+old+r'[^"]*("[^>]*>)',lambda m:m[1]+'#inquiry-form'+m[2][:-1]+' data-intake-audience="'+audience+'">',source)

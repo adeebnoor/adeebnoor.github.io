@@ -2,12 +2,12 @@ name: Verify live critical portfolio features
 on:
   push:
     branches: [main]
-    paths:
-      - .github/workflows/verify-live-critical.yml
-      - scripts/verify_live_critical.mjs
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: live-critical-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -21,70 +21,13 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright agent-browser
           npx playwright install --with-deps chromium
-      - name: Inspect ordinary public URLs and rendered pages
+      - name: Verify live content, dates, navigation, project parity and intake
         run: |
           mkdir -p live-critical
+          node scripts/verify_live_critical.mjs
           npx agent-browser open https://adeebnoor.github.io/
           npx agent-browser snapshot -i > live-critical/home-snapshot.txt
           npx agent-browser close
-          node --input-type=module <<'JS'
-          import {chromium} from 'playwright';
-          import {readFileSync,writeFileSync} from 'node:fs';
-          import {createHash} from 'node:crypto';
-          const origin='https://adeebnoor.github.io';
-          const browser=await chromium.launch();
-          const evidence={checkedAt:new Date().toISOString(),revision:process.env.GITHUB_SHA,pages:[],errors:[]};
-          const paths=['/','/index.html','/ar/','/ar/index.html','/contact.html','/ar/contact.html','/writing/','/ar/writing/','/ideas/','/ar/ideas/'];
-          try {
-            for(const mode of ['ordinary','fresh']){
-              const context=await browser.newContext({viewport:{width:1440,height:1000},extraHTTPHeaders:{DNT:'1'},serviceWorkers:'block'});
-              await context.addInitScript(()=>Object.defineProperty(navigator,'doNotTrack',{value:'1',configurable:true}));
-              const page=await context.newPage();page.on('pageerror',e=>evidence.errors.push(e.message));
-              for(const path of paths){
-                const requested=origin+path+(mode==='fresh'?'?audit_check='+process.env.GITHUB_SHA:'');
-                const response=await page.goto(requested,{waitUntil:'domcontentloaded',timeout:30000});
-                await page.evaluate(()=>document.fonts.ready);
-                const html=await response.text();
-                const file=(path.endsWith('/')?path+'index.html':path).slice(1);
-                const view=await page.evaluate(()=>({
-                  nav:[...document.querySelectorAll('.site-links a:not(.site-language)')].map(a=>({label:a.textContent.trim(),path:new URL(a.href).pathname})),
-                  gateway:document.querySelector('#work-and-ideas')?.innerText||null,
-                  projects:[...document.querySelectorAll('[data-project]')].map(c=>({id:c.dataset.project,name:c.querySelector('h3')?.textContent,links:[...c.querySelectorAll('.project-actions a')].map(a=>({text:a.textContent.trim(),href:a.getAttribute('href')}))})),
-                  forms:[...document.querySelectorAll('form[data-inquiry-form]')].map(f=>({kind:f.dataset.kind,fields:[...f.querySelectorAll('input,textarea,select')].map(i=>i.name),visible:!!f.getBoundingClientRect().height,top:f.getBoundingClientRect().top})),
-                  times:[...document.querySelectorAll('time')].map(t=>({date:t.dateTime,text:t.textContent})),
-                  oldDatingPromise:document.body.innerText.includes('I will date new essays')||document.body.innerText.includes('سأؤرّخ المقالات الجديدة'),
-                  overflow:document.documentElement.scrollWidth>innerWidth+1,
-                  scripts:[...document.scripts].filter(s=>s.src).map(s=>s.src)
-                }));
-                evidence.pages.push({path,mode,status:response.status(),sameAsRepository:html===readFileSync(file,'utf8'),sha256:createHash('sha256').update(html).digest('hex'),headers:response.headers(),...view});
-                if(mode==='ordinary'){
-                  const name=path.replaceAll('/','_');
-                  writeFileSync('live-critical/'+name+'.html',html);
-                  await page.screenshot({path:'live-critical/'+name+'.png'});
-                  if(view.gateway)await page.locator('#work-and-ideas').screenshot({path:'live-critical/'+name+'-gateway.png'});
-                  if(view.projects.length)await page.locator('#projects').screenshot({path:'live-critical/'+name+'-projects.png'});
-                  if(view.forms.length)await page.locator('form[data-inquiry-form]').first().screenshot({path:'live-critical/'+name+'-form.png'});
-                }
-              }
-              await context.close();
-            }
-            const context=await browser.newContext({viewport:{width:390,height:844},extraHTTPHeaders:{DNT:'1'},serviceWorkers:'block'});
-            const page=await context.newPage();
-            for(const path of ['/','/ar/','/contact.html','/ar/contact.html','/writing/','/ar/writing/']){
-              await page.goto(origin+path,{waitUntil:'domcontentloaded'});
-              await page.locator('.site-mobile summary').click();
-              evidence.pages.push({path,mode:'mobile',nav:await page.locator('.site-mobile nav a').evaluateAll(links=>links.map(a=>({label:a.textContent.trim(),path:new URL(a.href).pathname}))),overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)});
-              await page.screenshot({path:'live-critical/mobile-'+path.replaceAll('/','_')+'.png'});
-            }
-            await context.close();
-            if(evidence.errors.length)throw new Error('Page JavaScript errors');
-            if(evidence.pages.some(p=>p.overflow))throw new Error('Horizontal overflow');
-          } finally {
-            writeFileSync('live-critical/evidence.json',JSON.stringify(evidence,null,2));
-            console.log(JSON.stringify(evidence.pages.map(({path,mode,status,sameAsRepository,nav,gateway,projects,forms,times,oldDatingPromise})=>({path,mode,status,sameAsRepository,nav,gateway:!!gateway,projects:projects?.map(p=>p.id),forms:forms?.map(f=>f.kind),dates:times?.length,oldDatingPromise})),null,2));
-            await browser.close();
-          }
-          JS
       - uses: actions/upload-artifact@v4
         if: always()
         with:
