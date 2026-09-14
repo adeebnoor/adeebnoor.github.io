@@ -34,6 +34,7 @@ const ANCHORS = new Set([
 ]);
 const DESTINATIONS = new Set([
   'https://github.com/adeebnoor',
+  'https://github.com/adeebnoor/ridi',
   'https://github.com/adeebnoor/Miyar',
   'https://github.com/adeebnoor/BioBenchShift',
   'https://github.com/adeebnoor/ANTI-DDI',
