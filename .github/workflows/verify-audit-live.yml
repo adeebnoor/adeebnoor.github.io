@@ -1,0 +1,49 @@
+name: Verify published portfolio
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: live-portfolio-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  published:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for and verify GitHub Pages release
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import concurrent.futures, hashlib, json, os, time, urllib.request
+          base='https://adeebnoor.github.io/'
+          paths=['index.html','ar/index.html','contact.html','ar/contact.html','engagements.html','ar/engagements.html','writing/index.html','ar/writing/index.html','inquiries/index.html','ar/inquiries/index.html','audit.css','contact-form.js','inquiries/inbox.js','feed.xml','ar/feed.xml','sitemap.xml','robots.txt']
+          def check(path):
+              route=path[:-10] if path.endswith('index.html') else path
+              try:
+                  req=urllib.request.Request(base+route+'?release='+os.environ['EXPECTED_SHA'],headers={'Cache-Control':'no-cache','User-Agent':'AdeebNoor-Publication-Verification'})
+                  with urllib.request.urlopen(req,timeout=20) as response: remote=response.read()
+                  expected=Path(path).read_bytes()
+                  return {'path':path,'matches':remote==expected,'sha256':hashlib.sha256(remote).hexdigest()}
+              except Exception as error: return {'path':path,'matches':False,'error':str(error)}
+          results=[]
+          for attempt in range(24):
+              with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: results=list(pool.map(check,paths))
+              if all(item['matches'] for item in results): break
+              print('Awaiting published revision:',[item['path'] for item in results if not item['matches']],flush=True)
+              time.sleep(15)
+          Path('publication-proof.json').write_text(json.dumps({'revision':os.environ['EXPECTED_SHA'],'results':results},indent=2))
+          assert all(item['matches'] for item in results), 'Published files do not match the requested release yet.'
+          print('Verified 17 published pages/assets against the exact repository bytes.')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-proof
+          path: publication-proof.json
+          retention-days: 14

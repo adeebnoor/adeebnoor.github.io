@@ -17,7 +17,8 @@
 .audit-form input,.audit-form select,.audit-form textarea,.audit-owner-input{width:100%;min-width:0;min-height:46px;border:1px solid #7c8587;border-radius:4px;background:#fff;color:#17262d;padding:11px 12px;font:400 17px/1.5 Arial,sans-serif}
 .audit-form textarea{min-height:142px;resize:vertical}.audit-form input[type=email]{direction:ltr;text-align:start}
 .audit-full{grid-column:1/-1}.audit-check{display:flex;gap:12px;align-items:flex-start;font-weight:400}.audit-check input{width:20px;min-height:20px;height:20px;flex:0 0 20px;margin:4px 0 0;accent-color:#775715}
-.audit-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+/* Clip rather than moving off the left edge: safe for both LTR and RTL overflow. */
+.audit-honeypot{position:absolute!important;inset:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important}
 .audit-status{margin:0;min-height:1.5em;overflow-wrap:anywhere}.audit-status[data-state=error]{color:#972d20;background:#fff0ec;padding:14px;border:1px solid #972d20;border-radius:4px}.audit-status[data-state=success]{color:#184b35;background:#eef8f0;padding:14px;border:1px solid #287b50;border-radius:4px}
 .audit-section :focus-visible,.audit-owner-input:focus-visible{outline:3px solid #96712d;outline-offset:3px}.audit-help{font-size:14px!important;color:#4e5c5d!important}
 .audit-footer{background:#0a151a;color:#e7e3d8;padding:24px max(20px,calc((100% - 1160px)/2));font:15px/1.6 Arial,sans-serif}.audit-footer nav{display:flex;flex-wrap:wrap;gap:12px 24px}.audit-footer a{color:#dfc184;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}.audit-footer a:hover{text-decoration:underline}
@@ -25,8 +26,6 @@
 .audit-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.audit-toolbar label{font-weight:600}.audit-toolbar select{min-height:44px;max-width:100%;font:16px Arial;padding:8px;background:#fff;color:#17262d;border:1px solid #879292;border-radius:4px}
 .audit-inbox-list{display:grid;gap:18px}.audit-inbox-card{padding:22px;background:#fff;border:1px solid #ccc;border-radius:6px;color:#17262d;overflow-wrap:anywhere}.audit-inbox-card p{white-space:pre-wrap}.audit-inbox-card h2{font-size:22px}.audit-inbox-card select{min-height:44px;font-size:16px;max-width:100%}
 html[lang=ar] .audit-section,html[lang=ar] .audit-section h2,html[lang=ar] .audit-section h3,html[lang=ar] .audit-section p,html[lang=ar] .audit-section input,html[lang=ar] .audit-section select,html[lang=ar] .audit-section textarea{font-family:Tahoma,Arial,sans-serif;letter-spacing:0}html[lang=ar] .audit-section h2{line-height:1.6}.audit-section [hidden],.audit-wrap [hidden]{display:none!important}
+.content .kicker{color:#6b5c46}.content .venture-body .mini{color:#805c1e}
 @media(max-width:700px){.audit-section{padding:22px 18px;margin:28px 0}.audit-grid,.audit-form{grid-template-columns:1fr}.audit-case dl{grid-template-columns:1fr;gap:6px}.audit-case dd{margin-bottom:16px}.audit-button{width:auto}.audit-tags{gap:10px}.audit-card{padding:18px}}
 @media print{.audit-footer,.audit-form,.audit-toolbar{display:none}.audit-section{break-inside:avoid;background:white;color:black}}
-
-/* WCAG AA: small legacy text on ivory and white content surfaces. */
-.content .kicker{color:#6b5c46}.content .venture-body .mini{color:#805c1e}
