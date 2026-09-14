@@ -303,7 +303,7 @@ print(json.dumps(result))
   const pages = inventory.map(item => item.page);
   let checked = 0;
   for (const item of inventory) {
-    if (/^\/(?:ar\/)?(?:analytics\/|privacy\.html|404\.html|collaborate\.html)/.test(item.page)) continue;
+    if (/^\/(?:ar\/)?(?:analytics\/|inquiries\/|privacy\.html|404\.html|collaborate\.html)/.test(item.page)) continue;
     const env = environment({ url: 'https://adeebnoor.github.io' + item.page, pages, ids: item.ids });
     for (const link of item.links) env.dispatch('click', element('a', link, (link.class || '').split(/\s+/)));
     for (const button of item.buttons) env.dispatch('click', element('button', button, (button.class || '').split(/\s+/)));

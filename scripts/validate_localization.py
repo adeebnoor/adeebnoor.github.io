@@ -63,8 +63,8 @@ for page in PAGES:
             target = urlsplit(urljoin(ORIGIN + '/' + name, href))
             if target.netloc == 'adeebnoor.github.io' and target.path in english_paths:
                 errors.append(f'{name}: Arabic navigation escapes to {href}')
-        if page == 'index.html' and len(document.images) != 6:
-            errors.append(f'{name}: expected six illustrated project cards')
+        if page == 'index.html' and len(document.images) != len(projects):
+            errors.append(f'{name}: expected one illustration per featured project')
         if page == 'index.html':
             image_links = [a for a in document.links if 'project-visual-link' in a.get('class','').split()]
             expected = [p.get('liveUrl',{}).get('ar' if arabic else 'en',('/ar' if arabic else '')+p['url']) for p in projects]
@@ -82,4 +82,4 @@ for image in ('project-miyar','project-iscarb','project-shifaa','miyar-actual','
 
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'Validated {len(PAGES)} page pairs, same-page language switches, Arabic destinations and six illustrated cards.')
+print(f'Validated {len(PAGES)} page pairs, same-page language switches, Arabic destinations and data-driven illustrated cards.')

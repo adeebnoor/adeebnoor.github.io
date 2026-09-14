@@ -25,7 +25,7 @@ class Page(HTMLParser):
                 self.targets.append((tag, attrs[key]))
 
 
-pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html') if '.git' not in p.parts}
+pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html') if not any(x in p.parts for x in ('.git','node_modules','audit-artifacts'))}
 errors = []
 checked = 0
 for path, page in pages.items():

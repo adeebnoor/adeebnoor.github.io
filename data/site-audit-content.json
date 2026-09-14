@@ -1,0 +1,227 @@
+{
+  "revision": "2026-09-14",
+  "github": "https://github.com/adeebnoor",
+  "ways": [
+    {
+      "id": "advisory",
+      "title": {
+        "en": "Strategic advisory",
+        "ar": "الاستشارات الاستراتيجية"
+      },
+      "body": {
+        "en": "AI strategy, decision governance and institutional transformation. A defined advisory project or an ongoing retainer.",
+        "ar": "استراتيجية الذكاء الاصطناعي وحوكمة القرار والتحول المؤسسي، عبر مشروع محدد النطاق أو تعاون استشاري مستمر."
+      }
+    },
+    {
+      "id": "board",
+      "title": {
+        "en": "Boards & expert committees",
+        "ar": "المجالس واللجان المتخصصة"
+      },
+      "body": {
+        "en": "Independent technical and strategic perspective for boards, expert committees and research or innovation governance.",
+        "ar": "رؤية تقنية واستراتيجية مستقلة للمجالس واللجان المتخصصة وحوكمة البحث والابتكار."
+      }
+    },
+    {
+      "id": "speaking",
+      "title": {
+        "en": "Keynotes & workshops",
+        "ar": "المحاضرات وورش العمل"
+      },
+      "body": {
+        "en": "Executive briefings, invited talks and focused workshops in AI, digital health, education and research translation.",
+        "ar": "جلسات للقيادات ومحاضرات وورش عمل في الذكاء الاصطناعي والصحة الرقمية والتعليم وتحويل البحث إلى تطبيق."
+      }
+    },
+    {
+      "id": "research",
+      "title": {
+        "en": "Applied research partnerships",
+        "ar": "الشراكات البحثية التطبيقية"
+      },
+      "body": {
+        "en": "Joint research, independent replication and evaluation, with a clear question, evidence plan and division of responsibilities.",
+        "ar": "بحث مشترك وتحقق مستقل وتقييم، بسؤال واضح وخطة للأدلة وتوزيع محدد للمسؤوليات."
+      }
+    },
+    {
+      "id": "venture",
+      "title": {
+        "en": "Venture & product collaboration",
+        "ar": "التعاون في المشاريع والمنتجات"
+      },
+      "body": {
+        "en": "Research-backed product development, institutional pilots and venture collaboration in HealthTech, EdTech and decision intelligence.",
+        "ar": "تطوير منتجات تستند إلى البحث وتجارب مؤسسية وتعاون في مشاريع الصحة والتعليم وتقنيات دعم القرار."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "national-workforce",
+      "title": {
+        "en": "National workforce planning",
+        "ar": "تخطيط القوى العاملة على المستوى الوطني"
+      },
+      "context": {
+        "en": "Ministry of Education · 2021–2024",
+        "ar": "وزارة التعليم · 2021–2024"
+      },
+      "situation": {
+        "en": "National human-capital and workforce-planning programs spanning 49 education districts and a reported scope of 540,000+ educators.",
+        "ar": "برامج وطنية لرأس المال البشري وتخطيط القوى العاملة شملت 49 إدارة تعليمية وبنطاق مبلّغ عنه يتجاوز 540,000 معلم ومعلمة."
+      },
+      "action": {
+        "en": "Designed and oversaw planning programs and served as the institutional counterpart on commissioned consulting and technology workstreams. The CV records ML-supported workforce analysis.",
+        "ar": "تصميم برامج التخطيط والإشراف عليها، والقيام بدور الممثل المؤسسي في مسارات استشارية وتقنية مكلّفة. ويسجل الملف المهني استخدام تحليل للقوى العاملة مدعوم بالتعلّم الآلي."
+      },
+      "result": {
+        "en": "Approximately SAR 11.3M in first-year savings is reported in the CV. The coverage figure describes program scope, not a measured benefit for every educator.",
+        "ar": "ورد في السيرة تحقيق وفورات تقارب 11.3 مليون ريال في السنة الأولى. ويصف عدد المعلمين نطاق البرنامج، لا منفعة مقاسة لكل معلم ومعلمة."
+      },
+      "caveat": {
+        "en": "Owner-reported career record; an independent financial verification report is not linked. Rounded to match the underlying CV, not presented as an audited exact amount.",
+        "ar": "سجل مهني يورده صاحب السيرة، دون تقرير تحقق مالي مستقل مرفق. قُرّب الرقم بما يطابق السجل الأصلي، ولا يُعرض كمبلغ دقيق مدقّق."
+      },
+      "links": [
+        {
+          "url": "/executive-cv.html#educator-scope",
+          "label": {
+            "en": "Role, scope & source",
+            "ar": "الدور والنطاق والمصدر"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hospital-modernization",
+      "title": {
+        "en": "Hospital digital modernization",
+        "ar": "التحديث الرقمي للمستشفى"
+      },
+      "context": {
+        "en": "King Abdulaziz University Hospital · 2016–2018",
+        "ar": "مستشفى جامعة الملك عبدالعزيز · 2016–2018"
+      },
+      "situation": {
+        "en": "Hospital technology leadership spanning patient access, operational intelligence, infrastructure and mission-critical services.",
+        "ar": "قيادة تقنية المستشفى عبر وصول المرضى إلى الخدمات والمعلومات التشغيلية والبنية التحتية والخدمات الحيوية."
+      },
+      "action": {
+        "en": "Directed a multidisciplinary technology team of up to 70 staff, with approximately SAR 18.8M in operating-budget responsibility. The CV records conceiving SHIFAA and developing the Live Emergency Department Dashboard.",
+        "ar": "إدارة فريق تقني متعدد التخصصات وصل إلى 70 موظفًا، ومسؤولية عن ميزانية تشغيلية تقارب 18.8 مليون ريال. ويسجل الملف المهني تأسيس فكرة شفاء وتطوير لوحة المعلومات الحية لقسم الطوارئ."
+      },
+      "result": {
+        "en": "Patient-facing digital services and emergency-department operational intelligence are recorded outputs. SHIFAA has a public institutional service page; no clinical-effectiveness claim is made here.",
+        "ar": "المخرجات المسجلة تشمل خدمات رقمية للمرضى ومعلومات تشغيلية لقسم الطوارئ. ولشفاء صفحة خدمة مؤسسية عامة؛ ولا يُدّعى هنا إثبات أثر سريري."
+      },
+      "caveat": {
+        "en": "The CV supports the role and reported operating scale. The institutional service link demonstrates the platform, not independent verification of individual attribution or patient outcomes.",
+        "ar": "تدعم السيرة وصف الدور والنطاق التشغيلي المبلّغ عنه. ويعرض الرابط المؤسسي المنصة، لكنه لا يشكّل تحققًا مستقلًا من الإسهام الفردي أو نتائج المرضى."
+      },
+      "links": [
+        {
+          "url": "/executive-cv.html",
+          "label": {
+            "en": "Executive record",
+            "ar": "السجل التنفيذي"
+          }
+        },
+        {
+          "url": "https://shifaa.kau.edu.sa/default-en.aspx",
+          "arUrl": "https://shifaa.kau.edu.sa/Default-ar.aspx",
+          "label": {
+            "en": "SHIFAA institutional service",
+            "ar": "خدمة شفاء المؤسسية"
+          }
+        }
+      ]
+    },
+    {
+      "id": "genomefit-translation",
+      "title": {
+        "en": "GenomeFit: research into a venture",
+        "ar": "GenomeFit: من البحث إلى مشروع"
+      },
+      "context": {
+        "en": "KAUST innovation ecosystem · 2017 feature",
+        "ar": "منظومة الابتكار في كاوست · مادة منشورة عام 2017"
+      },
+      "situation": {
+        "en": "Personalized-medicine research exploring genomic screening and drug-response decisions.",
+        "ar": "بحث في الطب الشخصي يستكشف الفحص الجينومي والقرارات المتعلقة بالاستجابة للأدوية."
+      },
+      "action": {
+        "en": "Co-founded GenomeFit and worked on translating computational research into usable decision support within the KAUST innovation ecosystem.",
+        "ar": "المشاركة في تأسيس GenomeFit والعمل على تحويل البحث الحاسوبي إلى أدوات قابلة للاستخدام لدعم القرار ضمن منظومة الابتكار في كاوست."
+      },
+      "result": {
+        "en": "A venture pathway and a public KAUST feature on the analytical tool. This is evidence of research translation, not a claim of clinical validation, current revenue or investment returns.",
+        "ar": "مسار لتطوير مشروع ومادة عامة من كاوست عن الأداة التحليلية. هذا مثال على تحويل البحث إلى تطبيق، وليس ادعاءً بتحقق سريري أو إيرادات حالية أو عوائد استثمارية."
+      },
+      "caveat": {
+        "en": "The linked institutional feature provides third-party context; the site distinguishes the historical venture record from current commercial performance.",
+        "ar": "توفّر المادة المؤسسية المرتبطة سياقًا من طرف آخر، مع الفصل بين السجل التاريخي للمشروع وأدائه التجاري الحالي."
+      },
+      "links": [
+        {
+          "url": "https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor",
+          "label": {
+            "en": "Read the KAUST feature",
+            "ar": "اقرأ مادة كاوست"
+          }
+        },
+        {
+          "url": "/ventures.html#genomefit",
+          "label": {
+            "en": "Venture background",
+            "ar": "خلفية المشروع"
+          }
+        }
+      ]
+    }
+  ],
+  "partners": [
+    "KPMG",
+    "BCG",
+    "EY",
+    "PwC",
+    "Devoteam"
+  ],
+  "repositories": [
+    {
+      "name": "MIYAR",
+      "url": "https://github.com/adeebnoor/Miyar",
+      "body": {
+        "en": "Workforce architecture and position management.",
+        "ar": "بنية القوى العاملة وإدارة المناصب."
+      }
+    },
+    {
+      "name": "BioBenchShift",
+      "url": "https://github.com/adeebnoor/BioBenchShift",
+      "body": {
+        "en": "Biomedical benchmark research and reproducibility resources.",
+        "ar": "بحث في المعايير المرجعية الطبية الحيوية وموارد إعادة الإنتاج."
+      }
+    },
+    {
+      "name": "ANTI-DDI",
+      "url": "https://github.com/adeebnoor/ANTI-DDI",
+      "body": {
+        "en": "Drug-interaction knowledge research.",
+        "ar": "بحث في معرفة التداخلات الدوائية."
+      }
+    },
+    {
+      "name": "CPIT",
+      "url": "https://github.com/adeebnoor/CPIT",
+      "body": {
+        "en": "Course resources and educational systems.",
+        "ar": "موارد المقرر والأنظمة التعليمية."
+      }
+    }
+  ]
+}

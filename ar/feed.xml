@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>أديب نور — المقالات</title>
+    <link>https://adeebnoor.github.io/ar/writing/</link>
+    <description>مقالات عن الذكاء الاصطناعي والمؤسسات والأدلة.</description>
+    <language>ar</language>
+    <atom:link href="https://adeebnoor.github.io/ar/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>درجات متشابهة، قرارات مختلفة: ما الذي قد يفوته تقييم الذكاء الاصطناعي؟</title>
+      <link>https://adeebnoor.github.io/ar/writing/same-scores-different-decisions.html</link>
+      <description>أدافع عن تقييم يتتبّع الدرجة إلى القرار الذي تنتجه، بما في ذلك مَن يحصل على الفرصة عندما تكون السعة محدودة.</description>
+      <guid>https://adeebnoor.github.io/ar/writing/same-scores-different-decisions.html</guid>
+      <pubDate>Sun, 13 Sep 2026 17:47:53 +0300</pubDate>
+    </item>
+    <item>
+      <title>السعة المتاحة خيار مؤسسي</title>
+      <link>https://adeebnoor.github.io/ar/ideas/capacity-is-a-policy-choice.html</link>
+      <description>أعتقد أن عدد الفرص التي يستطيع النظام توزيعها يجب أن يدخل في تفسير قراراته. ولا يستطيع النموذج أن يتحمّل مسؤولية حدّ اختارته المؤسسة.</description>
+      <guid>https://adeebnoor.github.io/ar/ideas/capacity-is-a-policy-choice.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+    <item>
+      <title>عرّف الوظيفة قبل أن تبحث عمّن يشغلها</title>
+      <link>https://adeebnoor.github.io/ar/ideas/define-the-position-before-filling-it.html</link>
+      <description>أعتقد أن المؤسسة تحتاج وصفًا للعمل تستطيع الدفاع عنه قبل أن تطلب من الذكاء الاصطناعي تصنيف الوظيفة، أو اقتراح متطلباتها، أو تقييم المرشّحين لها.</description>
+      <guid>https://adeebnoor.github.io/ar/ideas/define-the-position-before-filling-it.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+    <item>
+      <title>الجاهزية تحتاج إلى دليل</title>
+      <link>https://adeebnoor.github.io/ar/ideas/readiness-needs-evidence.html</link>
+      <description>أريد أن أعرف ما يستطيع الطالب شرحه واختباره والدفاع عنه عندما تتغيّر الظروف. والعمل المصقول الذي يسلّمه لا يمنحني إلا جزءًا من الإجابة.</description>
+      <guid>https://adeebnoor.github.io/ar/ideas/readiness-needs-evidence.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+  </channel>
+</rss>

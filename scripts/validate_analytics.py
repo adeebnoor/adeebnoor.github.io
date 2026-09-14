@@ -7,7 +7,7 @@ from localize_site import PAGES, public_path
 
 ROOT = Path(__file__).resolve().parents[1]
 config = json.loads((ROOT/'data/analytics-config.json').read_text())
-excluded = {'analytics/index.html', 'privacy.html', '404.html', 'collaborate.html'}
+excluded = {'analytics/index.html', 'inquiries/index.html', 'privacy.html', '404.html', 'collaborate.html'}
 routes = {public_path(page, arabic) for page in PAGES if page not in excluded for arabic in (False, True)}
 
 class Document(HTMLParser):
@@ -44,7 +44,7 @@ for page in PAGES:
             assert set(json.loads(tracker['data-pages'])) == routes
             assert ('/ar/privacy.html' if arabic else '/privacy.html') in doc.links
             count += 1
-        if page == 'analytics/index.html':
+        if page in ('analytics/index.html', 'inquiries/index.html'):
             assert 'noindex' in doc.metas.get('robots', '')
             assert doc.metas.get('referrer') == 'no-referrer'
             assert 'portfolio-analytics' not in doc.trackers

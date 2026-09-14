@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Adeeb Noor — Essays</title>
+    <link>https://adeebnoor.github.io/writing/</link>
+    <description>Essays on AI, institutions and evidence.</description>
+    <language>en</language>
+    <atom:link href="https://adeebnoor.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Same Scores, Different Decisions: What AI Evaluation Can Miss</title>
+      <link>https://adeebnoor.github.io/writing/same-scores-different-decisions.html</link>
+      <description>I argue that evaluation should follow a score into the decision it produces, including who receives an opportunity when capacity is limited.</description>
+      <guid>https://adeebnoor.github.io/writing/same-scores-different-decisions.html</guid>
+      <pubDate>Wed, 09 Sep 2026 09:33:14 +0300</pubDate>
+    </item>
+    <item>
+      <title>Capacity Is a Policy Choice</title>
+      <link>https://adeebnoor.github.io/ideas/capacity-is-a-policy-choice.html</link>
+      <description>I believe the number of opportunities a system can allocate belongs in the explanation of its decisions. A model cannot take responsibility for a limit the institution chose.</description>
+      <guid>https://adeebnoor.github.io/ideas/capacity-is-a-policy-choice.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+    <item>
+      <title>Define the Position Before Filling It</title>
+      <link>https://adeebnoor.github.io/ideas/define-the-position-before-filling-it.html</link>
+      <description>I believe institutions need a defensible description of the work before they ask AI to classify a role, recommend a requirement or assess a candidate.</description>
+      <guid>https://adeebnoor.github.io/ideas/define-the-position-before-filling-it.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+    <item>
+      <title>Readiness Needs Evidence</title>
+      <link>https://adeebnoor.github.io/ideas/readiness-needs-evidence.html</link>
+      <description>I want to know what a student can explain, test and defend when the conditions change. A polished submission gives me only part of that answer.</description>
+      <guid>https://adeebnoor.github.io/ideas/readiness-needs-evidence.html</guid>
+      <pubDate>Sun, 13 Sep 2026 19:12:47 +0300</pubDate>
+    </item>
+  </channel>
+</rss>
