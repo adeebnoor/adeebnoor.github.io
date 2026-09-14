@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install deterministic social-card renderer
+        run: python -m pip install 'pillow==11.3.0'
       - name: Update RIDI source positioning
         run: |
           python - <<'PY'
@@ -26,7 +28,6 @@ jobs:
 
           root = Path('.')
 
-          # 1) Featured-project source: this drives the bilingual homepage cards.
           path = root / 'data' / 'featured-projects.json'
           data = json.loads(path.read_text(encoding='utf-8'))
           for p in data:
@@ -51,10 +52,8 @@ jobs:
                   p['osfUrl'] = 'https://osf.io/txwdv/'
           path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-          # 2) CV source: keep the research record aligned without claiming publication/acceptance.
           path = root / 'data' / 'master_cv.json'
           data = json.loads(path.read_text(encoding='utf-8'))
-          old = 'Allocation identity and consequential AI evaluation: how similar aggregate performance can mask different downstream allocations.'
           new = 'Selection identity and the identity–utility frontier: measuring ranking-update turnover and computing the exact minimum change compatible with a declared utility budget.'
           data['research'] = [[name, new if name == 'RIDI' else desc] for name, desc in data.get('research', [])]
           for role in data.get('experience', []):
@@ -66,7 +65,6 @@ jobs:
                   ]
           path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-          # 3) Research page source + Arabic translation dictionary.
           path = root / 'research.html'
           text = path.read_text(encoding='utf-8')
           replacements = {
@@ -95,7 +93,6 @@ jobs:
           trans['Measure what changed, then compute the minimum turnover compatible with an explicit utility budget.'] = 'قِس ما تغيّر، ثم احسب الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة.'
           path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-          # 4) Open-work source: surface the repository next to the other active public resources.
           path = root / 'data' / 'site-audit-content.json'
           data = json.loads(path.read_text(encoding='utf-8'))
           repos = data.get('repositories', [])
@@ -112,7 +109,6 @@ jobs:
           data['revision'] = '2026-09-15'
           path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-          # 5) Keep the existing essay as a dated perspective, but align the RIDI research sentence if present.
           path = root / 'data' / 'ideas-content.json'
           if path.exists():
               obj = json.loads(path.read_text(encoding='utf-8'))
@@ -130,8 +126,7 @@ jobs:
                   if isinstance(x, list): return [walk(v) for v in x]
                   if isinstance(x, dict): return {k:walk(v) for k,v in x.items()}
                   return x
-              obj = walk(obj)
-              path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              path.write_text(json.dumps(walk(obj), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
       - name: Rebuild all generated bilingual pages and validate
         run: |
