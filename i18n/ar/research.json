@@ -83,7 +83,14 @@
       "D3 pharmacovigilance, James H. Martin and Michel Dumontier →": "مشروع D3 للتيقظ الدوائي، وجيمس هـ. مارتن، وميشيل دومونتييه ←",
       "Have a problem where the metric and the decision do not line up?": "هل تواجه مشكلة لا ينسجم فيها المؤشر مع القرار؟",
       "I am open to joint studies, replication, evaluation and applied research partnerships.": "أرحّب بالدراسات المشتركة، وإعادة إنتاج النتائج، والتقييم، وشراكات البحث التطبيقي.",
-      "Collaborate on research →": "لنتعاون بحثيًا ←"
+      "Collaborate on research →": "لنتعاون بحثيًا ←",
+      "RIDI: Selection Identity & the Identity–Utility Frontier": "RIDI: هوية الاختيار وجبهة الهوية–المنفعة",
+      "RIDI measures how much a ranking update changes the selected items and computes the exact minimum turnover compatible with a declared rank-utility budget. A preregistered RAG experiment shows that exactly matched retrieval evaluations can leave selected evidence unresolved.": "يقيس RIDI مقدار تغيّر العناصر المختارة بعد تحديث نظام الترتيب، ويحسب الحد الأدنى الدقيق للتغيّر المتوافق مع ميزانية منفعة معلنة. وتُظهر تجربة RAG مسجلة مسبقًا أن التطابق التام في تقييمات الاسترجاع قد يترك هوية الأدلة المختارة غير محددة.",
+      "How much selection change did the update require — and how much was avoidable?": "كم من تغيّر الاختيار كان التحديث يتطلبه فعلاً، وكم منه كان قابلًا للتجنب؟",
+      "ranking updates, allocation identity, the identity–utility frontier and consequential evaluation.": "تحديثات أنظمة الترتيب، وهوية التخصيص، وجبهة الهوية–المنفعة، والتقييم المرتبط بالعواقب.",
+      "exact turnover budgeting, reproducible audit tooling and outcome-checked update governance.": "ميزنة دقيقة لدوران الاختيارات، وأدوات تدقيق قابلة لإعادة الإنتاج، وحوكمة للتحديثات تُراجع مقابل النتائج.",
+      "Selection identity & utility": "هوية الاختيار والمنفعة",
+      "Measure what changed, then compute the minimum turnover compatible with an explicit utility budget.": "قِس ما تغيّر، ثم احسب الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة."
     },
     "attrs": {
       "Adeeb Noor — research in decision intelligence, biomedical AI, digital health, education and institutional systems.": "أديب نور — أبحاث في ذكاء القرار، والذكاء الاصطناعي الطبي الحيوي، والصحة الرقمية، والتعليم، والأنظمة المؤسسية.",

@@ -16,12 +16,30 @@
   },
   "summary": "Executive leader, professor, researcher and builder with 18+ years across Saudi government, higher education and healthcare. Work spans AI strategy and governance, national workforce intelligence, research-and-innovation operating models, digital health, commercialization and institutional transformation. The recurring pattern is to translate evidence into systems, policies, platforms and operating models that can function at institutional or national scale.",
   "metrics": [
-    ["540,000+ Educators", "National human-capital and workforce programs"],
-    ["1,000,000+ Users", "Digital platforms at scale"],
-    ["~SAR 190M", "Program portfolios shaped or overseen"],
-    ["~SAR 18.8M", "Hospital technology operating-budget responsibility"],
-    ["~SAR 11.3M", "Reported year-one savings through workforce analysis"],
-    ["5 Platforms", "Research and operational needs translated into systems and ventures"]
+    [
+      "540,000+ Educators",
+      "National human-capital and workforce programs"
+    ],
+    [
+      "1,000,000+ Users",
+      "Digital platforms at scale"
+    ],
+    [
+      "~SAR 190M",
+      "Program portfolios shaped or overseen"
+    ],
+    [
+      "~SAR 18.8M",
+      "Hospital technology operating-budget responsibility"
+    ],
+    [
+      "~SAR 11.3M",
+      "Reported year-one savings through workforce analysis"
+    ],
+    [
+      "5 Platforms",
+      "Research and operational needs translated into systems and ventures"
+    ]
   ],
   "competencies": [
     "AI & Decision Governance",
@@ -40,7 +58,10 @@
       "date": "Jan 2025–Present",
       "title": "Chief Strategy Advisor — Office of the VP for Research & Innovation",
       "org": "King Abdulaziz University, Jeddah, Saudi Arabia",
-      "audiences": ["master", "executive"],
+      "audiences": [
+        "master",
+        "executive"
+      ],
       "bullets": [
         "Leads research-and-innovation strategy, governance, commercialization, industry integration and institutional redesign.",
         "Developed partnership and operating-model concepts spanning industry liaison, living-lab commercialization and research-to-market pathways.",
@@ -51,7 +72,11 @@
       "date": "Dec 2024–Present",
       "title": "Founder & Lead Architect — IMAM GenAI Ecosystem",
       "org": "Independent Venture",
-      "audiences": ["master", "executive", "academic"],
+      "audiences": [
+        "master",
+        "executive",
+        "academic"
+      ],
       "bullets": [
         "Built a Saudi GenAI learning ecosystem connecting local identity, AI-native curriculum design and workforce readiness.",
         "Pilot and commercialization metrics are separated from realized institutional outcomes and labeled accordingly."
@@ -61,17 +86,24 @@
       "date": "Jan 2024–Present",
       "title": "Full Professor — Department of Information Technology",
       "org": "Faculty of Computing & Information Technology, King Abdulaziz University",
-      "audiences": ["master", "executive", "academic"],
+      "audiences": [
+        "master",
+        "executive",
+        "academic"
+      ],
       "bullets": [
         "Research and teaching across AI, decision intelligence, biomedical informatics, digital health, software engineering and AI-enabled education.",
-        "Develops research programs spanning allocation identity, drug-interaction knowledge, neuro-symbolic AI and curriculum systems."
+        "Develops research programs spanning ranking-update governance and allocation identity, drug-interaction knowledge, neuro-symbolic AI and curriculum systems."
       ]
     },
     {
       "date": "Nov 2021–Nov 2024",
       "title": "Senior Executive Advisor — National Human Capability Development",
       "org": "Ministry of Education, Office of the Minister, Riyadh, Saudi Arabia",
-      "audiences": ["master", "executive"],
+      "audiences": [
+        "master",
+        "executive"
+      ],
       "bullets": [
         "Designed and oversaw national human-capital and workforce-planning programs for 540,000+ educators across 49 districts.",
         "Served as the institutional lead/counterpart on commissioned workstreams delivered with major consulting and technology partners including KPMG, BCG, EY, PwC and Devoteam.",
@@ -82,7 +114,10 @@
       "date": "Feb 2021–Oct 2021",
       "title": "Executive Director of Advisory & AI Strategy / Head of Advisory Service",
       "org": "Islamic University of Madinah, Madinah, Saudi Arabia",
-      "audiences": ["master", "executive"],
+      "audiences": [
+        "master",
+        "executive"
+      ],
       "bullets": [
         "Established an AI R&D center and built its research value proposition, digital strategy and operating model.",
         "Designed an IP-licensing model around Arabic and Islamic data assets and responsible AI."
@@ -92,7 +127,10 @@
       "date": "Nov 2019–Jan 2021",
       "title": "Senior National Advisor — Data Strategy / Data Science Expert",
       "org": "Ministry of Education, Scholastic Affairs, Riyadh, Saudi Arabia",
-      "audiences": ["master", "executive"],
+      "audiences": [
+        "master",
+        "executive"
+      ],
       "bullets": [
         "Led data-governance, classification, predictive-analytics and workforce decision-support initiatives for national policy.",
         "Developed an education-profession classification approach for large-scale supply-and-demand forecasting."
@@ -102,14 +140,23 @@
       "date": "2020–2024",
       "title": "Associate Professor — Faculty of Computing & Information Technology",
       "org": "King Abdulaziz University",
-      "audiences": ["master", "academic"],
-      "bullets": ["Research and graduate supervision in AI, bioinformatics, healthcare technology and predictive analytics."]
+      "audiences": [
+        "master",
+        "academic"
+      ],
+      "bullets": [
+        "Research and graduate supervision in AI, bioinformatics, healthcare technology and predictive analytics."
+      ]
     },
     {
       "date": "2016–2026",
       "title": "Visiting Professor (former) — Computational Bioscience Research Center",
       "org": "King Abdullah University of Science and Technology (KAUST), Thuwal, Saudi Arabia",
-      "audiences": ["master", "academic", "executive"],
+      "audiences": [
+        "master",
+        "academic",
+        "executive"
+      ],
       "bullets": [
         "Collaborative R&D in bioinformatics and personalized medicine, with translational research and venture-validation activity through the KAUST ecosystem."
       ]
@@ -118,7 +165,10 @@
       "date": "Mar 2016–Mar 2018",
       "title": "IT Director & Digital Modernization Lead",
       "org": "King Abdulaziz University Hospital, Jeddah, Saudi Arabia",
-      "audiences": ["master", "executive"],
+      "audiences": [
+        "master",
+        "executive"
+      ],
       "bullets": [
         "Directed a multidisciplinary technology organization of up to 70 staff and an operating budget of approximately SAR 18.8M.",
         "Led patient-platform, operational-intelligence, enterprise digitization, infrastructure, security and quality initiatives.",
@@ -129,22 +179,37 @@
       "date": "2016–2020",
       "title": "Assistant Professor — Faculty of Computing & Information Technology",
       "org": "King Abdulaziz University",
-      "audiences": ["master", "academic"],
-      "bullets": ["Conducted AI and bioinformatics research and developed healthcare-IT and software-engineering initiatives."]
+      "audiences": [
+        "master",
+        "academic"
+      ],
+      "bullets": [
+        "Conducted AI and bioinformatics research and developed healthcare-IT and software-engineering initiatives."
+      ]
     },
     {
       "date": "2016–2018",
       "title": "Entrepreneur — Innovation Center",
       "org": "KAUST, Thuwal, Saudi Arabia",
-      "audiences": ["master", "executive"],
-      "bullets": ["Led entrepreneurial initiatives in AI-enabled healthcare and personalized medicine, including GenomeFit."]
+      "audiences": [
+        "master",
+        "executive"
+      ],
+      "bullets": [
+        "Led entrepreneurial initiatives in AI-enabled healthcare and personalized medicine, including GenomeFit."
+      ]
     },
     {
       "date": "2006–2008",
       "title": "Head of Systems Department",
       "org": "King Abdulaziz University — E-Learning Center, Jeddah, Saudi Arabia",
-      "audiences": ["master", "executive"],
-      "bullets": ["Managed enterprise systems, network infrastructure and 24/7 technical operations supporting university services."]
+      "audiences": [
+        "master",
+        "executive"
+      ],
+      "bullets": [
+        "Managed enterprise systems, network infrastructure and 24/7 technical operations supporting university services."
+      ]
     }
   ],
   "governance": [
@@ -153,11 +218,26 @@
     "Service across KAU research-and-innovation strategy, visiting-professorship, distinguished-scientist and industrial research partnership work."
   ],
   "ventures": [
-    ["IMAM GenAI", "Founder; Saudi GenAI learning ecosystem with pilot and commercialization pathway."],
-    ["GenomeFit", "Co-founder; personalized-medicine venture validated in the KAUST/TAQADAM ecosystem."],
-    ["SHIFAA", "Patient-facing digital platform created within hospital modernization."],
-    ["HEALTHx", "AI-enabled clinical innovation platform for digital-health IP, APIs, models and services."],
-    ["LEDD", "Live emergency-department operational intelligence platform."]
+    [
+      "IMAM GenAI",
+      "Founder; Saudi GenAI learning ecosystem with pilot and commercialization pathway."
+    ],
+    [
+      "GenomeFit",
+      "Co-founder; personalized-medicine venture validated in the KAUST/TAQADAM ecosystem."
+    ],
+    [
+      "SHIFAA",
+      "Patient-facing digital platform created within hospital modernization."
+    ],
+    [
+      "HEALTHx",
+      "AI-enabled clinical innovation platform for digital-health IP, APIs, models and services."
+    ],
+    [
+      "LEDD",
+      "Live emergency-department operational intelligence platform."
+    ]
   ],
   "initiatives": [
     "Output-Based Academic Supervision Model — designed to shift measurement from input hours toward outputs and impact.",
@@ -166,16 +246,46 @@
     "KAU Industry Liaison Office — institutional pipeline concept for patents, industry partnerships and research translation."
   ],
   "research": [
-    ["RIDI", "Allocation identity and consequential AI evaluation: how similar aggregate performance can mask different downstream allocations."],
-    ["D3 / Anti-DDI", "Drug-drug interaction inference, pharmacovigilance and biomedical knowledge completeness."],
-    ["D4", "Neuro-symbolic AI for drug-interaction prediction."],
-    ["GenomeFit", "Personalized medicine, genetic screening and drug-response decision support."],
-    ["CIMT / IMAM / iSCARB", "AI-enabled curriculum design, readiness, evidence and instructional systems."]
+    [
+      "RIDI",
+      "Selection identity and the identity–utility frontier: measuring ranking-update turnover and computing the exact minimum change compatible with a declared utility budget."
+    ],
+    [
+      "D3 / Anti-DDI",
+      "Drug-drug interaction inference, pharmacovigilance and biomedical knowledge completeness."
+    ],
+    [
+      "D4",
+      "Neuro-symbolic AI for drug-interaction prediction."
+    ],
+    [
+      "GenomeFit",
+      "Personalized medicine, genetic screening and drug-response decision support."
+    ],
+    [
+      "CIMT / IMAM / iSCARB",
+      "AI-enabled curriculum design, readiness, evidence and instructional systems."
+    ]
   ],
   "education": [
-    ["2015", "PhD, Computer Science (Bioinformatics)", "University of Colorado Boulder, Colorado, USA", "Dissertation: The D3 Pharmacovigilance System: Characterization of Drug-Drug Interactions by Statistical Inference Based on Big Data Mining and Semantic Web Technologies."],
-    ["2010", "MS, Computer Science", "University of Colorado Boulder, Colorado, USA", "Graduate research on software-engineering practices in bioinformatics software."],
-    ["2006", "BS, Information Technology", "Taibah University, Madinah, Saudi Arabia", ""]
+    [
+      "2015",
+      "PhD, Computer Science (Bioinformatics)",
+      "University of Colorado Boulder, Colorado, USA",
+      "Dissertation: The D3 Pharmacovigilance System: Characterization of Drug-Drug Interactions by Statistical Inference Based on Big Data Mining and Semantic Web Technologies."
+    ],
+    [
+      "2010",
+      "MS, Computer Science",
+      "University of Colorado Boulder, Colorado, USA",
+      "Graduate research on software-engineering practices in bioinformatics software."
+    ],
+    [
+      "2006",
+      "BS, Information Technology",
+      "Taibah University, Madinah, Saudi Arabia",
+      ""
+    ]
   ],
   "awards": [
     "KAUST TAQADAM venture support — precision-medicine venture (2016).",
@@ -194,5 +304,8 @@
     "40+ peer-reviewed publications across artificial intelligence, data science, bioinformatics, healthcare technology and education innovation, as represented in the CV record.",
     "Current citation count and h-index are intentionally kept dynamic; Google Scholar is the authoritative live source."
   ],
-  "languages": ["Arabic — Native", "English — Fluent"]
+  "languages": [
+    "Arabic — Native",
+    "English — Fluent"
+  ]
 }

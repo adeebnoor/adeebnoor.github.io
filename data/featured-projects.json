@@ -40,23 +40,25 @@
     "url": "/demo/",
     "en": {
       "name": "RIDI",
-      "stage": "Research & interactive demo",
-      "domain": "Decision intelligence",
-      "description": "Investigating what aggregate metrics can hide when AI rankings become decisions about people and opportunities.",
+      "stage": "Research & open-source audit toolkit",
+      "domain": "Ranking update governance",
+      "description": "Measure how much a ranking update changes the selected items, then compute the exact minimum turnover compatible with a declared utility budget.",
       "cta": "Explore RIDI",
-      "alt": "Illustration of two systems allocating outcomes differently",
-      "ideaCta": "The idea behind RIDI"
+      "alt": "RIDI: measuring selection change and the identity–utility frontier",
+      "ideaCta": "Why selection change needs a budget"
     },
     "ar": {
       "name": "RIDI",
-      "stage": "بحث ونموذج تفاعلي",
-      "domain": "ذكاء القرار",
-      "description": "بحث في ما تخفيه المقاييس الإجمالية عندما تتحول ترتيبات الذكاء الاصطناعي إلى قرارات تمس الأشخاص والفرص.",
+      "stage": "بحث وأداة تدقيق مفتوحة المصدر",
+      "domain": "حوكمة تحديث أنظمة الترتيب",
+      "description": "قياس مقدار تغيّر العناصر المختارة بعد تحديث نظام الترتيب، ثم حساب الحد الأدنى الدقيق للتغيّر المتوافق مع ميزانية منفعة معلنة.",
       "cta": "استكشف RIDI",
-      "alt": "رسم يوضح اختلاف توزيع النتائج بين نظامين",
-      "ideaCta": "الفكرة التي يختبرها RIDI"
+      "alt": "RIDI: قياس تغيّر الاختيار وجبهة الهوية–المنفعة",
+      "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية"
     },
-    "ideaUrl": "/ideas/position.html#beyond-the-average"
+    "ideaUrl": "/ideas/position.html#beyond-the-average",
+    "repoUrl": "https://github.com/adeebnoor/ridi",
+    "osfUrl": "https://osf.io/txwdv/"
   },
   {
     "id": "imam",

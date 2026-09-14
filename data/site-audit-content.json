@@ -1,5 +1,5 @@
 {
-  "revision": "2026-09-14",
+  "revision": "2026-09-15",
   "github": "https://github.com/adeebnoor",
   "ways": [
     {
@@ -191,6 +191,14 @@
     "Devoteam"
   ],
   "repositories": [
+    {
+      "name": "RIDI",
+      "url": "https://github.com/adeebnoor/ridi",
+      "body": {
+        "en": "Selection-change auditing and the exact identity–utility frontier for ranking updates.",
+        "ar": "تدقيق تغيّر الاختيارات وجبهة الهوية–المنفعة الدقيقة لتحديثات أنظمة الترتيب."
+      }
+    },
     {
       "name": "MIYAR",
       "url": "https://github.com/adeebnoor/Miyar",
