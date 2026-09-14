@@ -4,7 +4,7 @@
 .audit-section h3{font-size:20px;line-height:1.45;margin:0 0 10px;color:#17262d}
 .audit-section p{font-size:17px;line-height:1.65;color:#33474d;margin:10px 0 16px}
 .audit-section a{color:#775715;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
-.audit-kicker{font:700 12px/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#775715;margin:0 0 12px}
+.audit-kicker{font:700 12px/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#775715;margin:0 0 12px}.ideas-hero>.audit-kicker{color:#dfc184}
 .audit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;min-width:0}
 .audit-card{background:#fff;border:1px solid #ded6c7;border-radius:6px;padding:22px;min-width:0}
 .audit-note,.audit-section .audit-note{font-size:14px;line-height:1.65;color:#4e5c5d;max-width:78ch}
@@ -17,7 +17,6 @@
 .audit-form input,.audit-form select,.audit-form textarea,.audit-owner-input{width:100%;min-width:0;min-height:46px;border:1px solid #7c8587;border-radius:4px;background:#fff;color:#17262d;padding:11px 12px;font:400 17px/1.5 Arial,sans-serif}
 .audit-form textarea{min-height:142px;resize:vertical}.audit-form input[type=email]{direction:ltr;text-align:start}
 .audit-full{grid-column:1/-1}.audit-check{display:flex;gap:12px;align-items:flex-start;font-weight:400}.audit-check input{width:20px;min-height:20px;height:20px;flex:0 0 20px;margin:4px 0 0;accent-color:#775715}
-/* Clip rather than moving off the left edge: safe for both LTR and RTL overflow. */
 .audit-honeypot{position:absolute!important;inset:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important}
 .audit-status{margin:0;min-height:1.5em;overflow-wrap:anywhere}.audit-status[data-state=error]{color:#972d20;background:#fff0ec;padding:14px;border:1px solid #972d20;border-radius:4px}.audit-status[data-state=success]{color:#184b35;background:#eef8f0;padding:14px;border:1px solid #287b50;border-radius:4px}
 .audit-section :focus-visible,.audit-owner-input:focus-visible{outline:3px solid #96712d;outline-offset:3px}.audit-help{font-size:14px!important;color:#4e5c5d!important}

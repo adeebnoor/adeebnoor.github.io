@@ -21,10 +21,9 @@ try {
    results.push({path,width,overflow,diagnostics,accessibility:accessibility.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,failureSummary:n.failureSummary}))}))});
    await page.screenshot({path:`${out}/${width}-${path.replaceAll('/','_')}.png`,fullPage:true});
   }
-  if(width===390){await page.goto(base+'/ar/');await page.locator('details.site-mobile summary').click();assert.equal(await page.locator('details.site-mobile').getAttribute('open'),'');assert.equal(await page.locator('details.site-mobile .site-language').getAttribute('href'),'/');}
+  if(width===390){await page.goto(base+'/ar/');await page.locator('details.site-mobile summary').click();assert.equal(await page.locator('details.site-mobile').getAttribute('open'),'');const href=await page.locator('details.site-mobile .site-language').getAttribute('href');assert.equal(new URL(href,base).pathname,'/');}
   await context.close();
  }
- // Gather all page diagnostics before failing, so one repair pass can fix every issue.
  const failed=results.filter(r=>r.overflow||r.accessibility.some(v=>['serious','critical'].includes(v.impact)));
  assert.equal(failed.length,0,JSON.stringify(failed));
  const context=await browser.newContext({viewport:{width:390,height:844}});
@@ -33,7 +32,7 @@ try {
  await context.route('**/functions/v1/portfolio-inquiries',async route=>{
   const req=route.request();if(req.method()==='OPTIONS')return route.fulfill({status:200,headers:cors});
   posts.push(JSON.parse(req.postData()||'{}'));
-  return route.fulfill({status:delivery,contentType:'application/json',headers:cors,body:delivery===200?' {"ok":true}':'{"error":"unavailable"}'});
+  return route.fulfill({status:delivery,contentType:'application/json',headers:cors,body:delivery===200?'{"ok":true}':'{"error":"unavailable"}'});
  });
  await page.goto(base+'/contact.html?audience=company&engagement=advisory#inquiry-form');
  assert.equal(await page.locator('#inquiry-audience').inputValue(),'company');assert.equal(await page.locator('#inquiry-engagement').inputValue(),'advisory');
