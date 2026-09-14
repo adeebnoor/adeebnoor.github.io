@@ -1,0 +1,71 @@
+name: Site audit implementation and verification
+on:
+  push:
+    branches: [site-audit-20260914]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: site-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install audit tooling
+        run: python -m pip install beautifulsoup4 pillow
+      - name: Apply audit improvements if present
+        run: |
+          if [ -f scripts/apply_site_audit.py ]; then
+            python scripts/apply_site_audit.py
+            python scripts/build_site.py
+            python scripts/validate_site.py
+            python scripts/validate_localization.py
+            python scripts/validate_identity.py
+            python scripts/validate_ideas.py
+            python scripts/validate_analytics.py
+            node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs
+            python scripts/validate_audit.py
+          fi
+      - name: Browser QA if present
+        run: |
+          if [ -f scripts/qa_audit.mjs ]; then
+            npm install --no-save --package-lock=false playwright @axe-core/playwright agent-browser
+            npx playwright install --with-deps chromium
+            python -m http.server 8000 >/tmp/audit-server.log 2>&1 &
+            npx agent-browser open http://127.0.0.1:8000
+            npx agent-browser snapshot -i
+            node scripts/qa_audit.mjs
+            npx agent-browser close
+          fi
+      - name: Commit verified generated pages
+        run: |
+          if [ -f scripts/apply_site_audit.py ]; then
+            git add -- '*.html' '*.css' '*.js' '*.json' '*.xml' '*.txt' '*.svg' '*.png' '*.webp' '*.py' '*.md' '*.mjs'
+            git reset -- node_modules 2>/dev/null || true
+            git reset -- audit-artifacts 2>/dev/null || true
+            if ! git diff --cached --quiet; then
+              git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Generate and verify bilingual site audit improvements'
+              git push origin HEAD:site-audit-20260914
+            fi
+          fi
+      - name: Package audit snapshot
+        if: always()
+        run: |
+          mkdir -p /tmp/site-audit
+          tar --exclude=.git --exclude=node_modules --exclude=audit-artifacts -czf /tmp/site-audit/site-source.tar.gz .
+          git log -1 --format='%H %s' > /tmp/site-audit/revision.txt
+          if [ -d audit-artifacts ]; then cp -r audit-artifacts /tmp/site-audit/; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-audit-snapshot
+          path: /tmp/site-audit/
+          retention-days: 7
