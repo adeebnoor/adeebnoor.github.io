@@ -44,10 +44,10 @@ jobs:
               s=s.replace(a,b,1)
           p.write_text(s,encoding='utf-8')
 
-          # Translation dictionary used to regenerate the Arabic page.
           p = Path('i18n/ar/projects.json')
           data = json.loads(p.read_text(encoding='utf-8'))
-          block = data.get('demo/index.html',{}).get('text',{})
+          page = data['demo/index.html']
+          block = page['text']
           mapping = {
             'Interactive RIDI selection-identity replay and RAG evidence example.':'إعادة عرض تفاعلية لهوية الاختيار في RIDI ومثال من أدلة RAG.',
             'RIDI · SELECTION IDENTITY · PREREGISTERED RAG':'RIDI · هوية الاختيار · RAG مسجل مسبقًا',
@@ -57,16 +57,21 @@ jobs:
             'Same relevant passage. Same rank. Same relevance pattern. Same five metrics.':'المقطع ذو الصلة نفسه، والرتبة نفسها، ونمط الصلة نفسه، والمقاييس الخمسة نفسها.',
             'RETRIEVAL EVALUATION: IDENTICAL':'تقييم الاسترجاع: متطابق',
             'Context B · random zero-grade replacement':'السياق B · استبدال عشوائي لمقاطع بدرجة صلة صفرية',
-            'Same retrieval evaluation. Different selected evidence. Different model output.':'تقييم الاسترجاع نفسه. أدلة مختارة مختلفة. مخرج مختلف للنموذج.',
             'RIDI is the audit toolkit.':'RIDI هو إطار وأداة التدقيق.',
             'Selection identity is the object being measured; the identity–utility frontier computes the minimum turnover compatible with an explicit utility budget.':'هوية الاختيار هي الكمية التي نقيسها؛ وتحسب جبهة الهوية–المنفعة الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة.',
             'See the broader research program →':'اطّلع على البرنامج البحثي الأوسع ←',
             'RIDI · Selection identity auditing · Adeeb Noor · King Abdulaziz University.':'RIDI · تدقيق هوية الاختيار · أديب نور · جامعة الملك عبدالعزيز.'
           }
           block.update(mapping)
-          # Remove obsolete keys so they cannot be reused accidentally.
           for old in ['AUDIT SIGNATURE: IDENTICAL','Context B · identity substitution','Same positive passage. Same rank. Same retrieval metrics.','Run the decisive case','Identical audits can yield different AI decisions.','RIDI · PREREGISTERED RAG · SCIFACT 275']:
               block.pop(old,None)
+          attrs=page.setdefault('attrs',{})
+          attrs.pop('Interactive RIDI SciFact 275 replay.',None)
+          attrs['Interactive RIDI selection-identity replay and RAG evidence example.']='إعادة عرض تفاعلية لهوية الاختيار في RIDI ومثال من أدلة RAG.'
+          for item in page.get('replacements',[]):
+              if item.get('old')==".innerHTML='<strong>Same audit. Different allocation. Different decision.</strong>'":
+                  item['old']=".innerHTML='<strong>Same retrieval evaluation. Different selected evidence. Different model output.</strong>'"
+                  item['new']=".innerHTML='<strong>تقييم الاسترجاع نفسه. أدلة مختارة مختلفة. مخرج مختلف للنموذج.</strong>'"
           p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
       - name: Rebuild and validate bilingual site
