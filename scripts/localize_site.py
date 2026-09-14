@@ -20,7 +20,7 @@ PAGES = ['index.html','about.html','impact.html','research.html','publications.h
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
 IDEAS_FILE = ROOT/'data/ideas-content.json'
 IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
-MANAGED_PAGES = ['ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
+MANAGED_PAGES = ['engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
 PAGES = list(dict.fromkeys(PAGES + MANAGED_PAGES))
 TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
@@ -183,10 +183,10 @@ def finish(source, page, arabic):
     if arabic:
         extras += f'<link rel="stylesheet" href="/arabic.css?v={VERSION}">'
     config_path = ROOT/'data/analytics-config.json'
-    if config_path.exists() and page not in ('analytics/index.html','privacy.html','404.html','collaborate.html'):
+    if config_path.exists() and page not in ('analytics/index.html','inquiries/index.html','privacy.html','404.html','collaborate.html'):
         config = json.loads(config_path.read_text())
         if config.get('enabled'):
-            routes = [public_path(p,lang) for p in PAGES if p not in ('analytics/index.html','privacy.html','404.html','collaborate.html') for lang in (False,True)]
+            routes = [public_path(p,lang) for p in PAGES if p not in ('analytics/index.html','inquiries/index.html','privacy.html','404.html','collaborate.html') for lang in (False,True)]
             extras += '<script id="portfolio-analytics" defer src="/analytics.js?v=20260913-1" data-endpoint="'+html.escape(config['endpoint'],quote=True)+'" data-key="'+html.escape(config['publicAnonKey'],quote=True)+'" data-pages="'+html.escape(json.dumps(routes,separators=(',',':')),quote=True)+'"></script>'
     source = source.replace('</head>', extras + '</head>')
     if page != 'collaborate.html':
@@ -221,7 +221,7 @@ def finish(source, page, arabic):
         source = source.replace('</head>', '<style>svg text{direction:rtl;unicode-bidi:plaintext}svg text:not([text-anchor]){text-anchor:middle}.hero-svg g[font-size="16"] text{font-size:14px}.hero-svg g[font-size="12"] text{font-size:11px}.hero h1{line-height:1.35;letter-spacing:0}</style></head>')
     if page == 'demo/index.html' and arabic:
         source = source.replace('</head>', '<style>.hero h1{line-height:1.4;letter-spacing:0}.slots,.metrics{direction:ltr}.same{font-size:16px} .decision strong{font-size:28px}</style></head>')
-    if page not in ('collaborate.html','analytics/index.html'):
+    if page not in ('collaborate.html','analytics/index.html','inquiries/index.html'):
         privacy_path = '/ar/privacy.html' if arabic else '/privacy.html'
         privacy_label = 'الخصوصية وإعدادات الإحصاءات' if arabic else 'Privacy & analytics preferences'
         source = source.replace('</body>', '<!-- site-privacy:start --><div class="site-privacy"><a href="'+privacy_path+'">'+privacy_label+'</a></div><!-- site-privacy:end --></body>')
@@ -267,7 +267,7 @@ def build():
     # Publish both language variants to crawlers.
     entries = []
     for page in PAGES:
-        if page in ('404.html','collaborate.html','analytics/index.html'):
+        if page in ('404.html','collaborate.html','analytics/index.html','inquiries/index.html'):
             continue
         for arabic in (False,True):
             links=''.join(f'<xhtml:link rel="alternate" hreflang="{lang}" href="{ORIGIN.rstrip("/")+public_path(page,ar)}"/>' for lang,ar in [('en',False),('ar',True)])

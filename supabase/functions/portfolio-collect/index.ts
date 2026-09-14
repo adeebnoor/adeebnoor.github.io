@@ -8,7 +8,7 @@ const TYPES = new Set(['page_view', 'link_click', 'project_click', 'outbound_cli
 // Explicit routes prevent arbitrary visitor-provided text from entering reports.
 // Keep this inventory aligned when adding a public page or downloadable asset.
 const BASE_PAGES = [
-  '/', '/about.html', '/impact.html', '/research.html', '/publications.html',
+  '/', '/engagements.html', '/about.html', '/impact.html', '/research.html', '/publications.html',
   '/ventures.html', '/teaching.html', '/contact.html', '/academic-cv.html',
   '/executive-cv.html', '/master-cv.html', '/phd.html', '/speaking.html',
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
@@ -21,16 +21,23 @@ const PAGES = new Set(BASE_PAGES.flatMap((p) => [p, '/ar' + p]));
 // visits on those pages. This also keeps privacy preferences outside analytics.
 const TARGET_PAGES = new Set([
   ...PAGES, '/privacy.html', '/ar/privacy.html', '/404.html', '/ar/404.html',
-  '/collaborate.html', '/ar/collaborate.html',
+  '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml',
 ]);
 const ANCHORS = new Set([
   'content', 'main-content', 'projects', 'research', 'investors', 'organizations',
   'researchers', 'students', 'iscarb', 'philosophy', 'educator-scope', 'experience-basis',
   'platform-reach', 'evidence', 'beyond-the-average', 'imam', 'ridi', 'genomefit',
   'miyar', 'shifaa', 'healthx', 'leadership', 'metric-sources', 'work-and-ideas',
+  'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
+  'national-workforce', 'hospital-modernization', 'genomefit-translation',
   'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence',
 ]);
 const DESTINATIONS = new Set([
+  'https://github.com/adeebnoor',
+  'https://github.com/adeebnoor/Miyar',
+  'https://github.com/adeebnoor/BioBenchShift',
+  'https://github.com/adeebnoor/ANTI-DDI',
+  'https://github.com/adeebnoor/CPIT',
   'https://adeebnoor.github.io/CPIT/',
   'https://adeebnoor.github.io/CPIT/iscarb.html',
   'https://adeebnoor.github.io/Miyar/',

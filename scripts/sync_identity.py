@@ -20,7 +20,7 @@ def read_identity():
 
 def strip_generated(source):
     """Remove only this generator's complete, delimited blocks."""
-    return GENERATED.sub('', source)
+    return GENERATED.sub('', re.sub(r'<!-- site-audit:([\w-]+):start -->.*?<!-- site-audit:\1:end -->', '', source, flags=re.S))
 
 
 def block(name, content):

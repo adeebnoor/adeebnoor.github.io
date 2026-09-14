@@ -59,6 +59,27 @@
     "ideaUrl": "/ideas/position.html#beyond-the-average"
   },
   {
+    "id": "imam",
+    "url": "/ventures.html#imam",
+    "viewBox": "830 623 244 146",
+    "en": {
+      "name": "IMAM GenAI",
+      "stage": "Founder & lead architect · Development",
+      "domain": "Saudi AI-enabled learning",
+      "description": "A Saudi GenAI learning ecosystem connecting local identity, curriculum design and workforce readiness. In development, with a pilot and commercialization pathway.",
+      "cta": "Explore IMAM",
+      "alt": "Concept illustration of software systems supporting AI-enabled learning"
+    },
+    "ar": {
+      "name": "IMAM GenAI",
+      "stage": "مؤسس ومعماري رئيسي · قيد التطوير",
+      "domain": "التعلّم السعودي المدعوم بالذكاء الاصطناعي",
+      "description": "منظومة تعلّم سعودية بالذكاء الاصطناعي التوليدي تربط الهوية المحلية وتصميم المناهج والجاهزية للعمل. قيد التطوير بمسار للتجريب والتطوير التجاري.",
+      "cta": "استكشف IMAM",
+      "alt": "رسم تصوّري لأنظمة برمجية تدعم التعلّم بالذكاء الاصطناعي"
+    }
+  },
+  {
     "id": "shifaa",
     "name": "SHIFAA",
     "image": "https://shifaa.kau.edu.sa/assets/images/shifaaServices.png",
