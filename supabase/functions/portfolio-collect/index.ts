@@ -16,7 +16,7 @@ const BASE_PAGES = [
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
   '/ideas/readiness-needs-evidence.html',
 ];
-const PAGES = new Set(BASE_PAGES.flatMap((p) => [p, '/ar' + p]));
+const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']);
 // Informational/error/redirect pages may be link destinations without collecting
 // visits on those pages. This also keeps privacy preferences outside analytics.
 const TARGET_PAGES = new Set([
