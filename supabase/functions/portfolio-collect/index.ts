@@ -5,12 +5,11 @@ const SITE = 'adeebnoor.github.io';
 const MAX_BYTES = 16 * 1024;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const TYPES = new Set(['page_view', 'link_click', 'project_click', 'outbound_click', 'contact_click', 'language_switch', 'download_click', 'cv_print_request', 'demo_run']);
-// Explicit routes prevent arbitrary visitor-provided text from entering reports.
-// Keep this inventory aligned when adding a public page or downloadable asset.
 const BASE_PAGES = [
   '/', '/engagements.html', '/about.html', '/impact.html', '/research.html', '/publications.html',
   '/ventures.html', '/teaching.html', '/contact.html', '/academic-cv.html',
   '/executive-cv.html', '/master-cv.html', '/phd.html', '/speaking.html',
+  '/funders.html', '/students.html', '/academic.html', '/press.html',
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
   '/demo/', '/ideas/', '/ideas/position.html',
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
