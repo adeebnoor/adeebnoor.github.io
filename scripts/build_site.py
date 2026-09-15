@@ -9,7 +9,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Keep the thought-leadership layer last: all generated EN/AR pages are verified from this final state.
+# Keep the thought-leadership and language guards last: all generated EN/AR pages
+# are verified from this final state.
 for script in ('localize_site.py', 'build_featured_projects.py',
-               'build_homepage_positioning.py', 'build_ideas.py', 'build_analytics.py', 'sync_identity.py', 'build_social_cards.py', 'build_audit.py', 'build_thought_leadership.py'):
+               'build_homepage_positioning.py', 'build_ideas.py', 'build_analytics.py', 'sync_identity.py', 'build_social_cards.py', 'build_audit.py', 'build_thought_leadership.py', 'finalize_public_identity.py'):
     subprocess.run([sys.executable, str(ROOT/'scripts'/script)], cwd=ROOT, check=True)
