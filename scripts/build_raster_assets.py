@@ -7,18 +7,21 @@ receive a regular image asset from GitHub Pages.
 """
 from pathlib import Path
 import base64
-import re
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'assets' / 'sultan-strategy-logo.svg'
 TARGET = ROOT / 'assets' / 'sultan-strategy-logo.webp'
 
 source = SOURCE.read_text(encoding='utf-8')
-match = re.search(r'href="data:image/webp;base64,([A-Za-z0-9+/=\s]+)"', source, re.S)
-if not match:
+marker = 'data:image/webp;base64,'
+start = source.find(marker)
+if start < 0:
     raise ValueError('SULTAN SVG does not contain the expected embedded WebP data URI')
-
-payload = ''.join(match.group(1).split())
+start += len(marker)
+end = source.find('"', start)
+if end < 0:
+    raise ValueError('SULTAN embedded WebP data URI is not terminated')
+payload = ''.join(source[start:end].split())
 data = base64.b64decode(payload, validate=True)
 if not (data.startswith(b'RIFF') and data[8:12] == b'WEBP'):
     raise ValueError('Decoded SULTAN asset is not a valid WebP container')
