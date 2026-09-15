@@ -21,7 +21,10 @@ for lang in ('en','ar'):
  assert len(re.findall('data-project=',home))==7 and 'data-project="imam"' in home
  assert home.count('id="work-and-ideas"')==1
  for page in ('index.html','about.html'):
-  docs=Doc((ROOT/(prefix+page)).read_text());people=[s for s in docs.scripts if s.get('@type')=='Person']
+  docs=Doc((ROOT/(prefix+page)).read_text());people=[]
+  for s in docs.scripts:
+   if s.get('@type')=='Person': people.append(s)
+   elif s.get('@type')=='ProfilePage' and isinstance(s.get('mainEntity'),dict) and s['mainEntity'].get('@type')=='Person': people.append(s['mainEntity'])
   assert len(people)==1 and 'https://github.com/adeebnoor' in people[0]['sameAs']
  for page in ('contact.html','writing/index.html'):
   source=(ROOT/(prefix+page)).read_text();doc=Doc(source)
