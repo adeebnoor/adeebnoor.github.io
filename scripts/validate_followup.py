@@ -27,8 +27,8 @@ for lang in ('en','ar'):
         assert 'I will date new essays' not in source and 'سأؤرّخ المقالات الجديدة' not in source
     home=(ROOT/(prefix+'index.html')).read_text()
     assert home.count('id="work-and-ideas"')==1
-    assert len(re.findall('data-project=',home))==len(PROJECTS)==7
-    assert 'data-project="imam"' in home
+    assert len(re.findall('data-project=',home))==len(PROJECTS)
+    assert 'data-project="imam"' in home and 'data-project="sultan"' in home
     for item in PROJECTS:
         if item.get('reviewUrl'): assert 'href="'+item['reviewUrl']+'"' in home
         if item.get('ideaUrl'): assert 'href="'+('/ar' if lang=='ar' else '')+item['ideaUrl']+'"' in home
@@ -36,4 +36,4 @@ for lang in ('en','ar'):
     assert contact.index('id="inquiry-form"') < contact.index('id="engagement-options"')
     assert re.search(r'<div class="hero-actions"><a class="primary" href="#inquiry-form">',contact)
     assert contact.count('data-inquiry-form')==1
-print('Follow-up passed: 16 dated archive cards; two matched gateways, seven-project grids and form-first Contact pages.')
+print(f'Follow-up passed: 16 dated archive cards; two matched gateways, {len(PROJECTS)}-project grids and form-first Contact pages.')
