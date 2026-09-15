@@ -18,7 +18,7 @@ ideas=json.loads((ROOT/'data/ideas-content.json').read_text())
 for lang in ('en','ar'):
  prefix='ar/' if lang=='ar' else ''
  home=(ROOT/(prefix+'index.html')).read_text()
- assert len(re.findall('data-project=',home))==7 and 'data-project="imam"' in home
+ assert len(re.findall('data-project=',home))==8 and 'data-project="imam"' in home and 'data-project="sultan"' in home
  assert home.count('id="work-and-ideas"')==1
  for page in ('index.html','about.html'):
   docs=Doc((ROOT/(prefix+page)).read_text());people=[]
@@ -57,4 +57,4 @@ for lang in ('en','ar'):
  assert '/inquiries/' not in (ROOT/'sitemap.xml').read_text()
  assert 'inquiry-privacy' in (ROOT/(prefix+'privacy.html')).read_text()
 import validate_followup
-print('Validated seven paired projects, real opt-in forms, private inbox boundaries, three cases, eight Article schemas and two four-item feeds.')
+print('Validated eight paired projects, real opt-in forms, private inbox boundaries, three cases, eight Article schemas and two four-item feeds.')
