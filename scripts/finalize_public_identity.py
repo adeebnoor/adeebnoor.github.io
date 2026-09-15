@@ -16,6 +16,7 @@ ROLE_VARIANTS = (
     'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز',
 )
 
+# This last pass is intentionally language-aware because EN source strings can survive localization.
 for path in ROOT.rglob('*.html'):
     if any(part in {'.git', 'node_modules', 'audit-artifacts'} for part in path.parts):
         continue
