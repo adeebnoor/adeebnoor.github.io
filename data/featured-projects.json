@@ -36,6 +36,7 @@
   {
     "id": "sultan",
     "name": "SULTAN",
+    "image": "/assets/sultan-strategy-logo.svg",
     "viewBox": "310 60 242 146",
     "url": "/SulTaN/",
     "hideSecondary": true,
@@ -45,7 +46,7 @@
       "domain": "Strategy architecture & decision governance",
       "description": "Build or improve strategy by connecting institutional identity and ambition to explicit choices, authority, annual transitions, initiatives, funding context and a reviewable strategy.",
       "cta": "Explore SULTAN",
-      "alt": "SULTAN bilingual strategy-building workspace",
+      "alt": "SULTAN Strategy blue and gold horse-and-arrow logo",
       "liveCta": "Open SULTAN"
     },
     "ar": {
@@ -54,9 +55,12 @@
       "domain": "هندسة الاستراتيجية وحوكمة القرار",
       "description": "ابنِ استراتيجية جديدة أو حسّن القائمة عبر ربط هوية الجهة وطموحها بالخيارات الصريحة والصلاحيات والتحولات السنوية والمبادرات وسياق التمويل واستراتيجية قابلة للمراجعة.",
       "cta": "استكشف سلطان",
-      "alt": "مساحة سلطان الثنائية اللغة لبناء الاستراتيجية",
+      "alt": "شعار سلطان للاستراتيجية بالأزرق والذهبي مع الحصان والسهم",
       "liveCta": "افتح سلطان"
     },
+    "actualImage": true,
+    "imageWidth": 1254,
+    "imageHeight": 741,
     "liveUrl": {
       "en": "https://sultan-strategy-beta.onrender.com",
       "ar": "https://sultan-strategy-beta.onrender.com"
