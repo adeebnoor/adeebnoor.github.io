@@ -9,49 +9,91 @@ permissions:
   contents: write
 concurrency:
   group: sultan-site-sync
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VERSION: '0.7.2'
+      SOURCE_COMMIT: '71105469ecad78ace8473aa222ff5323868e32a8'
+      EXPECTED_HASH: '9cc0e27ee78391ff3baccbf0fc6b2b6082485ed3954804c406bfa5916b062ece'
     steps:
       - uses: actions/checkout@v4
-      - name: Download the tested SULTAN release
+      - name: Retrieve and verify the tested release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p SulTaN
-          curl -L --fail --retry 3 --retry-delay 2 \
-            https://github.com/adeebnoor/SulTaN/releases/download/v0.7.0/SULTAN_Beta_AR_EN.html \
-            -o SulTaN/index.html
-      - name: Verify the downloaded artifact
-        run: |
+          mkdir -p /tmp/sultan-release
+          gh api repos/adeebnoor/SulTaN/releases/tags/v${VERSION} > /tmp/sultan-release/release.json
+          gh release download v${VERSION} --repo adeebnoor/SulTaN --dir /tmp/sultan-release --pattern 'SULTAN_Beta_AR_EN.html' --pattern 'manifest.json' --pattern 'review-browser-results.json' --pattern 'model-hardening-results.json'
           python3 - <<'PY'
           from pathlib import Path
-          p=Path('SulTaN/index.html')
-          text=p.read_text(encoding='utf-8')
-          assert len(text)>200_000
-          assert 'SultanPortal' in text
-          assert 'Authority Space' in text
-          assert '0.7' in text
-          print('Verified tested SULTAN v0.7 artifact:', len(text), 'characters')
+          import json,hashlib,os
+          r=Path('/tmp/sultan-release')
+          release=json.loads((r/'release.json').read_text())
+          manifest=json.loads((r/'manifest.json').read_text())
+          assert release['target_commitish']==os.environ['SOURCE_COMMIT']
+          assert manifest['version']==os.environ['VERSION']
+          digest=hashlib.sha256((r/'SULTAN_Beta_AR_EN.html').read_bytes()).hexdigest()
+          assert digest==manifest['sha256']==os.environ['EXPECTED_HASH']
+          browser=json.loads((r/'review-browser-results.json').read_text())
+          assert browser['mode']=='full-browser' and browser['tests']>0 and browser['tests']==browser['passed']
+          model=json.loads((r/'model-hardening-results.json').read_text())
+          assert model['tests']>0 and model['tests']==model['passed']
+          target=Path('SulTaN');target.mkdir(exist_ok=True)
+          (target/'index.html').write_bytes((r/'SULTAN_Beta_AR_EN.html').read_bytes())
+          (target/'release.json').write_text(json.dumps({'product':'SULTAN','version':os.environ['VERSION'],'sourceRepository':'adeebnoor/SulTaN','sourceCommit':os.environ['SOURCE_COMMIT'],'sha256':digest,'release':release['html_url']},indent=2)+'\n')
+          print('Verified release identity, all browser/model checks and exact HTML digest:',digest)
           PY
-      - name: Record source version
-        run: |
-          cat > SulTaN/release.json <<'EOF'
-          {
-            "product": "SULTAN",
-            "version": "0.7.0",
-            "sourceRepository": "adeebnoor/SulTaN",
-            "sourceCommit": "d5c4b73d9dc313e2c33ef06729a6dec581349f15",
-            "release": "https://github.com/adeebnoor/SulTaN/releases/tag/v0.7.0"
-          }
-          EOF
-      - name: Commit only when the published artifact changed
+      - name: Publish only the verified SULTAN files
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add SulTaN/index.html SulTaN/release.json
-          if git diff --cached --quiet; then
-            echo 'SULTAN site artifact already current.'
-          else
-            git commit -m 'site: publish tested SULTAN v0.7.0'
-            git push
+          if ! git diff --cached --quiet; then
+            git commit -m "site: publish tested SULTAN v${VERSION}"
+            git push origin HEAD:main
           fi
+      - uses: actions/checkout@v4
+        with:
+          repository: adeebnoor/SulTaN
+          ref: ${{ env.SOURCE_COMMIT }}
+          path: .sultan-verify
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare live browser verification
+        run: |
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Confirm the public URL serves the exact tested artifact
+        run: |
+          python3 - <<'PY'
+          import os,time,hashlib,urllib.request
+          url='https://adeebnoor.github.io/SulTaN/'
+          for attempt in range(30):
+              try:
+                  req=urllib.request.Request(url+'?verify='+os.environ['VERSION'],headers={'Cache-Control':'no-cache'})
+                  with urllib.request.urlopen(req,timeout=30) as response:
+                      assert response.status==200
+                      assert hashlib.sha256(response.read()).hexdigest()==os.environ['EXPECTED_HASH']
+                  print('Verified exact live HTML at',url)
+                  break
+              except Exception as exc:
+                  if attempt==29:raise
+                  print('Public artifact is not current yet:',str(exc))
+                  time.sleep(10)
+          PY
+      - name: Exercise the public website in Arabic and English
+        env:
+          SULTAN_BASE_URL: https://adeebnoor.github.io/SulTaN/
+        run: python .sultan-verify/tests/hardening_browser.py
+      - name: Preserve live verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sultan-0.7.2-live-verification
+          path: .sultan-verify/qa/
+          retention-days: 30
