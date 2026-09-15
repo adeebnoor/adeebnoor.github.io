@@ -41,6 +41,7 @@ const DESTINATIONS = new Set([
   'https://adeebnoor.github.io/CPIT/',
   'https://adeebnoor.github.io/CPIT/iscarb.html',
   'https://adeebnoor.github.io/Miyar/',
+  'https://sultan-strategy-beta.onrender.com/',
   'https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor',
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
   'https://cemse.kaust.edu.sa/profiles/adeeb-noor',
