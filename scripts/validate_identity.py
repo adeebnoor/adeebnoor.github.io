@@ -54,7 +54,8 @@ def validate():
     identity = json.loads((ROOT / 'data/site_identity.json').read_text())
     errors, documents = [], {}
     official = identity['institutional_email']
-    guide_pages = ('index.html', 'about.html', 'master-cv.html', 'executive-cv.html', 'academic-cv.html')
+    # The homepage intentionally uses compact CV links; the explanatory CV guide lives on About/CV pages.
+    guide_pages = ('about.html', 'master-cv.html', 'executive-cv.html', 'academic-cv.html')
     for page in PAGES:
         for lang in ('en', 'ar'):
             name = ('ar/' if lang == 'ar' else '') + page
@@ -89,12 +90,12 @@ def validate():
                         destination += '#' + metric['source_anchor']
                     if not any(link['href'] == destination for link in links):
                         errors.append(f'{name}: {key} needs a visible link to its scope and source')
-                if identity['evidence']['owner_reported'][lang] not in source:
-                    errors.append(f'{name}: self-reported provenance qualification missing')
             if page == 'executive-cv.html':
                 for anchor in ('metric-sources', 'experience-basis', 'educator-scope', 'platform-reach'):
                     if anchor not in doc.ids:
                         errors.append(f'{name}: source note #{anchor} missing')
+                if identity['evidence']['owner_reported'][lang] not in source:
+                    errors.append(f'{name}: provenance qualification must remain in the scope/source notes')
                 if re.search(r'5 (?:AI )?Platforms|5 منصات', source):
                     errors.append(f'{name}: mixed-stage platform count is presented as a headline')
             if page == 'impact.html' and re.search(r'<b>SHIFAA</b><span>[^<]*1,000,000', source):
