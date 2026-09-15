@@ -25,7 +25,10 @@ for lang, page in [('en','index.html'),('ar','ar/index.html')]:
             if item.get('fallbackImage'):
                 handler='this.onerror=null;this.src='+json.dumps(item['fallbackImage'])+';this.alt='+json.dumps(copy['fallbackAlt'],ensure_ascii=False)+';'
                 fallback=' onerror="'+escape(handler,quote=True)+'"'
-            visual=f'<img class="{image_class}" src="{item["image"]}" alt="{escape(copy["alt"])}" width="{item.get("imageWidth",960)}" height="{item.get("imageHeight",640)}" loading="lazy" decoding="async"{fallback}>'
+            image_src=item['image']
+            if item.get('id')=='sultan' and image_src.endswith('.svg'):
+                image_src=image_src[:-4]+'.webp'
+            visual=f'<img class="{image_class}" src="{image_src}" alt="{escape(copy["alt"])}" width="{item.get("imageWidth",960)}" height="{item.get("imageHeight",640)}" loading="lazy" decoding="async"{fallback}>'
         else:
             visual=f'<svg class="project-image" preserveAspectRatio="xMidYMid slice" viewBox="{item["viewBox"]}" role="img" aria-label="{escape(copy["alt"])}"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg>'
         visual=f'<a class="project-visual-link" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{visual}<span class="project-open" aria-hidden="true">{"↗" if external else "←" if arabic else "→"}</span></a>'
