@@ -1,7 +1,8 @@
 {
   "product": "SULTAN",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "sourceRepository": "adeebnoor/SulTaN",
-  "sourceCommit": "d5c4b73d9dc313e2c33ef06729a6dec581349f15",
-  "release": "https://github.com/adeebnoor/SulTaN/releases/tag/v0.7.0"
+  "sourceCommit": "71105469ecad78ace8473aa222ff5323868e32a8",
+  "sha256": "9cc0e27ee78391ff3baccbf0fc6b2b6082485ed3954804c406bfa5916b062ece",
+  "release": "https://github.com/adeebnoor/SulTaN/releases/tag/v0.7.2"
 }
