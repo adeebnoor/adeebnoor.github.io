@@ -1,4 +1,8 @@
-"""Attach the existing privacy-aware analytics client to the new audience pages."""
+"""Attach the existing privacy-aware analytics client to the new audience pages.
+
+The route inventory is derived from the canonical tracker, then extended only with
+these bilingual landing pages so the generated build remains deterministic.
+"""
 from pathlib import Path
 import html
 import json
