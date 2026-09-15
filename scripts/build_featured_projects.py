@@ -29,7 +29,9 @@ for lang, page in [('en','index.html'),('ar','ar/index.html')]:
         else:
             visual=f'<svg class="project-image" preserveAspectRatio="xMidYMid slice" viewBox="{item["viewBox"]}" role="img" aria-label="{escape(copy["alt"])}"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg>'
         visual=f'<a class="project-visual-link" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{visual}<span class="project-open" aria-hidden="true">{"↗" if external else "←" if arabic else "→"}</span></a>'
-        secondary=f'<a class="project-context" href="{details_url}">{"دوري وخلفية المشروع" if arabic else "My role & project background"}</a>' if destination else ''
+        secondary=''
+        if destination and not item.get('hideSecondary'):
+            secondary=f'<a class="project-context" href="{details_url}">{"دوري وخلفية المشروع" if arabic else "My role & project background"}</a>'
         if item.get('reviewUrl'):
             secondary=f'<a class="project-context" href="{escape(item["reviewUrl"],quote=True)}">{escape(copy["reviewCta"])}</a>'
         if item.get('ideaUrl'):
