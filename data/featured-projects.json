@@ -34,6 +34,35 @@
     "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create"
   },
   {
+    "id": "sultan",
+    "name": "SULTAN",
+    "viewBox": "310 60 242 146",
+    "url": "/SulTaN/",
+    "hideSecondary": true,
+    "en": {
+      "name": "SULTAN",
+      "stage": "Public beta · Strategy-building workspace",
+      "domain": "Strategy architecture & decision governance",
+      "description": "Build or improve strategy by connecting institutional identity and ambition to explicit choices, authority, annual transitions, initiatives, funding context and a reviewable strategy.",
+      "cta": "Explore SULTAN",
+      "alt": "SULTAN bilingual strategy-building workspace",
+      "liveCta": "Open SULTAN"
+    },
+    "ar": {
+      "name": "سلطان · SULTAN",
+      "stage": "نسخة تجريبية عامة · مساحة عمل لبناء الاستراتيجية",
+      "domain": "هندسة الاستراتيجية وحوكمة القرار",
+      "description": "ابنِ استراتيجية جديدة أو حسّن القائمة عبر ربط هوية الجهة وطموحها بالخيارات الصريحة والصلاحيات والتحولات السنوية والمبادرات وسياق التمويل واستراتيجية قابلة للمراجعة.",
+      "cta": "استكشف سلطان",
+      "alt": "مساحة سلطان الثنائية اللغة لبناء الاستراتيجية",
+      "liveCta": "افتح سلطان"
+    },
+    "liveUrl": {
+      "en": "https://sultan-strategy-beta.onrender.com",
+      "ar": "https://sultan-strategy-beta.onrender.com"
+    }
+  },
+  {
     "id": "ridi",
     "name": "RIDI",
     "viewBox": "50 623 247 146",
