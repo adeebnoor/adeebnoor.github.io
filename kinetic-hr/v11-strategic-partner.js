@@ -37,6 +37,14 @@ const SKILL_MAP=[
   {target:'242309',substitute:'242303',match:.68,days:45,missingAr:'نمذجة العرض والطلب · تخطيط السيناريوهات',missingEn:'supply-demand modelling · scenario planning',noteAr:'خريطة مهارات تجريبية غير رسمية',noteEn:'Illustrative, non-official skills map'}
 ];
 
+if(typeof I18N!=='undefined'){
+  const addCause=(k,arLabel,enLabel)=>{I18N.ar.cause[k]=arLabel;I18N.en.cause[k]=enLabel};
+  addCause('long_term_absence','غياب طويل','long-term absence');
+  addCause('return_from_absence','عودة من غياب','return from absence');
+  addCause('internal_promotion','ترقية داخلية','internal promotion');
+  addCause('role_transformation','تحول وظيفي','role transformation');
+}
+
 const EVENT_LABELS={
   resignation:['استقالة','Resignation'],termination:['إنهاء خدمة','Termination'],retirement:['تقاعد','Retirement'],transfer_out:['نقل خارج','Transfer out'],hire:['توظيف','Hire'],transfer_in:['نقل داخل','Transfer in'],demand_increase:['زيادة طلب','Demand increase'],demand_decrease:['خفض طلب','Demand decrease'],position_created_unfilled:['منصب جديد غير مشغول','Unfilled new position'],position_closed:['إغلاق منصب','Position closed'],long_term_absence:['إجازة/غياب طويل','Long-term absence'],return_from_absence:['عودة من غياب طويل','Return from long absence'],internal_promotion:['ترقية داخلية','Internal promotion'],role_transformation:['تحول وظيفي/فجوة مهارات','Role transformation / skill gap']
 };
@@ -396,6 +404,18 @@ function patchGapBuffer(){
   const card=document.createElement('article');card.className='mini-metric v11-buffer-metric';card.innerHTML=`<span>${L('احتياطي داخلي آمن','Safe internal buffer')}</span><strong>${fmt(safe,1)} FTE</strong><small style="display:block;margin-top:4px;color:#6c8391">${L(`${solvable} فجوات يمكن اختبار حلها بالنقل`,`${solvable} gaps have a testable transfer path`)}</small>`;metrics.appendChild(card);applyTransferFilter();
 }
 
+function patchArabicTechnicalTerms(){
+  if(!ar())return;
+  qa('.rate-unit').forEach(el=>{
+    if(/100\s*FTE-mo/i.test(el.textContent))el.textContent=el.textContent.replace(/\/100\s*FTE-mo/i,'/100 وظيفة مكافئة-شهر');
+  });
+  qa('#executive-metrics .exec-metric strong').forEach(el=>{
+    if(/100\s*FTE-mo/i.test(el.textContent))el.textContent=el.textContent.replace(/\/100\s*FTE-mo/i,'/100 وظيفة مكافئة-شهر');
+  });
+  const legend=q('#pulse-legend');
+  if(legend)legend.innerHTML=legend.innerHTML.replaceAll('FTE-شهر','وظيفة مكافئة-شهر').replaceAll('FTE-month','وظيفة مكافئة-شهر');
+}
+
 function friendlyPeriod(){
   const el=q('#current-period-label');if(!el||typeof getWindows!=='function')return;
   const {current}=getWindows(),monthsAr=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],monthsEn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -410,7 +430,7 @@ function openTour(force=false){
 }
 
 function renderStrategic(){
-  ensureStrategicContext();ensureShell();friendlyPeriod();renderServiceImpact();renderDelivery();patchCriticalCards();patchScenario();renderDataPilot();renderSkillMapPage();patchAuditTools();patchGapBuffer();enhanceBrief();updateSidebarToggle();
+  ensureStrategicContext();ensureShell();friendlyPeriod();patchArabicTechnicalTerms();renderServiceImpact();renderDelivery();patchCriticalCards();patchScenario();renderDataPilot();renderSkillMapPage();patchAuditTools();patchGapBuffer();enhanceBrief();updateSidebarToggle();
 }
 let scheduled=false;
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;renderStrategic()})}
