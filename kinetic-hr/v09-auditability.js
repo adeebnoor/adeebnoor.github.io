@@ -15,6 +15,12 @@ const EXIT_TYPES_V09=new Set(['resignation','termination','retirement','transfer
 const EVENT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out','hire','transfer_in','demand_increase','demand_decrease','position_created_unfilled','position_closed']);
 const NATURE_V09=new Set(['voluntary','involuntary','statutory','internal_mobility']);
 const NATURE_EXPECTED={resignation:'voluntary',termination:'involuntary',retirement:'statutory',transfer_out:'internal_mobility'};
+function funding9(r){
+  const need=requiredFte(r),avail=availableFte(r),gap=Math.max(0,need-avail),raw=Number(r?.funded_fte);
+  if(r?.funded_fte==null||String(r.funded_fte).trim()===''||!Number.isFinite(raw))return{known:false,fundedGap:null,unfundedGap:null,status:'unknown'};
+  const fundedNeed=Math.max(0,Math.min(need,raw)),fundedGap=Math.max(0,fundedNeed-avail),unfundedGap=Math.max(0,gap-fundedGap);
+  return{known:true,fundedGap,unfundedGap,status:gap<=0?'covered':fundedGap>0&&unfundedGap>0?'mixed':unfundedGap>0?'unfunded':'funded'};
+}
 
 if(typeof I18N!=='undefined'){
   I18N.ar.common.insufficient='بيانات غير كافية';
@@ -291,7 +297,12 @@ if(appendAuditBase9) appendAuditRecord=function(rec){
   if(rec.position_group_id)row=groupRowById(rec.position_group_id);
   if(!row&&rec.source)row=getRowBySource(rec.source);
   if(!row&&rec.cell)row=getRowByCell(rec.cell);
-  const enriched=row?{...rec,position_group_id:row.position_group_id,workforce_cell:cellCode(row)}:rec;
+  let enriched=row?{...rec,position_group_id:row.position_group_id,workforce_cell:cellCode(row)}:{...rec};
+  if(enriched.kind==='surveillance_alert'){
+    enriched.basis=SURV_V09;
+    enriched.key=String(enriched.key||('surveillance|'+Date.now()))+'|'+SURV_V09;
+  }
+  if(enriched.kind==='alert_case_created'&&enriched.basis==='KH-SURV-v0.5')enriched.basis=SURV_V09;
   return appendAuditBase9(enriched);
 };
 
@@ -318,7 +329,7 @@ function patchHero9(){
   const r=[...currentRows()].filter(x=>deficit(x)>0).sort((a,b)=>(decisionPriority(b).score??-1)-(decisionPriority(a).score??-1))[0];
   const box=q9('#v07-exec-translation p');
   if(!box||!r)return;
-  const sv=surveillanceFor(r),f=typeof fundingV8==='function'?fundingV8(r):(typeof fundingFor==='function'?fundingFor(r):null),dp=decisionPriority(r);
+  const sv=surveillanceFor(r),f=funding9(r),dp=decisionPriority(r);
   const loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[lang]||r.location;
   let text;
   if(!sv?.dataSufficient){
@@ -407,7 +418,7 @@ function patchAudit9(){
   rows.forEach(x=>{
     const hasCell=x.cell&&x.cell!=='—';
     const row=auditRowFor9(x);
-    if(hasCell&&!row&&!x.position_group_id)legacy.push(x); else current.push({x,row});
+    if((hasCell&&!row&&!x.position_group_id)||(x.kind==='surveillance_alert'&&x.basis&&x.basis!==SURV_V09))legacy.push(x); else current.push({x,row});
   });
   body.innerHTML=current.length?current.map(({x,row})=>{
     const pg=x.position_group_id||row?.position_group_id||'—',cell=x.workforce_cell||x.cell||(row?cellCode(row):'—');
@@ -434,6 +445,11 @@ function patchDrawer9(id){
 }
 const openDrawerBase9=typeof openDrawer==='function'?openDrawer:null;
 if(openDrawerBase9) openDrawer=function(id){openDrawerBase9(id);patchDrawer9(id)};
+
+const renderAuditBase9=typeof renderAudit==='function'?renderAudit:null;
+if(renderAuditBase9) renderAudit=function(){renderAuditBase9();queueMicrotask(patchAudit9)};
+const renderDataHubBase9=typeof renderDataHub==='function'?renderDataHub:null;
+if(renderDataHubBase9) renderDataHub=function(){renderDataHubBase9();queueMicrotask(patchDataHub9)};
 
 function ensureSignalFilter9(){
   const f=q9('#signal-filter');if(!f||q9('[data-signal="insufficient"]',f))return;
