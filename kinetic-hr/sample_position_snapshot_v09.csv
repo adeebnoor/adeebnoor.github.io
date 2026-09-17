@@ -1,0 +1,13 @@
+source_row,as_of_date,position_group_id,sector,location,ssco,level,category,demand_basis,needed_fte,available_fte,gap_onset_date,median_time_to_fill_days,scarcity_index,internal_substitute_fte,service_criticality_weight,service_units_per_gap_fte,funded_fte,utilization_rate,overtime_hours_per_fte_month,sick_leave_rate,cost_per_uncovered_fte_day,financial_cost_source,event_history_start_date
+demo-001,2026-09-17,PG-EDU-001,EDU,07,233014,L3,A,workload-derived,56,38,2025-11-01,128,0.88,1,0.9,24,50,0.99,18,0.064,,,2026-05-20
+demo-002,2026-09-17,PG-EDU-002,EDU,02,233033,L2,A,workload-derived,84,76,2026-04-12,78,0.54,3,0.88,20,80,0.93,10,0.041,,,2026-05-20
+demo-003,2026-09-17,PG-EDU-003,EDU,01,233010,L3,B,workload-derived,73,70,2026-07-19,52,0.34,4,0.76,18,71,0.88,6,0.032,,,2026-05-20
+demo-011,2026-09-17,PG-EDU-004,EDU,01,233014,L3,A,workload-derived,50,58,,45,0.28,6,0.62,16,50,0.78,2,0.021,,,2026-05-20
+demo-004,2026-09-17,PG-HLT-001,HLT,01,222113,G2,H,service-standard,120,91,2025-08-01,154,0.93,2,0.98,42,108,1.02,24,0.071,,,2026-05-20
+demo-005,2026-09-17,PG-HLT-002,HLT,02,221209,G3,H,service-standard,42,35,2025-10-14,181,0.97,1,1,55,40,1.04,27,0.079,,,2026-05-20
+demo-006,2026-09-17,PG-HLT-003,HLT,03,226404,G1,C,service-standard,65,70,,83,0.57,4,0.86,31,65,0.82,5,0.028,,,2026-05-20
+demo-007,2026-09-17,PG-MUN-001,MUN,01,325706,J2,F,service-standard,96,72,2026-01-05,112,0.69,3,0.94,34,86,0.98,19,0.061,,,2026-05-20
+demo-008,2026-09-17,PG-MUN-002,MUN,02,216403,J3,O,strategic-scenario,38,33,2026-03-18,136,0.82,1,0.72,9,35,0.94,13,0.046,,,2026-05-20
+demo-009,2026-09-17,PG-MUN-003,MUN,03,226301,J1,F,service-standard,74,79,,59,0.31,5,0.7,21,74,0.8,4,0.025,,,2026-05-20
+demo-010,2026-09-17,PG-GOV-001,GOV,01,242309,P1,C,approved-establishment,28,19,2026-02-01,103,0.77,1,0.74,3,24,0.96,15,0.052,,,2026-05-20
+demo-012,2026-09-17,PG-GOV-002,GOV,02,242303,P1,R,approved-establishment,18,21,,72,0.48,2,0.58,2,18,0.81,3,0.024,,,2026-05-20
