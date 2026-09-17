@@ -12,7 +12,7 @@ const L9=(ar,en)=>ar9()?ar:en;
 const esc9=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const nf9=(v,d=1)=>Number.isFinite(Number(v))?new Intl.NumberFormat(ar9()?'ar-SA':'en-US',{maximumFractionDigits:d,minimumFractionDigits:0}).format(Number(v)):'—';
 const EXIT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out']);
-const EVENT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out','hire','transfer_in','demand_increase','demand_decrease','position_created_unfilled','position_closed']);
+const EVENT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out','hire','transfer_in','demand_increase','demand_decrease','position_created_unfilled','position_closed','long_term_absence','return_from_absence','internal_promotion','role_transformation']);
 const NATURE_V09=new Set(['voluntary','involuntary','statutory','internal_mobility']);
 const NATURE_EXPECTED={resignation:'voluntary',termination:'involuntary',retirement:'statutory',transfer_out:'internal_mobility'};
 function funding9(r){
@@ -37,7 +37,9 @@ function groupRowById(id,rows=SNAPSHOTS){
 
 const deltaBase9=typeof defaultEventDelta==='function'?defaultEventDelta:null;
 if(deltaBase9) defaultEventDelta=function(type){
-  if(type==='termination')return{capacity:-1,demand:0};
+  if(type==='termination'||type==='long_term_absence'||type==='internal_promotion')return{capacity:-1,demand:0};
+  if(type==='return_from_absence')return{capacity:1,demand:0};
+  if(type==='role_transformation')return{capacity:0,demand:0};
   return deltaBase9(type);
 };
 
@@ -103,6 +105,13 @@ if(typeof validateEvents==='function') validateEvents=function(raw,snapshotRows=
       }
       const hs=dUTC(linked.event_history_start_date);
       if(hs&&dt&&dt<hs)rowWarnings.push('event precedes declared event_history_start_date');
+    }
+
+    if(x.event_type==='role_transformation'){
+      const skillGap=Number(x.skill_gap_fte);
+      if(x.skill_gap_fte==null||String(x.skill_gap_fte).trim()==='')rowWarnings.push('role_transformation should include skill_gap_fte');
+      else if(!Number.isFinite(skillGap)||skillGap<0)rowErrors.push('invalid skill_gap_fte');
+      else x.skill_gap_fte=skillGap;
     }
 
     if(EXIT_TYPES_V09.has(String(x.event_type||''))){
