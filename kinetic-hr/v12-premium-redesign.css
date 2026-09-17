@@ -188,3 +188,11 @@ html[dir=ltr] #view-scenario .scenario-controls:after{content:"Configure interve
  #view-scenario .control-stack{grid-template-columns:1fr}
  #view-scenario .v07-cost-grid,#view-scenario .v11-rebalance-grid{grid-template-columns:1fr 1fr}
 }
+
+/* Remove legacy scenario visual blocks now replaced by the v1.2 decision workspace. */
+#view-scenario>.v08-exec-translation,
+#view-scenario .scenario-result>.panel-head,
+#view-scenario #scenario-comparison,
+#view-scenario #scenario-bars,
+#view-scenario .scenario-result>.scenario-note,
+#view-scenario #v07-decision-result{display:none!important}
