@@ -19,6 +19,7 @@
    <button class="nav-item" data-view="surveillance"><span class="nav-icon">⌁</span><span data-i18n="nav_surveillance"></span></button>
    <button class="nav-item" data-view="criticality"><span class="nav-icon">◈</span><span data-i18n="nav_criticality"></span></button>
    <button class="nav-item" data-view="data"><span class="nav-icon">⇧</span><span data-i18n="nav_data"></span></button>
+   <button class="nav-item" data-view="audit"><span class="nav-icon">≡</span><span data-i18n="nav_audit"></span></button>
   </nav>
   <div class="phase-card"><span class="phase-dot"></span><div><strong data-i18n="phase_label"></strong><p data-i18n="phase_desc"></p></div></div>
  </aside>
@@ -63,9 +64,21 @@
    <div class="section-intro"><div><span class="kicker">READ-ONLY DATA CONTRACT</span><h2 data-i18n="data_title"></h2><p data-i18n="data_text"></p></div></div>
    <div class="content-grid two-one"><article class="card"><div class="card-head"><h3 data-i18n="snapshot_import"></h3><span id="snapshot-mode" class="tag"></span></div><div class="upload-zone"><input id="csv-upload" type="file" accept=".csv,text/csv"><label for="csv-upload"><strong data-i18n="choose_csv"></strong><span>source_row, sector, location, ssco, level, category, needed, filled, scarcity, substitutes, avgVacancyWeeks, criticality, affectedUnits</span></label></div><div id="import-result" class="import-result"></div></article><article class="card"><div class="card-head"><h3 data-i18n="events_import"></h3><span id="event-mode" class="tag"></span></div><div class="upload-zone"><input id="event-upload" type="file" accept=".csv,text/csv"><label for="event-upload"><strong data-i18n="choose_csv"></strong><span>event_id, position_id, event_type, event_date, sector, location, ssco, level, category</span></label></div><div id="event-import-result" class="import-result"></div><p id="event-gate-note" class="muted"></p></article></div>
   </section>
+  <section id="view-audit" class="view">
+   <div class="section-intro"><div><span class="kicker">INSTITUTIONAL MEMORY</span><h2 data-i18n="audit_title"></h2><p data-i18n="audit_text"></p></div><div class="formula-chip">deterministic + traceable</div></div>
+   <div id="audit-trust-grid" class="metric-grid audit-trust-grid"></div>
+   <div class="content-grid two-one audit-layout">
+    <article class="card"><div class="card-head"><div><span class="kicker">PROVENANCE</span><h3 data-i18n="audit_provenance"></h3></div></div><div id="audit-provenance" class="audit-provenance"></div></article>
+    <article class="card llm-boundary"><span class="kicker">AI BOUNDARY</span><h3 data-i18n="audit_llm_title"></h3><p data-i18n="audit_llm_text"></p><div class="guardrail-badge" data-i18n="audit_llm_rule"></div></article>
+   </div>
+   <article class="card table-card audit-table-card"><div class="card-head audit-head"><div><span class="kicker">ALERT LEDGER</span><h3 data-i18n="audit_alerts"></h3></div><code id="audit-fingerprint">—</code></div><div class="table-wrap"><table><thead><tr><th data-i18n="audit_when"></th><th data-i18n="cell_code"></th><th data-i18n="occupation"></th><th data-i18n="audit_signal"></th><th data-i18n="audit_basis"></th><th data-i18n="audit_source"></th></tr></thead><tbody id="audit-body"></tbody></table></div></article>
+   <article class="card notice-card audit-notice"><strong data-i18n="audit_prototype_note"></strong></article>
+  </section>
  </main>
 </div>
 <dialog id="explain-dialog"><form method="dialog" class="dialog-card"><button class="dialog-close">×</button><span class="kicker">EXPLAINABILITY</span><h3 id="explain-title">—</h3><div id="explain-content"></div></form></dialog>
-<script src="ssco-catalog.js"></script><script src="app-data.js"></script><script src="app-core.js"></script><script src="app-ui.js"></script>
+<script src="ssco-catalog.js"></script><script src="app-data.js"></script>
+<script src="app-core.js"></script>
+<script src="app-ui.js"></script>
 </body>
 </html>
