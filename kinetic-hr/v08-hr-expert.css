@@ -1,0 +1,61 @@
+/* Kinetic HR v0.8 — HR Executive Reality layer */
+.v08-exec-translation{margin:12px 0 18px;padding:14px 16px;border:1px solid #d9e8ee;border-inline-start:4px solid #1ca7c8;background:linear-gradient(135deg,#f7fcfe,#fff);border-radius:14px;box-shadow:0 7px 22px rgba(10,42,62,.04)}
+.v08-exec-translation>span{display:block;font-size:9px;letter-spacing:.11em;color:#31839b;font-weight:900}
+.v08-exec-translation p{margin:5px 0 0;color:#294b5e;font-size:12px;line-height:1.8;font-weight:600}
+.v08-funding-filter{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-inline-start:auto}
+.v08-funding-filter button{border:1px solid #dbe5eb;background:#fff;color:#617788;border-radius:999px;padding:6px 9px;font:inherit;font-size:8px;font-weight:850;cursor:pointer}
+.v08-funding-filter button.active{background:#173f57;color:#fff;border-color:#173f57}
+.v08-context-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.v08-context-badges span{font-size:9px;padding:4px 7px;border-radius:999px;font-weight:850}
+.v08-context-badges .fund.funded,.v08-context-badges .fund.covered{background:#e8f8f2;color:#117858}
+.v08-context-badges .fund.mixed{background:#fff4d8;color:#8c6507}
+.v08-context-badges .fund.unfunded{background:#fff0f0;color:#ae3434}
+.v08-context-badges .fund.unknown{background:#eef2f6;color:#64748b}
+.v08-context-badges .strain.high{background:#ffe8e8;color:#a72727}
+.v08-context-badges .strain.medium{background:#fff3d5;color:#8a630a}
+.v08-context-badges .strain.low{background:#e8f8f2;color:#117858}
+.v08-priority-note{color:#427b91!important}
+.v08-actionability{display:inline-flex!important;width:max-content;margin-top:4px;padding:3px 7px;border-radius:999px;font-size:8px!important;font-weight:850}
+.v08-actionability.funded,.v08-actionability.covered{background:#e8f8f2;color:#117858}
+.v08-actionability.unfunded{background:#fff0f0;color:#a83434}
+.v08-actionability.mixed{background:#fff4d8;color:#8c6507}
+.v08-actionability.unknown{background:#eef2f6;color:#64748b}
+.v08-strain-component small{display:block;margin-top:3px;color:#7a8e9b;font-size:7px;line-height:1.3}
+.v08-finance-gate{margin-top:14px;padding:13px 14px;border:1px solid #d8e5eb;border-radius:14px;background:#fff}
+.v08-gate-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.v08-gate-head span{display:block;font-size:9px;font-weight:900;letter-spacing:.08em;color:#5b8194}
+.v08-gate-head strong{display:block;margin-top:3px;color:#15384d}
+.v08-gate-head em{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-style:normal;font-weight:900}
+.v08-gate-head em.ok{background:#e8f8f2;color:#117858}.v08-gate-head em.warn{background:#fff4d8;color:#8c6507}.v08-gate-head em.bad{background:#fff0f0;color:#ae3434}
+.v08-gate-checks{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.v08-gate-checks span{padding:5px 8px;border-radius:999px;font-size:9px;font-weight:800}
+.v08-gate-checks .ok{background:#e8f8f2;color:#117858}.v08-gate-checks .warn{background:#f1f4f7;color:#6a7f8e}
+.v08-finance-gate p{margin:9px 0 0;color:#5e7482;font-size:10px;line-height:1.65}
+.v08-budget-shortfall{padding:8px 10px!important;background:#fff0f0;border-radius:9px;color:#8f3232!important}
+.v08-timeline{margin-top:12px;padding:12px;border:1px solid #dce8ed;border-radius:13px;background:#fbfdfe}
+.v08-timeline>span{display:block;color:#5a8193;font-size:9px;font-weight:900;letter-spacing:.08em}
+.v08-timeline>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px}
+.v08-timeline article{padding:9px;border-radius:10px;background:#fff;border:1px solid #e3ebef}
+.v08-timeline small,.v08-timeline em{display:block;color:#748896;font-size:8px;font-style:normal}
+.v08-timeline strong{display:block;color:#17394e;margin:3px 0;font-size:14px}
+.v08-budget-reality{margin-top:10px;padding:10px 12px;border-radius:11px;background:#f4f7fa;color:#5d7382;font-size:10px;line-height:1.55}
+.v08-budget-reality .ok{color:#117858}.v08-budget-reality .bad{color:#ae3434}
+.v08-readiness-panel{margin-top:15px;padding:20px}
+.v08-readiness-panel>p{color:#5f7584;line-height:1.7;font-size:10px}
+.v08-readiness-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.v08-readiness-grid article{padding:13px;border:1px solid #e1e9ee;border-radius:12px;background:#fbfdfe}
+.v08-readiness-grid span,.v08-readiness-grid small{display:block;color:#6c8391;font-size:9px}
+.v08-readiness-grid strong{display:block;font-size:20px;color:#17384c;margin:4px 0}
+.v08-readiness-grid code{font-size:8px}
+.v08-contract-note{margin-top:10px;padding:10px 12px;border-radius:10px;background:#eef7fb;color:#48697b;font-size:9px;line-height:1.6}
+.v08-drawer-note{font-size:9px;color:#718592;line-height:1.6;margin:9px 0 0}
+@media(max-width:900px){
+  .v08-readiness-grid{grid-template-columns:1fr}
+  .v08-timeline>div{grid-template-columns:repeat(2,1fr)}
+  .v08-funding-filter{width:100%;margin-inline-start:0}
+}
+@media(max-width:600px){
+  .v08-timeline>div{grid-template-columns:1fr}
+  .v08-gate-head{align-items:flex-start}
+  .v08-exec-translation p{font-size:11px}
+}
