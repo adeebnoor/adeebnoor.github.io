@@ -1,0 +1,202 @@
+/* Kinetic HR v1.0 — Command Center visual hierarchy + RTL hardening */
+
+/* Numeric/technical bidi isolation */
+[dir="rtl"] .kh-ltr,
+[dir="rtl"] .exec-metric strong,
+[dir="rtl"] .signal-metric strong,
+[dir="rtl"] .rate-unit,
+[dir="rtl"] .v09-unit,
+[dir="rtl"] .period-chip b,
+[dir="rtl"] .queue-score,
+[dir="rtl"] .priority-number,
+[dir="rtl"] .hotspot-row>b,
+[dir="rtl"] .v07-funding-strip b,
+[dir="rtl"] .v07-brief-summary b,
+[dir="rtl"] .v07-brief-item small,
+[dir="rtl"] code{
+  direction:ltr;
+  unicode-bidi:isolate;
+  font-variant-numeric:tabular-nums;
+}
+[dir="rtl"] .exec-metric strong,
+[dir="rtl"] .signal-metric strong{display:block;text-align:right}
+[dir="rtl"] .rate-unit,[dir="rtl"] .v09-unit{display:inline-block;white-space:nowrap}
+[dir="rtl"] .period-chip b{white-space:nowrap}
+
+/* Arabic headings: no orphaned all-caps English treatment */
+[dir="rtl"] .panel-kicker,[dir="rtl"] .section-kicker,[dir="rtl"] .hero-kicker{
+  letter-spacing:0;
+  text-transform:none;
+  font-family:inherit;
+}
+.kh-code-badge{
+  display:inline-flex;
+  direction:rtl;
+  unicode-bidi:isolate;
+  padding:3px 7px;
+  border-radius:999px;
+  background:#f0f5f8;
+  color:#516d7f;
+  font-size:8px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+/* Command hero: give radar a real visual role */
+.command-hero{
+  min-height:390px;
+  grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);
+}
+.hero-copy{padding:48px 48px}
+.hero-copy h2{font-size:42px;max-width:720px}
+.hero-radar{min-height:390px;overflow:hidden}
+.hero-radar .ring-1{width:180px;height:180px}
+.hero-radar .ring-2{width:310px;height:310px}
+.hero-radar .ring-3{width:430px;height:430px}
+.hero-radar .radar-sweep{width:350px;height:350px}
+.hero-radar .radar-core{
+  width:126px;height:126px;
+  box-shadow:0 0 70px rgba(24,196,163,.18);
+}
+.hero-radar .radar-core strong{font-size:40px}
+.hero-radar:after{
+  content:"";
+  position:absolute;
+  width:480px;height:480px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(24,196,163,.10),transparent 63%);
+  pointer-events:none;
+}
+
+/* KPI hierarchy: one dominant decision number, three supporting facts */
+.executive-metrics{
+  grid-template-columns:minmax(230px,1.45fr) repeat(3,minmax(150px,1fr));
+  gap:0;
+  align-items:stretch;
+  margin:0 0 24px;
+}
+.exec-metric{
+  box-shadow:none;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  padding:20px 22px;
+  min-height:126px;
+}
+.exec-metric:after{display:none}
+.exec-metric:not(.kh-primary-kpi){
+  border-inline-start:1px solid #e4eaef;
+}
+.exec-metric.kh-primary-kpi{
+  order:-1;
+  border-radius:20px;
+  background:linear-gradient(135deg,#0d2a40,#123d56);
+  color:#fff;
+  margin-inline-end:16px;
+  padding:22px 24px;
+  min-height:148px;
+  box-shadow:0 14px 38px rgba(9,35,54,.12);
+}
+.exec-metric.kh-primary-kpi .metric-top span,
+.exec-metric.kh-primary-kpi small{color:#a8c0cf}
+.exec-metric.kh-primary-kpi strong{font-size:48px;line-height:1;margin:16px 0 8px;letter-spacing:-1.6px}
+.exec-metric.kh-primary-kpi .metric-icon{background:rgba(255,255,255,.09);color:#7ce9d3}
+.exec-metric:not(.kh-primary-kpi) strong{font-size:27px}
+.exec-metric:not(.kh-primary-kpi) .metric-icon{width:25px;height:25px}
+
+/* Executive translation becomes a briefing strip, not another card */
+.v07-exec-translation{
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  border-top:1px solid #e5ebef;
+  border-bottom:1px solid #e5ebef;
+  padding:18px 4px;
+  margin:4px 0 24px;
+}
+.v07-exec-head strong{font-size:17px}
+.v07-exec-translation p{font-size:12px;max-width:1050px}
+.v07-funding-strip{max-width:720px}
+.v07-funding-strip span{background:#f4f8fa;border-radius:10px}
+
+/* Unequal panel weights: analysis first, action queue second */
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:18px;
+}
+.pulse-panel{grid-column:span 8;min-height:330px;border:0;box-shadow:none;background:linear-gradient(180deg,#fff,#fbfdfe)}
+.queue-panel{grid-column:span 4;border:0;box-shadow:none;border-inline-start:1px solid #e4eaef;border-radius:0}
+.hotspots-panel{grid-column:span 7;border:0;box-shadow:none;background:#fbfcfd}
+.integrity-panel{grid-column:span 5;border:0;box-shadow:none;background:linear-gradient(145deg,#f7fbfa,#eef7f4)}
+.pulse-chart{height:235px}
+.panel-head h3{font-size:18px}
+.queue-panel .decision-queue{gap:6px}
+.queue-item{border-color:transparent!important;background:#f8fafb!important}
+.queue-item:hover{background:#f2f7f8!important}
+
+/* Report overlay: never feels frozen, close control always visible */
+body.kh-brief-open{overflow:hidden}
+.v07-brief-overlay{
+  overscroll-behavior:contain;
+  backdrop-filter:blur(8px);
+}
+.v07-brief-sheet{
+  position:relative;
+  contain:layout paint;
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+}
+.kh-brief-close-top{
+  position:sticky;
+  top:0;
+  margin-inline-start:auto;
+  z-index:5;
+  width:38px;height:38px;
+  border:1px solid #dbe5ea;
+  border-radius:11px;
+  background:#fff;
+  color:#19384a;
+  display:grid;
+  place-items:center;
+  font-size:21px;
+  cursor:pointer;
+  box-shadow:0 5px 18px rgba(10,35,52,.08);
+}
+.v07-brief-actions{
+  position:sticky;
+  bottom:0;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);
+  padding-top:12px;
+  border-top:1px solid #e5ebef;
+}
+
+/* Report/technical values are explicit LTR islands */
+.v07-brief-summary b,.v07-brief-item small,.v07-brief-sheet code{direction:ltr;unicode-bidi:isolate}
+
+/* Responsive */
+@media(max-width:1100px){
+  .command-hero{grid-template-columns:minmax(0,1fr) 340px}
+  .hero-radar .ring-3{width:390px;height:390px}
+  .executive-metrics{grid-template-columns:1.35fr repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .command-hero{grid-template-columns:1fr;min-height:auto}
+  .hero-radar{min-height:320px}
+  .executive-metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .exec-metric.kh-primary-kpi{grid-column:1/-1;margin-inline-end:0}
+  .exec-metric:not(.kh-primary-kpi){border:1px solid #e7edf1;border-radius:14px}
+  .pulse-panel,.queue-panel,.hotspots-panel,.integrity-panel{grid-column:1/-1}
+  .queue-panel{border-inline-start:0;border-top:1px solid #e4eaef}
+}
+@media(max-width:600px){
+  .hero-copy{padding:34px 24px}.hero-copy h2{font-size:31px}
+  .hero-radar{min-height:280px}
+  .hero-radar .ring-1{width:135px;height:135px}
+  .hero-radar .ring-2{width:225px;height:225px}
+  .hero-radar .ring-3{width:315px;height:315px}
+  .hero-radar .radar-sweep{width:250px;height:250px}
+  .executive-metrics{grid-template-columns:1fr}
+  .exec-metric.kh-primary-kpi{grid-column:auto}
+}
