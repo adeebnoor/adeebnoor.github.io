@@ -68,6 +68,8 @@ function enterApp(view='dashboard'){
 }
 function showLanding(){
   document.body.classList.add('v12-landing-mode');
+  try{localStorage.setItem('kinetic_hr_onboarding_v11','1')}catch{}
+  q('#v11-tour-overlay')?.classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'});
 }
 function miniChartSvg(){
