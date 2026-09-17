@@ -42,15 +42,10 @@ jobs:
             page.on('response', r => {
               if (r.status() < 400) return;
               const url = r.url();
-              if (url.includes('/functions/v1/portfolio-collect')) {
-                serviceWarnings.push(`${r.status()} ${url}`);
-                return;
-              }
-              if (url.startsWith('https://adeebnoor.github.io/kinetic-hr/')) {
-                appErrors.push(`${r.status()} ${url}`);
-              }
+              if (url.includes('/functions/v1/portfolio-collect')) { serviceWarnings.push(`${r.status()} ${url}`); return; }
+              if (url.startsWith('https://adeebnoor.github.io/kinetic-hr/')) appErrors.push(`${r.status()} ${url}`);
             });
-            await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=06-ci', { waitUntil: 'networkidle', timeout: 60000 });
+            await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=07-ci', { waitUntil: 'networkidle', timeout: 60000 });
             await page.waitForSelector('#kh-review-overlay.open', { timeout: 15000 });
             const summary = await page.evaluate(() => ({
               title: document.title,
@@ -58,21 +53,18 @@ jobs:
               tabs: document.querySelectorAll('.kh-review-tab').length,
               dimensions: document.querySelectorAll('[data-score]').length,
               reviewerButton: !!document.querySelector('#kh-review-fab'),
+              decisionContext: !!document.querySelector('#v07-review-context')
             }));
             if (!summary.reviewOpen) throw new Error('Reviewer Mode did not auto-open');
             if (summary.tabs !== 5) throw new Error(`Expected 5 reviewer tabs, found ${summary.tabs}`);
             if (summary.dimensions !== 10) throw new Error(`Expected 10 review dimensions, found ${summary.dimensions}`);
             if (!summary.reviewerButton) throw new Error('Reviewer button missing');
-
+            if (!summary.decisionContext) throw new Error('v0.7 reviewer context missing');
             await page.click('.kh-review-tab[data-rpage="evidence"]');
             await page.waitForFunction(() => document.querySelectorAll('#kh-evidence-cell option').length > 0, null, { timeout: 10000 });
-            const evidence = await page.evaluate(() => ({
-              cells: document.querySelectorAll('#kh-evidence-cell option').length,
-              text: document.querySelector('#kh-evidence-content')?.innerText || '',
-            }));
+            const evidence = await page.evaluate(() => ({ cells: document.querySelectorAll('#kh-evidence-cell option').length, text: document.querySelector('#kh-evidence-content')?.innerText || '' }));
             if (evidence.cells < 1) throw new Error('Evidence picker has no workforce cells');
             if (!/Fingerprint|البصمة/i.test(evidence.text)) throw new Error('Evidence view is missing state fingerprint');
-
             await page.click('.kh-review-tab[data-rpage="feedback"]');
             await page.fill('#kh-r-role', 'CI HR Reviewer');
             await page.fill('#kh-r-years', '40');
@@ -80,18 +72,69 @@ jobs:
             await page.fill('#kh-r-strong', 'Continuous auditable occupational gap surveillance');
             await page.fill('#kh-r-must', 'Calibrate with real pilot data');
             await page.click('#kh-save-review');
-            const saved = await page.evaluate(() => ({
-              status: document.querySelector('#kh-feedback-status')?.innerText || '',
-              stored: JSON.parse(localStorage.getItem('kinetic_hr_v06_reviews') || '[]').length,
-            }));
+            const saved = await page.evaluate(() => ({ stored: JSON.parse(localStorage.getItem('kinetic_hr_v06_reviews') || '[]').length }));
             if (saved.stored < 1) throw new Error('Reviewer feedback was not persisted');
-
-            await page.screenshot({ path: 'live-critical/kinetic-hr-reviewer-v06.png', fullPage: true });
-            fs.writeFileSync('live-critical/kinetic-hr-reviewer-v06.json', JSON.stringify({ summary, evidence: { cells: evidence.cells }, saved, appErrors, serviceWarnings }, null, 2));
+            await page.screenshot({ path: 'live-critical/kinetic-hr-reviewer-v07.png', fullPage: true });
+            fs.writeFileSync('live-critical/kinetic-hr-reviewer-v07.json', JSON.stringify({ summary, evidence: { cells: evidence.cells }, saved, appErrors, serviceWarnings }, null, 2));
             if (appErrors.length) throw new Error('Kinetic app errors: ' + appErrors.join(' | '));
             await browser.close();
-            console.log('Kinetic HR Reviewer Mode verified:', JSON.stringify({ summary, evidenceCells: evidence.cells, storedReviews: saved.stored, serviceWarnings }));
           })().catch(err => { console.error(err); process.exit(1); });
+          NODE
+      - name: Verify Kinetic HR v0.7 decision reality
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
+            const errors=[];
+            page.on('pageerror', e => errors.push('pageerror: '+e.message));
+            page.on('response', r => { if (r.status() >= 400 && r.url().startsWith('https://adeebnoor.github.io/kinetic-hr/')) errors.push(`${r.status()} ${r.url()}`); });
+            await page.goto('https://adeebnoor.github.io/kinetic-hr/?v=07-ci', {waitUntil:'networkidle', timeout:60000});
+            await page.waitForSelector('#v07-exec-translation', {timeout:15000});
+            const landing=await page.evaluate(()=>({
+              engine:document.querySelector('#sidebar-engine-state')?.innerText||'',
+              translation:document.querySelector('#v07-exec-translation')?.innerText||'',
+              funded:document.querySelectorAll('.v07-funding-strip span').length,
+              briefButton:!!document.querySelector('#v07-brief-btn')
+            }));
+            if(!landing.engine.includes('KH-DECISION-v0.7')) throw new Error('v0.7 engine label missing');
+            if(landing.funded!==3) throw new Error('Funding lens missing');
+            if(!landing.briefButton) throw new Error('Executive brief button missing');
+            document.querySelector?.call;
+            await page.click('.nav-item[data-view="scenario"]');
+            await page.waitForSelector('#v07-reality-panel');
+            const donorCount=await page.locator('#scenario-donor option').count();
+            if(donorCount<2) throw new Error('Expected a same-SSCO donor option in EDU demo');
+            const donorValue=await page.locator('#scenario-donor option').nth(1).getAttribute('value');
+            await page.selectOption('#scenario-donor', donorValue);
+            await page.fill('#v07-safety-pct','5');
+            await page.fill('#v07-approval-transfer','14');
+            await page.fill('#v07-cost-transfer','10000');
+            await page.fill('#v07-budget','60000');
+            await page.locator('#transfer-range').evaluate(el=>{el.value='8';el.dispatchEvent(new Event('input',{bubbles:true}))});
+            await page.waitForTimeout(250);
+            const impact=await page.evaluate(()=>{
+              const r=getRowBySource(selectedScenarioSource); const v=scenarioValues(); const i=scenarioImpact(r,v);
+              return {requested:i.requestedTransfer,actual:i.actualTransfer,transferable:i.transferableSurplus,cost:i.totalCostSar,budget:i.budgetState,approval:i.approvalLatencyDays?.transfer,decisionLayer:i.decisionLayer,text:document.querySelector('#v07-decision-result')?.innerText||''};
+            });
+            if(!(impact.requested===8 && impact.actual<=impact.transferable && impact.actual<8)) throw new Error('Safety-buffer transfer cap failed: '+JSON.stringify(impact));
+            if(impact.cost!==impact.actual*10000) throw new Error('Cost calculation failed: '+JSON.stringify(impact));
+            if(impact.budget!=='within') throw new Error('Budget constraint failed: '+JSON.stringify(impact));
+            if(impact.approval!==14) throw new Error('Approval latency not captured');
+            if(impact.decisionLayer!=='KH-DECISION-v0.7') throw new Error('Decision layer version missing');
+            await page.click('#v07-brief-btn');
+            await page.waitForSelector('#v07-brief-overlay.open');
+            const brief=await page.evaluate(()=>({items:document.querySelectorAll('.v07-brief-item').length,text:document.querySelector('#v07-brief-content')?.innerText||''}));
+            if(brief.items<1) throw new Error('Executive brief has no decisions');
+            if(!/SHA-256|SHA256/i.test(brief.text)) throw new Error('Executive brief governance fingerprint note missing');
+            await page.screenshot({path:'live-critical/kinetic-hr-v07-decision.png',fullPage:true});
+            fs.writeFileSync('live-critical/kinetic-hr-v07-decision.json',JSON.stringify({landing,impact,brief:{items:brief.items},errors},null,2));
+            if(errors.length) throw new Error('Kinetic v0.7 errors: '+errors.join(' | '));
+            await browser.close();
+            console.log('Kinetic HR v0.7 verified:', JSON.stringify({landing,impact,briefItems:brief.items}));
+          })().catch(err=>{console.error(err);process.exit(1)});
           NODE
       - uses: actions/upload-artifact@v4
         if: always()
