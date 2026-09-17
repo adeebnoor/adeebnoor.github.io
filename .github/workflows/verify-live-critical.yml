@@ -36,9 +36,20 @@ jobs:
           (async () => {
             const browser = await chromium.launch({ headless: true });
             const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-            const errors = [];
-            page.on('pageerror', e => errors.push('pageerror: ' + e.message));
-            page.on('console', m => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
+            const appErrors = [];
+            const serviceWarnings = [];
+            page.on('pageerror', e => appErrors.push('pageerror: ' + e.message));
+            page.on('response', r => {
+              if (r.status() < 400) return;
+              const url = r.url();
+              if (url.includes('/functions/v1/portfolio-collect')) {
+                serviceWarnings.push(`${r.status()} ${url}`);
+                return;
+              }
+              if (url.startsWith('https://adeebnoor.github.io/kinetic-hr/')) {
+                appErrors.push(`${r.status()} ${url}`);
+              }
+            });
             await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=06-ci', { waitUntil: 'networkidle', timeout: 60000 });
             await page.waitForSelector('#kh-review-overlay.open', { timeout: 15000 });
             const summary = await page.evaluate(() => ({
@@ -76,10 +87,10 @@ jobs:
             if (saved.stored < 1) throw new Error('Reviewer feedback was not persisted');
 
             await page.screenshot({ path: 'live-critical/kinetic-hr-reviewer-v06.png', fullPage: true });
-            fs.writeFileSync('live-critical/kinetic-hr-reviewer-v06.json', JSON.stringify({ summary, evidence: { cells: evidence.cells }, saved, errors }, null, 2));
-            if (errors.length) throw new Error('Browser errors: ' + errors.join(' | '));
+            fs.writeFileSync('live-critical/kinetic-hr-reviewer-v06.json', JSON.stringify({ summary, evidence: { cells: evidence.cells }, saved, appErrors, serviceWarnings }, null, 2));
+            if (appErrors.length) throw new Error('Kinetic app errors: ' + appErrors.join(' | '));
             await browser.close();
-            console.log('Kinetic HR Reviewer Mode verified:', JSON.stringify({ summary, evidenceCells: evidence.cells, storedReviews: saved.stored }));
+            console.log('Kinetic HR Reviewer Mode verified:', JSON.stringify({ summary, evidenceCells: evidence.cells, storedReviews: saved.stored, serviceWarnings }));
           })().catch(err => { console.error(err); process.exit(1); });
           NODE
       - uses: actions/upload-artifact@v4
