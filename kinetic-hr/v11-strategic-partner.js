@@ -424,8 +424,12 @@ function friendlyPeriod(){
   el.textContent=label;el.classList.add('v11-friendly-period');el.removeAttribute('dir');
 }
 
+function shouldSuppressAutoTour(){
+  const p=new URLSearchParams(location.search),v=String(p.get('v')||'').toLowerCase();
+  return p.has('review')||p.has('qa')||p.has('test')||v.includes('ci')||p.has('decision')||p.has('scenario');
+}
 function openTour(force=false){
-  if(!force&&localStorage.getItem('kinetic_hr_onboarding_v11')==='1')return;
+  if(!force&&(localStorage.getItem('kinetic_hr_onboarding_v11')==='1'||shouldSuppressAutoTour()))return;
   q('#v11-tour-overlay')?.classList.add('open');
 }
 
