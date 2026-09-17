@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Kinetic HR — Government Workforce Early-Warning" />
+  <title>Kinetic HR — Government Workforce Early-Warning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+ <aside class="sidebar" aria-label="Primary navigation">
+  <div class="brand-block"><div class="brand-mark">K</div><div><div class="brand-name">Kinetic HR</div><div class="brand-sub">Occupational Early-Warning</div></div></div>
+  <nav class="nav-stack">
+   <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌁</span><span data-i18n="nav_dashboard"></span></button>
+   <button class="nav-item" data-view="ssco"><span class="nav-icon">◎</span><span data-i18n="nav_ssco"></span></button>
+   <button class="nav-item" data-view="decoder"><span class="nav-icon">⌘</span><span data-i18n="nav_decoder"></span></button>
+   <button class="nav-item" data-view="prevalence"><span class="nav-icon">▦</span><span data-i18n="nav_prevalence"></span></button>
+   <button class="nav-item" data-view="surveillance"><span class="nav-icon">⌁</span><span data-i18n="nav_surveillance"></span></button>
+   <button class="nav-item" data-view="criticality"><span class="nav-icon">◈</span><span data-i18n="nav_criticality"></span></button>
+   <button class="nav-item" data-view="data"><span class="nav-icon">⇧</span><span data-i18n="nav_data"></span></button>
+  </nav>
+  <div class="phase-card"><span class="phase-dot"></span><div><strong data-i18n="phase_label"></strong><p data-i18n="phase_desc"></p></div></div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><div><p class="eyebrow" data-i18n="eyebrow"></p><h1 id="page-title">لوحة القرار</h1></div><div class="topbar-actions"><label class="compact-field"><span data-i18n="sector"></span><select id="sector-select"></select></label><button id="lang-toggle" class="ghost-btn">EN</button><button id="data-status" class="status-pill"><span class="status-dot"></span><span data-i18n="synthetic"></span></button></div></header>
+
+  <section id="view-dashboard" class="view active">
+   <div class="hero-grid"><article class="hero-panel"><div><span class="kicker">KINETIC SIGNAL</span><h2 data-i18n="hero_question"></h2><p data-i18n="hero_text"></p></div><div class="hero-signal"><span class="signal-label">PRIORITY CELLS</span><strong id="hero-critical-count">—</strong><small>score ≥ 70</small></div></article><article class="method-panel"><span class="kicker">KINETIC METHOD</span><div class="pipeline-mini"><span>ERP</span><b>→</b><span>SSCO</span><b>→</b><span>Prevalence</span><b>→</b><span>Incidence</span><b>→</b><span>Action</span></div><p data-i18n="method_phase2"></p></article></div>
+   <div class="metric-grid" id="metric-grid"></div>
+   <div class="content-grid two-one"><article class="card"><div class="card-head"><div><span class="kicker" data-i18n="priority_now"></span><h3 data-i18n="highest_priority"></h3></div><button class="text-btn" data-go="criticality" data-i18n="see_all"></button></div><div id="priority-list" class="priority-list"></div></article><article class="card"><div class="card-head"><div><span class="kicker" data-i18n="coverage"></span><h3 data-i18n="coverage_title"></h3></div></div><div id="coverage-block"></div></article></div>
+   <article class="card decision-card"><div class="decision-left"><span class="kicker">INTEGRITY RULE</span><h3>Incidence ≠ snapshot delta</h3><p>Every incidence signal in Kinetic HR is produced from dated HR events. A point-in-time stock is used only for Prevalence.</p></div><div class="guardrail-badge">event-based</div></article>
+  </section>
+
+  <section id="view-ssco" class="view">
+   <div class="section-intro"><div><span class="kicker">SSCO 2024</span><h2 data-i18n="ssco_title"></h2><p data-i18n="ssco_text"></p></div><label class="search-field"><span>⌕</span><input id="ssco-search" type="search" data-i18n-placeholder="ssco_search"></label></div>
+   <article class="card source-card"><div id="ssco-meta" class="ssco-meta"></div><a id="ssco-source-link" class="source-link" target="_blank" rel="noreferrer">GASTAT ↗</a></article>
+   <article class="card notice-card"><strong data-i18n="catalog_subset_note"></strong></article>
+   <article class="card table-card"><div class="table-wrap"><table><thead><tr><th>SSCO</th><th data-i18n="occupation"></th><th data-i18n="major"></th><th data-i18n="submajor"></th><th data-i18n="subgroup"></th><th data-i18n="unit"></th><th data-i18n="sector"></th></tr></thead><tbody id="ssco-body"></tbody></table></div></article>
+  </section>
+
+  <section id="view-decoder" class="view">
+   <div class="section-intro"><div><span class="kicker">WORKFORCE CELL</span><h2 data-i18n="decoder_title"></h2><p data-i18n="decoder_text"></p></div><div class="concept-badge"><span>position_id</span><b>≠</b><span>workforce_cell_code</span></div></div>
+   <div class="decoder-layout"><article class="card form-card"><div class="form-grid"><label><span data-i18n="sector"></span><select id="decoder-sector"></select></label><label><span data-i18n="location"></span><select id="decoder-location"></select></label><label><span data-i18n="occupation"></span><select id="decoder-ssco-select"></select></label><label><span id="decoder-level-label"></span><select id="decoder-level"></select></label><label><span id="decoder-category-label"></span><select id="decoder-category"></select></label></div></article><article class="decoder-output"><span class="kicker" data-i18n="generated_cell"></span><div id="decoder-code" class="big-code">—</div><h3 id="decoder-identity">—</h3><div class="mapping-strip"><span data-i18n="ssco_mapping"></span><strong id="decoder-ssco">—</strong><em id="decoder-hierarchy"></em></div><div id="decoder-match" class="match-box"></div></article></div>
+  </section>
+
+  <section id="view-prevalence" class="view">
+   <div class="section-intro"><div><span class="kicker">PREVALENCE</span><h2 data-i18n="prevalence_title"></h2><p data-i18n="prevalence_text"></p></div><label class="search-field"><span>⌕</span><input id="prevalence-search" type="search" data-i18n-placeholder="search_placeholder"></label></div>
+   <article class="card table-card"><div class="table-wrap"><table><thead><tr><th data-i18n="cell_code"></th><th data-i18n="identity"></th><th data-i18n="needed"></th><th data-i18n="filled"></th><th data-i18n="gap"></th><th data-i18n="deficit_ratio"></th><th data-i18n="source"></th></tr></thead><tbody id="prevalence-body"></tbody></table></div></article>
+  </section>
+
+  <section id="view-surveillance" class="view">
+   <div class="section-intro"><div><span class="kicker">INCIDENCE / SURVEILLANCE</span><h2 data-i18n="surveillance_title"></h2><p data-i18n="surveillance_text"></p></div><div class="formula-chip">current / baseline ≥ 1.5×</div></div>
+   <article id="surveillance-gate" class="card notice-card" hidden><strong data-i18n="no_event_log"></strong></article>
+   <div id="surveillance-grid" class="surveillance-grid"></div>
+  </section>
+
+  <section id="view-criticality" class="view">
+   <div class="section-intro"><div><span class="kicker">CRITICALITY</span><h2 data-i18n="criticality_title"></h2><p data-i18n="criticality_text"></p></div><div class="formula-chip">KHP v0.2</div></div><div id="criticality-grid" class="criticality-grid"></div>
+  </section>
+
+  <section id="view-data" class="view">
+   <div class="section-intro"><div><span class="kicker">READ-ONLY DATA CONTRACT</span><h2 data-i18n="data_title"></h2><p data-i18n="data_text"></p></div></div>
+   <div class="content-grid two-one"><article class="card"><div class="card-head"><h3 data-i18n="snapshot_import"></h3><span id="snapshot-mode" class="tag"></span></div><div class="upload-zone"><input id="csv-upload" type="file" accept=".csv,text/csv"><label for="csv-upload"><strong data-i18n="choose_csv"></strong><span>source_row, sector, location, ssco, level, category, needed, filled, scarcity, substitutes, avgVacancyWeeks, criticality, affectedUnits</span></label></div><div id="import-result" class="import-result"></div></article><article class="card"><div class="card-head"><h3 data-i18n="events_import"></h3><span id="event-mode" class="tag"></span></div><div class="upload-zone"><input id="event-upload" type="file" accept=".csv,text/csv"><label for="event-upload"><strong data-i18n="choose_csv"></strong><span>event_id, position_id, event_type, event_date, sector, location, ssco, level, category</span></label></div><div id="event-import-result" class="import-result"></div><p id="event-gate-note" class="muted"></p></article></div>
+  </section>
+ </main>
+</div>
+<dialog id="explain-dialog"><form method="dialog" class="dialog-card"><button class="dialog-close">×</button><span class="kicker">EXPLAINABILITY</span><h3 id="explain-title">—</h3><div id="explain-content"></div></form></dialog>
+<script src="ssco-catalog.js"></script><script src="app-data.js"></script><script src="app-core.js"></script><script src="app-ui.js"></script>
+</body>
+</html>
