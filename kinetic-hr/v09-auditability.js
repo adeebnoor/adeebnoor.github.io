@@ -458,7 +458,7 @@ function ensureSignalFilter9(){
 }
 function renderV09(){
   patchPeriod9();patchHero9();patchMetrics9();patchQueue9();patchGapMetrics9();patchDataHub9();patchAudit9();
-  const engine=q9('#sidebar-engine-state');if(engine)engine.textContent=`${MEASUREMENT_VERSION} · ${SURV_V09} · ${CONTRACT_V09}`;
+  const engine=q9('#sidebar-engine-state');if(engine)engine.textContent=`${MEASUREMENT_VERSION} · KH-DECISION-v0.7 · ${SURV_V09} · ${CONTRACT_V09}`;
 }
 
 ensureSignalFilter9();
