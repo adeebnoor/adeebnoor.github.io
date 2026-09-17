@@ -54,7 +54,7 @@ jobs:
             if (!summary.reviewerButton) throw new Error('Reviewer button missing');
 
             await page.click('.kh-review-tab[data-rpage="evidence"]');
-            await page.waitForSelector('#kh-evidence-cell option', { timeout: 10000 });
+            await page.waitForFunction(() => document.querySelectorAll('#kh-evidence-cell option').length > 0, null, { timeout: 10000 });
             const evidence = await page.evaluate(() => ({
               cells: document.querySelectorAll('#kh-evidence-cell option').length,
               text: document.querySelector('#kh-evidence-content')?.innerText || '',
