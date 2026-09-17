@@ -105,3 +105,10 @@ html[dir="ltr"] .connector-card.v11-demo-connector:before{content:"Public demo Â
  .v11-critical-facts,.v11-preset-grid,.v11-do-grid,.v11-rebalance-grid{grid-template-columns:1fr}
  .v11-brief-decision{grid-template-columns:1fr}
 }
+/* Keep Reviewer Mode away from the sidebar/navigation. */
+html[dir="rtl"] .kh-review-fab{right:auto!important;left:22px!important}
+html[dir="ltr"] .kh-review-fab{left:auto!important;right:22px!important}
+@media(max-width:760px){
+ html[dir="rtl"] .kh-review-fab{left:14px!important;right:auto!important}
+ html[dir="ltr"] .kh-review-fab{right:14px!important;left:auto!important}
+}
