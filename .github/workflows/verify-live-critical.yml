@@ -28,6 +28,60 @@ jobs:
           npx agent-browser open https://adeebnoor.github.io/
           npx agent-browser snapshot -i > live-critical/home-snapshot.txt
           npx agent-browser close
+      - name: Verify Kinetic HR expert reviewer mode
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+            const errors = [];
+            page.on('pageerror', e => errors.push('pageerror: ' + e.message));
+            page.on('console', m => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
+            await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=06-ci', { waitUntil: 'networkidle', timeout: 60000 });
+            await page.waitForSelector('#kh-review-overlay.open', { timeout: 15000 });
+            const summary = await page.evaluate(() => ({
+              title: document.title,
+              reviewOpen: document.querySelector('#kh-review-overlay')?.classList.contains('open') || false,
+              tabs: document.querySelectorAll('.kh-review-tab').length,
+              dimensions: document.querySelectorAll('[data-score]').length,
+              reviewerButton: !!document.querySelector('#kh-review-fab'),
+            }));
+            if (!summary.reviewOpen) throw new Error('Reviewer Mode did not auto-open');
+            if (summary.tabs !== 5) throw new Error(`Expected 5 reviewer tabs, found ${summary.tabs}`);
+            if (summary.dimensions !== 10) throw new Error(`Expected 10 review dimensions, found ${summary.dimensions}`);
+            if (!summary.reviewerButton) throw new Error('Reviewer button missing');
+
+            await page.click('.kh-review-tab[data-rpage="evidence"]');
+            await page.waitForSelector('#kh-evidence-cell option', { timeout: 10000 });
+            const evidence = await page.evaluate(() => ({
+              cells: document.querySelectorAll('#kh-evidence-cell option').length,
+              text: document.querySelector('#kh-evidence-content')?.innerText || '',
+            }));
+            if (evidence.cells < 1) throw new Error('Evidence picker has no workforce cells');
+            if (!/Fingerprint|البصمة/i.test(evidence.text)) throw new Error('Evidence view is missing state fingerprint');
+
+            await page.click('.kh-review-tab[data-rpage="feedback"]');
+            await page.fill('#kh-r-role', 'CI HR Reviewer');
+            await page.fill('#kh-r-years', '40');
+            await page.selectOption('#kh-r-use', 'maybe');
+            await page.fill('#kh-r-strong', 'Continuous auditable occupational gap surveillance');
+            await page.fill('#kh-r-must', 'Calibrate with real pilot data');
+            await page.click('#kh-save-review');
+            const saved = await page.evaluate(() => ({
+              status: document.querySelector('#kh-feedback-status')?.innerText || '',
+              stored: JSON.parse(localStorage.getItem('kinetic_hr_v06_reviews') || '[]').length,
+            }));
+            if (saved.stored < 1) throw new Error('Reviewer feedback was not persisted');
+
+            await page.screenshot({ path: 'live-critical/kinetic-hr-reviewer-v06.png', fullPage: true });
+            fs.writeFileSync('live-critical/kinetic-hr-reviewer-v06.json', JSON.stringify({ summary, evidence: { cells: evidence.cells }, saved, errors }, null, 2));
+            if (errors.length) throw new Error('Browser errors: ' + errors.join(' | '));
+            await browser.close();
+            console.log('Kinetic HR Reviewer Mode verified:', JSON.stringify({ summary, evidenceCells: evidence.cells, storedReviews: saved.stored }));
+          })().catch(err => { console.error(err); process.exit(1); });
+          NODE
       - uses: actions/upload-artifact@v4
         if: always()
         with:
