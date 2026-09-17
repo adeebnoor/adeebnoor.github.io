@@ -11,7 +11,7 @@ const BASE_PAGES = [
   '/executive-cv.html', '/master-cv.html', '/phd.html', '/speaking.html',
   '/funders.html', '/students.html', '/academic.html', '/press.html',
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
-  '/demo/', '/ideas/', '/ideas/position.html',
+  '/demo/', '/ideas/', '/ideas/position.html', '/kinetic-hr/',
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
   '/ideas/readiness-needs-evidence.html',
 ];
@@ -21,6 +21,7 @@ const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']
 const TARGET_PAGES = new Set([
   ...PAGES, '/privacy.html', '/ar/privacy.html', '/404.html', '/ar/404.html',
   '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml',
+  '/kinetic-hr/sample_position_snapshot_v05.csv', '/kinetic-hr/sample_hr_event_log_v05.csv',
 ]);
 const ANCHORS = new Set([
   'content', 'main-content', 'projects', 'research', 'investors', 'organizations',
