@@ -494,19 +494,31 @@ function installBriefObserver(){
   const overlay=q('#v07-brief-overlay');
   if(!overlay||overlay.dataset.v08Observed==='1')return;
   overlay.dataset.v08Observed='1';
+  let applying=false;
+  let observer=null;
   const patch=()=>{
+    if(applying)return;
+    applying=true;
     qa('.v07-brief-item p',overlay).forEach(p=>{
-      p.textContent=p.textContent
+      const current=p.textContent;
+      const next=current
         .replace('كمؤشر سياقي، وليس تشخيصًا للاحتراق الوظيفي ولا جزءًا آليًا من درجة الأولوية.','كمؤشر ضغط تشغيلي؛ ليس تشخيصًا طبيًا، ويشارك في أولوية القرار وفق KH-PRIORITY-v0.8.')
         .replace('as decision context; it is not a burnout diagnosis and does not automatically alter priority.','as a workload-strain proxy; it is not a medical burnout diagnosis and contributes to Decision Priority under KH-PRIORITY-v0.8.');
+      if(next!==current)p.textContent=next;
     });
     const footer=q('.v07-brief-sheet footer p',overlay);
     if(footer&&!footer.dataset.v08){
       footer.dataset.v08='1';
       footer.textContent+=' '+L('أولوية القرار الحالية تشمل Team Strain عند توفر بياناته.','Current Decision Priority includes Team Strain when its inputs are available.');
     }
+    applying=false;
   };
-  new MutationObserver(patch).observe(overlay,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+  observer=new MutationObserver(()=>{
+    observer.disconnect();
+    patch();
+    observer.observe(overlay,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+  });
+  observer.observe(overlay,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
 }
 
 function renderV8(){
