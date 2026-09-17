@@ -1,0 +1,64 @@
+{
+  "version": "KH-PILOT-PRESETS-v0.1",
+  "status": "illustrative-reference-presets-not-official-benchmarks",
+  "note_ar": "قيم توضيحية للعرض التجريبي فقط. يجب استبدالها ببيانات HR/Finance المعتمدة قبل أي قرار إنتاجي.",
+  "note_en": "Illustrative pilot reference values only. Replace with verified HR/Finance inputs before production decisions.",
+  "sectors": {
+    "EDU": {
+      "hire_unit_cost_sar": 140000,
+      "transfer_unit_cost_sar": 20000,
+      "upskill_unit_cost_sar": 18000,
+      "contract_unit_cost_sar": 165000,
+      "uncovered_fte_day_cost_sar": 950,
+      "approval_days": {
+        "hire": 30,
+        "transfer": 14,
+        "upskill": 7,
+        "contract": 14
+      },
+      "source": "Synthetic pilot benchmark — Education"
+    },
+    "HLT": {
+      "hire_unit_cost_sar": 220000,
+      "transfer_unit_cost_sar": 30000,
+      "upskill_unit_cost_sar": 25000,
+      "contract_unit_cost_sar": 300000,
+      "uncovered_fte_day_cost_sar": 1800,
+      "approval_days": {
+        "hire": 45,
+        "transfer": 21,
+        "upskill": 10,
+        "contract": 14
+      },
+      "source": "Synthetic pilot benchmark — Health"
+    },
+    "MUN": {
+      "hire_unit_cost_sar": 150000,
+      "transfer_unit_cost_sar": 18000,
+      "upskill_unit_cost_sar": 20000,
+      "contract_unit_cost_sar": 180000,
+      "uncovered_fte_day_cost_sar": 900,
+      "approval_days": {
+        "hire": 30,
+        "transfer": 14,
+        "upskill": 7,
+        "contract": 14
+      },
+      "source": "Synthetic pilot benchmark — Municipal"
+    },
+    "GOV": {
+      "hire_unit_cost_sar": 170000,
+      "transfer_unit_cost_sar": 15000,
+      "upskill_unit_cost_sar": 22000,
+      "contract_unit_cost_sar": 190000,
+      "uncovered_fte_day_cost_sar": 1000,
+      "approval_days": {
+        "hire": 30,
+        "transfer": 14,
+        "upskill": 10,
+        "contract": 14
+      },
+      "source": "Synthetic pilot benchmark — Government services"
+    }
+  }
+}
