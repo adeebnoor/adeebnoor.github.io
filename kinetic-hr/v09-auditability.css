@@ -1,0 +1,33 @@
+/* Kinetic HR v0.9 — auditability & surveillance sufficiency */
+.v09-evidence-strip{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.v09-evidence-strip span{padding:5px 8px;border-radius:999px;background:#eef5f8;color:#496b7d;font-size:9px;font-weight:800}
+.v09-evidence-strip .ok{background:#e8f8f2;color:#117858}.v09-evidence-strip .warn{background:#fff4d8;color:#8c6507}
+.v09-pulse-note{margin-top:7px;padding:8px 10px;border-radius:10px;background:#f4f8fa;color:#607988;font-size:9px;line-height:1.55}
+.signal-card.insufficient{border-color:#d7dfe5;background:#f7f9fb}
+.signal-badge.insufficient{background:#e9eef2!important;color:#5d7180!important}
+.v09-sufficiency{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:9px;border-top:1px solid #e9eef2}
+.v09-sufficiency span{font-size:8px;border-radius:8px;padding:4px 6px;background:#f1f5f7;color:#657d8b}
+.v09-sufficiency span.ok{background:#eaf8f3;color:#18765b}.v09-sufficiency span.warn{background:#fff3dc;color:#8c6413}
+.v09-priority-explainer{margin-top:8px;padding:8px 9px;border-radius:9px;background:#eef5fb;color:#46677b;font-size:8px;line-height:1.5}
+.v09-separation-mix{margin-top:8px;font-size:8px;color:#6b7f8d;line-height:1.55}
+.v09-dictionary{margin-top:15px;padding:20px}.v09-dictionary h4{margin:15px 0 7px;color:#17384c}
+.v09-dictionary-intro{color:#5e7584;font-size:10px;line-height:1.7}
+.v09-dict-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v09-dict-card{border:1px solid #e1e9ee;border-radius:13px;background:#fbfdfe;padding:13px}
+.v09-dict-card strong{display:block;color:#17384c;margin-bottom:7px}.v09-dict-card small{display:block;color:#6c8391;line-height:1.65}
+.v09-code-table{width:100%;border-collapse:collapse;font-size:9px}.v09-code-table th,.v09-code-table td{padding:7px 8px;border-bottom:1px solid #e8eef2;text-align:start}
+.v09-code-table th{color:#557184;background:#f5f8fa}.v09-code-table code{font-size:8px}
+.v09-dict-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.v09-dict-actions a{display:inline-flex;text-decoration:none;border:1px solid #cfe0e8;border-radius:10px;padding:8px 10px;color:#17627c;background:#fff;font-size:9px;font-weight:850}
+.v09-unit{font-size:.46em;font-weight:800;color:#647b8b;margin-inline-start:5px}
+.v09-metric-caption{display:block!important;color:#6a8290!important}
+.v09-queue-note{display:block!important;margin-top:3px;color:#587789!important;font-size:8px!important}
+.v09-audit-legacy{margin:12px 0;padding:11px 13px;border:1px solid #ecd8aa;border-radius:12px;background:#fff9ea;color:#7c5b18;font-size:9px;line-height:1.6}
+.v09-audit-legacy summary{cursor:pointer;font-weight:850}.v09-audit-legacy code{font-size:8px}
+.v09-pgid{display:block;font-weight:850;color:#17384c}.v09-cellcode{display:block;color:#758995;font-size:8px;margin-top:2px}
+.v09-source-tag{display:inline-flex;padding:3px 6px;border-radius:7px;background:#eef5f8;color:#567486;font-size:8px}
+.v09-contract-version{font-weight:900}
+.v09-date-window{direction:ltr;unicode-bidi:isolate}
+.v09-exec-human{font-size:12px!important;line-height:1.85!important}
+.v09-zero-state{display:inline-flex;padding:4px 7px;border-radius:999px;background:#e8f8f2;color:#117858;font-size:8px;font-weight:850}
+.v09-insufficient-state{display:inline-flex;padding:4px 7px;border-radius:999px;background:#e9eef2;color:#607380;font-size:8px;font-weight:850}
+@media(max-width:760px){.v09-dict-grid{grid-template-columns:1fr}.v09-code-table{font-size:8px}.v09-dictionary{padding:15px}}
