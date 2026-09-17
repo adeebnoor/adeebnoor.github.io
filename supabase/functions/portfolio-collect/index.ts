@@ -21,7 +21,6 @@ const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']
 const TARGET_PAGES = new Set([
   ...PAGES, '/privacy.html', '/ar/privacy.html', '/404.html', '/ar/404.html',
   '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml',
-  '/kinetic-hr/sample_position_snapshot_v05.csv', '/kinetic-hr/sample_hr_event_log_v05.csv',
 ]);
 const ANCHORS = new Set([
   'content', 'main-content', 'projects', 'research', 'investors', 'organizations',
@@ -42,6 +41,8 @@ const DESTINATIONS = new Set([
   'https://adeebnoor.github.io/CPIT/',
   'https://adeebnoor.github.io/CPIT/iscarb.html',
   'https://adeebnoor.github.io/Miyar/',
+  'https://adeebnoor.github.io/kinetic-hr/sample_position_snapshot_v05.csv',
+  'https://adeebnoor.github.io/kinetic-hr/sample_hr_event_log_v05.csv',
   'https://sultan-strategy-beta.onrender.com/',
   'https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor',
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
