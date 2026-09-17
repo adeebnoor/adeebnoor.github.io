@@ -102,7 +102,6 @@ jobs:
             if(!landing.engine.includes('KH-DECISION-v0.7')) throw new Error('v0.7 engine label missing');
             if(landing.funded!==3) throw new Error('Funding lens missing');
             if(!landing.briefButton) throw new Error('Executive brief button missing');
-            document.querySelector?.call;
             await page.click('.nav-item[data-view="scenario"]');
             await page.waitForSelector('#v07-reality-panel');
             const donorCount=await page.locator('#scenario-donor option').count();
