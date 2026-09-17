@@ -337,7 +337,7 @@ function patchHero9(){
   }else{
     const trend=sv.status==='stable_zero'
       ?L9('لم تُسجل أي زيادة جديدة في الفجوة خلال آخر 30 يومًا، وسجل المقارنة التاريخي مكتمل.','No new gap increase was recorded in the last 30 days, with complete comparison history.')
-      :L9(`خلال آخر 30 يومًا نشأت قدرة غير مغطاة جديدة تعادل ${nf9(sv.currentNewGapFte,1)} وظيفة بدوام كامل. المعدل الحالي ${nf9(sv.currentRate,2)} لكل 100 FTE-شهر، مقابل خط أساس ${nf9(sv.baselineRate,2)}.`,`Over the last 30 days, ${nf9(sv.currentNewGapFte,1)} FTE of newly uncovered capacity emerged. The current rate is ${nf9(sv.currentRate,2)} per 100 required FTE-months versus a ${nf9(sv.baselineRate,2)} baseline.`);
+      :L9(`خلال آخر 30 يومًا، زادت الفجوة بقدرة تشغيلية تعادل ${nf9(sv.currentNewGapFte,1)} وظائف بدوام كامل. بلغ معدل نشوء الفجوة ${nf9(sv.currentRate,2)} مقابل خط أساس ${nf9(sv.baselineRate,2)}، وكلاهما محسوب لكل 100 وظيفة مكافئة بدوام كامل خلال شهر.`,`Over the last 30 days, ${nf9(sv.currentNewGapFte,1)} FTE of newly uncovered capacity emerged. The current rate is ${nf9(sv.currentRate,2)} per 100 required FTE-months versus a ${nf9(sv.baselineRate,2)} baseline.`);
     const funding=f?.known?L9(`من الفجوة الحالية، ${nf9(f.fundedGap,1)} FTE ممولة و${nf9(f.unfundedGap,1)} FTE تحتاج اعتمادًا ماليًا أولًا.`,`Of the current gap, ${nf9(f.fundedGap,1)} FTE is funded and ${nf9(f.unfundedGap,1)} FTE requires funding approval first.`):'';
     text=L9(`أعلى نقطة قرار هي ${occupationLabel(r.ssco)} في ${loc}. ${trend} ${funding}`,`The highest decision point is ${occupationLabel(r.ssco)} in ${loc}. ${trend} ${funding}`);
   }
