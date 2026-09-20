@@ -25,6 +25,7 @@ await check(`${language}/${width}: transfer-source action reveals the donor sele
 await check(`${language}/${width}: A/B captures both scenarios`,async()=>{await p.locator('#v11-cap-a').click();await p.locator('#v14-hire').fill('3');await p.waitForTimeout(120);await p.locator('#v11-cap-b').click();assert.equal(await p.locator('.v11-compare-slot dl').count(),2)});
 await check(`${language}/${width}: compliance dialog closes with Escape`,async()=>{await p.locator('#v13-compliance-btn').click();assert(await p.locator('#v13-modal.open').count());await p.keyboard.press('Escape');assert.equal(await p.locator('#v13-modal.open').count(),0)});
 if(width===390)await check(`${language}/${width}: mobile navigation works`,async()=>{await p.locator('#mobile-nav-toggle').click();assert(await p.locator('.sidebar').isVisible());await p.locator('.nav-item[data-view="data"]').click();assert(await p.locator('#view-data.active').count());assert(!await p.locator('.sidebar').isVisible())});
+await require('./expert.cjs')({p,check,out,assert,path,width,language});
 await check(`${language}/${width}: no browser errors or missing assets`,()=>assert.deepEqual(errors,[]));
 await ctx.close();}
 })().catch(e=>{results.push({name:'Runner',passed:false,error:e.stack});console.error(e)}).finally(async()=>{fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(results,null,2));if(browser)await browser.close();server.close();process.exitCode=results.some(r=>!r.passed)?1:0});

@@ -109,10 +109,10 @@ function patchLabels(){
   const eyebrow=q('.eyebrow');
   if(eyebrow&&isAr())eyebrow.textContent='بنية الإنذار المبكر للقوى العاملة';
   const trust=qa('.trust-strip b');
-  if(isAr()&&trust.length>=3){
+  if(trust.length>=3){
     trust[0].textContent='SSCO';
-    trust[1].textContent='سجل الأحداث';
-    trust[2].textContent='التدقيق';
+    trust[1].textContent=isAr()?'سجل الأحداث':'Event history';
+    trust[2].textContent=isAr()?'التدقيق':'Audit trail';
   }
   const briefBtn=q('#v07-brief-btn');
   if(briefBtn)briefBtn.textContent=isAr()?'التقرير التنفيذي':'Executive Brief';

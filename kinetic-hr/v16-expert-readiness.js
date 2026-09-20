@@ -1,0 +1,69 @@
+/* Expert entry point and evidence-based product positioning. Calculations stay in the measurement engine. */
+(()=>{
+'use strict';
+const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>[...r.querySelectorAll(s)];
+const L=(a,e)=>document.documentElement.lang==='ar'?a:e;
+const steps=()=>[
+ ['dashboard',L('حدّد أين يبدأ التدخل','Find the first decision'),L('راجع طابور القرارات: ما الفجوة الأعلى أولوية، وما أثرها على الخدمة؟','Review the decision queue: which gap comes first, and what service is exposed?')],
+ ['signals',L('افحص الدليل قبل الثقة','Inspect the evidence'),L('افتح تفاصيل إشارة وقارن المعدل الحالي بخط الأساس وكفاية التاريخ.','Open an alert and inspect its current rate, baseline and history sufficiency.')],
+ ['scenario',L('غيّر القرار، وشاهد الأثر','Change the decision'),L('جرّب توظيف 5، ثم نقلًا داخليًا. راجع مصدر النقل والميزانية وقارن الخيارين A وB.','Try hiring 5, then an internal transfer. Check donor capacity and budget; compare options A and B.')],
+ ['audit',L('تتبّع النتيجة وقيّمها','Trace and review'),L('راجع مصدر القياس وإصداره، ثم افتح تقييم الخبير ونزّل ملاحظاتك.','Review measurement source and version, then open the expert review and download your feedback.')]
+];
+function stepMarkup(){return steps().map(([view,title,desc],i)=>`<button data-v16-view="${view}"><b>${i+1}</b><span><strong>${title}</strong><small>${desc}</small></span></button>`).join('')}
+function comparison(){return `<section class="v14-section v16-difference" id="v16-difference">
+<div class="v16-section-head"><div><small>${L('المقارنة التي تستحق أن تسأل عنها','THE COMPARISON WORTH MAKING')}</small><h2>${L('التحليل وحده لا يكفي. أين مسار القرار؟','Analysis alone is not enough. Where is the decision workflow?')}</h2></div><span class="v16-stage">${L('نسخة تقييم الخبراء','Expert evaluation build')}</span></div>
+<p class="v16-lead">${L('قيمة Kinetic HR في ربط السؤال كاملًا: أين تتدهور القدرة؟ هل الفجوة ممولة؟ ما أثر التأخير؟ وهل ينقل الحل المشكلة إلى فريق آخر؟ ثم إبقاء الدليل والافتراضات مع القرار.','Kinetic HR connects the full question: where is capacity deteriorating, is the gap funded, what does delay cost, and would a transfer move the problem elsewhere? Evidence and assumptions stay with the decision.')}</p>
+<div class="v16-proof-grid">
+<article><span>01</span><h3>${L('الإنذار له سبب يمكن تتبّعه','An alert with a traceable cause')}</h3><p>${L('الأحداث المؤرخة تعيد بناء نشوء الفجوة. نقارن الخلية بتاريخها، ونوقف استنتاج التسارع عندما لا يكفي السجل.','Dated events reconstruct gap onset. Each cell is compared with its own history; acceleration claims are gated when history is insufficient.')}</p><button data-v16-view="signals">${L('افحص الإنذار ←','Inspect an alert →')}</button></article>
+<article><span>02</span><h3>${L('الحل يواجه قيود التشغيل','A decision that faces real constraints')}</h3><p>${L('تمويل، مهلة موافقة، تكلفة، قدرة مانحة وهامش أمان. قارن التوظيف والنقل والتأهيل والتعاقد مع عدم التدخل.','Funding, approval delays, cost, donor capacity and a safety buffer. Compare hiring, transfer, upskilling and contracting against no action.')}</p><button data-v16-view="scenario">${L('اختبر القيود ←','Test the constraints →')}</button></article>
+<article><span>03</span><h3>${L('الرقم يصاحبه دليله','A number with its evidence')}</h3><p>${L('مصدر البيانات وإصدار المنهج وبصمة الحالة ترافق المراجعة. السجل في هذه النسخة محلي؛ الحفظ المؤسسي المحمي مرحلة إضافية.','Source, method version and a state fingerprint accompany review. This build stores its ledger locally; protected institutional persistence is a further step.')}</p><button data-v16-view="audit">${L('راجع سجل القياس ←','Review the measurement ledger →')}</button></article>
+</div>
+<div class="v16-table-wrap" tabindex="0" role="region" aria-label="${L('جدول مقارنة الحلول','Solution comparison table')}"><table class="v16-comparison"><caption>${L('مقارنة نطاق العمل، وليست ادعاء تفوق في الأداء','A scope comparison, not a performance ranking')}</caption><thead><tr><th scope="col">${L('الخيار','Approach')}</th><th scope="col">${L('ما يجيده فعلًا','What it already does well')}</th><th scope="col">${L('السؤال الحاسم قبل الاختيار','The deciding question')}</th></tr></thead><tbody>
+<tr><th scope="row">Workday Adaptive Planning</th><td>${L('تخطيط القوى العاملة والتكلفة والقدرة، ونمذجة السيناريوهات وربط الموارد البشرية بالمالية.','Workforce, cost and capacity planning, scenario modeling, and alignment between HR and finance.')}</td><td>${L('هل تحتاج منصة تخطيط مؤسسي واسعة؟ اطلب عرضًا يثبت مسار الإنذار وتتبع الفجوة الذي تحتاجه داخل بيئتك.','Need broad enterprise planning? Ask for a demonstration of your required early-warning and gap-tracing workflow in your environment.')}</td></tr>
+<tr><th scope="row">Visier Workforce Planning</th><td>${L('تحليلات القوى العاملة والتخطيط المستمر والسيناريوهات والتعاون بين الموارد البشرية والمالية.','People analytics, continuous workforce planning, scenarios, and HR–finance collaboration.')}</td><td>${L('هل الأولوية لتحليلات شاملة وتخطيط مترابط؟ تحقق من ملاءمة تعريفات الفجوة وقواعد النقل لسياقك.','Need broad analytics and connected planning? Verify that gap definitions and transfer rules fit your operating context.')}</td></tr>
+<tr><th scope="row">${L('محادثة مباشرة مع LLM','Direct LLM chat')}</th><td>${L('شرح البيانات، تحليل الملفات، إنشاء رسوم، وكتابة كود ونماذج عند تزويده بالأدوات والسياق.','Explaining data, analyzing files, creating charts, and writing code or models with the right tools and context.')}</td><td>${L('من يضبط تعريف الفجوة، جودة المدخلات، خط الأساس، الإصدارات وحفظ القرار عند تكرار التحليل؟ يجب بناء هذا المسار والتحقق منه.','Who controls gap definitions, input quality, baselines, versions and decision persistence across repeated analyses? That workflow must be built and validated.')}</td></tr>
+<tr class="v16-own-row"><th scope="row">Kinetic HR <small>${L('النسخة الحالية','Current build')}</small></th><td>${L('مسار مُعدّ للتجربة: أحداث ← فجوة ← إنذار ← سيناريو مقيد ← مراجعة موثقة، بواجهة عربية وإنجليزية وتصنيف مهني سعودي تجريبي.','A ready-to-test path: events → gap → alert → constrained scenario → documented review, with Arabic/English UI and a Saudi occupational demo subset.')}</td><td>${L('هل يحسّن هذا المسار قرارك الفعلي؟ اختبر الافتراضات والقيود. التكامل الحي وSSO والصلاحيات والحفظ الخادمي لم تُفعّل بعد.','Does this workflow improve your actual decision? Test its assumptions and constraints. Live integrations, SSO, access roles and server persistence are not enabled yet.')}</td></tr>
+</tbody></table></div>
+<p class="v16-source-note">${L('نطاق المقارنة: وصف المنتجات الرسمي، 20 سبتمبر 2026. لم نُجرِ اختبار أداء مباشرًا للمنافسين ولا ندّعي غياب هذه القدرات لديهم.','Comparison scope: official product descriptions, September 20, 2026. Competitors were not benchmarked; we do not claim they lack these capabilities.')} <a href="https://www.workday.com/en-us/products/adaptive-planning/workforce-planning/overview.html" target="_blank" rel="noopener noreferrer">Workday ↗</a> · <a href="https://www.visier.com/products/workforce-planning/" target="_blank" rel="noopener noreferrer">Visier ↗</a> · <a href="https://help.openai.com/en/articles/8437071-data-analysis-with-chatgpt" target="_blank" rel="noopener noreferrer">${L('تحليل البيانات في ChatGPT','ChatGPT data analysis')} ↗</a></p>
+<div class="v16-llm"><div><small>${L('لماذا لا أكتفي بمطالبة ذكية؟','WHY NOT JUST WRITE A GOOD PROMPT?')}</small><h3>${L('المطالبة تُنتج إجابة. المسار يضبط كيف وصلنا إليها.','A prompt produces an answer. A workflow controls how we got there.')}</h3><p>${L('يمكن لـLLM مع كود وأدوات وذاكرة أن يبني وظائف مشابهة. ما لا توفره المحادثة وحدها تلقائيًا هو هذا المسار المُعدّ والمختبر: عقد البيانات، إعادة بناء الفجوة، قواعد الكفاية، قيود القرار وحفظ الحالة. هذه هي القيمة التي نطلب منك اختبارها، لا ادعاء استحالة تقنية على النماذج.','An LLM with code, tools and memory can build similar functions. A conversation alone does not automatically supply this configured, tested workflow: data contracts, gap reconstruction, sufficiency rules, decision constraints and state persistence. That is the value to test—not a claim that models are technically incapable.')}</p></div><div class="v16-llm-question"><strong>${L('اسأل السؤال الأصعب','Ask the harder question')}</strong><p>${L('إذا تغيّر الملف غدًا، هل أعرف لماذا تغيّر القرار، وبأي قاعدة، وعلى أي دليل؟','If the file changes tomorrow, can I explain why the decision changed, under which rule, and using which evidence?')}</p><button data-v16-view="audit">${L('افحص الدليل بنفسك','Inspect the evidence yourself')}</button></div></div>
+</section>
+<section class="v14-section v16-expert" id="v16-expert"><div class="v16-section-head"><div><small>${L('لخبراء الموارد البشرية · نحو 5 دقائق','FOR HR EXPERTS · ABOUT 5 MINUTES')}</small><h2>${L('اختبر الفكرة بقرار، لا بانطباع','Evaluate a decision, not just a screen')}</h2></div><button class="v14-primary" data-v16-start>${L('ابدأ تجربة الخبير ←','Start expert trial →')}</button></div><div class="v16-steps">${stepMarkup()}</div><p class="v16-trial-note">${L('التجربة ببيانات تركيبية. لا تحتاج حسابًا. السيناريوهات والتقييمات تُحفظ في هذا المتصفح فقط؛ نزّل تقييمك لمشاركته. النتائج محاكاة تحتاج معايرة الجهة، وليست توصية توظيف ملزمة.','Synthetic data; no account required. Scenarios and reviews stay in this browser; download your review to share it. Results are simulations requiring entity calibration, not binding hiring recommendations.')}</p></section>`}
+function enter(view){sessionStorage.setItem('kinetic_hr_entered_v12','1');document.body.classList.remove('v12-landing-mode');showView(view);window.scrollTo({top:0,behavior:'instant'})}
+function enhance(){
+ for(const selector of ['#kh-review-overlay .kh-review-head','#v11-tour-overlay .v11-modal-head','#v11-cards-overlay .v11-modal-head','#v07-brief-overlay .v07-brief-actions']){const head=q(selector);if(head&&!q('[data-v16-language]',head))head.insertAdjacentHTML('beforeend',`<button type="button" class="v16-dialog-language" data-v16-language>${L('English','العربية')}</button>`)}
+ const shell=q('.v14-landing-shell');
+ if(shell&&!q('#v16-difference',shell)){
+  q('.v14-modules-section',shell)?.insertAdjacentHTML('beforebegin',comparison());
+  const links=q('.v14-links',shell);if(links)links.insertAdjacentHTML('beforeend',`<a href="#v16-difference">${L('لماذا نحن؟','Why Kinetic HR?')}</a>`);
+  const cta=q('.v14-hero-actions .v14-secondary',shell);if(cta){cta.href='#v16-expert';cta.textContent=L('تجربة الخبير · 5 دقائق','Expert trial · 5 minutes')}
+ }
+ const top=q('.topbar');
+ if(top&&!q('#v16-trial-guide')){
+  top.insertAdjacentHTML('afterend',`<details id="v16-trial-guide" class="v16-guide"><summary>${L('دليل تجربة الخبير · 4 خطوات','Expert trial guide · 4 steps')}</summary><div class="v16-steps">${stepMarkup()}</div><div class="v16-guide-foot"><span>${L('FTE = مكافئ دوام كامل. البيانات تركيبية؛ الحفظ على هذا الجهاز فقط.','FTE = full-time equivalent. Synthetic data; saved on this device only.')}</span><button data-v16-review>${L('تقييم الخبير وتصديره','Review and export feedback')}</button></div></details>`);
+ }
+}
+document.addEventListener('click',e=>{
+ if(e.target.closest('[data-v16-language]'))q('#lang-toggle')?.click();
+ const view=e.target.closest('[data-v16-view]');if(view)enter(view.dataset.v16View);
+ if(e.target.closest('[data-v16-start]')){enter('dashboard');q('#v16-trial-guide').open=true}
+ if(e.target.closest('[data-v16-review]'))q('#kh-review-fab')?.click();
+});
+document.addEventListener('kinetic:languagechange',()=>{qa('[data-v16-language]').forEach(el=>{el.textContent=L('English','العربية')});const guide=q('#v16-trial-guide'),wasOpen=guide?.open;guide?.remove();setTimeout(()=>{enhance();q('#v16-trial-guide').open=!!wasOpen},110);const drawer=q('#detail-drawer');if(drawer?.classList.contains('open')){const fields=Object.fromEntries(qa('input,select',drawer).map(e=>[e.id,e.value]));openDrawer(drawer.dataset.source);for(const [id,value] of Object.entries(fields)){const el=q('#'+id,drawer);if(el)el.value=value}}});
+document.addEventListener('DOMContentLoaded',()=>{enhance();new MutationObserver(enhance).observe(document.body,{subtree:true,childList:true})});
+
+const dialogSelectors=['#kh-review-overlay','#v11-tour-overlay','#v11-cards-overlay','#v07-brief-overlay'];
+let activeDialog=null,returnFocus=null;
+function syncDialog(){
+ const current=dialogSelectors.map(s=>q(s)).find(el=>el?.classList.contains('open'))||null;
+ if(current===activeDialog)return;
+ if(current){returnFocus=document.activeElement;const panel=current.firstElementChild;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label',panel.querySelector('h1,h2')?.textContent||L('نافذة مراجعة','Review dialog'));panel.tabIndex=-1;panel.focus()}
+ else if(returnFocus?.isConnected)returnFocus.focus();
+ activeDialog=current;
+}
+document.addEventListener('keydown',e=>{
+ if(!activeDialog)return;
+ if(e.key==='Escape'){const close=q('#kh-review-close,[data-v11-close],#v07-close-brief',activeDialog);close?.click();e.preventDefault();syncDialog()}
+ if(e.key==='Tab'){const items=qa('button,a[href],input,select,textarea,[tabindex="0"]',activeDialog).filter(el=>el.getClientRects().length&&!el.disabled),first=items[0],last=items[items.length-1];if(!first)return;if(e.shiftKey&&(document.activeElement===first||!items.includes(document.activeElement))){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||!items.includes(document.activeElement))){e.preventDefault();first.focus()}}
+});
+document.addEventListener('DOMContentLoaded',()=>new MutationObserver(syncDialog).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']}));
+})();

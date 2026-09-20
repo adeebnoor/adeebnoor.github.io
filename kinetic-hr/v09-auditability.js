@@ -389,10 +389,10 @@ function patchGapMetrics9(){
 function patchDataHub9(){
   const code=q9('#view-data .contract-panel code'); if(code){code.textContent=CONTRACT_V09;code.classList.add('v09-contract-version')}
   const links=qa9('#view-data .import-footer a');
-  if(links[0]){links[0].href='sample_position_snapshot_v09.csv';links[0].textContent=L9('تحميل Snapshot v0.9','Download Snapshot v0.9')}
-  if(links[1]){links[1].href='sample_hr_event_log_v09.csv';links[1].textContent=L9('تحميل Event Log v0.9','Download Event Log v0.9')}
-  const view=q9('#view-data'); if(!view||q9('#v09-data-dictionary'))return;
-  const panel=document.createElement('article'); panel.id='v09-data-dictionary'; panel.className='panel v09-dictionary';
+  if(links[0]){links[0].href='sample_position_snapshot_v09.csv';links[0].textContent=L9('تحميل لقطة القوى العاملة v0.9','Download Snapshot v0.9')}
+  if(links[1]){links[1].href='sample_hr_event_log_v09.csv';links[1].textContent=L9('تحميل سجل الأحداث v0.9','Download Event Log v0.9')}
+  const view=q9('#view-data'),existing=q9('#v09-data-dictionary'); if(!view||existing?.dataset.language===document.documentElement.lang)return;existing?.remove();
+  const panel=document.createElement('article'); panel.id='v09-data-dictionary'; panel.dataset.language=document.documentElement.lang; panel.className='panel v09-dictionary';
   panel.innerHTML=`
     <div class="panel-head compact"><div><span class="panel-kicker">${L9('قاموس البيانات المنشور','PUBLISHED DATA DICTIONARY')}</span><h3>${L9('لا يوجد رمز بلا معنى موثق','No code without a documented meaning')}</h3></div><code>${CONTRACT_V09}</code></div>
     <p class="v09-dictionary-intro">${L9('category حقل يعتمد على القطاع؛ أما G/J/L/P فهي بادئات للمستوى وليست فئات. المقارنة عبر القطاعات تستخدم المعنى الدلالي للمستوى، لا الحرف الخام. position_group_id هو مفتاح الربط المباشر بين اللقطة وسجل الأحداث.','category is sector-specific; G/J/L/P are level prefixes, not categories. Cross-sector comparison uses semantic level meaning rather than the raw prefix. position_group_id is the direct link between snapshots and events.')}</p>
@@ -412,7 +412,7 @@ function patchDataHub9(){
       <div class="v09-dict-card"><strong>${L9('ربط سجل الأحداث','Event-log linkage')}</strong><small><code>position_group_id</code> ${L9('إلزامي ويطابق اللقطة مباشرة. sector/location/ssco/level/category حقول تحقق زائدة لكشف تغيّر الترميز، وليست مفتاح الربط.','is mandatory and directly references the snapshot. sector/location/ssco/level/category are redundant validation fields used to detect coding drift—not the join key.')}</small></div>
       <div class="v09-dict-card"><strong>${L9('طبيعة الخروج','Separation nature')}</strong><small><code>voluntary</code> ${L9('طوعي','voluntary')} · <code>involuntary</code> ${L9('غير طوعي/إنهاء خدمة','termination')} · <code>statutory</code> ${L9('تقاعد/نظامي','retirement/statutory')} · <code>internal_mobility</code> ${L9('حركة داخلية','internal movement')}.<br>${L9('ويُحفظ separation_reason منفصلًا لأن التعويض أو عبء العمل قابلان للتدخل، بينما الأداء أو فترة التجربة مسار قرار مختلف.','separation_reason is separate because compensation/workload are actionable through different levers than performance/probation.')}</small></div>
     </div>
-    <div class="v09-dict-actions"><a href="data_dictionary_v09.md" target="_blank" rel="noreferrer">${L9('فتح قاموس البيانات الكامل','Open full data dictionary')}</a><a href="sample_position_snapshot_v09.csv" download>${L9('Snapshot v0.9','Snapshot v0.9')}</a><a href="sample_hr_event_log_v09.csv" download>${L9('Event Log v0.9','Event Log v0.9')}</a></div>`;
+    <div class="v09-dict-actions"><a href="data_dictionary_v09.md" target="_blank" rel="noreferrer">${L9('فتح قاموس البيانات الكامل','Open full data dictionary')}</a><a href="sample_position_snapshot_v09.csv" download>${L9('لقطة القوى العاملة v0.9','Snapshot v0.9')}</a><a href="sample_hr_event_log_v09.csv" download>${L9('سجل الأحداث v0.9','Event Log v0.9')}</a></div>`;
   view.appendChild(panel);
 }
 function auditRowFor9(x){
@@ -432,7 +432,7 @@ function patchAudit9(){
   body.innerHTML=current.length?current.map(({x,row})=>{
     const pg=x.position_group_id||row?.position_group_id||'—',cell=x.workforce_cell||x.cell||(row?cellCode(row):'—');
     const when=x.recorded_at?new Date(x.recorded_at).toLocaleString(lang==='ar'?'ar-SA':'en-GB'):'—';
-    return `<tr><td>${when}</td><td>${esc9(x.kind||'—')}</td><td><span class="v09-pgid">${esc9(pg)}</span><small class="v09-cellcode">${esc9(cell)}</small></td><td>${esc9(x.detail||formatAuditDetail(x))}</td><td>${esc9(x.basis||'—')}</td><td><span class="v09-source-tag">${esc9(x.source||x.file_name||x.source_row||'—')}</span></td></tr>`;
+    return `<tr><td>${when}</td><td data-audit-kind="${esc9(x.kind||'')}">${esc9(auditKindLabel(x.kind))}</td><td><span class="v09-pgid">${esc9(pg)}</span><small class="v09-cellcode">${esc9(cell)}</small></td><td>${esc9(auditDetailLabel(x.detail||formatAuditDetail(x)))}</td><td>${esc9(x.basis||'—')}</td><td><span class="v09-source-tag">${esc9(x.source||x.file_name||x.source_row||'—')}</span></td></tr>`;
   }).join(''):'<tr><td colspan="6">—</td></tr>';
   q9('#v09-audit-legacy')?.remove();
   if(legacy.length){
@@ -461,8 +461,8 @@ const renderDataHubBase9=typeof renderDataHub==='function'?renderDataHub:null;
 if(renderDataHubBase9) renderDataHub=function(){renderDataHubBase9();queueMicrotask(patchDataHub9)};
 
 function ensureSignalFilter9(){
-  const f=q9('#signal-filter');if(!f||q9('[data-signal="insufficient"]',f))return;
-  const b=document.createElement('button');b.dataset.signal='insufficient';b.textContent=L9('بيانات غير كافية','Insufficient');
+  const f=q9('#signal-filter'),existing=q9('[data-signal="insufficient"]');if(existing)existing.textContent=L9('بيانات غير كافية','Insufficient');if(!f||existing)return;
+  const b=document.createElement('button');b.dataset.signal='insufficient';b.dataset.i18n='common.insufficient';b.textContent=L9('بيانات غير كافية','Insufficient');
   f.appendChild(b);
 }
 function renderV09(){

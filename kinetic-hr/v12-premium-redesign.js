@@ -180,7 +180,7 @@ function renderLandingExample(){
 }
 
 function ensureOverviewButton(){
-  const top=q('.top-actions');if(!top||q('#v12-overview-btn'))return;
+  const top=q('.top-actions');const existing=q('#v12-overview-btn');if(existing)existing.textContent=L('عن المنصة','Overview');if(!top||existing)return;
   const b=document.createElement('button');b.id='v12-overview-btn';b.className='utility-btn';b.type='button';b.textContent=L('عن المنصة','Overview');b.onclick=()=>{sessionStorage.removeItem('kinetic_hr_entered_v12');injectLanding();showLanding()};top.insertBefore(b,top.firstChild);
 }
 
@@ -263,7 +263,7 @@ function renderScenarioPremium(){
 }
 function ensureAppPolish(){
   ensureOverviewButton();
-  const side=q('.brand-copy span');if(side&&isAr())side.textContent='إنذار مبكر وقرار أذكى';
+  const side=q('.brand-copy span');if(side)side.textContent=L('إنذار مبكر وقرار أذكى','Early warning. Smarter decisions.');
   const scenarioNav=q('.nav-item[data-view="scenario"] .nav-icon');if(scenarioNav)scenarioNav.textContent='⚗';
 }
 

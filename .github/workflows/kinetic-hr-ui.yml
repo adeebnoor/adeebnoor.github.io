@@ -1,7 +1,7 @@
 name: Kinetic HR browser verification
 on:
   push:
-    branches: [main]
+    branches: [main, fix/kinetic-bilingual-expert]
     paths: ['kinetic-hr/**', '.github/workflows/kinetic-hr-ui.yml']
   workflow_dispatch:
 permissions:
