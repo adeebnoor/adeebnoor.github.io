@@ -3,3 +3,5 @@
 @media(max-width:520px){.v18-fields,.v18-value-grid,.v18-sector-kits{grid-template-columns:1fr}.v18-policy,.v18-kit{padding:16px}.v18-buttons{align-items:stretch}.v18-buttons button{width:100%}.v18-readiness{display:grid}.v18-source{margin:10px 12px}}
 
 @media print{#v07-brief-overlay,.v07-brief-sheet,#v07-brief-content{height:auto!important;max-height:none!important;overflow:visible!important;transform:none!important;position:static!important}.v07-brief-item{break-inside:avoid}.v07-brief-actions,.v11-brief-open-scenario,#v07-close-brief{display:none!important}.kh-number-details{font-size:11px}.v07-brief-sheet p,.v07-brief-sheet small{font-size:11px!important}.v11-brief-decision{break-inside:avoid}}
+
+@media print{.kh-brief-close-top{display:none!important}.kh-number-details::details-content{content-visibility:visible!important;height:auto!important}.v07-brief-summary{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
