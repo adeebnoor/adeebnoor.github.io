@@ -314,7 +314,7 @@ function renderRebalanceImpact(){
 function captureSlot(slot){
   const r=selectedRow();if(!r)return;
   const vals=scenarioValues(),impact=scenarioImpact(r,vals),imp=serviceImpactFor(r,impact.afterGap),opp=opportunityCost(r,impact.horizon,num(q('#v07-gapday-cost')?.value));
-  compareSlots[slot]={created:new Date().toISOString(),source:r.source_row,cell:cellCode(r),vals:{...vals},impact:{...impact},serviceImpact:imp,doNothing:opp};
+  compareSlots[slot]={created:new Date().toISOString(),source:r.source_row,cell:cellCode(r),vals:{...vals},impact:{...impact},serviceImpact:imp?{...imp,unitAr:r.service_impact_unit_ar||imp.unit,unitEn:r.service_impact_unit_en||imp.unit}:null,doNothing:opp};
   renderCompare();
 }
 function renderCompare(){
@@ -323,7 +323,7 @@ function renderCompare(){
     const x=compareSlots[slot];if(!x)return `<div class="v11-compare-slot"><h4>${label}</h4><small>${L('التقط الإعدادات الحالية للمقارنة.','Capture the current settings to compare.')}</small></div>`;
     const actionCost=Number.isFinite(x.impact.totalCostSar)?x.impact.totalCostSar:null;
     const avoided=x.doNothing&&Number.isFinite(x.impact.gapDaysAvoided)?x.impact.gapDaysAvoided*x.doNothing.daily:null;
-    return `<div class="v11-compare-slot"><h4>${label}</h4><dl><dt>${L('الفجوة عند الأفق','Gap at horizon')}</dt><dd>${fmt(x.impact.afterGap,1)} FTE</dd><dt>${L('الأولوية بعد','Priority after')}</dt><dd>${x.impact.afterPriority??'—'}</dd><dt>${L('تكلفة التدخل','Action cost')}</dt><dd>${actionCost==null?'—':sar(actionCost)}</dd><dt>${L('تعرض متجنب','Exposure avoided')}</dt><dd>${avoided==null?'—':sar(avoided)}</dd><dt>${L('أثر الخدمة المتبقي','Remaining service impact')}</dt><dd>${x.serviceImpact?`${fmt(x.serviceImpact.value,0)} ${esc(x.serviceImpact.unit)}`:'—'}</dd></dl></div>`;
+    return `<div class="v11-compare-slot"><h4>${label}</h4><dl><dt>${L('الفجوة عند الأفق','Gap at horizon')}</dt><dd>${fmt(x.impact.afterGap,1)} FTE</dd><dt>${L('الأولوية بعد','Priority after')}</dt><dd>${x.impact.afterPriority??'—'}</dd><dt>${L('تكلفة التدخل','Action cost')}</dt><dd>${actionCost==null?'—':sar(actionCost)}</dd><dt>${L('تعرض متجنب','Exposure avoided')}</dt><dd>${avoided==null?'—':sar(avoided)}</dd><dt>${L('أثر الخدمة المتبقي','Remaining service impact')}</dt><dd>${x.serviceImpact?`${fmt(x.serviceImpact.value,0)} ${esc(ar()?x.serviceImpact.unitAr:x.serviceImpact.unitEn)}`:'—'}</dd></dl></div>`;
   };
   box.innerHTML=`<div class="v11-section-head"><div><span>${L('مقارنة سيناريوهين','SIDE-BY-SIDE SCENARIO COMPARISON')}</span><strong>${L('التقط إعدادين وقارن النتيجة مباشرة','Capture two configurations and compare outcomes')}</strong></div></div><div class="v11-compare-actions"><button id="v11-cap-a">${L('التقط كسيناريو A','Capture as A')}</button><button id="v11-cap-b">${L('التقط كسيناريو B','Capture as B')}</button><button id="v11-clear-compare">${L('مسح المقارنة','Clear')}</button></div><div class="v11-compare-grid">${card('A','A')}${card('B','B')}</div>`;
   q('#v11-cap-a').onclick=()=>captureSlot('A');q('#v11-cap-b').onclick=()=>captureSlot('B');q('#v11-clear-compare').onclick=()=>{compareSlots={A:null,B:null};renderCompare()};
@@ -391,6 +391,7 @@ function applyAuditFilter(){
   let shown=0;qa('tr',table).forEach(tr=>{const cells=qa('td',tr),k=cells[1]?.dataset.auditKind||cells[1]?.textContent.trim()||'',txt=tr.innerText.toLowerCase(),ok=(!term||txt.includes(term))&&(!kind||k===kind);tr.hidden=!ok;if(ok)shown++});
   const n=q('#v11-audit-count');if(n)n.textContent=L(`${shown} سجل ظاهر`,`${shown} records shown`);
 }
+document.addEventListener('kinetic:auditrender',()=>patchAuditTools());
 function patchAuditTools(){
   const sel=q('#v11-audit-kind');if(!sel)return;
   const current=sel.value,kinds=[...new Set(qa('#audit-body tr td:nth-child(2)').map(td=>td.dataset.auditKind||td.textContent.trim()).filter(Boolean))].sort();

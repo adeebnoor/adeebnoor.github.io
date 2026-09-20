@@ -13,6 +13,7 @@ const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}
 await p.goto('http://127.0.0.1:8077/');await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);if(language==='en'){await p.locator('[data-v14-lang]').click();await p.waitForTimeout(250)}await p.evaluate(()=>document.fonts.ready);
 await p.screenshot({path:path.join(out,`landing-${language}-${width}.png`),fullPage:true});
 await check(`${language}/${width}: landing has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
+await check(`${language}/${width}: landing uses the selected reading direction`,async()=>assert.equal(await p.locator('.v14-landing-shell').evaluate(e=>getComputedStyle(e).direction),language==='ar'?'rtl':'ltr'));
 await check(`${language}/${width}: local font loads`,async()=>assert(await p.evaluate(()=>document.fonts.check('700 16px Cairo'))));
 await p.locator('[data-v14-enter]').last().click();await p.locator('#view-scenario.active').waitFor();await p.waitForTimeout(150);
 await p.screenshot({path:path.join(out,`scenario-${language}-${width}.png`),fullPage:true});

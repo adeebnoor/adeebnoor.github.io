@@ -147,7 +147,7 @@ function patchBriefContent(){
        .replaceAll('Transferable internal capacity','قدرة داخلية قابلة للنقل');
     if(t!==el.textContent)el.textContent=t;
   });
-  const sheet=q('.v07-brief-sheet',overlay);
+  const sheet=q('.v07-brief-sheet',overlay);const existingClose=q('.kh-brief-close-top',sheet||overlay);if(existingClose)existingClose.setAttribute('aria-label',isAr()?'إغلاق التقرير':'Close report');
   if(sheet&&!q('.kh-brief-close-top',sheet)){
     const close=document.createElement('button');
     close.type='button';

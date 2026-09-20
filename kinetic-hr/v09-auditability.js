@@ -443,7 +443,7 @@ function patchAudit9(){
     table?.insertAdjacentElement('beforebegin',note);
   }
   const fp=q9('#audit-fingerprint');if(fp)fp.textContent=a.fingerprint;
-  const contract=q9('#audit-trust-grid .audit-trust:nth-child(4) small');if(contract)contract.textContent=CONTRACT_V09;
+  const contract=q9('#audit-trust-grid .audit-trust:nth-child(4) small');if(contract)contract.textContent=CONTRACT_V09;document.dispatchEvent(new CustomEvent('kinetic:auditrender'));
 }
 function patchDrawer9(id){
   const r=getRowBySource(id),content=q9('#drawer-content');if(!r||!content)return;
