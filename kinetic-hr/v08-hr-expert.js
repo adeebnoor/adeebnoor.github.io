@@ -515,7 +515,6 @@ if(renderAllBase){
 
 document.addEventListener('DOMContentLoaded',()=>{
   setTimeout(()=>{
-    if(snapshotMode==='synthetic'&&typeof refreshDemoQuality==='function')refreshDemoQuality();
     ensureFundingFilter();
     ensureDecisionReadinessPanel();
     renderV8();

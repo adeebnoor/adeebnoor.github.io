@@ -10,7 +10,9 @@ async function check(name,fn){try{await fn();results.push({name,passed:true});co
 (async()=>{await new Promise(r=>server.listen(8077,'127.0.0.1',r));browser=await chromium.launch({headless:true});
 for(const width of [1672,1366,390])for(const language of ['ar','en']){
 const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(e.message));p.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
-await p.goto('http://127.0.0.1:8077/');await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);if(language==='en'){await p.locator('[data-v14-lang]').click();await p.waitForTimeout(250)}await p.evaluate(()=>document.fonts.ready);
+await p.goto(`http://127.0.0.1:8077/?lang=${language}`);await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);
+// Check the very first render before navigation or language changes can hide stale state.
+await require('./v191.cjs').coldBoot({p,check,assert,width,language});await p.evaluate(()=>document.fonts.ready);
 await p.screenshot({path:path.join(out,`landing-${language}-${width}.png`),fullPage:true});
 await check(`${language}/${width}: landing has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
 await check(`${language}/${width}: landing uses the selected reading direction`,async()=>assert.equal(await p.locator('.v14-landing-shell').evaluate(e=>getComputedStyle(e).direction),language==='ar'?'rtl':'ltr'));
@@ -29,6 +31,7 @@ await check(`${language}/${width}: compliance dialog closes with Escape`,async()
 if(width===390)await check(`${language}/${width}: mobile navigation works`,async()=>{await p.locator('#mobile-nav-toggle').click();assert(await p.locator('.sidebar').isVisible());await p.locator('.nav-item[data-view="data"]').click();assert(await p.locator('#view-data.active').count());assert(!await p.locator('.sidebar').isVisible())});
 await require('./expert.cjs')({p,check,out,assert,path,width,language});
 await require('./v190.cjs')({p,check,out,assert,path,width,language});
+await require('./v191.cjs').transitions({p,check,out,assert,path,width,language});
 await require('./p0.cjs')({p,check,out,assert,path,width,language});
 await check(`${language}/${width}: no browser errors or missing assets`,()=>assert.deepEqual(errors,[]));
 await ctx.close();}

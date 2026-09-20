@@ -235,8 +235,8 @@ function separationText9(sv){
 }
 
 if(typeof renderSignals==='function') renderSignals=function(){
-  const states=currentRows().map(r=>({r,sv:surveillanceFor(r),dp:decisionPriority(r)})).map(x=>({...x,state:(!x.sv||!x.sv.dataSufficient)?'insufficient':x.sv.alert?'alert':x.sv.monitor?'monitor':'normal'}));
-  const counts={alert:states.filter(x=>x.state==='alert').length,monitor:states.filter(x=>x.state==='monitor').length,normal:states.filter(x=>x.state==='normal').length,insufficient:states.filter(x=>x.state==='insufficient').length};
+  const measurement=KHMeasurement.forSector(),counts=measurement.counts;
+  const states=measurement.states.map(({r,measurement:m})=>({r,sv:m.surveillance,state:m.alert_state,dp:decisionPriority(r)}));
   const sum=q9('#signals-summary');
   if(sum)sum.innerHTML=[
     ['alert',L9('إنذار','Alert')],['monitor',L9('مراقبة','Monitor')],['normal',L9('مستقر/ضمن النطاق','Stable / within range')],['insufficient',L9('بيانات غير كافية','Insufficient')]
@@ -251,7 +251,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
     const bars=sv?.dataSufficient?[...sv.histRates,sv.currentRate]:[];
     const m=Math.max(1,...bars);
     const why=priorityWhy9(r,sv),sep=separationText9(sv);
-    return `<article class="signal-card ${state}">
+    return `<article class="signal-card ${state}" data-source="${esc9(r.source_row)}" data-alert-state="${state}">
       <div class="signal-head"><div><h3>${esc9(occupationLabel(r.ssco))}</h3><small>${esc9(loc)}</small></div><span class="signal-badge ${state}">${stateLabel9(sv)}</span></div>
       ${KHDecision.html(r)}<p class="kh-signal-meaning">${esc9(KHPlain.trend(sv))}</p>
       <details class="kh-number-details"><summary>${KHPlain.detailsLabel()}</summary><p>${L9('رمز مجموعة الوظائف','Job group code')}: ${esc9(r.position_group_id)} · ${L9('رمز المهنة','Occupation code')}: ${esc9(r.ssco)}</p>
