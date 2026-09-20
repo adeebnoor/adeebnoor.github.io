@@ -1,0 +1,31 @@
+name: Kinetic HR browser verification
+on:
+  push:
+    branches: [main]
+    paths: ['kinetic-hr/**', '.github/workflows/kinetic-hr-ui.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser test dependency
+        run: npm install --prefix "$RUNNER_TEMP/kinetic-ui" playwright@1.58.2
+      - name: Install Chromium
+        run: "$RUNNER_TEMP/kinetic-ui/node_modules/.bin/playwright install --with-deps chromium"
+      - name: Verify Arabic and English desktop and mobile flows
+        env:
+          KINETIC_QA_NODE_MODULES: ${{ runner.temp }}/kinetic-ui/node_modules
+        run: node kinetic-hr/qa/verify.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kinetic-hr-browser-evidence
+          path: kinetic-hr/qa-output/
+          retention-days: 14

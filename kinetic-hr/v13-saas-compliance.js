@@ -66,7 +66,7 @@ function enhanceApp(){
 }
 
 function ensureShell(){
-  if(!q('.v13-skip')){document.body.insertAdjacentHTML('afterbegin',`<a class="v13-skip" href="#v12-idea">${L('انتقل إلى المحتوى','Skip to content')}</a>`);q('.v13-skip')?.addEventListener('click',e=>{e.preventDefault();const target=document.body.classList.contains('v12-landing-mode')?q('#v12-idea'):q('.view.active');if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({behavior:'smooth',block:'start'})}})}else q('.v13-skip').textContent=L('انتقل إلى المحتوى','Skip to content');
+  if(!q('.v13-skip')){document.body.insertAdjacentHTML('afterbegin',`<a class="v13-skip" href="#v14-concept">${L('انتقل إلى المحتوى','Skip to content')}</a>`);q('.v13-skip')?.addEventListener('click',e=>{e.preventDefault();const target=document.body.classList.contains('v12-landing-mode')?q('#v14-concept'):q('.view.active');if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({behavior:'smooth',block:'start'})}})}else q('.v13-skip').textContent=L('انتقل إلى المحتوى','Skip to content');
   q('#v13-modal')?.remove();document.body.insertAdjacentHTML('beforeend',modalHtml());
   const modal=q('#v13-modal');q('.v13-modal-close',modal)?.addEventListener('click',closeModal);modal?.addEventListener('click',e=>{if(e.target===modal)closeModal()});
 }
