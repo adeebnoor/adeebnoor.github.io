@@ -38,6 +38,7 @@ exports.transitions=async({p,check,out,assert,path,width,language})=>{
  const events=await p.evaluate(()=>DEMO_EVENTS.map(e=>({...e}))),snapshots=await p.evaluate(()=>DEMO_SNAPSHOTS.map(r=>({...r})));
  const upload=async(id,name,rows)=>{await p.locator('#'+id).setInputFiles({name,mimeType:'text/csv',buffer:Buffer.from(csv(rows))});await pause()};
  await nav('data');await p.locator('#reset-demo').click();await pause();
+ await nav('scenario');await p.locator('#scenario-cell').selectOption('demo-001');await pause();await nav('data');
  await check(`${language}/${width}/v191: one quarantined event gates every screen despite 100% time coverage`,async()=>{
   await upload('event-upload','events-with-quarantine.csv',[...events,{...events[0],event_id:'invalid-v191',event_type:'unsupported-test-event'}]);
   const q=await p.evaluate(()=>DATA_QUALITY.events);assert.equal(q.accepted,72);assert.equal(q.quarantined,1);
