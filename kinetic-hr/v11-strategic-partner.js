@@ -302,7 +302,12 @@ function renderSkills(){
 function renderRebalanceImpact(){
   const box=q('#v11-rebalance-impact'),r=selectedRow();if(!box||!r)return;
   const vals=scenarioValues(),impact=scenarioImpact(r,vals),transfer=Math.max(0,Number(vals.transfer||0));
-  if(!transfer||!impact.donorCell){box.style.display='none';return}box.style.display='';
+  if(!transfer||!impact.donorCell){
+    box.style.display='';
+    box.innerHTML=`<div class="v11-rebalance-empty"><div><strong>${L('أثر إعادة التوازن الداخلي','Internal rebalancing impact')}</strong><p>${L('اختبر نقل المواهب بين الجهات، وقارن أثر القرار على فجوة المستلم والجهة المانحة.','Test internal transfers and compare the effect on both the recipient and donor workforce gaps.')}</p><button type="button" id="v15-choose-donor">${L('استعرض مصادر النقل','Explore transfer sources')}</button></div><div><small>${L('الفجوة الحالية','Current gap')}</small><b>${fmt(impact.beforeGap,1)} FTE</b></div></div>`;
+    q('#v15-choose-donor').onclick=()=>{q('#scenario-donor').focus();q('#scenario-donor').scrollIntoView({block:'center',behavior:'smooth'})};
+    return
+  }box.style.display='';
   const dp=decisionPriority(r),donor=getRowByCell(impact.donorCell),impBefore=serviceImpactFor(r,impact.beforeGap),impAfter=serviceImpactFor(r,impact.afterGap);
   box.innerHTML=`<div class="v11-section-head"><div><span>${L('أثر إعادة التوازن الداخلي','INTERNAL REBALANCING IMPACT')}</span><strong>${L('الأثر يظهر فورًا على المستلم والجهة المانحة','Immediate recipient + donor effect')}</strong></div></div><div class="v11-rebalance-grid"><div><span>${L('فجوة المستلم','Recipient gap')}</span><b>${fmt(impact.beforeGap,1)} → ${fmt(impact.afterGap,1)} FTE</b></div><div><span>${L('أولوية المستلم','Recipient priority')}</span><b>${dp.score??'—'} → ${impact.afterPriority??'—'}</b></div><div><span>${L('فجوة الجهة المانحة','Donor gap')}</span><b>${fmt(impact.donorAfterGap,1)} FTE</b></div><div><span>${L('عبء إضافي على المانح','Donor added burden')}</span><b>${fmt(impact.donorAddedBurden,1)}</b></div></div>${impBefore&&impAfter?`<div class="v11-service-note">${L('أثر الخدمة لدى المستلم','Recipient service impact')}: ${fmt(impBefore.value,0)} → ${fmt(impAfter.value,0)} ${esc(impBefore.unit)}</div>`:''}`;
 }

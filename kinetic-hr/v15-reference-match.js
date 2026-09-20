@@ -12,6 +12,7 @@ for(const side of ['after','before']){const el=q('.v14-ba-card.'+side,root);if(e
 qa('.v14-module',root).forEach((el,i)=>{if(el.dataset.ready)return;el.dataset.ready='1';el.tabIndex=0;el.setAttribute('role','button');const go=()=>{sessionStorage.setItem('kinetic_hr_entered_v12','1');document.body.classList.remove('v12-landing-mode');showView(['dashboard','scenario','audit','data'][i])};el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
 }
 function enhance(){land();
+const reviewer=q('#kh-review-fab'),footer=q('.sidebar-footer');if(reviewer&&footer&&reviewer.parentElement!==footer)footer.prepend(reviewer);
 setIcon(q('.v12-scenario-icon'),'flask');qa('.v12-skpi-icon').forEach((el,i)=>setIcon(el,['target','users','database','chart','clock'][i]));
 qa('.nav-item .nav-icon').forEach(el=>setIcon(el,{dashboard:'home',scenario:'flask',signals:'chart',gaps:'users',occupations:'building',data:'database',audit:'file'}[el.parentElement.dataset.view]||'file'));
 const side=q('.sidebar'),foot=q('.sidebar-footer');if(side&&foot&&!q('.v14-city')){const city=document.createElement('div');city.className='v14-city';city.setAttribute('aria-hidden','true');side.insertBefore(city,foot)}
