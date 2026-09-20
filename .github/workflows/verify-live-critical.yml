@@ -45,7 +45,7 @@ jobs:
               if (url.includes('/functions/v1/portfolio-collect')) { serviceWarnings.push(`${r.status()} ${url}`); return; }
               if (url.startsWith('https://adeebnoor.github.io/kinetic-hr/')) appErrors.push(`${r.status()} ${url}`);
             });
-            await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=07-ci', { waitUntil: 'networkidle', timeout: 60000 });
+            await page.goto('https://adeebnoor.github.io/kinetic-hr/?review=1&v=170&lang=ar', { waitUntil: 'networkidle', timeout: 60000 });
             await page.waitForSelector('#kh-review-overlay.open', { timeout: 15000 });
             const summary = await page.evaluate(() => ({
               title: document.title,
@@ -64,7 +64,7 @@ jobs:
             await page.waitForFunction(() => document.querySelectorAll('#kh-evidence-cell option').length > 0, null, { timeout: 10000 });
             const evidence = await page.evaluate(() => ({ cells: document.querySelectorAll('#kh-evidence-cell option').length, text: document.querySelector('#kh-evidence-content')?.innerText || '' }));
             if (evidence.cells < 1) throw new Error('Evidence picker has no workforce cells');
-            if (!/Fingerprint|البصمة/i.test(evidence.text)) throw new Error('Evidence view is missing state fingerprint');
+            if (!/SHA256-[a-f0-9]{64}/i.test(evidence.text)) throw new Error('Evidence view is missing its SHA-256 state fingerprint');
             await page.click('.kh-review-tab[data-rpage="feedback"]');
             await page.fill('#kh-r-role', 'CI HR Reviewer');
             await page.fill('#kh-r-years', '40');
@@ -91,10 +91,12 @@ jobs:
             const errors=[];
             page.on('pageerror', e => errors.push('pageerror: '+e.message));
             page.on('response', r => { if (r.status() >= 400 && r.url().startsWith('https://adeebnoor.github.io/kinetic-hr/')) errors.push(`${r.status()} ${r.url()}`); });
-            await page.goto('https://adeebnoor.github.io/kinetic-hr/?v=07-ci', {waitUntil:'networkidle', timeout:60000});
+            await page.goto('https://adeebnoor.github.io/kinetic-hr/?v=170&lang=en', {waitUntil:'networkidle', timeout:60000});
+            await page.locator('[data-v14-enter]').first().click();
+            await page.click('.nav-item[data-view="dashboard"]');
             await page.waitForSelector('#v07-exec-translation', {timeout:15000});
             const landing=await page.evaluate(()=>({
-              engine:document.querySelector('#sidebar-engine-state')?.innerText||'',
+              engine:document.querySelector('#sidebar-engine-state')?.textContent||'',
               translation:document.querySelector('#v07-exec-translation')?.innerText||'',
               funded:document.querySelectorAll('.v07-funding-strip span').length,
               briefButton:!!document.querySelector('#v07-brief-btn')
@@ -103,7 +105,9 @@ jobs:
             if(landing.funded!==3) throw new Error('Funding lens missing');
             if(!landing.briefButton) throw new Error('Executive brief button missing');
             await page.click('.nav-item[data-view="scenario"]');
+            await page.locator('#v14-advanced>summary').click();
             await page.waitForSelector('#v07-reality-panel');
+            if (await page.locator('#v07-reality-panel').getAttribute('open') === null) await page.locator('#v07-reality-panel>summary').click();
             const donorCount=await page.locator('#scenario-donor option').count();
             if(donorCount<2) throw new Error('Expected a same-SSCO donor option in EDU demo');
             const donorValue=await page.locator('#scenario-donor option').nth(1).getAttribute('value');
