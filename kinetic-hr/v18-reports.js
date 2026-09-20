@@ -19,7 +19,7 @@ window.KHReports=(()=>{
    const data=content(),ar=document.documentElement.lang==='ar',suffix=ar?'AR':'EN';
    if(kind==='doc'){
     const d=await load('vendor/docx-9.6.1.js?v=180','docx');
-    const para=(text,heading,pageBreakBefore=false)=>new d.Paragraph({bidirectional:ar,alignment:d.AlignmentType.START,heading,pageBreakBefore,keepNext:!!heading,spacing:{after:140,line:320},children:[new d.TextRun({text,rtl:ar,font:'Arial',size:heading?30:23})]});
+    const para=(text,heading,pageBreakBefore=false)=>new d.Paragraph({bidirectional:ar,alignment:d.AlignmentType.START,heading,pageBreakBefore,keepNext:!!heading,spacing:{after:100,line:280},children:[new d.TextRun({text,rtl:ar,font:'Arial',size:heading?30:22})]});
     const children=[para(data.title,d.HeadingLevel.TITLE),para(data.subtitle),para(data.source),...data.summary.map(x=>para(x)),para(data.unit)];
     data.rows.forEach((r,i)=>children.push(para(`${i+1}. ${r.title}`,d.HeadingLevel.HEADING_1,i>0),para(r.summary),...r.action.map(x=>para(x)),para(L('تفاصيل الدليل','Evidence details'),d.HeadingLevel.HEADING_2),...r.evidence.map(x=>para(x))));
     children.push(para(MEASUREMENT_VERSION+' · '+data.policy),para(data.fingerprint));
