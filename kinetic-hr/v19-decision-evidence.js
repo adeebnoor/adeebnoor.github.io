@@ -7,7 +7,7 @@ window.KHDecision=(()=>{
   const first=w.baseline[0].start,last=w.current.end,day=86400000;
   const requiredDays=Math.round((last-first)/day)+1;
   const coveredDays=start&&end?Math.max(0,Math.round((Math.min(+end,+last)-Math.max(+start,+first))/day)+1):null;
-  const coverage=coveredDays==null||eventMode==='gated'?null:Math.min(100,Math.round(coveredDays/requiredDays*100));
+  const coverage=coveredDays==null||eventMode==='gated'?null:Math.min(100,Math.floor(coveredDays/requiredDays*1000)/10);
   let reason='';
   if(!sufficient){
    if(eventMode==='gated')reason=L('لم يُرفع سجل أحداث مرتبط','no linked event log has been imported');

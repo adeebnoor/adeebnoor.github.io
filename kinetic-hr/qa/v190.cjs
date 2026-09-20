@@ -13,6 +13,7 @@ await check(`${language}/${width}/v190: incomplete events share one decision bas
 });
 await check(`${language}/${width}/v190: complete time coverage does not bypass record quality`,async()=>{
  const e=await p.evaluate(()=>{const count=DATA_QUALITY.events.quarantined;try{DATA_QUALITY.events.quarantined=1;return KHDecision.forRow(KHAction.top())}finally{DATA_QUALITY.events.quarantined=count}});assert.equal(e.coverage,100);assert.equal(e.basis,'prevalence-only');assert.equal(e.alert,false);
+ const partial=await p.evaluate(()=>{const r=KHAction.top();return KHDecision.forRow({...r,event_history_end_date:isoDate(addDays(dUTC(r.as_of_date),-1))})});assert(partial.coverage<100);assert.equal(partial.basis,'prevalence-only');
 });
 await check(`${language}/${width}/v190: apply proposal respects funding, donor capacity and manual costs`,async()=>{
  await nav('scenario');await p.locator('#scenario-cell').selectOption('demo-001');await pause();
