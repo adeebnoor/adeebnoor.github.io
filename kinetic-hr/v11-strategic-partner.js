@@ -418,6 +418,7 @@ function applyAuditFilter(){
 document.addEventListener('kinetic:auditrender',()=>patchAuditTools());
 function patchAuditTools(){
   const sel=q('#v11-audit-kind'),bar=q('#v11-audit-filter');if(!sel||!bar)return;
+  const body=q('#audit-body');if(body?.querySelector('tr')&&!body.querySelector('tr[data-audit-kind]')&&body.querySelector('td')?.colSpan!==6)return;
   const current=sel.value,kinds=[...new Set(qa('#audit-body tr[data-audit-kind]').map(tr=>tr.dataset.auditKind).filter(Boolean))].sort();
   sel.innerHTML=`<option value="">${L('كل أنواع السجل','All record types')}</option>`+kinds.map(k=>`<option value="${esc(k)}">${esc(auditKindLabel(k))}</option>`).join('');if(kinds.includes(current))sel.value=current;
   if(!q('#v16-audit-advanced')){
