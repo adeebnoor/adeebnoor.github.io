@@ -8,7 +8,7 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
 const results=[];let browser;
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS '+name)}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL '+name+': '+e.message)}}
 (async()=>{await new Promise(r=>server.listen(8077,'127.0.0.1',r));browser=await chromium.launch({headless:true});
-for(const width of [1672,1366,390])for(const language of ['ar','en']){
+for(const width of (process.env.KINETIC_QA_WIDTH?[Number(process.env.KINETIC_QA_WIDTH)]:[1672,1366,390]))for(const language of ['ar','en']){
 const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(e.message));p.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
 await p.goto(`http://127.0.0.1:8077/?lang=${language}`);await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);
 // Check the very first render before navigation or language changes can hide stale state.

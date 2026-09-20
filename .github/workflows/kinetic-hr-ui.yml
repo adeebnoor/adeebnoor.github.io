@@ -10,6 +10,10 @@ jobs:
   browser:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        width: [1672, 1366, 390]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,10 +26,11 @@ jobs:
       - name: Verify Arabic and English desktop and mobile flows
         env:
           KINETIC_QA_NODE_MODULES: ${{ runner.temp }}/kinetic-ui/node_modules
+          KINETIC_QA_WIDTH: ${{ matrix.width }}
         run: node kinetic-hr/qa/verify.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: kinetic-hr-browser-evidence
+          name: kinetic-hr-browser-evidence-${{ matrix.width }}
           path: kinetic-hr/qa-output/
           retention-days: 14
