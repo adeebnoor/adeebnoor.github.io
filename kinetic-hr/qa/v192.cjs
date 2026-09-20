@@ -60,7 +60,10 @@ exports.startup=async({browser,check,out,assert,path,width,language})=>{
    assert(await p.locator('#kh-startup').isVisible());assert.equal(await p.evaluate(()=>KHBoot.state),'loading');
    assert(language==='ar'?(await p.locator('#kh-startup-status').innerText()).includes('نجهّز'):(await p.locator('#kh-startup-status').innerText()).includes('Preparing'));
    assert(await p.evaluate(()=>performance.getEntriesByName('first-contentful-paint').length>0),'Content must paint before external assets arrive');
-   assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await p.screenshot({path:path.join(out,`v192-loading-${language}-${width}.png`)});
+   assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+   // Capture the actual first paint without Playwright waiting for the deliberately held styles/fonts.
+   const cdp=await context.newCDPSession(p),capture=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+   require('fs').writeFileSync(path.join(out,`v192-loading-${language}-${width}.png`),Buffer.from(capture.data,'base64'));await cdp.detach();
    release();await p.waitForFunction(()=>KHBoot.state==='ready',null,{timeout:20000});assert(!await p.locator('#kh-startup').isVisible());assert(await p.locator('.v14-landing-shell').isVisible());
    assert(await p.evaluate(()=>[...document.querySelectorAll('link[data-kh-style]')].every(el=>el.media==='all'&&el.dataset.loaded==='1')));assert.deepEqual(errors,[]);
   }finally{release();await context.close()}
