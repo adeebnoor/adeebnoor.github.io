@@ -3,14 +3,15 @@
 'use strict';
 const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>[...r.querySelectorAll(s)];
 const L=(a,e)=>document.documentElement.lang==='ar'?a:e;
+let guideStep=1;
 const steps=()=>[
- ['data',L('ارفع الوضع الحالي ثم الأحداث','Import snapshot, then events'),L('ابدأ بملفي القطاع المتطابقين. راجع المقبول والمستبعد وكفاية السجل.','Start with matching sector files. Review accepted and quarantined records and history coverage.')],
- ['dashboard',L('حدّد أين يبدأ التدخل','Find the first decision'),L('راجع أعلى أولوية وإجراء الغد وصاحبه.','Review the highest priority, tomorrow’s action and its owner.')],
- ['signals',L('افحص سبب التنبيه','Inspect the alert'),L('راجع النقص الجديد والفترة وقواعد التنبيه؛ المعدل المجهول لا يظهر صفرًا.','Inspect new shortfall, the time window and alert rules; an unknown rate is never zero.')],
- ['scenario',L('قارن الحلول','Compare options'),L('جرّب التوظيف أو النقل أو التأهيل أو التغطية المؤقتة. راجع التكلفة والأهلية.','Try hiring, transfers, training or temporary cover. Review costs and eligibility.')],
- ['brief',L('نزّل تقرير القرار','Download the decision report'),L('افتح التقرير التنفيذي وصدّره بالعربية أو الإنجليزية، مع مرجع الأرقام والسياسة.','Open and export the Arabic or English brief, including data and policy references.')]
+ ['dashboard',L('ابدأ من مركز القيادة','Start at Command Center'),L('راجع نقص القدرة وأولوية القرار وإجراء الغد.','Review capacity shortfall, decision priority and tomorrow’s action.')],
+ ['evidence',L('لماذا هذا القرار؟','Why this decision?'),L('افحص نقص القدرة وأساس القرار وكفاية سجل الأحداث.','Inspect current shortfall, the decision basis and event-history sufficiency.')],
+ ['scenario',L('طبّق الإجراء المقترح','Apply the proposed action'),L('قارن النتيجة والتكلفة والتمويل والجهة المانحة.','Compare the result, cost, funding and donor capacity.')],
+ ['brief',L('نزّل تقرير القرار','Download the decision report'),L('صدّر القرار ودليله بالعربية أو الإنجليزية.','Export the decision and its evidence in Arabic or English.')]
 ];
-function stepMarkup(){return steps().map(([view,title,desc],i)=>`<button data-v16-view="${view}"><b>${i+1}</b><span><strong>${title}</strong><small>${desc}</small></span></button>`).join('')}
+function stepMarkup(){return steps().map(([view,title,desc],i)=>`<button data-v16-view="${view}" data-guide-step="${i}" ${i>guideStep?'disabled':''}><b>${i+1}</b><span><strong>${title}</strong><small>${desc}</small></span></button>`).join('')}
+function advanceGuide(step){guideStep=Math.max(guideStep,step);qa('[data-guide-step]').forEach(b=>{b.disabled=Number(b.dataset.guideStep)>guideStep})}
 function comparison(){return `<section class="v14-section v16-difference" id="v17-integration">
 <div class="v16-section-head"><div><small>${L('التكامل مع أنظمتكم الحالية','WORKING WITH YOUR EXISTING SYSTEMS')}</small><h2>${L('أنظمتكم تدير الموارد البشرية وKinetic HR يدعم القرار','Your systems run HR. Kinetic HR supports the decision.')}</h2></div></div>
 <p class="v16-lead">${L('تبقى أنظمة الموارد البشرية والمالية لديكم مصدر البيانات المعتمد ومسار تنفيذ الموافقات. نضيف فوقها رصد الفجوات والإنذار المبكر ومقارنة التدخلات، دون مشروع لاستبدالها أو نقل إدارة الموظفين والرواتب إليها.','Your HR and finance systems remain the authoritative records and approval workflows. Kinetic HR adds gap monitoring, early warning and intervention comparisons alongside them; employee administration and payroll stay in your systems.')}</p>
@@ -44,23 +45,29 @@ function enhance(){
  if(shell&&!q('#v16-difference',shell)){
   q('.v14-modules-section',shell)?.insertAdjacentHTML('beforebegin',comparison());
   const links=q('.v14-links',shell);if(links)links.insertAdjacentHTML('beforeend',`<a href="#v17-integration">${L('التكامل','Integration')}</a><a href="#v16-difference">${L('لماذا نحن؟','Why Kinetic HR?')}</a>`);
-  const cta=q('.v14-hero-actions .v14-secondary',shell);if(cta){cta.href='#v16-expert';cta.textContent=L('تجربة الخبير · 5 دقائق','Expert trial · 5 minutes')}
+  const cta=q('.v14-hero-actions .v14-secondary',shell);if(cta){cta.href='#v16-expert';cta.setAttribute('data-v16-start','');cta.textContent=L('تجربة الخبير · 5 دقائق','Expert trial · 5 minutes')}
  }
  const top=q('.topbar');
  if(top&&!q('#v16-trial-guide')){
-  top.insertAdjacentHTML('afterend',`<details id="v16-trial-guide" class="v16-guide"><summary>${L('دليل تجربة الخبير · 5 خطوات','Expert trial guide · 5 steps')}</summary><div class="v16-steps">${stepMarkup()}</div><div class="v16-guide-foot"><span>${L('بدوام كامل = حجم العمل، وليس عدد الأشخاص بالضرورة. البيانات تجريبية؛ الحفظ على هذا الجهاز فقط.','Full-time equivalent measures work, not necessarily headcount. Demo data; saved on this device only.')}</span><button data-v16-review>${L('تقييم الخبير وتصديره','Review and export feedback')}</button></div></details>`);
+  top.insertAdjacentHTML('afterend',`<details id="v16-trial-guide" class="v16-guide"><summary>${L('دليل تجربة الخبير · 4 خطوات','Expert trial guide · 4 steps')}</summary><div class="v16-steps">${stepMarkup()}</div><div class="v16-guide-foot"><span>${L('بدوام كامل = حجم العمل، وليس عدد الأشخاص بالضرورة. البيانات تجريبية؛ الحفظ على هذا الجهاز فقط.','Full-time equivalent measures work, not necessarily headcount. Demo data; saved on this device only.')}</span><button data-v16-review>${L('تقييم الخبير وتصديره','Review and export feedback')}</button></div></details>`);
  }
 }
 document.addEventListener('click',e=>{
  if(e.target.closest('[data-v16-language]'))q('#lang-toggle')?.click();
- const view=e.target.closest('[data-v16-view]');if(view){if(view.dataset.v16View==='brief'){enter('dashboard');q('#v07-brief-btn')?.click()}else enter(view.dataset.v16View)}
- if(e.target.closest('[data-v16-start]')){enter('dashboard');q('#v16-trial-guide').open=true}
+ const view=e.target.closest('[data-v16-view]');if(view&&!view.disabled){
+  const v=view.dataset.v16View,guided=view.hasAttribute('data-guide-step');
+  if(v==='brief'){enter('dashboard');q('#v07-brief-btn')?.click()}
+  else if(v==='evidence'){enter('dashboard');const r=KHAction.top();if(r)openDrawer(r.source_row);advanceGuide(2)}
+  else if(v==='scenario'&&guided){closeDrawer();const r=KHAction.top();enter('scenario');if(r)KHAction.apply(r);advanceGuide(3)}
+  else{enter(v);if(v==='dashboard'&&guided)advanceGuide(1)}
+ }
+ if(e.target.closest('[data-v16-start]')){e.preventDefault();guideStep=1;advanceGuide(1);enter('dashboard');q('#v16-trial-guide').open=true}
  if(e.target.closest('[data-v16-review]'))q('#kh-review-fab')?.click();
 });
 document.addEventListener('kinetic:languagechange',()=>{qa('[data-v16-language]').forEach(el=>{el.textContent=L('English','العربية')});const guide=q('#v16-trial-guide'),wasOpen=guide?.open;guide?.remove();setTimeout(()=>{enhance();q('#v16-trial-guide').open=!!wasOpen},110);const drawer=q('#detail-drawer');if(drawer?.classList.contains('open')){const fields=Object.fromEntries(qa('input,select',drawer).map(e=>[e.id,e.value]));openDrawer(drawer.dataset.source);for(const [id,value] of Object.entries(fields)){const el=q('#'+id,drawer);if(el)el.value=value}}});
 document.addEventListener('DOMContentLoaded',()=>{enhance();new MutationObserver(enhance).observe(document.body,{subtree:true,childList:true})});
 
-const dialogSelectors=['#kh-review-overlay','#v11-tour-overlay','#v11-cards-overlay','#v07-brief-overlay'];
+const dialogSelectors=['#kh-review-overlay','#v11-tour-overlay','#v11-cards-overlay','#v07-brief-overlay','#v19-method-overlay'];
 let activeDialog=null,returnFocus=null;
 function syncDialog(){
  const current=dialogSelectors.map(s=>q(s)).find(el=>el?.classList.contains('open'))||null;
@@ -71,7 +78,7 @@ function syncDialog(){
 }
 document.addEventListener('keydown',e=>{
  if(!activeDialog)return;
- if(e.key==='Escape'){const close=q('#kh-review-close,[data-v11-close],#v07-close-brief',activeDialog);close?.click();e.preventDefault();syncDialog()}
+ if(e.key==='Escape'){const close=q('#kh-review-close,[data-v11-close],#v07-close-brief,#v19-method-close',activeDialog);close?.click();e.preventDefault();syncDialog()}
  if(e.key==='Tab'){const items=qa('button,a[href],input,select,textarea,[tabindex="0"]',activeDialog).filter(el=>el.getClientRects().length&&!el.disabled),first=items[0],last=items[items.length-1];if(!first)return;if(e.shiftKey&&(document.activeElement===first||!items.includes(document.activeElement))){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||!items.includes(document.activeElement))){e.preventDefault();first.focus()}}
 });
 document.addEventListener('DOMContentLoaded',()=>new MutationObserver(syncDialog).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']}));

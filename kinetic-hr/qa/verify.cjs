@@ -15,7 +15,7 @@ await p.screenshot({path:path.join(out,`landing-${language}-${width}.png`),fullP
 await check(`${language}/${width}: landing has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
 await check(`${language}/${width}: landing uses the selected reading direction`,async()=>assert.equal(await p.locator('.v14-landing-shell').evaluate(e=>getComputedStyle(e).direction),language==='ar'?'rtl':'ltr'));
 await check(`${language}/${width}: local font loads`,async()=>assert(await p.evaluate(()=>document.fonts.check('700 16px Cairo'))));
-await p.locator('[data-v14-enter]').last().click();await p.locator('#view-scenario.active').waitFor();await p.waitForTimeout(150);
+await p.locator('[data-v14-enter]').last().click();await p.locator('#view-dashboard.active').waitFor();await check(`${language}/${width}: platform entry starts at command center`,async()=>assert(await p.locator('#view-dashboard.active').count()));await p.evaluate(()=>showView('scenario'));await p.locator('#view-scenario.active').waitFor();await p.waitForTimeout(150);
 await p.screenshot({path:path.join(out,`scenario-${language}-${width}.png`),fullPage:true});
 await check(`${language}/${width}: demo starts with complete costs and approval delays`,async()=>{for(const k of ['hire','transfer','upskill','contract']){assert(Number(await p.locator('#v07-cost-'+k).inputValue())>0);assert(Number(await p.locator('#v07-approval-'+k).inputValue())>0)}assert(Number(await p.locator('#v07-budget').inputValue())>0);assert(await p.locator('#v16-scenario-ready').isVisible())});
 await check(`${language}/${width}: workspace has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
@@ -28,6 +28,7 @@ await check(`${language}/${width}: A/B captures both scenarios`,async()=>{await 
 await check(`${language}/${width}: compliance dialog closes with Escape`,async()=>{await p.locator('#v13-compliance-btn').click();assert(await p.locator('#v13-modal.open').count());await p.keyboard.press('Escape');assert.equal(await p.locator('#v13-modal.open').count(),0)});
 if(width===390)await check(`${language}/${width}: mobile navigation works`,async()=>{await p.locator('#mobile-nav-toggle').click();assert(await p.locator('.sidebar').isVisible());await p.locator('.nav-item[data-view="data"]').click();assert(await p.locator('#view-data.active').count());assert(!await p.locator('.sidebar').isVisible())});
 await require('./expert.cjs')({p,check,out,assert,path,width,language});
+await require('./v190.cjs')({p,check,out,assert,path,width,language});
 await require('./p0.cjs')({p,check,out,assert,path,width,language});
 await check(`${language}/${width}: no browser errors or missing assets`,()=>assert.deepEqual(errors,[]));
 await ctx.close();}

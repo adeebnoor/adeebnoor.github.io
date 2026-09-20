@@ -122,19 +122,19 @@ function actionPlanFor(r,days=30){
   if(!r)return null;
   const gap=deficit(r),p=snapshotMode==='synthetic'?presetFor(r):entityPreset(r),fund=fundingFor(r),donor=transferOptions(r)[0],impact=serviceImpactFor(r),opp=opportunityCost(r,days);
   let action,type,units,cost=null;
-  if(donor){
-    units=Math.min(gap,donor.transferable);
+  if(donor&&Math.floor(Math.min(gap,donor.transferable))>0){
+    units=Math.min(30,Math.floor(Math.min(gap,donor.transferable)));
     type='transfer';
     action=L(`جرّب تغطية ما يعادل ${KHPlain.capacity(units)} بنقل داخلي من ${sectorCfg(donor.row.sector).locations.find(x=>x.id===donor.row.location)?.ar||donor.row.location} خلال 30 يومًا.`,`Test covering the equivalent of ${KHPlain.capacity(units)} by transfer from ${sectorCfg(donor.row.sector).locations.find(x=>x.id===donor.row.location)?.en||donor.row.location} within 30 days.`);
     cost=p?.transfer!=null?units*p.transfer:null;
   }else if(fund.known&&fund.unfundedGap>0){
-    units=gap; type='fund_then_hire';
+    units=Math.min(30,Math.floor(fund.fundedGap)); type='fund_then_hire';
     action=L(`اطلب اعتماد تمويل ما يعادل ${KHPlain.capacity(fund.unfundedGap)}. وبالتوازي، قارن التوظيف والتغطية المؤقتة للجزء الممول، بعد الموافقات.`,`Request funding for the equivalent of ${KHPlain.capacity(fund.unfundedGap)}. In parallel, compare hiring and temporary cover for the funded portion, subject to approvals.`);
-    cost=p?.hire!=null?gap*p.hire:null;
+    cost=p?.hire!=null&&units>0?units*p.hire:null;
   }else{
-    units=gap;type='hire';
+    units=fund.known?Math.min(30,Math.floor(fund.fundedGap)):0;type='hire';
     action=L(`راجع التمويل والموافقات، ثم قارن التوظيف والتغطية المؤقتة لنقص يعادل ${KHPlain.capacity(gap)}.`,`Check funding and approvals, then compare hiring and temporary cover for a shortfall equivalent to ${KHPlain.capacity(gap)}.`);
-    cost=p?.hire!=null?gap*p.hire:null;
+    cost=p?.hire!=null&&units>0?units*p.hire:null;
   }
   const riskParts=[];
   if(impact)riskParts.push(L(`${fmt(impact.value,0)} ${impact.unit}: ${impact.label}`,`${fmt(impact.value,0)} ${impact.unit}: ${impact.label}`));
@@ -238,10 +238,23 @@ function renderNextAction(){
   if(plan.type==='transfer'&&units>0){tomorrow=L(`اطلب مراجعة إمكانية نقل تغطية تعادل ${KHPlain.capacity(units)} إلى ${loc}، مع التحقق من احتياطي الجهة المانحة.`,`Request an eligibility review for transferring ${fmt(units)} ${KHPlain.unit()} to ${loc}, including the donor's remaining capacity.`);owner=L('تخطيط القوى العاملة + شريك الموارد البشرية','Workforce Planning + HR business partner');deliverable=L('قائمة مرشحين مؤهلين، موافقة الجهة المانحة، وتقدير تكلفة قابل للمراجعة.','An eligible candidate list, donor approval and a reviewable cost estimate.')}
   else if(plan.type==='fund_then_hire'){tomorrow=L(`اطلب اعتماد تمويل ما يعادل ${KHPlain.capacity(fund.unfundedGap)}، وراجع الحلول المتاحة للجزء الممول بالتوازي.`,`Request funding for the equivalent of ${KHPlain.capacity(fund.unfundedGap)}, and review options for the funded portion in parallel.`);owner=L('الموارد البشرية + المالية','HR + Finance');deliverable=L('تحديد مصدر التمويل وصاحب الموافقة وموعد الرد، مع تقييم تغطية مؤقتة.','Identify the funding source, approver and response date; assess temporary cover.')}
   else{tomorrow=L(`اطلب خطة توظيف وتغطية مؤقتة لنقص يعادل ${KHPlain.capacity(deficit(r))} في ${loc}.`,`Request a recruitment and temporary-cover plan for the ${fmt(deficit(r),1)} ${KHPlain.unit()} gap in ${loc}.`);owner=L('الاستقطاب + مدير التشغيل','Talent Acquisition + Operations');deliverable=L('خطة بمسؤول واضح ومهلة بدء وتكلفة ومؤشر لقياس التحسن.','A plan with an owner, start date, cost and improvement measure.')}
-  box.innerHTML=`<div class="v16-action-main"><span>${L('أول إجراء مقترح · حسب أولوية القطاع','FIRST PROPOSED ACTION · SECTOR PRIORITY')}</span><h2>${L('ماذا أفعل غدًا؟','What should I do tomorrow?')}</h2><p>${esc(tomorrow)}</p><small>${esc(occupationLabel(r.ssco))} · ${esc(loc)} · ${L('أولوية','Priority')} ${decisionPriority(r).score??'—'}</small></div><div class="v16-action-detail"><strong>${L('المسؤول المقترح','Suggested owner')}</strong><p>${owner}</p><strong>${L('ما المطلوب بنهاية الغد؟','Tomorrow’s deliverable')}</strong><p>${deliverable}</p></div><div class="v16-action-buttons"><button id="v16-try-next" type="button">${L('جرّب الإجراء المقترح','Try the proposed action')}</button><button id="v16-next-evidence" type="button">${L('راجع الدليل','Review evidence')}</button><small>${L('اقتراح للمراجعة البشرية؛ لا ينفّذ نقلًا أو توظيفًا.','For human review; no transfer or hiring is executed.')}</small></div>`;
+  box.innerHTML=`<div class="v16-action-main"><span>${L('أول إجراء مقترح · حسب أولوية القطاع','FIRST PROPOSED ACTION · SECTOR PRIORITY')}</span><h2>${L('ماذا أفعل غدًا؟','What should I do tomorrow?')}</h2><p>${esc(tomorrow)}</p>${KHDecision.html(r)}<small>${esc(occupationLabel(r.ssco))} · ${esc(loc)} · ${L('أولوية','Priority')} ${decisionPriority(r).score??'—'}</small></div><div class="v16-action-detail"><strong>${L('المسؤول المقترح','Suggested owner')}</strong><p>${owner}</p><strong>${L('ما المطلوب بنهاية الغد؟','Tomorrow’s deliverable')}</strong><p>${deliverable}</p><strong>${L('التكلفة التقديرية للمقترح القابل للمحاكاة','Estimated cost of the testable proposal')}</strong><p>${plan.cost==null?L('تُحدد بعد مراجعة التمويل','To be determined after funding review'):sar(plan.cost)}</p></div><div class="v16-action-buttons"><button id="v16-try-next" type="button">${L('جرّب الإجراء المقترح','Try the proposed action')}</button><button id="v16-next-evidence" type="button">${L('راجع الدليل','Review evidence')}</button><small>${L('اقتراح للمراجعة البشرية؛ لا ينفّذ نقلًا أو توظيفًا.','For human review; no transfer or hiring is executed.')}</small></div>`;
   q('#v16-next-evidence').onclick=()=>openDrawer(r.source_row);
-  q('#v16-try-next').onclick=()=>{selectedScenarioSource=r.source_row;showView('scenario');['hire','transfer','upskill','contract'].forEach(k=>q('#'+k+'-range').value='0');if(plan.type==='transfer'&&units>0){q('#scenario-donor').value=cellCode(plan.donor.row);q('#transfer-range').value=String(units)}else if(plan.type==='hire')q('#hire-range').value=String(units);renderScenario();q('#view-scenario').scrollIntoView({block:'start',behavior:'smooth'})};
+  q('#v16-try-next').onclick=()=>{KHAction.apply(r);q('#view-scenario').scrollIntoView({block:'start',behavior:'smooth'})};
 }
+
+function applyRecommended(r){
+  if(!r)return;
+  const plan=actionPlanFor(r,30);
+  selectedScenarioSource=r.source_row;showView('scenario');
+  ['hire','transfer','upskill','contract'].forEach(k=>q('#'+k+'-range').value='0');
+  q('#scenario-donor').value='';
+  if(plan.type==='transfer'){q('#scenario-donor').value=cellCode(plan.donor.row);q('#transfer-range').value=String(plan.units)}
+  else q('#hire-range').value=String(plan.units);
+  renderScenario();
+  showToast(plan.units>0?L('تم تطبيق المقترح للمقارنة؛ راجع الأهلية والتكلفة والموافقات.','Proposal applied for comparison; review eligibility, costs and approvals.'):L('ابدأ بمراجعة التمويل؛ لا توجد قدرة ممولة أو متاحة للنقل لتطبيقها الآن.','Start with a funding review; no funded or transferable capacity can be applied yet.'));
+}
+window.KHAction={plan:actionPlanFor,apply:applyRecommended,top:()=>topRows(1)[0]};
 
 function renderServiceImpact(){
   const box=q('#v11-service-impact');if(!box)return;
@@ -328,7 +341,7 @@ function renderRebalanceImpact(){
   const vals=scenarioValues(),impact=scenarioImpact(r,vals),transfer=Math.max(0,Number(vals.transfer||0));
   if(!transfer||!impact.donorCell){
     box.style.display='';
-    box.innerHTML=`<div class="v11-rebalance-empty"><div><strong>${L('أثر إعادة التوازن الداخلي','Internal rebalancing impact')}</strong><p>${L('اختبر نقل المواهب بين الجهات، وقارن أثر القرار على فجوة المستلم والجهة المانحة.','Test internal transfers and compare the effect on both the recipient and donor workforce gaps.')}</p><button type="button" id="v15-choose-donor">${L('استعرض مصادر النقل','Explore transfer sources')}</button></div><div><small>${L('الفجوة الحالية','Current gap')}</small><b>${fmt(impact.beforeGap,1)} ${KHPlain.unit()}</b></div></div>`;
+    box.innerHTML=`<div class="v11-rebalance-empty"><div><strong>${L('أثر إعادة التوازن الداخلي','Internal rebalancing impact')}</strong><p>${L('اختبر نقل المواهب بين الجهات، وقارن أثر القرار على فجوة المستلم والجهة المانحة.','Test internal transfers and compare the effect on both the recipient and donor workforce gaps.')}</p><button type="button" id="v15-choose-donor">${L('استعرض مصادر النقل','Explore transfer sources')}</button></div><div><small>${L('نقص القدرة الحالي','Current gap')}</small><b>${fmt(impact.beforeGap,1)} ${KHPlain.unit()}</b></div></div>`;
     q('#v15-choose-donor').onclick=()=>{const advanced=q('#v14-advanced');if(advanced)advanced.open=true;q('#scenario-donor').focus();q('#scenario-donor').scrollIntoView({block:'center',behavior:'smooth'})};
     return
   }box.style.display='';
@@ -369,7 +382,7 @@ function enhanceBrief(){
     q('.v11-brief-decision',item)?.remove();q('.v11-brief-open-scenario',item)?.remove();
     const r=rows[i];if(!r)return;const plan=actionPlanFor(r,30);
     const d=document.createElement('div');d.className='v11-brief-decision';
-    d.innerHTML=`<div><span>${L('الإجراء المقترح خلال 30 يومًا','Recommended action within 30 days')}</span><strong>${esc(plan.action)}</strong></div><div><span>${L('المسؤول المقترح','Suggested owner')}</span><strong>${esc(plan.owner)}</strong></div><div><span>${L('المطلوب بنهاية الغد','Due by tomorrow')}</span><strong>${esc(plan.tomorrow)}</strong></div><div><span>${L('التكلفة التقريبية / المصدر','Approx. cost / source')}</span><strong>${plan.cost==null?'—':sar(plan.cost)} · ${esc(plan.costSource)}</strong></div><div><span>${L('المخاطر إذا لم يُتخذ إجراء','Risk if no action is taken')}</span><strong>${esc(plan.risk)}</strong></div>`;
+    d.innerHTML=`<div><span>${L('الإجراء المقترح خلال 30 يومًا','Recommended action within 30 days')}</span><strong>${esc(plan.action)}</strong></div><div><span>${L('المسؤول المقترح','Suggested owner')}</span><strong>${esc(plan.owner)}</strong></div><div><span>${L('المطلوب بنهاية الغد','Due by tomorrow')}</span><strong>${esc(plan.tomorrow)}</strong></div><div><span>${L('تكلفة المقترح القابل للمحاكاة / المصدر','Testable proposal cost / source')}</span><strong>${plan.cost==null?'—':sar(plan.cost)} · ${esc(plan.costSource)}</strong></div><div><span>${L('المخاطر إذا لم يُتخذ إجراء','Risk if no action is taken')}</span><strong>${esc(plan.risk)}</strong></div>`;
     const inner=q('.v07-brief-item>div',item)||item;inner.prepend(d);
     const b=document.createElement('button');b.className='v11-brief-open-scenario';b.type='button';b.textContent=L('جرّب الحلول في مختبر السيناريو','Compare options in Scenario Lab');
     b.onclick=()=>{selectedScenarioSource=r.source_row;q('#v07-brief-overlay')?.classList.remove('open');document.body.classList.remove('kh-brief-open');showView('scenario')};inner.appendChild(b);
@@ -384,7 +397,7 @@ function exportBrief(kind){return KHReports.exportFile(kind)}
 
 function openDecisionCards(){
   const box=q('#v11-cards-content');if(!box)return;
-  box.innerHTML=topRows(4).map(r=>{const plan=actionPlanFor(r,30),imp=serviceImpactFor(r),loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[ar()?'ar':'en']||r.location;return `<article class="v11-decision-card ${signalState(r)==='alert'?'alert':''}"><h3>${esc(occupationLabel(r.ssco))} · ${esc(loc)}</h3><p><b>${L('تنبيه','Alert')}:</b> ${L('الخلية تجاوزت عتبة القرار الحالية.','This cell exceeds the current decision threshold.')} ${esc(plan.action)}</p><div class="v11-card-grid"><div><span>${L('الأولوية','Priority')}</span><strong>${decisionPriority(r).score??'—'}</strong></div><div><span>${L('أثر الخدمة','Service impact')}</span><strong>${imp?`${fmt(imp.value,0)} ${esc(imp.unit)}`:'—'}</strong></div><div><span>${L('التكلفة المرجعية','Reference cost')}</span><strong>${plan.cost==null?'—':sar(plan.cost)}</strong></div></div><div class="v11-card-actions"><button disabled title="${L('يتطلب إعداد الصلاحيات والربط بنظام الجهة','Requires access permissions and a connection to your system')}">${L('اعتماد','Approve')}</button><button disabled>${L('رفض','Reject')}</button><button data-v11-card-detail="${esc(r.source_row)}">${L('عرض التفاصيل','View details')}</button></div></article>`}).join('');
+  box.innerHTML=topRows(4).map(r=>{const plan=actionPlanFor(r,30),imp=serviceImpactFor(r),loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[ar()?'ar':'en']||r.location;return `<article class="v11-decision-card ${signalState(r)==='alert'?'alert':''}"><h3>${esc(occupationLabel(r.ssco))} · ${esc(loc)}</h3>${KHDecision.html(r)}<p>${esc(plan.action)}</p><div class="v11-card-grid"><div><span>${L('الأولوية','Priority')}</span><strong>${decisionPriority(r).score??'—'}</strong></div><div><span>${L('أثر الخدمة','Service impact')}</span><strong>${imp?`${fmt(imp.value,0)} ${esc(imp.unit)}`:'—'}</strong></div><div><span>${L('التكلفة المرجعية','Reference cost')}</span><strong>${plan.cost==null?'—':sar(plan.cost)}</strong></div></div><div class="v11-card-actions"><button disabled title="${L('يتطلب إعداد الصلاحيات والربط بنظام الجهة','Requires access permissions and a connection to your system')}">${L('اعتماد','Approve')}</button><button disabled>${L('رفض','Reject')}</button><button data-v11-card-detail="${esc(r.source_row)}">${L('عرض التفاصيل','View details')}</button></div></article>`}).join('');
   qa('[data-v11-card-detail]',box).forEach(b=>b.onclick=()=>{q('#v11-cards-overlay').classList.remove('open');if(typeof openDrawer==='function')openDrawer(b.dataset.v11CardDetail)});
   q('#v11-cards-overlay').classList.add('open');
 }

@@ -253,7 +253,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
     const why=priorityWhy9(r,sv),sep=separationText9(sv);
     return `<article class="signal-card ${state}">
       <div class="signal-head"><div><h3>${esc9(occupationLabel(r.ssco))}</h3><small>${esc9(loc)}</small></div><span class="signal-badge ${state}">${stateLabel9(sv)}</span></div>
-      <p class="kh-signal-meaning">${esc9(KHPlain.trend(sv))}</p>
+      ${KHDecision.html(r)}<p class="kh-signal-meaning">${esc9(KHPlain.trend(sv))}</p>
       <details class="kh-number-details"><summary>${KHPlain.detailsLabel()}</summary><p>${L9('رمز مجموعة الوظائف','Job group code')}: ${esc9(r.position_group_id)} · ${L9('رمز المهنة','Occupation code')}: ${esc9(r.ssco)}</p>
       <div class="signal-metrics">
         <div class="signal-metric"><span>${L9('المعدل الحالي','Current rate')}</span><strong>${sv?.dataSufficient?nf9(sv.currentRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 بدوام كامل خلال شهر','per 100 full-time equivalents / month')}</small></div>

@@ -10,7 +10,7 @@ window.KHReports=(()=>{
   const box=document.querySelector('#v07-brief-content');
   const labeled=x=>[...x.children].map(c=>c.textContent.trim()).filter(Boolean).join(': ');
   const rows=[...box.querySelectorAll('.v07-brief-item')].map(item=>({title:item.querySelector(':scope>div>strong')?.textContent||'',summary:item.querySelector(':scope>div>p')?.textContent||'',action:[...item.querySelectorAll('.v11-brief-decision>div')].map(labeled),evidence:[...item.querySelectorAll('.kh-number-details dl>div')].map(labeled)}));
-  return {title:box.querySelector('h1').textContent,subtitle:box.querySelector('header p').textContent,source:KHPilot.sourceLabel(),summary:[...box.querySelectorAll('.v07-brief-summary>div')].map(labeled),rows,fingerprint:stableStateFingerprint(),policy:KHPilot.revision(),unit:KHPlain.unitHelp()};
+  return {title:box.querySelector('h1').textContent,subtitle:box.querySelector('header p').textContent,source:KHPilot.sourceLabel(),summary:[...box.querySelectorAll('.v07-brief-summary>div')].map(labeled),rows,fingerprint:stableStateFingerprint(),policy:KHDecision.policyLabel(),unit:KHPlain.unitHelp()};
  }
  function download(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
  async function exportFile(kind){
@@ -21,7 +21,7 @@ window.KHReports=(()=>{
     const d=await load('vendor/docx-9.6.1.js?v=180','docx');
     const para=(text,heading,pageBreakBefore=false)=>new d.Paragraph({bidirectional:ar,alignment:d.AlignmentType.START,heading,pageBreakBefore,keepNext:!!heading,spacing:{after:100,line:280},children:[new d.TextRun({text,rtl:ar,font:'Arial',size:heading?30:22})]});
     const children=[para(data.title,d.HeadingLevel.TITLE),para(data.subtitle),para(data.source),...data.summary.map(x=>para(x)),para(data.unit)];
-    data.rows.forEach((r,i)=>children.push(para(`${i+1}. ${r.title}`,d.HeadingLevel.HEADING_1,i>0),para(r.summary),...r.action.map(x=>para(x)),para(L('تفاصيل الدليل','Evidence details'),d.HeadingLevel.HEADING_2),...r.evidence.map(x=>para(x))));
+    data.rows.forEach((r,i)=>children.push(para(`${i+1}. ${r.title}`,d.HeadingLevel.HEADING_1,true),para(r.summary),...r.action.map(x=>para(x)),para(L('تفاصيل الدليل','Evidence details'),d.HeadingLevel.HEADING_2),...r.evidence.map(x=>para(x))));
     children.push(para(MEASUREMENT_VERSION+' · '+data.policy),para(data.fingerprint));
     const file=new d.Document({creator:'Kinetic HR',title:data.title,description:data.source,sections:[{properties:{page:{size:{width:11906,height:16838},margin:{top:900,bottom:900,left:900,right:900}}},children}]});
     download(await d.Packer.toBlob(file),`Kinetic-HR-Decision-${suffix}.docx`);

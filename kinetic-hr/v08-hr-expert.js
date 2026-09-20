@@ -203,7 +203,7 @@ function renderTranslations(){
 
 function plainLanguageLabels(){
   const gapsK=q('#view-gaps .section-kicker');
-  if(gapsK)gapsK.textContent=L('الفجوة الحالية','CURRENT SHORTFALL');
+  if(gapsK)gapsK.textContent=L('نقص القدرة الحالي','CURRENT SHORTFALL');
   const signalsK=q('#view-signals .section-kicker');
   if(signalsK)signalsK.textContent=L('معدل نشوء فجوة جديدة','NEW SHORTFALLS');
 
