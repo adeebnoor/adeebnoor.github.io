@@ -12,7 +12,7 @@ for(const width of (process.env.KINETIC_QA_WIDTH?[Number(process.env.KINETIC_QA_
 const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(e.message));p.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
 await p.goto(`http://127.0.0.1:8077/?lang=${language}`);await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);
 // Check the very first render before navigation or language changes can hide stale state.
-await require('./v191.cjs').coldBoot({p,check,assert,width,language});await p.evaluate(()=>document.fonts.ready);
+await require('./v191.cjs').coldBoot({p,check,assert,width,language});await require('./v192.cjs').landing({p,check,assert,width,language});await p.evaluate(()=>document.fonts.ready);
 await p.screenshot({path:path.join(out,`landing-${language}-${width}.png`),fullPage:true});
 await check(`${language}/${width}: landing has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
 await check(`${language}/${width}: landing uses the selected reading direction`,async()=>assert.equal(await p.locator('.v14-landing-shell').evaluate(e=>getComputedStyle(e).direction),language==='ar'?'rtl':'ltr'));
@@ -33,6 +33,8 @@ await require('./expert.cjs')({p,check,out,assert,path,width,language});
 await require('./v190.cjs')({p,check,out,assert,path,width,language});
 await require('./v191.cjs').transitions({p,check,out,assert,path,width,language});
 await require('./p0.cjs')({p,check,out,assert,path,width,language});
+await require('./v192.cjs').content({browser,check,out,assert,path,width,language});
+await require('./v192.cjs').startup({browser,check,out,assert,path,width,language});
 await check(`${language}/${width}: no browser errors or missing assets`,()=>assert.deepEqual(errors,[]));
 await ctx.close();}
 })().catch(e=>{results.push({name:'Runner',passed:false,error:e.stack});console.error(e)}).finally(async()=>{fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(results,null,2));if(browser)await browser.close();server.close();process.exitCode=results.some(r=>!r.passed)?1:0});
