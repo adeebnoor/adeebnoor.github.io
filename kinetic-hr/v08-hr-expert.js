@@ -56,7 +56,7 @@ if(priorityBase){
   decisionPriority=function(r){
     const base=priorityBase(r);
     const st=strainV8(r);
-    const hasSurveillance=!!surveillanceFor(r);
+    const hasSurveillance=!!surveillanceFor(r)?.dataSufficient;
     const weights=hasSurveillance
       ? {velocity:.30,burden:.35,resolvability:.20,teamStrain:.15}
       : {burden:.50,resolvability:.30,teamStrain:.20};
@@ -72,6 +72,7 @@ if(priorityBase){
       score,
       components,
       priorityPolicy:PRIORITY_VERSION,
+      factorContributions:Object.entries(weights).map(([factor,weight])=>({factor,value:components[factor],weight:Number.isFinite(components[factor])?weight/wSum:0,points:Number.isFinite(components[factor])?components[factor]*weight/wSum:0})),
       teamStrainBand:st.band,
       teamStrainKnown:st.known
     };

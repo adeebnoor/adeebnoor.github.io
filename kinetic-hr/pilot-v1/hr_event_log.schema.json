@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adeebnoor.github.io/kinetic-hr/pilot-v1/hr_event_log.schema.json",
+  "title": "KHDC-v1.0 hr_event_log row",
+  "type": "object",
+  "required": [
+    "event_id",
+    "position_id",
+    "position_group_id",
+    "event_type",
+    "event_date",
+    "sector",
+    "location",
+    "ssco",
+    "level",
+    "category"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "position_id": {
+      "type": "string"
+    },
+    "position_group_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "resignation",
+        "termination",
+        "retirement",
+        "transfer_out",
+        "hire",
+        "transfer_in",
+        "demand_increase",
+        "demand_decrease",
+        "position_created_unfilled",
+        "position_closed",
+        "long_term_absence",
+        "return_from_absence",
+        "internal_promotion",
+        "role_transformation",
+        "coverage_start",
+        "coverage_end"
+      ]
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "sector": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "ssco": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "separation_nature": {
+      "type": "string"
+    },
+    "separation_reason": {
+      "type": "string"
+    },
+    "capacity_delta_fte": {
+      "type": "number"
+    },
+    "demand_delta_fte": {
+      "type": "number"
+    },
+    "skill_gap_fte": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "event_sequence": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

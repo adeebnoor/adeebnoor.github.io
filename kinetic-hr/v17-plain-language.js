@@ -7,8 +7,8 @@ window.KHPlain = (() => {
   const unitHelp = () => L('الأرقام تقيس حجم العمل: 1 بدوام كامل يعادل عمل موظف بدوام كامل، أو موظفين بنصف دوام. لا تعني بالضرورة عدد الأشخاص المطلوب توظيفهم.', 'These numbers measure workload: 1 full-time equivalent can be one full-time employee or two half-time employees. It is not necessarily the number of people to hire.');
   function trend(sv) {
     if (!sv?.dataSufficient) return L('سجل الأحداث غير مكتمل؛ لا يمكن تحديد ما إذا كان النقص يتزايد بسرعة أكبر.', 'The event history is incomplete, so we cannot tell whether new shortages are appearing faster.');
-    if (sv.currentNewGapFte === 0) return L('لم يظهر نقص جديد خلال آخر 30 يومًا. راجع أيضًا أي نقص قائم يحتاج معالجة.', 'No new shortfall appeared in the last 30 days. Also check whether an existing shortfall needs attention.');
-    const first = L(`خلال آخر 30 يومًا، ظهر نقص جديد يعادل ${capacity(sv.currentNewGapFte)}.`, `Over the last 30 days, a new shortfall equivalent to ${capacity(sv.currentNewGapFte)} appeared.`);
+    if (sv.currentNewGapFte === 0) return L(`لم يظهر نقص جديد خلال آخر ${sv.evidence?.windowDays||KHPilot.policy().windowDays} يومًا. راجع أيضًا أي نقص قائم يحتاج معالجة.`, `No new shortfall appeared in the last ${sv.evidence?.windowDays||KHPilot.policy().windowDays} days. Also check whether an existing shortfall needs attention.`);
+    const first = L(`خلال آخر ${sv.evidence?.windowDays||KHPilot.policy().windowDays} يومًا، ظهر نقص جديد يعادل ${capacity(sv.currentNewGapFte)}.`, `Over the last ${sv.evidence?.windowDays||KHPilot.policy().windowDays} days, a new shortfall equivalent to ${capacity(sv.currentNewGapFte)} appeared.`);
     const comparison = sv.baselineRate === 0
       ? L('لم يُسجل نقص جديد في فترة المقارنة السابقة.', 'No new shortfall was recorded in the previous comparison period.')
       : Math.abs(sv.currentRate - sv.baselineRate) < 1e-9
@@ -44,7 +44,7 @@ window.KHPlain = (() => {
       [L('معدل ظهور نقص جديد لكل 100 دوام كامل خلال شهر', 'New shortfall rate per 100 full-time equivalents over a month'), sv?.dataSufficient ? n(sv.currentRate) : '—'],
       [L('المعدل السابق للمقارنة، بنفس الوحدة', 'Previous comparison rate, in the same unit'), sv?.dataSufficient ? n(sv.baselineRate) : '—'],
       [L('نسبة المعدل الحالي إلى السابق', 'Current rate divided by previous rate'), sv?.dataSufficient && Number.isFinite(sv.ratio) ? n(sv.ratio) + '×' : '—'],
-      [L('قواعد التنبيه المستخدمة', 'Alert rules used'), 'KH-SURV-v0.9']
+      [L('قواعد التنبيه المستخدمة', 'Alert rules used'), KHPilot.revision()]
     ];
     return `<details class="kh-number-details"><summary>${detailsLabel()}</summary><p>${unitHelp()}</p><dl>${rows.map(([label, value]) => `<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl><p>${L('النقص الجديد هو ما ظهر خلال الفترة؛ وقد تحدث تغطية في الوقت نفسه. لذلك لا يساوي بالضرورة تغير إجمالي النقص. تتم مقارنة المعدلات بعد مراعاة حجم العمل المطلوب.', 'New shortfall is the amount that appeared during the period; coverage may also have improved. It is not necessarily the change in the total shortfall. Rate comparisons account for the amount of work required.')}</p></details>`;
   }

@@ -4,10 +4,11 @@
 const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>[...r.querySelectorAll(s)];
 const L=(a,e)=>document.documentElement.lang==='ar'?a:e;
 const steps=()=>[
- ['dashboard',L('حدّد أين يبدأ التدخل','Find the first decision'),L('راجع طابور القرارات: ما الفجوة الأعلى أولوية، وما أثرها على الخدمة؟','Review the decision queue: which gap comes first, and what service is exposed?')],
- ['signals',L('افحص الدليل قبل الثقة','Inspect the evidence'),L('افتح تفاصيل إشارة وقارن المعدل الحالي بخط الأساس وكفاية التاريخ.','Open an alert and inspect its current rate, baseline and history sufficiency.')],
- ['scenario',L('غيّر القرار، وشاهد الأثر','Change the decision'),L('جرّب توظيف 5، ثم نقلًا داخليًا. راجع مصدر النقل والميزانية وقارن الخيارين A وB.','Try hiring 5, then an internal transfer. Check donor capacity and budget; compare options A and B.')],
- ['audit',L('تتبّع النتيجة وقيّمها','Trace and review'),L('راجع مصدر القياس وإصداره، ثم افتح تقييم الخبير ونزّل ملاحظاتك.','Review measurement source and version, then open the expert review and download your feedback.')]
+ ['data',L('ارفع الوضع الحالي ثم الأحداث','Import snapshot, then events'),L('ابدأ بملفي القطاع المتطابقين. راجع المقبول والمستبعد وكفاية السجل.','Start with matching sector files. Review accepted and quarantined records and history coverage.')],
+ ['dashboard',L('حدّد أين يبدأ التدخل','Find the first decision'),L('راجع أعلى أولوية وإجراء الغد وصاحبه.','Review the highest priority, tomorrow’s action and its owner.')],
+ ['signals',L('افحص سبب التنبيه','Inspect the alert'),L('راجع النقص الجديد والفترة وقواعد التنبيه؛ المعدل المجهول لا يظهر صفرًا.','Inspect new shortfall, the time window and alert rules; an unknown rate is never zero.')],
+ ['scenario',L('قارن الحلول','Compare options'),L('جرّب التوظيف أو النقل أو التأهيل أو التغطية المؤقتة. راجع التكلفة والأهلية.','Try hiring, transfers, training or temporary cover. Review costs and eligibility.')],
+ ['brief',L('نزّل تقرير القرار','Download the decision report'),L('افتح التقرير التنفيذي وصدّره بالعربية أو الإنجليزية، مع مرجع الأرقام والسياسة.','Open and export the Arabic or English brief, including data and policy references.')]
 ];
 function stepMarkup(){return steps().map(([view,title,desc],i)=>`<button data-v16-view="${view}"><b>${i+1}</b><span><strong>${title}</strong><small>${desc}</small></span></button>`).join('')}
 function comparison(){return `<section class="v14-section v16-difference" id="v17-integration">
@@ -47,12 +48,12 @@ function enhance(){
  }
  const top=q('.topbar');
  if(top&&!q('#v16-trial-guide')){
-  top.insertAdjacentHTML('afterend',`<details id="v16-trial-guide" class="v16-guide"><summary>${L('دليل تجربة الخبير · 4 خطوات','Expert trial guide · 4 steps')}</summary><div class="v16-steps">${stepMarkup()}</div><div class="v16-guide-foot"><span>${L('بدوام كامل = حجم العمل، وليس عدد الأشخاص بالضرورة. البيانات تجريبية؛ الحفظ على هذا الجهاز فقط.','Full-time equivalent measures work, not necessarily headcount. Demo data; saved on this device only.')}</span><button data-v16-review>${L('تقييم الخبير وتصديره','Review and export feedback')}</button></div></details>`);
+  top.insertAdjacentHTML('afterend',`<details id="v16-trial-guide" class="v16-guide"><summary>${L('دليل تجربة الخبير · 5 خطوات','Expert trial guide · 5 steps')}</summary><div class="v16-steps">${stepMarkup()}</div><div class="v16-guide-foot"><span>${L('بدوام كامل = حجم العمل، وليس عدد الأشخاص بالضرورة. البيانات تجريبية؛ الحفظ على هذا الجهاز فقط.','Full-time equivalent measures work, not necessarily headcount. Demo data; saved on this device only.')}</span><button data-v16-review>${L('تقييم الخبير وتصديره','Review and export feedback')}</button></div></details>`);
  }
 }
 document.addEventListener('click',e=>{
  if(e.target.closest('[data-v16-language]'))q('#lang-toggle')?.click();
- const view=e.target.closest('[data-v16-view]');if(view)enter(view.dataset.v16View);
+ const view=e.target.closest('[data-v16-view]');if(view){if(view.dataset.v16View==='brief'){enter('dashboard');q('#v07-brief-btn')?.click()}else enter(view.dataset.v16View)}
  if(e.target.closest('[data-v16-start]')){enter('dashboard');q('#v16-trial-guide').open=true}
  if(e.target.closest('[data-v16-review]'))q('#kh-review-fab')?.click();
 });

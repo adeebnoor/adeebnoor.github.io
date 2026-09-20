@@ -97,6 +97,7 @@ function strainFor(r){
   if(Number.isFinite(s)){total+=.2*Math.min(1,Math.max(0,s/.08));w+=.2}
   return Math.round(100*(w?total/w:0));
 }
+function entityPreset(r){const keys=['hire','transfer','upskill','contract'];if(!r||!r.financial_cost_source)return null;return Object.fromEntries([...keys.map(k=>[k,num(r[k+'_unit_cost_sar'])]),['source',r.financial_cost_source],['gapDay',num(r.cost_per_uncovered_fte_day)],['approval',Object.fromEntries(keys.map(k=>[k,num(r[k+'_approval_days'])]))]])}
 function presetFor(r){return r?PRESETS[r.sector]||null:null}
 function transferable(donor){
   if(!donor)return 0;
@@ -112,34 +113,36 @@ function transferOptions(r){
 }
 function opportunityCost(r,horizon,costPerDay=null){
   if(!r)return null;
-  const p=presetFor(r),daily=costPerDay??num(q('#v07-gapday-cost')?.value)??(snapshotMode==='synthetic'?p?.gapDay:null);
+  const p=presetFor(r),daily=costPerDay??num(r.cost_per_uncovered_fte_day)??(snapshotMode==='synthetic'?p?.gapDay:null);
   if(daily==null)return null;
   const gapDays=deficit(r)*Math.max(0,Number(horizon||0));
-  return{total:gapDays*daily,daily,gapDays,source:snapshotMode==='synthetic'?p?.source:L('مدخل جهة العمل','Entity-entered input')};
+  return{total:gapDays*daily,daily,gapDays,source:costPerDay!=null?L('قيمة أدخلها المستخدم','User-entered value'):snapshotMode==='synthetic'?p?.source:r.financial_cost_source||L('مدخل جهة العمل','Entity-entered input')};
 }
 function actionPlanFor(r,days=30){
   if(!r)return null;
-  const gap=deficit(r),p=presetFor(r),fund=fundingFor(r),donor=transferOptions(r)[0],impact=serviceImpactFor(r),opp=opportunityCost(r,days);
+  const gap=deficit(r),p=snapshotMode==='synthetic'?presetFor(r):entityPreset(r),fund=fundingFor(r),donor=transferOptions(r)[0],impact=serviceImpactFor(r),opp=opportunityCost(r,days);
   let action,type,units,cost=null;
   if(donor){
     units=Math.min(gap,donor.transferable);
     type='transfer';
     action=L(`جرّب تغطية ما يعادل ${KHPlain.capacity(units)} بنقل داخلي من ${sectorCfg(donor.row.sector).locations.find(x=>x.id===donor.row.location)?.ar||donor.row.location} خلال 30 يومًا.`,`Test covering the equivalent of ${KHPlain.capacity(units)} by transfer from ${sectorCfg(donor.row.sector).locations.find(x=>x.id===donor.row.location)?.en||donor.row.location} within 30 days.`);
-    cost=p?units*p.transfer:null;
+    cost=p?.transfer!=null?units*p.transfer:null;
   }else if(fund.known&&fund.unfundedGap>0){
     units=gap; type='fund_then_hire';
     action=L(`اطلب اعتماد تمويل ما يعادل ${KHPlain.capacity(fund.unfundedGap)}. وبالتوازي، قارن التوظيف والتغطية المؤقتة للجزء الممول، بعد الموافقات.`,`Request funding for the equivalent of ${KHPlain.capacity(fund.unfundedGap)}. In parallel, compare hiring and temporary cover for the funded portion, subject to approvals.`);
-    cost=p?gap*p.hire:null;
+    cost=p?.hire!=null?gap*p.hire:null;
   }else{
     units=gap;type='hire';
     action=L(`راجع التمويل والموافقات، ثم قارن التوظيف والتغطية المؤقتة لنقص يعادل ${KHPlain.capacity(gap)}.`,`Check funding and approvals, then compare hiring and temporary cover for a shortfall equivalent to ${KHPlain.capacity(gap)}.`);
-    cost=p?gap*p.hire:null;
+    cost=p?.hire!=null?gap*p.hire:null;
   }
   const riskParts=[];
   if(impact)riskParts.push(L(`${fmt(impact.value,0)} ${impact.unit}: ${impact.label}`,`${fmt(impact.value,0)} ${impact.unit}: ${impact.label}`));
   if(opp)riskParts.push(L(`تكلفة تقديرية لاستمرار النقص لمدة ${days} يومًا: ${sar(opp.total)}`,`Reference ${days}-day cost of continued shortfall: ${sar(opp.total)}`));
   const risk=riskParts.join(' · ')||L('يلزم إدخال بيانات أثر الخدمة/التكلفة لتقدير مخاطر عدم التدخل.','Service-impact/cost inputs are required to quantify inaction risk.');
-  return{action,type,units,cost,costSource:p?.source||L('غير متاح','Unavailable'),risk,donor};
+  const owner=type==='transfer'?L('تخطيط القوى العاملة وشريك الموارد البشرية','Workforce Planning and HR partner'):type==='fund_then_hire'?L('الموارد البشرية والمالية','HR and Finance'):L('الاستقطاب ومدير التشغيل','Recruitment and Operations');
+  const tomorrow=type==='transfer'?L('قائمة مرشحين مؤهلين وموافقة مبدئية من الفريق المنقول منه.','Eligible candidate list and preliminary source-team agreement.'):type==='fund_then_hire'?L('تحديد مصدر التمويل وصاحب الموافقة وموعد الرد، مع بدائل للجزء الممول.','Funding source, approver and response date, with options for the funded portion.'):L('خطة تغطية بمسؤول وموعد بدء وتكلفة موثقة.','A coverage plan with an owner, start date and documented cost.');
+  return{action,type,units,cost,owner,tomorrow,costSource:p?.source||L('غير متاح','Unavailable'),risk,donor};
 }
 
 function selectedRow(){
@@ -290,8 +293,8 @@ function applyPreset(){
   if(activeDraftKey)cellDrafts.set(activeDraftKey,captureDraft());
   activeDraftKey=key;
   const saved=cellDrafts.get(key),p=snapshotMode==='synthetic'?presetFor(r):null;
-  const values={'v07-safety-pct':5,'v07-budget':p?Math.max(100000,Math.round(deficit(r)*p.hire*1.05)):'','v07-gapday-cost':p?p.gapDay:(num(r.cost_per_uncovered_fte_day)??'')};
-  ['hire','transfer','upskill','contract'].forEach(k=>{values['v07-approval-'+k]=p?p.approval[k]:'';values['v07-cost-'+k]=p?p[k]:''});
+  const values={'v07-safety-pct':5,'v07-budget':p?Math.max(100000,Math.round(deficit(r)*p.hire*1.05)):(num(r.scenario_budget_sar)??''),'v07-gapday-cost':p?p.gapDay:(num(r.cost_per_uncovered_fte_day)??'')};
+  ['hire','transfer','upskill','contract'].forEach(k=>{values['v07-approval-'+k]=p?p.approval[k]:(num(r[k+'_approval_days'])??'');values['v07-cost-'+k]=p?p[k]:(num(r[k+'_unit_cost_sar'])??'')});
   applyingPreset=true;
   for(const id of presetFields){const el=q('#'+id);if(!el)continue;el.value=saved?saved[id].value:String(values[id]??'');el.dataset.userEdited=saved?.[id]?.edited?'1':'0'}
   applyingPreset=false;return true;
@@ -302,7 +305,7 @@ function renderPresetPanel(){
   const p=snapshotMode==='synthetic'?presetFor(r):null,custom=presetFields.some(id=>q('#'+id)?.dataset.userEdited==='1');
   const heading=p?(custom?L('قيم معدّلة بواسطة المستخدم','User-adjusted values'):L('قيم تجريبية مكتملة وقابلة للتعديل','Complete, editable demo defaults')):L('مدخلات الجهة المستوردة','Imported entity inputs');
   const note=p?L('هذه افتراضات للتجربة وليست أسعار سوق معتمدة. تشمل التكلفة والميزانية ومهل الموافقة لكل تدخل.','These are illustrative assumptions, not validated market prices. Costs, budget and approval delays are filled for every intervention.'):L('لا تُنسخ القيم التجريبية إلى بيانات الجهة. راجع التكاليف ومهل الموافقة قبل الاعتماد.','Demo assumptions are not copied into entity data. Review costs and approval delays before approval.');
-  box.innerHTML=`<div class="v11-section-head"><div><span>${L('افتراضات السيناريو ومصدرها','SCENARIO ASSUMPTIONS & SOURCE')}</span><strong>${heading}</strong><small>${note}</small></div>${p?`<span class="v11-source-pill">${esc(p.source)}</span>`:''}</div><div class="v16-default-grid">${['hire','transfer','upskill','contract'].map(k=>`<div><strong>${{hire:L('التوظيف','Hire'),transfer:L('النقل','Transfer'),upskill:L('التأهيل','Upskill'),contract:L('التعاقد','Contract')}[k]}</strong><span>${num(q('#v07-cost-'+k)?.value)==null?'—':sar(num(q('#v07-cost-'+k).value))}</span><small>${L('مهلة الموافقة','Approval delay')}: ${q('#v07-approval-'+k)?.value||'—'} ${L('يومًا','days')}</small></div>`).join('')}</div>`;
+  box.innerHTML=`<div class="v11-section-head"><div><span>${L('افتراضات السيناريو ومصدرها','SCENARIO ASSUMPTIONS & SOURCE')}</span><strong>${heading}</strong><small>${note}</small></div>${p?`<span class="v11-source-pill">${esc(p.source)}</span>`:''}</div><div class="v16-default-grid">${['hire','transfer','upskill','contract'].map(k=>`<div><strong>${{hire:L('التوظيف','Hire'),transfer:L('النقل','Transfer'),upskill:L('التأهيل','Upskill'),contract:L('التعاقد','Contract')}[k]}</strong><span>${num(q('#v07-cost-'+k)?.value)==null?'—':sar(num(q('#v07-cost-'+k).value))}</span><small>${L('مهلة الموافقة','Approval delay')}: ${q('#v07-approval-'+k)?.value??'—'} ${L('يومًا','days')}</small></div>`).join('')}</div>`;
   let ready=q('#v16-scenario-ready');if(!ready){ready=document.createElement('div');ready.id='v16-scenario-ready';q('.scenario-actions')?.insertAdjacentElement('afterend',ready)}
   ready.innerHTML=`<div><strong>${heading}</strong><small>${p?L('يمكنك تجربة التدخل مباشرة؛ راجع الافتراضات أو عدّلها عند الحاجة.','Try an intervention immediately; inspect or adjust assumptions as needed.'):note}</small></div><button id="v16-edit-defaults" type="button">${L('راجع القيم','Review values')}</button>`;
   q('#v16-edit-defaults').onclick=()=>{q('#v14-advanced').open=true;q('#v07-reality-panel').open=true;q('#v07-budget').focus();q('#v07-reality-panel').scrollIntoView({block:'center',behavior:'smooth'})};
@@ -366,7 +369,7 @@ function enhanceBrief(){
     q('.v11-brief-decision',item)?.remove();q('.v11-brief-open-scenario',item)?.remove();
     const r=rows[i];if(!r)return;const plan=actionPlanFor(r,30);
     const d=document.createElement('div');d.className='v11-brief-decision';
-    d.innerHTML=`<div><span>${L('الإجراء المقترح خلال 30 يومًا','Recommended action within 30 days')}</span><strong>${esc(plan.action)}</strong></div><div><span>${L('التكلفة التقريبية / المصدر','Approx. cost / source')}</span><strong>${plan.cost==null?'—':sar(plan.cost)} · ${esc(plan.costSource)}</strong></div><div><span>${L('المخاطر إذا لم يُتخذ إجراء','Risk if no action is taken')}</span><strong>${esc(plan.risk)}</strong></div>`;
+    d.innerHTML=`<div><span>${L('الإجراء المقترح خلال 30 يومًا','Recommended action within 30 days')}</span><strong>${esc(plan.action)}</strong></div><div><span>${L('المسؤول المقترح','Suggested owner')}</span><strong>${esc(plan.owner)}</strong></div><div><span>${L('المطلوب بنهاية الغد','Due by tomorrow')}</span><strong>${esc(plan.tomorrow)}</strong></div><div><span>${L('التكلفة التقريبية / المصدر','Approx. cost / source')}</span><strong>${plan.cost==null?'—':sar(plan.cost)} · ${esc(plan.costSource)}</strong></div><div><span>${L('المخاطر إذا لم يُتخذ إجراء','Risk if no action is taken')}</span><strong>${esc(plan.risk)}</strong></div>`;
     const inner=q('.v07-brief-item>div',item)||item;inner.prepend(d);
     const b=document.createElement('button');b.className='v11-brief-open-scenario';b.type='button';b.textContent=L('جرّب الحلول في مختبر السيناريو','Compare options in Scenario Lab');
     b.onclick=()=>{selectedScenarioSource=r.source_row;q('#v07-brief-overlay')?.classList.remove('open');document.body.classList.remove('kh-brief-open');showView('scenario')};inner.appendChild(b);
@@ -377,13 +380,7 @@ function enhanceBrief(){
     const pp=document.createElement('button');pp.id='v11-export-ppt';pp.className='v11-export-btn';pp.textContent=L('PowerPoint','PowerPoint');pp.onclick=()=>exportBrief('ppt');actions.prepend(pp);
   }
 }
-function exportBrief(kind){
-  const content=q('#v07-brief-content')?.innerHTML||'';if(!content)return;
-  const title=L('موجز Kinetic HR التنفيذي','Kinetic HR Executive Brief');
-  const html=`<!doctype html><html dir="${ar()?'rtl':'ltr'}"><head><meta charset="utf-8"><title>${title}</title><style>body{font-family:Arial,Tahoma,sans-serif;padding:28px;color:#17384c}h1,h2{color:#102f43}article{border-bottom:1px solid #ddd;padding:10px 0}.v11-brief-decision{background:#f4f7f9;padding:10px;margin:8px 0}button{display:none}</style></head><body><h1>${title}</h1>${content}</body></html>`;
-  const mime=kind==='doc'?'application/msword':'application/vnd.ms-powerpoint',ext=kind==='doc'?'doc':'ppt';
-  const blob=new Blob([html],{type:mime+';charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`Kinetic-HR-Executive-Brief.${ext}`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-}
+function exportBrief(kind){return KHReports.exportFile(kind)}
 
 function openDecisionCards(){
   const box=q('#v11-cards-content');if(!box)return;

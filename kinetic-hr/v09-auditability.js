@@ -3,8 +3,8 @@
 'use strict';
 
 const V09='KH-AUDITABILITY-v0.9';
-const CONTRACT_V09='KHDC-v0.9';
-const SURV_V09='KH-SURV-v0.9';
+const CONTRACT_V09='KHDC-v1.0';
+const SURV_V09='KH-SURV-v1.0';
 const q9=(s,r=document)=>r.querySelector(s);
 const qa9=(s,r=document)=>[...r.querySelectorAll(s)];
 const ar9=()=>document.documentElement.dir==='rtl';
@@ -12,7 +12,7 @@ const L9=(ar,en)=>ar9()?ar:en;
 const esc9=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const nf9=(v,d=1)=>Number.isFinite(Number(v))?new Intl.NumberFormat(ar9()?'ar-SA':'en-US',{maximumFractionDigits:d,minimumFractionDigits:0}).format(Number(v)):'—';
 const EXIT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out']);
-const EVENT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out','hire','transfer_in','demand_increase','demand_decrease','position_created_unfilled','position_closed','long_term_absence','return_from_absence','internal_promotion','role_transformation']);
+const EVENT_TYPES_V09=new Set(['resignation','termination','retirement','transfer_out','hire','transfer_in','demand_increase','demand_decrease','position_created_unfilled','position_closed','long_term_absence','return_from_absence','internal_promotion','role_transformation','coverage_start','coverage_end']);
 const NATURE_V09=new Set(['voluntary','involuntary','statutory','internal_mobility']);
 const NATURE_EXPECTED={resignation:'voluntary',termination:'involuntary',retirement:'statutory',transfer_out:'internal_mobility'};
 function funding9(r){
@@ -39,6 +39,8 @@ const deltaBase9=typeof defaultEventDelta==='function'?defaultEventDelta:null;
 if(deltaBase9) defaultEventDelta=function(type){
   if(type==='termination'||type==='long_term_absence'||type==='internal_promotion')return{capacity:-1,demand:0};
   if(type==='return_from_absence')return{capacity:1,demand:0};
+  if(type==='coverage_start')return{capacity:1,demand:0};
+  if(type==='coverage_end')return{capacity:-1,demand:0};
   if(type==='role_transformation')return{capacity:0,demand:0};
   return deltaBase9(type);
 };
@@ -49,7 +51,7 @@ if(typeof eventsForCell==='function') eventsForCell=function(r){
   return HR_EVENTS
     .filter(e=>String(e.position_group_id||'')===pg&&dUTC(e.event_date)&&dUTC(e.event_date)<=getAsOfDate())
     .map(normalizeEvent)
-    .sort((a,b)=>String(a.event_date).localeCompare(String(b.event_date)));
+    .sort((a,b)=>String(a.event_date).localeCompare(String(b.event_date))||Number(a.event_sequence||0)-Number(b.event_sequence||0)||String(a.event_id).localeCompare(String(b.event_id)));
 };
 
 const validateSnapshotsBase9=typeof validateSnapshots==='function'?validateSnapshots:null;
@@ -146,12 +148,13 @@ if(typeof validateEvents==='function') validateEvents=function(raw,snapshotRows=
 };
 
 function surveillanceEvidence9(r){
-  const w=getWindows(),historyStart=dUTC(r.event_history_start_date);
+  const w=getWindows(r),historyStart=dUTC(r.event_history_start_date),historyEnd=dUTC(r.event_history_end_date);
   const requiredStart=w.baseline[0]?.start||w.current.start;
   const currentStart=historyStart&&historyStart>w.current.start?historyStart:w.current.start;
-  const observedDays=historyStart&&historyStart<=w.current.end?Math.max(0,Math.round((w.current.end-currentStart)/DAY)+1):0;
+  const observedEnd=historyEnd&&historyEnd<w.current.end?historyEnd:w.current.end;
+  const observedDays=historyStart&&historyEnd?Math.max(0,Math.round((observedEnd-currentStart)/DAY)+1):0;
   const completeBaselines=historyStart?w.baseline.filter(x=>historyStart<=x.start).length:0;
-  const fullCurrent=!!historyStart&&historyStart<=w.current.start;
+  const fullCurrent=!!historyStart&&!!historyEnd&&historyStart<=w.current.start&&historyEnd>=w.current.end;
   const fullBaseline=!!historyStart&&historyStart<=requiredStart&&completeBaselines===w.baseline.length;
   const currentEvents=eventsForCell(r).filter(e=>{const d=dUTC(e.event_date);return d&&d>=w.current.start&&d<=w.current.end});
   return{historyStart,observedDays,completeBaselines,fullCurrent,fullBaseline,currentEvents,requiredStart};
@@ -159,24 +162,25 @@ function surveillanceEvidence9(r){
 
 if(typeof surveillanceFor==='function') surveillanceFor=function(r){
   if(eventMode==='gated')return null;
-  const w=getWindows(),current=incidenceWindow(r,w.current.start,w.current.end),hist=w.baseline.map(x=>incidenceWindow(r,x.start,x.end));
+  const w=getWindows(r),policy=KHPilot.policy(r),current=incidenceWindow(r,w.current.start,w.current.end),hist=w.baseline.map(x=>incidenceWindow(r,x.start,x.end));
   const ev=surveillanceEvidence9(r);
   const baseline=hist.length?hist.reduce((a,x)=>a+x.rate,0)/hist.length:0;
   const baselineGap=hist.length?hist.reduce((a,x)=>a+x.newGapFte,0)/hist.length:0;
   const ratio=baseline>0?current.rate/baseline:(current.rate>0?Infinity:null);
-  const eligibleSize=requiredFte(r)>=SURVEILLANCE.minRequiredFte;
-  const dataSufficient=ev.fullCurrent&&ev.fullBaseline&&eligibleSize&&current.denominator>0;
-  const alert=dataSufficient&&current.newGapFte>0&&(baseline===0?current.newGapFte>=SURVEILLANCE.minNewGapFteWhenBaselineZero:(ratio>=SURVEILLANCE.alertMultiplier&&current.newGapFte>=Math.max(1,baselineGap)));
+  const eligibleSize=requiredFte(r)>=policy.minRequiredFte;
+  const qualityComplete=!(DATA_QUALITY.events.quarantined>0)&&!(DATA_QUALITY.snapshot.quarantined>0);
+  const dataSufficient=ev.fullCurrent&&ev.fullBaseline&&eligibleSize&&current.denominator>0&&qualityComplete;
+  const alert=dataSufficient&&current.newGapFte>0&&(baseline===0?current.newGapFte>=policy.minNewGapFteWhenBaselineZero:(ratio>=policy.alertMultiplier&&current.newGapFte>=Math.max(1,baselineGap)));
   const monitor=dataSufficient&&!alert&&current.rate>baseline&&current.newGapFte>0;
   const status=!dataSufficient?'insufficient':alert?'alert':monitor?'monitor':(current.newGapFte===0&&baselineGap===0?'stable_zero':'normal');
   const exits=ev.currentEvents.filter(e=>EXIT_TYPES_V09.has(e.event_type));
   const separationMix=exits.reduce((a,e)=>{const k=e.separation_nature||'unknown';a[k]=(a[k]||0)+1;return a},{});
   return{
-    currentRate:current.rate,baselineRate:baseline,ratio,alert,monitor,status,dataSufficient,
-    currentNewGapFte:current.newGapFte,baselineNewGapFte:baselineGap,denominator:current.denominator,
-    causes:current.causes,histRates:hist.map(x=>x.rate),histGapFte:hist.map(x=>x.newGapFte),
+    currentRate:dataSufficient?current.rate:null,baselineRate:dataSufficient?baseline:null,ratio:dataSufficient?ratio:null,alert,monitor,status,dataSufficient,policy,policyRevision:KHPilot.revision(),
+    currentNewGapFte:dataSufficient?current.newGapFte:null,baselineNewGapFte:dataSufficient?baselineGap:null,denominator:current.denominator,
+    causes:current.causes,histRates:dataSufficient?hist.map(x=>x.rate):[],histGapFte:dataSufficient?hist.map(x=>x.newGapFte):[],
     onsets:current.onsets,window:w.current,
-    evidence:{observedDays:ev.observedDays,windowDays:SURVEILLANCE.windowDays,baselineWindowsComplete:ev.completeBaselines,baselineWindowsRequired:w.baseline.length,currentEventCount:ev.currentEvents.length,gapCreatingEventCount:current.events.length,historyStart:ev.historyStart?isoDate(ev.historyStart):null},
+    evidence:{observedDays:ev.observedDays,windowDays:policy.windowDays,baselineWindowsComplete:ev.completeBaselines,baselineWindowsRequired:w.baseline.length,currentEventCount:ev.currentEvents.length,gapCreatingEventCount:current.events.length,historyStart:ev.historyStart?isoDate(ev.historyStart):null},
     separationMix
   };
 };
@@ -198,7 +202,7 @@ if(typeof velocityScore==='function') velocityScore=function(r){
 
 if(typeof periodLabel==='function') periodLabel=function(){
   const {current}=getWindows();
-  return `30d · ${isoDate(current.start)} → ${isoDate(current.end)}`;
+  return `${KHPilot.policy().windowDays}d · ${isoDate(current.start)} → ${isoDate(current.end)}`;
 };
 
 function ratioText9(sv){
@@ -208,7 +212,7 @@ function ratioText9(sv){
   return nf9(sv.ratio,2)+'×';
 }
 function stateLabel9(sv){
-  if(!sv||!sv.dataSufficient)return L9('بيانات غير كافية','Insufficient data');
+  if(!sv||!sv.dataSufficient)return L9('معدل النقص الجديد غير متاح — السجل غير كافٍ','Incidence unavailable — insufficient history');
   if(sv.alert)return L9('إنذار','Alert');
   if(sv.monitor)return L9('مراقبة','Monitor');
   if(sv.status==='stable_zero')return L9('رصد مكتمل · لا فجوات جديدة','Complete history · no new gaps');
@@ -239,7 +243,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
   ].map(([k,l])=>`<span class="summary-chip ${k}"><b>${counts[k]}</b>${l}</span>`).join('');
   const grid=q9('#signals-grid');
   if(!grid)return;
-  if(eventMode==='gated'){grid.innerHTML=`<div class="empty-state">${L9('لإظهار التنبيهات، حمّل سجل التغييرات واربطه بمجموعات الوظائف في ملف الوضع الحالي.','To show alerts, import a dated event log linked to the job groups in the current workforce file.')}</div>`;return}
+  if(eventMode==='gated'){grid.innerHTML=`<div class="empty-state">${L9('معدل النقص الجديد غير متاح — نقص أحداث. حمّل سجل التغييرات المرتبط بملف الوضع الحالي.','Incidence unavailable — missing events. Import the event log linked to your snapshot.')}</div>`;return}
   const filtered=states.filter(x=>signalFilter==='all'||x.state===signalFilter);
   grid.innerHTML=filtered.map(({r,state,sv,dp})=>{
     const loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[lang]||'';
@@ -267,7 +271,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
       ${sep?`<div class="v09-separation-mix"><b>${L9('طبيعة الخروج في النافذة الحالية','Exit nature in current window')}:</b> ${esc9(sep)}</div>`:''}
       ${bars.length?`<div class="signal-trend">${bars.map((v,i)=>`<i class="${i===bars.length-1?'current':''}" style="height:${Math.max(6,45*v/m)}px"></i>`).join('')}</div>`:''}
       <div class="v09-sufficiency">
-        <span class="${sv?.evidence.observedDays===SURVEILLANCE.windowDays?'ok':'warn'}">${L9('أيام مرصودة','observed days')}: ${sv?.evidence.observedDays??0}/${SURVEILLANCE.windowDays}</span>
+        <span class="${sv?.evidence.observedDays===sv?.evidence.windowDays?'ok':'warn'}">${L9('أيام مرصودة','observed days')}: ${sv?.evidence.observedDays??0}/${sv?.evidence.windowDays??KHPilot.policy(r).windowDays}</span>
         <span class="${sv?.evidence.baselineWindowsComplete===SURVEILLANCE.baselineWindows?'ok':'warn'}">${L9('نوافذ أساس مكتملة','complete baselines')}: ${sv?.evidence.baselineWindowsComplete??0}/${SURVEILLANCE.baselineWindows}</span>
         <span>${L9('التعرّض','exposure')}: ${sv?.dataSufficient?nf9(sv.denominator,1):'—'} ${L9('دوام كامل–شهر','FTE-mo')}</span>
         <span>${L9('أحداث منشئة للفجوة','gap events')}: ${sv?.evidence.gapCreatingEventCount??0}</span>
@@ -297,7 +301,7 @@ if(typeof renderPulse==='function') renderPulse=function(){
   }
   const curDen=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0);
   const curEvents=ready.reduce((a,r)=>a+(surveillanceFor(r)?.evidence.currentEventCount||0),0);
-  if(legend)legend.innerHTML=`<span>${L9('الأرقام: نقص جديد لكل 100 بدوام كامل خلال شهر.','Values: new shortfall per 100 full-time equivalents over a month.')}</span><div class="v09-pulse-note">${L9(`كل نقطة تمثل 30 يومًا. نقارن الفترة الحالية بثلاث فترات سابقة. يشمل الرسم ${ready.length} من ${rows.length} مجموعة وظائف ذات سجل مكتمل.`,`Each point covers 30 days. We compare the current period with three earlier periods. The chart includes ${ready.length} of ${rows.length} job groups with complete history.`)}</div>`;
+  if(legend)legend.innerHTML=`<span>${L9('الأرقام: نقص جديد لكل 100 بدوام كامل خلال شهر.','Values: new shortfall per 100 full-time equivalents over a month.')}</span><div class="v09-pulse-note">${L9(`كل نقطة تمثل ${KHPilot.policy().windowDays} يومًا. نقارن الفترة الحالية بثلاث فترات سابقة. يشمل الرسم ${ready.length} من ${rows.length} مجموعة وظائف ذات سجل مكتمل.`,`Each point covers ${KHPilot.policy().windowDays} days. We compare the current period with three earlier periods. The chart includes ${ready.length} of ${rows.length} job groups with complete history.`)}</div>`;
   const summary=sectorSummary();
   const st=summary.alerts?'alert':summary.monitors?'monitor':'normal';
   if(stateEl){stateEl.className='state-pill '+st;stateEl.textContent=st==='alert'?L9('إنذار','Alert'):st==='monitor'?L9('مراقبة','Monitor'):L9('مستقر','Stable')}
@@ -334,7 +338,7 @@ function patchPeriod9(){
   if(!el)return;
   el.textContent=periodLabel(); el.classList.add('v09-date-window'); el.setAttribute('dir','ltr');
   const {current}=getWindows();
-  el.title=L9(`نافذة الرصد الحالية 30 يومًا: من ${isoDate(current.start)} إلى ${isoDate(current.end)}. خط الأساس = ثلاث نوافذ سابقة مدة كل منها 30 يومًا.`,`Current surveillance window: 30 days, ${isoDate(current.start)} to ${isoDate(current.end)}. Baseline = three preceding 30-day windows.`);
+  el.title=L9(`نافذة الرصد الحالية ${KHPilot.policy().windowDays} يومًا: من ${isoDate(current.start)} إلى ${isoDate(current.end)}. خط الأساس = ثلاث نوافذ سابقة مدة كل منها ${KHPilot.policy().windowDays} يومًا.`,`Current surveillance window: ${KHPilot.policy().windowDays} days, ${isoDate(current.start)} to ${isoDate(current.end)}. Baseline = three preceding ${KHPilot.policy().windowDays}-day windows.`);
 }
 function patchHero9(){
   const sub=q9('[data-i18n="home.subhead"]'); if(sub)sub.textContent=I18N[lang].home.subhead;
@@ -363,7 +367,7 @@ function patchMetrics9(){
   set(2,L9('حجم النقص الحالي','Current shortfall'),`${nf9(s.gap,1)} <span class="v09-unit">${KHPlain.unit()}</span>`,L9(`${nf9(s.needed?100*s.gap/s.needed:0,1)}% من القدرة المطلوبة`,`${nf9(s.needed?100*s.gap/s.needed:0,1)}% of required capacity`));
   const ready=currentRows().filter(r=>surveillanceFor(r)?.dataSufficient),w=getWindows(),den=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0),num=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).newGapFte,0),rate=den?100*num/den:null;
   const recent=KHPlain.newShortfall();
-  set(3,L9('نقص جديد خلال 30 يومًا','New shortfall in 30 days'),recent.value==null?'—':`${KHPlain.n(recent.value)} <span class="v09-unit">${KHPlain.unit()}</span>`,recent.value==null?L9('نحتاج سجل أحداث مكتملًا','A complete event history is needed'):recent.complete?L9('ما ظهر حديثًا؛ وليس صافي تغير النقص','Newly uncovered work; not the net change'):L9(`سجل مكتمل لـ ${recent.ready} من ${recent.total} مجموعة فقط`,`Complete history for ${recent.ready} of ${recent.total} groups only`));
+  set(3,L9(`نقص جديد خلال ${KHPilot.policy().windowDays} يومًا`,`New shortfall in ${KHPilot.policy().windowDays} days`),recent.value==null?'—':`${KHPlain.n(recent.value)} <span class="v09-unit">${KHPlain.unit()}</span>`,recent.value==null?L9('نحتاج سجل أحداث مكتملًا','A complete event history is needed'):recent.complete?L9('ما ظهر حديثًا؛ وليس صافي تغير النقص','Newly uncovered work; not the net change'):L9(`سجل مكتمل لـ ${recent.ready} من ${recent.total} مجموعة فقط`,`Complete history for ${recent.ready} of ${recent.total} groups only`));
 
 }
 function patchQueue9(){

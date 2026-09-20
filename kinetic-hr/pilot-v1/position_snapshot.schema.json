@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adeebnoor.github.io/kinetic-hr/pilot-v1/position_snapshot.schema.json",
+  "title": "KHDC-v1.0 position_snapshot row",
+  "type": "object",
+  "required": [
+    "source_row",
+    "as_of_date",
+    "position_group_id",
+    "sector",
+    "location",
+    "ssco",
+    "level",
+    "category",
+    "demand_basis",
+    "needed_fte",
+    "available_fte"
+  ],
+  "properties": {
+    "source_row": {
+      "type": "string"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "position_group_id": {
+      "type": "string"
+    },
+    "sector": {
+      "enum": [
+        "EDU",
+        "HLT",
+        "MUN",
+        "GOV"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "ssco": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "demand_basis": {
+      "type": "string"
+    },
+    "needed_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "available_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "gap_onset_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "median_time_to_fill_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "scarcity_index": {
+      "type": "number",
+      "minimum": 0
+    },
+    "internal_substitute_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "service_criticality_weight": {
+      "type": "number",
+      "minimum": 0
+    },
+    "service_units_per_gap_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "funded_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "utilization_rate": {
+      "type": "number",
+      "minimum": 0
+    },
+    "overtime_hours_per_fte_month": {
+      "type": "number",
+      "minimum": 0
+    },
+    "sick_leave_rate": {
+      "type": "number",
+      "minimum": 0
+    },
+    "cost_per_uncovered_fte_day": {
+      "type": "number",
+      "minimum": 0
+    },
+    "financial_cost_source": {
+      "type": "string"
+    },
+    "event_history_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "service_impact_per_gap_fte": {
+      "type": "number",
+      "minimum": 0
+    },
+    "service_impact_label_ar": {
+      "type": "string"
+    },
+    "service_impact_label_en": {
+      "type": "string"
+    },
+    "service_impact_unit_ar": {
+      "type": "string"
+    },
+    "service_impact_unit_en": {
+      "type": "string"
+    },
+    "service_impact_target_ref_ar": {
+      "type": "string"
+    },
+    "service_impact_target_ref_en": {
+      "type": "string"
+    },
+    "event_history_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "hire_unit_cost_sar": {
+      "type": "number",
+      "minimum": 0
+    },
+    "hire_approval_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "transfer_unit_cost_sar": {
+      "type": "number",
+      "minimum": 0
+    },
+    "transfer_approval_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "upskill_unit_cost_sar": {
+      "type": "number",
+      "minimum": 0
+    },
+    "upskill_approval_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "contract_unit_cost_sar": {
+      "type": "number",
+      "minimum": 0
+    },
+    "contract_approval_days": {
+      "type": "number",
+      "minimum": 0
+    },
+    "scenario_budget_sar": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

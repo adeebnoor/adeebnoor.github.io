@@ -1,0 +1,2 @@
+﻿event_id,position_id,position_group_id,event_type,event_date,sector,location,ssco,level,category,separation_nature,separation_reason,capacity_delta_fte,demand_delta_fte,skill_gap_fte
+ev001,P-EDU-101,PG-EDU-001,resignation,2026-05-29,EDU,07,233014,L3,A,voluntary,compensation,1,0,
