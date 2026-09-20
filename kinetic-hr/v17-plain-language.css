@@ -1,0 +1,9 @@
+.kh-number-details{margin-top:14px;border-top:1px solid #dce8ed;padding-top:10px;font-size:13px;line-height:1.8;color:#37566b;overflow-wrap:anywhere}
+.kh-number-details summary{cursor:pointer;font-weight:700;color:#087f88;min-height:32px}
+.kh-number-details p{font-size:13px!important;line-height:1.85!important;color:#526b7e!important}
+.kh-number-details dl{margin:8px 0}.kh-number-details dl>div{display:flex;justify-content:space-between;gap:20px;padding:5px 0;border-bottom:1px solid #edf2f5}.kh-number-details dd{margin:0;font-weight:700;unicode-bidi:plaintext}.kh-number-details dt{flex:1}
+.kh-unit-help{font-size:13px;line-height:1.8;color:#526b7e;margin:10px 0}
+@media(max-width:600px){.kh-number-details dl>div{display:block}.kh-number-details dd{margin-top:3px}}
+@media print{.kh-number-details>*,.kh-number-details:not([open])>*{display:block!important}.kh-number-details{break-inside:avoid}}
+
+.v09-evidence-strip>.kh-number-details{width:100%}.kh-signal-meaning{font-size:14px;line-height:1.85;color:#37566b}

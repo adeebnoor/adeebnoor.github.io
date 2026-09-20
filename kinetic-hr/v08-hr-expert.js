@@ -161,56 +161,15 @@ function highestGapRow(){
   return [...currentRows()].filter(r=>deficit(r)>0)
     .sort((a,b)=>(decisionPriority(b).score??-1)-(decisionPriority(a).score??-1))[0]||null;
 }
-function incidentPlain(sv){
-  if(!sv)return L('سجل الأحداث غير مكتمل، لذلك لا يمكن قياس سرعة نشوء فجوات جديدة.','The dated event history is incomplete, so the speed of new gap creation cannot be measured.');
-  const every=sv.currentRate>0?(100/sv.currentRate*30):null;
-  return Number.isFinite(every)
-    ? L(`بالمعدل الحالي، تنشأ قدرة غير مغطاة تعادل 1 FTE تقريبًا كل ${Math.max(1,Math.round(every))} يومًا لكل 100 FTE مطلوبة.`,
-        `At the current rate, roughly 1 uncovered FTE emerges every ${Math.max(1,Math.round(every))} days per 100 required FTE.`)
-    : L('لا تظهر قدرة جديدة غير مغطاة في نافذة القياس الحالية.','No newly uncovered capacity is appearing in the current measurement window.');
-}
+function incidentPlain(sv){return KHPlain.trend(sv)}
 function executiveText(view){
   const r=highestGapRow(),sum=sectorSummary(),af=aggregateFundingV8();
-  if(view==='signals'){
-    if(!r)return L('لا توجد فجوات تشغيلية نشطة في القطاع المحدد.','No active operating gaps exist in the selected sector.');
-    const sv=surveillanceFor(r),st=strainV8(r);
-    return L(
-      `المعنى التنفيذي: ${occupationLabel(r.ssco)} في ${locLabel(r)} هي أعلى نقطة إنذار حاليًا. ${incidentPlain(sv)} ${st.known?`ضغط الفريق ${st.band==='high'?'مرتفع':st.band==='medium'?'متوسط':'منخفض'} (${st.score}/100)، وقد أصبح جزءًا من أولوية القرار.`:''}`,
-      `Executive meaning: ${occupationLabel(r.ssco)} in ${locLabel(r)} is the highest current warning point. ${incidentPlain(sv)} ${st.known?`Team strain is ${st.band} (${st.score}/100) and now contributes to Decision Priority.`:''}`
-    );
-  }
-  if(view==='gaps'){
-    return L(
-      `المعنى التنفيذي: العجز الحالي ${fmt8(sum.gap,1)} FTE. منه ${fmt8(af.funded,1)} ممول وقابل للتحرك بعد الموافقات، و${fmt8(af.unfunded,1)} غير ممول ويحتاج قرار ميزانية/هيكلة أولًا${af.unknown>0?`، و${fmt8(af.unknown,1)} تمويله غير معروف`:''}.`,
-      `Executive meaning: the current deficit is ${fmt8(sum.gap,1)} FTE. ${fmt8(af.funded,1)} is funded and can move to execution after approvals; ${fmt8(af.unfunded,1)} is unfunded and needs a budget/establishment decision first${af.unknown>0?`; ${fmt8(af.unknown,1)} has unknown funding status`:''}.`
-    );
-  }
-  if(view==='scenario'){
-    if(!r)return L('لا توجد فجوة نشطة لاختبار سيناريو عليها.','There is no active gap to simulate.');
-    const f=fundingV8(r);
-    return L(
-      `المعنى التنفيذي: لا يكفي أن يخفض السيناريو الفجوة؛ يجب أن يمر أيضًا من ثلاث بوابات: التمويل، زمن الموافقات، والتكلفة. ${f.known&&f.unfundedGap>0?'هذه الخلية تتضمن جزءًا غير ممول؛ لا يبدأ التنفيذ الخارجي قبل قرار التمويل.':''}`,
-      `Executive meaning: reducing the gap is not enough; a scenario must also pass three gates: funding, approval time, and cost. ${f.known&&f.unfundedGap>0?'This cell includes an unfunded portion, so external execution cannot start before a funding decision.':''}`
-    );
-  }
-  if(view==='occupations'){
-    return L(
-      'المعنى التنفيذي: SSCO يعرّف المهنة بصورة موحدة، لكن قرار القوى العاملة يُتخذ على مستوى الخلية: مهنة + موقع + مستوى + فئة تشغيلية.',
-      'Executive meaning: SSCO standardizes the occupation, but workforce decisions are made at cell level: occupation + location + level + operating category.'
-    );
-  }
-  if(view==='data'){
-    return L(
-      'المعنى التنفيذي: هذه الشاشة لا تسأل فقط «هل البيانات صحيحة؟» بل «هل هي كافية لاتخاذ قرار؟». التمويل، ضغط الفريق، والتكلفة حقول قرار مستقلة عن صحة القياس الأساسي.',
-      'Executive meaning: this screen asks not only “is the data valid?” but also “is it decision-ready?”. Funding, team strain, and finance inputs are separate from core measurement validity.'
-    );
-  }
-  if(view==='audit'){
-    return L(
-      `المعنى التنفيذي: كل رقم قرار يجب أن يكون قابلًا للدفاع عنه لاحقًا. أولوية القرار الحالية تستخدم ${PRIORITY_VERSION} وتشمل ضغط الفريق كمكوّن موثق.`,
-      `Executive meaning: every decision number must remain defensible later. Current Decision Priority uses ${PRIORITY_VERSION} and includes team strain as an auditable component.`
-    );
-  }
+  if(view==='signals')return r?KHPlain.summary(r,fundingV8(r),strainV8(r)):L('لا يوجد نقص حالي في هذا القطاع.','There is no current shortfall in this sector.');
+  if(view==='gaps')return L(`حجم النقص يعادل ${KHPlain.capacity(sum.gap)}. التمويل متاح لتغطية ${KHPlain.n(af.funded)}، و${KHPlain.n(af.unfunded)} تحتاج اعتماد تمويل${af.unknown>0?`، و${KHPlain.n(af.unknown)} حالة تمويلها غير معروفة`:''}. التنفيذ بعد الموافقات.`, `The shortfall is equivalent to ${KHPlain.capacity(sum.gap)}. Funding is allocated for ${KHPlain.n(af.funded)}, and ${KHPlain.n(af.unfunded)} needs funding approval${af.unknown>0?`; funding for ${KHPlain.n(af.unknown)} is unknown`:''}. Execution still requires approvals.`);
+  if(view==='scenario')return L('اختر المهنة والموقع، ثم جرّب التوظيف أو النقل أو التدريب أو التغطية المؤقتة. قارن النقص المتبقي والتكلفة وموعد بدء الاستفادة قبل اختيار الحل.','Choose an occupation and location, then try hiring, transfers, training or temporary cover. Compare the remaining shortfall, cost and time to benefit before choosing an action.');
+  if(view==='occupations')return L('رمز التصنيف السعودي يحدد المهنة. نضيف إليه الموقع والمستوى وفئة العمل لنقارن الوظائف المتشابهة؛ ولا نغيّر أرقام الوظائف في نظامكم.','The Saudi classification code identifies the occupation. Location, level and work category let us compare similar roles while preserving the job IDs in your system.');
+  if(view==='data')return L('ابدأ بملف الوضع الحالي للقوى العاملة، ثم ملف التغييرات المؤرخة مثل التوظيف والاستقالة. سيظهر ما قُبل وما يحتاج تصحيحًا، وما إذا كانت البيانات تكفي للتحليل.','Start with a current workforce file, then a file of dated changes such as hires and resignations. See which records were accepted, which need correction, and whether there is enough history to analyse.');
+  if(view==='audit')return L('ارجع إلى أي نتيجة لمعرفة البيانات التي بُنيت عليها، ومتى حُسبت، وما الإجراء الذي حُفظ بشأنها. استخدم البحث والفلترة للوصول إلى القرار المطلوب.','Revisit a result to see the data behind it, when it was calculated, and the action recorded for it. Use search and filters to find a decision.');
   return '';
 }
 
@@ -231,25 +190,21 @@ function renderTranslations(){
   ['signals','gaps','scenario','occupations','data','audit'].forEach(view=>{
     const box=ensureTranslationBox(view);
     if(!box)return;
-    box.innerHTML=`<span>${L('ترجمة تنفيذية','EXECUTIVE TRANSLATION')}</span><p>${esc8(executiveText(view))}</p>`;
+    box.innerHTML=`<span>${L('ما الذي يهمك هنا؟','WHAT THIS MEANS FOR YOU')}</span><p>${esc8(executiveText(view))}</p>`;
   });
 
   const dash=q('#v07-exec-translation p');
   const r=highestGapRow();
   if(dash&&r){
-    const f=fundingV8(r),st=strainV8(r),sv=surveillanceFor(r);
-    dash.textContent=L(
-      `أعلى نقطة قرار: ${occupationLabel(r.ssco)} في ${locLabel(r)}، بفجوة ${fmt8(deficit(r),1)} FTE. ${incidentPlain(sv)} ${f.known?`الفجوة: ${fmt8(f.fundedGap,1)} ممولة و${fmt8(f.unfundedGap,1)} غير ممولة.`:''} ${st.known?`ضغط الفريق ${st.band==='high'?'مرتفع':st.band==='medium'?'متوسط':'منخفض'} (${st.score}/100) ويشكل 15% من أولوية القرار عند توفر بياناته.`:''}`,
-      `Top decision point: ${occupationLabel(r.ssco)} in ${locLabel(r)}, with a ${fmt8(deficit(r),1)} FTE gap. ${incidentPlain(sv)} ${f.known?`Gap split: ${fmt8(f.fundedGap,1)} funded and ${fmt8(f.unfundedGap,1)} unfunded.`:''} ${st.known?`Team strain is ${st.band} (${st.score}/100) and contributes 15% of Decision Priority when available.`:''}`
-    );
+    dash.textContent=KHPlain.summary(r,fundingV8(r),strainV8(r));
   }
 }
 
 function plainLanguageLabels(){
   const gapsK=q('#view-gaps .section-kicker');
-  if(gapsK)gapsK.textContent=L('الفجوة الحالية','CURRENT CAPACITY GAP · PREVALENCE');
+  if(gapsK)gapsK.textContent=L('الفجوة الحالية','CURRENT SHORTFALL');
   const signalsK=q('#view-signals .section-kicker');
-  if(signalsK)signalsK.textContent=L('معدل نشوء فجوة جديدة','NEW GAP RATE · INCIDENCE');
+  if(signalsK)signalsK.textContent=L('معدل نشوء فجوة جديدة','NEW SHORTFALLS');
 
   const metrics=qa('#executive-metrics .exec-metric');
   if(metrics[3]){
@@ -395,8 +350,8 @@ function renderScenarioReality(){
   states.push([fr.selected.length>0,L('تدخل محدد','Intervention selected')]);
   states.push([fr.budget!=null,L('ميزانية موثقة','Verified budget')]);
   states.push([fr.missingCosts.length===0&&fr.selected.length>0,L('تكلفة التدخلات','Intervention cost')]);
-  states.push([fr.gapDay!=null,L('تكلفة FTE غير المغطى/يوم','Uncovered FTE-day cost')]);
-  gate.innerHTML=`<div class="v08-gate-head"><div><span>${L('بوابة الجاهزية المالية للتجربة المؤسسية','PILOT FINANCE-READINESS GATE')}</span><strong>${fr.ready&&!fr.over?L('جاهز للمقارنة المالية','Finance-ready'):fr.over?L('غير قابل للتنفيذ ضمن الميزانية','Not feasible within budget'):L('غير مكتمل للقرار المالي','Not finance-ready')}</strong></div><em class="${fr.ready&&!fr.over?'ok':fr.over?'bad':'warn'}">${fr.ready&&!fr.over?'✓':fr.over?'!':'…'}</em></div><div class="v08-gate-checks">${states.map(([ok,label])=>`<span class="${ok?'ok':'warn'}">${ok?'✓':'○'} ${label}</span>`).join('')}</div>${fr.over?`<p class="v08-budget-shortfall">${L('العجز في ميزانية السيناريو','Scenario budget shortfall')}: <b>${sar(fr.shortfall)}</b>. ${L('الأثر التشغيلي المعروض يظل «إمكانًا» وليس خطة قابلة للتنفيذ حتى تُعالج الفجوة المالية.','The operational result remains a potential outcome, not an executable plan, until the budget gap is resolved.')}</p>`:''}${fund?.known&&fund.unfundedGap>0?`<p>${L(`تنبيه: ${fmt8(fund.unfundedGap,1)} FTE من الفجوة غير ممولة أصلًا؛ يلزم مسار اعتماد مالي/هيكلي قبل التنفيذ.`,`Note: ${fmt8(fund.unfundedGap,1)} FTE of this gap is unfunded; a finance/establishment approval path is required before execution.`)}</p>`:''}`;
+  states.push([fr.gapDay!=null,L('تكلفة يوم واحد من النقص بدوام كامل','Cost per full-time-equivalent day of shortfall')]);
+  gate.innerHTML=`<div class="v08-gate-head"><div><span>${L('بوابة الجاهزية المالية للتجربة المؤسسية','PILOT FINANCE-READINESS GATE')}</span><strong>${fr.ready&&!fr.over?L('جاهز للمقارنة المالية','Finance-ready'):fr.over?L('غير قابل للتنفيذ ضمن الميزانية','Not feasible within budget'):L('غير مكتمل للقرار المالي','Not finance-ready')}</strong></div><em class="${fr.ready&&!fr.over?'ok':fr.over?'bad':'warn'}">${fr.ready&&!fr.over?'✓':fr.over?'!':'…'}</em></div><div class="v08-gate-checks">${states.map(([ok,label])=>`<span class="${ok?'ok':'warn'}">${ok?'✓':'○'} ${label}</span>`).join('')}</div>${fr.over?`<p class="v08-budget-shortfall">${L('العجز في ميزانية السيناريو','Scenario budget shortfall')}: <b>${sar(fr.shortfall)}</b>. ${L('الأثر التشغيلي المعروض يظل «إمكانًا» وليس خطة قابلة للتنفيذ حتى تُعالج الفجوة المالية.','The operational result remains a potential outcome, not an executable plan, until the budget gap is resolved.')}</p>`:''}${fund?.known&&fund.unfundedGap>0?`<p>${L(`تنبيه: ${fmt8(fund.unfundedGap,1)} بدوام كامل من النقص تحتاج اعتماد تمويل قبل التنفيذ.`,`Note: ${fmt8(fund.unfundedGap,1)} ${KHPlain.unit()} of this gap is unfunded; a finance/establishment approval path is required before execution.`)}</p>`:''}`;
 
   const result=q('#v07-decision-result');
   if(result){
@@ -430,7 +385,7 @@ function renderScenarioReality(){
     qa('.v07-decision-grid article').forEach(a=>{
       const s=q('small',a);
       if(s&&/not a burnout diagnosis|لا يشخّص الاحتراق/.test(s.textContent)){
-        s.textContent=L('مؤشر ضغط تشغيلي؛ ليس تشخيصًا طبيًا، ويشارك في أولوية القرار وفق KH-PRIORITY-v0.8.','Operational strain proxy; not a medical diagnosis, and it contributes to Decision Priority under KH-PRIORITY-v0.8.');
+        s.textContent=L('يساعد ضغط العمل على ترتيب الحالات التي تحتاج مراجعة. المؤشر ليس تشخيصًا طبيًا.','Workload pressure helps prioritise cases for review. It is not a medical diagnosis.');
       }
     });
   }
@@ -450,7 +405,7 @@ function installScenarioSaveGuard(){
       return;
     }
     if(!fr.ready){
-      showToast(L('أكمل الميزانية وتكلفة التدخل وتكلفة FTE غير المغطى قبل اعتماد السيناريو.','Complete budget, intervention cost, and uncovered FTE-day cost before saving a decision-ready scenario.'));
+      showToast(L('أكمل الميزانية وتكلفة التدخل وتكلفة النقص بدوام كامل قبل اعتماد السيناريو.','Complete budget, intervention cost, and cost per full-time-equivalent day of shortfall before saving a decision-ready scenario.'));
       renderScenarioReality();
       return;
     }
@@ -502,14 +457,14 @@ function installBriefObserver(){
     qa('.v07-brief-item p',overlay).forEach(p=>{
       const current=p.textContent;
       const next=current
-        .replace('كمؤشر سياقي، وليس تشخيصًا للاحتراق الوظيفي ولا جزءًا آليًا من درجة الأولوية.','كمؤشر ضغط تشغيلي؛ ليس تشخيصًا طبيًا، ويشارك في أولوية القرار وفق KH-PRIORITY-v0.8.')
+        .replace('كمؤشر سياقي، وليس تشخيصًا للاحتراق الوظيفي ولا جزءًا آليًا من درجة الأولوية.','كيساعد ضغط العمل على ترتيب الحالات التي تحتاج مراجعة. المؤشر ليس تشخيصًا طبيًا.')
         .replace('as decision context; it is not a burnout diagnosis and does not automatically alter priority.','as a workload-strain proxy; it is not a medical burnout diagnosis and contributes to Decision Priority under KH-PRIORITY-v0.8.');
       if(next!==current)p.textContent=next;
     });
     const footer=q('.v07-brief-sheet footer p',overlay);
     if(footer&&!footer.dataset.v08){
       footer.dataset.v08='1';
-      footer.textContent+=' '+L('أولوية القرار الحالية تشمل Team Strain عند توفر بياناته.','Current Decision Priority includes Team Strain when its inputs are available.');
+      footer.textContent+=' '+L('ضغط العمل يدخل في ترتيب الأولويات عند توفر بياناته.','Workload pressure contributes to the review order when its data are available.');
     }
     applying=false;
   };

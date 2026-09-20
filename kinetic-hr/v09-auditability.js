@@ -27,8 +27,8 @@ if(typeof I18N!=='undefined'){
   I18N.en.common.insufficient='Insufficient data';
   I18N.ar.cause.termination='إنهاء خدمة';
   I18N.en.cause.termination='termination';
-  I18N.ar.home.subhead='يرصد Kinetic HR أين تتكوّن فجوة القدرة، وما إذا كانت تتسارع، وهل هي ممولة، وما الذي يمنع تنفيذ القرار — مع توثيق مصدر كل رقم وحدود الثقة فيه.';
-  I18N.en.home.subhead='Kinetic HR shows where capacity gaps exist, whether they are accelerating, whether they are funded, and what blocks execution — with source traceability and evidence sufficiency for every decision metric.';
+  I18N.ar.home.subhead='اعرف أين يوجد نقص في العمل، وهل يظهر نقص جديد بسرعة أكبر، وما الذي يمكن تغطيته بالميزانية المتاحة. راجع مصدر الأرقام قبل اختيار الإجراء.';
+  I18N.en.home.subhead='See where work is understaffed, whether new shortages are appearing faster, and what the available budget can cover. Check the evidence before choosing an action.';
 }
 
 function groupRowById(id,rows=SNAPSHOTS){
@@ -216,7 +216,7 @@ function stateLabel9(sv){
 }
 function priorityWhy9(r,sv){
   const dp=decisionPriority(r);
-  if(!sv||!sv.dataSufficient)return L9('أولوية القرار هنا مبنية على الفجوة القائمة والعبء وصعوبة المعالجة؛ لم يُستخدم مكوّن سرعة التدهور لأن سجل الرصد غير مكتمل.','Priority uses the stock gap, burden and resolution difficulty; deterioration velocity is excluded because surveillance history is incomplete.');
+  if(!sv||!sv.dataSufficient)return L9('أولوية القرار هنا مبنية على الفجوة القائمة والعبء وصعوبة المعالجة؛ لم يُستخدم مكوّن سرعة ظهور نقص جديد لأن سجل الرصد غير مكتمل.','Priority uses the stock gap, burden and resolution difficulty; deterioration velocity is excluded because surveillance history is incomplete.');
   if(sv.status==='stable_zero'&&(dp.score??0)>0)return L9('لا يوجد تسارع جديد؛ الأولوية غير الصفرية مصدرها الفجوة القائمة والعبء التشغيلي، وليست إشارة ترصد جديدة.','There is no new acceleration; the non-zero priority comes from the existing stock gap and operating burden, not a new surveillance signal.');
   return'';
 }
@@ -239,7 +239,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
   ].map(([k,l])=>`<span class="summary-chip ${k}"><b>${counts[k]}</b>${l}</span>`).join('');
   const grid=q9('#signals-grid');
   if(!grid)return;
-  if(eventMode==='gated'){grid.innerHTML=`<div class="empty-state">${L9('الإنذار المبكر موقوف حتى تحميل سجل أحداث مرتبط مباشرة بـ position_group_id.','Early warning is gated until an event log directly linked by position_group_id is loaded.')}</div>`;return}
+  if(eventMode==='gated'){grid.innerHTML=`<div class="empty-state">${L9('لإظهار التنبيهات، حمّل سجل التغييرات واربطه بمجموعات الوظائف في ملف الوضع الحالي.','To show alerts, import a dated event log linked to the job groups in the current workforce file.')}</div>`;return}
   const filtered=states.filter(x=>signalFilter==='all'||x.state===signalFilter);
   grid.innerHTML=filtered.map(({r,state,sv,dp})=>{
     const loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[lang]||'';
@@ -248,15 +248,17 @@ if(typeof renderSignals==='function') renderSignals=function(){
     const m=Math.max(1,...bars);
     const why=priorityWhy9(r,sv),sep=separationText9(sv);
     return `<article class="signal-card ${state}">
-      <div class="signal-head"><div><h3>${esc9(occupationLabel(r.ssco))}</h3><small>${esc9(r.position_group_id)} · SSCO ${esc9(r.ssco)} · ${esc9(loc)}</small></div><span class="signal-badge ${state}">${stateLabel9(sv)}</span></div>
+      <div class="signal-head"><div><h3>${esc9(occupationLabel(r.ssco))}</h3><small>${esc9(loc)}</small></div><span class="signal-badge ${state}">${stateLabel9(sv)}</span></div>
+      <p class="kh-signal-meaning">${esc9(KHPlain.trend(sv))}</p>
+      <details class="kh-number-details"><summary>${KHPlain.detailsLabel()}</summary><p>${L9('رمز مجموعة الوظائف','Job group code')}: ${esc9(r.position_group_id)} · ${L9('رمز المهنة','Occupation code')}: ${esc9(r.ssco)}</p>
       <div class="signal-metrics">
-        <div class="signal-metric"><span>${L9('المعدل الحالي','Current rate')}</span><strong>${sv?.dataSufficient?nf9(sv.currentRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</small></div>
-        <div class="signal-metric"><span>${L9('خط الأساس','Baseline')}</span><strong>${sv?.dataSufficient?nf9(sv.baselineRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</small></div>
+        <div class="signal-metric"><span>${L9('المعدل الحالي','Current rate')}</span><strong>${sv?.dataSufficient?nf9(sv.currentRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 بدوام كامل خلال شهر','per 100 full-time equivalents / month')}</small></div>
+        <div class="signal-metric"><span>${L9('المعدل السابق للمقارنة','Previous comparison rate')}</span><strong>${sv?.dataSufficient?nf9(sv.baselineRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 بدوام كامل خلال شهر','per 100 full-time equivalents / month')}</small></div>
         <div class="signal-metric"><span>${L9('التغير','Change')}</span><strong>${ratioText9(sv)}</strong><small class="rate-unit">${sv?.ratio===null&&sv?.dataSufficient?'0/0 · '+L9('لا يُحسب كنسبة','ratio not computed'):''}</small></div>
         <div class="signal-metric"><span>${L9('أولوية القرار','Decision priority')}</span><strong>${dp.score??'—'}</strong><small class="rate-unit">${t('common.'+dp.confidence)}</small></div>
       </div>
       <div class="component-grid">
-        <div class="component-card"><span>${L9('سرعة التدهور','Deterioration velocity')}</span><strong>${dp.components.velocity??'—'}</strong></div>
+        <div class="component-card"><span>${L9('سرعة ظهور نقص جديد','Speed of new shortages')}</span><strong>${dp.components.velocity??'—'}</strong></div>
         <div class="component-card"><span>${t('signals.burden')}</span><strong>${dp.components.burden??'—'}</strong></div>
         <div class="component-card"><span>${t('signals.resolvability')}</span><strong>${dp.components.resolvability??'—'}</strong></div>
         ${Number.isFinite(dp.components.teamStrain)?`<div class="component-card v08-strain-component"><span>${L9('ضغط الفريق','Team strain')}</span><strong>${dp.components.teamStrain}</strong><small>${L9('مؤشر تشغيلي، لا تشخيص طبي','operational proxy, not a medical diagnosis')}</small></div>`:''}
@@ -271,7 +273,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
         <span>${L9('أحداث منشئة للفجوة','gap events')}: ${sv?.evidence.gapCreatingEventCount??0}</span>
       </div>
       ${why?`<div class="v09-priority-explainer">${esc9(why)}</div>`:''}
-      <div class="signal-actions"><button data-detail="${esc9(r.source_row)}">${t('common.details')} →</button><code>${esc9(r.position_group_id)}</code></div>
+      </details><div class="signal-actions"><button data-detail="${esc9(r.source_row)}">${t('common.details')} →</button><code>${esc9(r.position_group_id)}</code></div>
     </article>`;
   }).join('')||'<div class="empty-state">—</div>';
   if(typeof bindDetailButtons==='function')bindDetailButtons();
@@ -290,7 +292,7 @@ if(typeof renderPulse==='function') renderPulse=function(){
     chart.innerHTML=`<div class="empty-state">${L9('لا توجد خلايا بسجل تاريخي مكتمل لتشغيل الترصد.','No cells have sufficient event-history coverage for surveillance.')}</div>`;
   }else{
     const max=Math.max(1,...series),ww=620,h=165,p=18,pts=series.map((v,i)=>[p+i*(ww-2*p)/(series.length-1),h-p-v/max*(h-2*p)]),path=pts.map((z,i)=>(i?'L':'M')+z[0]+','+z[1]).join(' ');
-    chart.innerHTML=`<svg viewBox="0 0 ${ww} ${h}" role="img" aria-label="gap incidence rate trend"><path d="${path}" fill="none" stroke="#18c4a3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${pts.map((z,i)=>`<circle cx="${z[0]}" cy="${z[1]}" r="5" fill="${i===pts.length-1?'#e45858':'#18c4a3'}"/><text x="${z[0]}" y="${Math.max(12,z[1]-11)}" text-anchor="middle" font-size="9" fill="#64748b">${nf9(series[i],1)}</text>`).join('')}</svg>`;
+    chart.innerHTML=`<svg viewBox="0 0 ${ww} ${h}" role="img" aria-label="${L9('اتجاه ظهور نقص جديد','Trend in new shortfalls')}"><path d="${path}" fill="none" stroke="#18c4a3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${pts.map((z,i)=>`<circle cx="${z[0]}" cy="${z[1]}" r="5" fill="${i===pts.length-1?'#e45858':'#18c4a3'}"/><text x="${z[0]}" y="${Math.max(12,z[1]-11)}" text-anchor="middle" font-size="9" fill="#64748b">${nf9(series[i],1)}</text>`).join('')}</svg>`;
   }
   const curDen=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0);
   const curEvents=ready.reduce((a,r)=>a+(surveillanceFor(r)?.evidence.currentEventCount||0),0);
@@ -340,21 +342,11 @@ function patchHero9(){
   if(!box||!r)return;
   const sv=surveillanceFor(r),f=funding9(r),dp=decisionPriority(r);
   const loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[lang]||r.location;
-  let text;
-  if(!sv?.dataSufficient){
-    text=L9(`أعلى فجوة حالية هي ${occupationLabel(r.ssco)} في ${loc} (${nf9(deficit(r),1)} FTE). لا أصف سرعتها بأنها تتسارع أو مستقرة لأن سجل الأحداث لا يغطي نافذة الرصد وخط الأساس بالكامل. أولوية القرار ${dp.score??'—'} مبنية حاليًا على حجم الفجوة والعبء وصعوبة المعالجة وضغط الفريق، لا على تسارع غير مثبت.`,`The largest current gap is ${occupationLabel(r.ssco)} in ${loc} (${nf9(deficit(r),1)} FTE). Its trend is not labelled accelerating or stable because the event history does not fully cover the surveillance and baseline windows. Decision Priority ${dp.score??'—'} currently reflects stock gap, burden, resolution difficulty and team strain—not an unproven acceleration signal.`);
-  }else{
-    const trend=sv.status==='stable_zero'
-      ?L9('لم تُسجل أي زيادة جديدة في الفجوة خلال آخر 30 يومًا، وسجل المقارنة التاريخي مكتمل.','No new gap increase was recorded in the last 30 days, with complete comparison history.')
-      :L9(`خلال آخر 30 يومًا، زادت الفجوة بقدرة تشغيلية تعادل ${nf9(sv.currentNewGapFte,1)} وظائف بدوام كامل. بلغ معدل نشوء الفجوة ${nf9(sv.currentRate,2)} مقابل خط أساس ${nf9(sv.baselineRate,2)}، وكلاهما محسوب لكل 100 وظيفة مكافئة بدوام كامل خلال شهر.`,`Over the last 30 days, ${nf9(sv.currentNewGapFte,1)} FTE of newly uncovered capacity emerged. The current rate is ${nf9(sv.currentRate,2)} per 100 required FTE-months versus a ${nf9(sv.baselineRate,2)} baseline.`);
-    const funding=f?.known?L9(`من الفجوة الحالية، ${nf9(f.fundedGap,1)} FTE ممولة و${nf9(f.unfundedGap,1)} FTE تحتاج اعتمادًا ماليًا أولًا.`,`Of the current gap, ${nf9(f.fundedGap,1)} FTE is funded and ${nf9(f.unfundedGap,1)} FTE requires funding approval first.`):'';
-    text=L9(`أعلى نقطة قرار هي ${occupationLabel(r.ssco)} في ${loc}. ${trend} ${funding}`,`The highest decision point is ${occupationLabel(r.ssco)} in ${loc}. ${trend} ${funding}`);
-  }
-  box.textContent=text; box.classList.add('v09-exec-human');
+  box.textContent=KHPlain.summary(r,f,KHPlain.pressure(r)); box.classList.add('v09-exec-human');
   const parent=box.closest('#v07-exec-translation');
   if(parent){
     let strip=q9('.v09-evidence-strip',parent); if(!strip){strip=document.createElement('div');strip.className='v09-evidence-strip';parent.appendChild(strip)}
-    strip.innerHTML=sv?`<span class="${sv.dataSufficient?'ok':'warn'}">${sv.dataSufficient?L9('سجل الرصد مكتمل','Surveillance history complete'):L9('الرصد غير مكتمل','Surveillance incomplete')}</span><span>${L9('أيام النافذة','window days')}: ${sv.evidence.observedDays}/30</span><span>${L9('التعرّض','exposure')}: ${sv.dataSufficient?nf9(sv.denominator,1):'—'} ${L9('دوام كامل–شهر','FTE-mo')}</span><span>${L9('نوافذ الأساس','baseline windows')}: ${sv.evidence.baselineWindowsComplete}/3</span>`:'';
+    strip.innerHTML=KHPlain.detail(r,f,KHPlain.pressure(r));
   }
 }
 function patchMetrics9(){
@@ -365,26 +357,28 @@ function patchMetrics9(){
     q9('strong',ms[i]).innerHTML=value;
     q9('small',ms[i]).textContent=small;
   };
-  set(0,L9('القدرة المطلوبة','Required capacity'),`${nf9(s.needed,1)} <span class="v09-unit">FTE</span>`,L9(`${s.rows.length} خلية قوى عاملة`,`${s.rows.length} workforce cells`));
-  set(1,L9('التغطية المطابقة','Matched coverage'),`${nf9(s.coverage*100,1)}%`,L9(`${nf9(s.needed-s.gap,1)} FTE مغطاة من ${nf9(s.needed,1)} FTE مطلوبة`,`${nf9(s.needed-s.gap,1)} FTE matched of ${nf9(s.needed,1)} required`));
-  set(2,L9('الفجوة الحالية','Current capacity gap'),`${nf9(s.gap,1)} <span class="v09-unit">FTE</span>`,L9(`${nf9(s.needed?100*s.gap/s.needed:0,1)}% من القدرة المطلوبة`,`${nf9(s.needed?100*s.gap/s.needed:0,1)}% of required capacity`));
+  set(0,L9('حجم العمل المطلوب','Work capacity needed'),`${nf9(s.needed,1)} <span class="v09-unit">${KHPlain.unit()}</span>`,L9(`${s.rows.length} مجموعة من الوظائف المتشابهة`,`${s.rows.length} groups of comparable roles`));
+  set(1,L9('نسبة العمل المغطى','Work covered'),`${nf9(s.coverage*100,1)}%`,L9(`${nf9(s.needed-s.gap,1)} بدوام كامل متاح من ${nf9(s.needed,1)} مطلوب`,`${nf9(s.needed-s.gap,1)} full-time equivalents available of ${nf9(s.needed,1)} needed`));
+  set(2,L9('حجم النقص الحالي','Current shortfall'),`${nf9(s.gap,1)} <span class="v09-unit">${KHPlain.unit()}</span>`,L9(`${nf9(s.needed?100*s.gap/s.needed:0,1)}% من القدرة المطلوبة`,`${nf9(s.needed?100*s.gap/s.needed:0,1)}% of required capacity`));
   const ready=currentRows().filter(r=>surveillanceFor(r)?.dataSufficient),w=getWindows(),den=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0),num=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).newGapFte,0),rate=den?100*num/den:null;
-  set(3,L9('معدل نشوء فجوة جديدة','New uncovered-capacity rate'),rate==null?'—':`${nf9(rate,2)} <span class="v09-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</span>`,rate==null?L9('بيانات الرصد غير كافية','Insufficient surveillance data'):L9(`نافذة 30 يومًا · تعرّض ${nf9(den,1)} FTE-شهر`,`30-day window · ${nf9(den,1)} FTE-month exposure`));
+  const recent=KHPlain.newShortfall();
+  set(3,L9('نقص جديد خلال 30 يومًا','New shortfall in 30 days'),recent.value==null?'—':`${KHPlain.n(recent.value)} <span class="v09-unit">${KHPlain.unit()}</span>`,recent.value==null?L9('نحتاج سجل أحداث مكتملًا','A complete event history is needed'):recent.complete?L9('ما ظهر حديثًا؛ وليس صافي تغير النقص','Newly uncovered work; not the net change'):L9(`سجل مكتمل لـ ${recent.ready} من ${recent.total} مجموعة فقط`,`Complete history for ${recent.ready} of ${recent.total} groups only`));
+
 }
 function patchQueue9(){
   qa9('#decision-queue .queue-item').forEach(item=>{
     const r=getRowBySource(item.dataset.detail); if(!r)return;
     q9('.v09-queue-note',item)?.remove();
     const sv=surveillanceFor(r),note=document.createElement('small'); note.className='v09-queue-note';
-    note.textContent=!sv?.dataSufficient?L9('الرصد غير كافٍ؛ الأولوية لا تستخدم سرعة التدهور','Surveillance insufficient; velocity excluded from priority'):sv.status==='stable_zero'?L9('لا تسارع جديد؛ الأولوية من الفجوة القائمة','No new acceleration; priority comes from the stock gap'):L9('الرصد التاريخي مكتمل','Complete surveillance history');
+    note.textContent=!sv?.dataSufficient?L9('الرصد غير كافٍ؛ الأولوية لا تستخدم سرعة ظهور نقص جديد','Incomplete history; speed of change is unknown'):sv.status==='stable_zero'?L9('لم يظهر نقص جديد؛ النقص القائم يحتاج مراجعة','No new shortfall; existing shortages still need review'):L9('الرصد التاريخي مكتمل','Complete event history');
     q9('div',item)?.appendChild(note);
   });
 }
 function patchGapMetrics9(){
   const cards=qa9('#gap-metrics .mini-metric'); if(cards.length<4)return;
   const s=sectorSummary();
-  q9('strong',cards[1]).innerHTML=`${nf9(s.gap,1)} <span class="v09-unit">FTE</span>`;
-  q9('strong',cards[3]).innerHTML=`${nf9(s.totalBurden,1)} <span class="v09-unit">${L9('وحدة عبء','burden units')}</span>`;
+  q9('strong',cards[1]).innerHTML=`${nf9(s.gap,1)} <span class="v09-unit">${KHPlain.unit()}</span>`;
+  q9('strong',cards[3]).innerHTML=`${nf9(s.totalBurden,1)} <span class="v09-unit">${L9('نقطة أثر على الخدمة','service-impact points')}</span>`;
 }
 function patchDataHub9(){
   const code=q9('#view-data .contract-panel code'); if(code){code.textContent=CONTRACT_V09;code.classList.add('v09-contract-version')}
