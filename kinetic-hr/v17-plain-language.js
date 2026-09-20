@@ -7,7 +7,7 @@ window.KHPlain = (() => {
   const unitHelp = () => L('الأرقام تقيس حجم العمل: 1 بدوام كامل يعادل عمل موظف بدوام كامل، أو موظفين بنصف دوام. لا تعني بالضرورة عدد الأشخاص المطلوب توظيفهم.', 'These numbers measure workload: 1 full-time equivalent can be one full-time employee or two half-time employees. It is not necessarily the number of people to hire.');
   function trend(sv) {
     if (!sv?.dataSufficient) return L('سجل الأحداث غير مكتمل؛ لا يمكن تحديد ما إذا كان النقص يتزايد بسرعة أكبر.', 'The event history is incomplete, so we cannot tell whether new shortages are appearing faster.');
-    if (sv.currentNewGapFte === 0) return L('لم يظهر نقص جديد خلال آخر 30 يومًا. النقص القائم ما زال يحتاج معالجة.', 'No new shortfall appeared in the last 30 days. Any existing shortfall still needs attention.');
+    if (sv.currentNewGapFte === 0) return L('لم يظهر نقص جديد خلال آخر 30 يومًا. راجع أيضًا أي نقص قائم يحتاج معالجة.', 'No new shortfall appeared in the last 30 days. Also check whether an existing shortfall needs attention.');
     const first = L(`خلال آخر 30 يومًا، ظهر نقص جديد يعادل ${capacity(sv.currentNewGapFte)}.`, `Over the last 30 days, a new shortfall equivalent to ${capacity(sv.currentNewGapFte)} appeared.`);
     const comparison = sv.baselineRate === 0
       ? L('لم يُسجل نقص جديد في فترة المقارنة السابقة.', 'No new shortfall was recorded in the previous comparison period.')

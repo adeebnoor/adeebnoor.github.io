@@ -288,15 +288,16 @@ if(typeof renderPulse==='function') renderPulse=function(){
   });
   const chart=q9('#pulse-chart'),legend=q9('#pulse-legend'),stateEl=q9('#pulse-state');
   if(!chart)return;
+  chart.setAttribute('aria-label',L9('اتجاه ظهور نقص جديد','Trend in new shortfalls'));
   if(!ready.length){
-    chart.innerHTML=`<div class="empty-state">${L9('لا توجد خلايا بسجل تاريخي مكتمل لتشغيل الترصد.','No cells have sufficient event-history coverage for surveillance.')}</div>`;
+    chart.innerHTML=`<div class="empty-state">${L9('نحتاج سجل تغييرات مكتملًا لعرض اتجاه النقص.','A complete history of changes is needed to show the shortfall trend.')}</div>`;
   }else{
     const max=Math.max(1,...series),ww=620,h=165,p=18,pts=series.map((v,i)=>[p+i*(ww-2*p)/(series.length-1),h-p-v/max*(h-2*p)]),path=pts.map((z,i)=>(i?'L':'M')+z[0]+','+z[1]).join(' ');
     chart.innerHTML=`<svg viewBox="0 0 ${ww} ${h}" role="img" aria-label="${L9('اتجاه ظهور نقص جديد','Trend in new shortfalls')}"><path d="${path}" fill="none" stroke="#18c4a3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${pts.map((z,i)=>`<circle cx="${z[0]}" cy="${z[1]}" r="5" fill="${i===pts.length-1?'#e45858':'#18c4a3'}"/><text x="${z[0]}" y="${Math.max(12,z[1]-11)}" text-anchor="middle" font-size="9" fill="#64748b">${nf9(series[i],1)}</text>`).join('')}</svg>`;
   }
   const curDen=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0);
   const curEvents=ready.reduce((a,r)=>a+(surveillanceFor(r)?.evidence.currentEventCount||0),0);
-  if(legend)legend.innerHTML=`<span>${L9('الوحدة: قدرة جديدة غير مغطاة لكل 100 FTE-شهر مطلوبة','Unit: newly uncovered FTE per 100 required FTE-months')}</span><div class="v09-pulse-note">${L9(`النقاط الأربع ليست أربع قراءات يومية: هي 3 نوافذ أساس + النافذة الحالية، مدة كل نافذة 30 يومًا. النافذة الحالية تغطي ${nf9(curDen,1)} FTE-شهر وتحتوي ${curEvents} حدثًا مسجلاً عبر ${ready.length}/${rows.length} خلايا ذات تاريخ مكتمل.`,`The four points are not four daily samples: they are 3 baseline windows plus the current window, each 30 days. The current window covers ${nf9(curDen,1)} required FTE-months and ${curEvents} logged events across ${ready.length}/${rows.length} cells with complete history.`)}</div>`;
+  if(legend)legend.innerHTML=`<span>${L9('الأرقام: نقص جديد لكل 100 بدوام كامل خلال شهر.','Values: new shortfall per 100 full-time equivalents over a month.')}</span><div class="v09-pulse-note">${L9(`كل نقطة تمثل 30 يومًا. نقارن الفترة الحالية بثلاث فترات سابقة. يشمل الرسم ${ready.length} من ${rows.length} مجموعة وظائف ذات سجل مكتمل.`,`Each point covers 30 days. We compare the current period with three earlier periods. The chart includes ${ready.length} of ${rows.length} job groups with complete history.`)}</div>`;
   const summary=sectorSummary();
   const st=summary.alerts?'alert':summary.monitors?'monitor':'normal';
   if(stateEl){stateEl.className='state-pill '+st;stateEl.textContent=st==='alert'?L9('إنذار','Alert'):st==='monitor'?L9('مراقبة','Monitor'):L9('مستقر','Stable')}
@@ -386,8 +387,8 @@ function patchDataHub9(){
   if(links[0]){links[0].href='sample_position_snapshot_v09.csv';links[0].textContent=L9('تحميل لقطة القوى العاملة v0.9','Download Snapshot v0.9')}
   if(links[1]){links[1].href='sample_hr_event_log_v09.csv';links[1].textContent=L9('تحميل سجل الأحداث v0.9','Download Event Log v0.9')}
   const view=q9('#view-data'),existing=q9('#v09-data-dictionary'); if(!view||existing?.dataset.language===document.documentElement.lang)return;existing?.remove();
-  const panel=document.createElement('article'); panel.id='v09-data-dictionary'; panel.dataset.language=document.documentElement.lang; panel.className='panel v09-dictionary';
-  panel.innerHTML=`
+  const panel=document.createElement('details'); panel.id='v09-data-dictionary'; panel.dataset.language=document.documentElement.lang; panel.className='panel v09-dictionary kh-number-details';
+  panel.innerHTML=`<summary>${L9('دليل الأعمدة والرموز لفريق التكامل','Column and code guide for your integration team')}</summary>
     <div class="panel-head compact"><div><span class="panel-kicker">${L9('قاموس البيانات المنشور','PUBLISHED DATA DICTIONARY')}</span><h3>${L9('لا يوجد رمز بلا معنى موثق','No code without a documented meaning')}</h3></div><code>${CONTRACT_V09}</code></div>
     <p class="v09-dictionary-intro">${L9('category حقل يعتمد على القطاع؛ أما G/J/L/P فهي بادئات للمستوى وليست فئات. المقارنة عبر القطاعات تستخدم المعنى الدلالي للمستوى، لا الحرف الخام. position_group_id هو مفتاح الربط المباشر بين اللقطة وسجل الأحداث.','category is sector-specific; G/J/L/P are level prefixes, not categories. Cross-sector comparison uses semantic level meaning rather than the raw prefix. position_group_id is the direct link between snapshots and events.')}</p>
     <div class="v09-dict-grid">

@@ -159,7 +159,9 @@ const I18N={
       "quarantined": "مستبعد حتى التصحيح",
       "warnings": "تحذيرات",
       "errors": "أخطاء",
-      "partial": "تحليل جزئي"
+      "partial": "تحليل جزئي",
+      "snapshotHelp": "يتضمن المهنة والموقع والعمل المطلوب والمتاح. حمّل النموذج لمعرفة أسماء الأعمدة.",
+      "eventHelp": "يتضمن التوظيف والاستقالة والنقل وتواريخها. حمّل النموذج لمعرفة أسماء الأعمدة."
     },
     "audit": {
       "title": "الذاكرة المؤسسية وسجل التدقيق",
@@ -368,7 +370,9 @@ const I18N={
       "quarantined": "Excluded until corrected",
       "warnings": "Warnings",
       "errors": "Errors",
-      "partial": "Partial analysis"
+      "partial": "Partial analysis",
+      "snapshotHelp": "Includes occupation, location, and required and available work capacity. Download the template for column names.",
+      "eventHelp": "Includes hires, resignations, transfers and their dates. Download the template for column names."
     },
     "audit": {
       "title": "Institutional memory & audit trail",
