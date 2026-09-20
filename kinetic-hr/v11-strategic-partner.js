@@ -305,7 +305,7 @@ function renderRebalanceImpact(){
   if(!transfer||!impact.donorCell){
     box.style.display='';
     box.innerHTML=`<div class="v11-rebalance-empty"><div><strong>${L('أثر إعادة التوازن الداخلي','Internal rebalancing impact')}</strong><p>${L('اختبر نقل المواهب بين الجهات، وقارن أثر القرار على فجوة المستلم والجهة المانحة.','Test internal transfers and compare the effect on both the recipient and donor workforce gaps.')}</p><button type="button" id="v15-choose-donor">${L('استعرض مصادر النقل','Explore transfer sources')}</button></div><div><small>${L('الفجوة الحالية','Current gap')}</small><b>${fmt(impact.beforeGap,1)} FTE</b></div></div>`;
-    q('#v15-choose-donor').onclick=()=>{q('#scenario-donor').focus();q('#scenario-donor').scrollIntoView({block:'center',behavior:'smooth'})};
+    q('#v15-choose-donor').onclick=()=>{const advanced=q('#v14-advanced');if(advanced)advanced.open=true;q('#scenario-donor').focus();q('#scenario-donor').scrollIntoView({block:'center',behavior:'smooth'})};
     return
   }box.style.display='';
   const dp=decisionPriority(r),donor=getRowByCell(impact.donorCell),impBefore=serviceImpactFor(r,impact.beforeGap),impAfter=serviceImpactFor(r,impact.afterGap);
