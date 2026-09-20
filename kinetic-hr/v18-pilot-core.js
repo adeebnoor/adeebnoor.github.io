@@ -22,7 +22,53 @@ window.KHPilot = (() => {
     appendAuditRecord({key:'policy|'+revision(),kind:'policy_change',detail:JSON.stringify({scope,target,before,after:manifest()}),basis:revision(),source:'Local policy editor',effective_policy:manifest(),fingerprint:stableStateFingerprint()});
   }
   function reset(scope,target){delete state[scope==='cell'?'cells':'sectors'][target];localStorage.setItem(key,JSON.stringify(state));appendAuditRecord({key:'policy-reset|'+Date.now(),kind:'policy_change',detail:JSON.stringify({scope,target,reset:true}),basis:revision(),source:'Local policy editor',effective_policy:manifest(),fingerprint:stableStateFingerprint()})}
-  return {policy,save,reset,manifest,revision,cell,clean,defaults};
+  function sourceLabel(){const ar=document.documentElement.lang==='ar';if(snapshotMode==='synthetic')return ar?'بيانات تركيبية للتجربة':'Synthetic evaluation data';const sample=SNAPSHOTS.length&&SNAPSHOTS.every(r=>String(r.financial_cost_source||'').startsWith('SYNTHETIC EXAMPLE'));return sample?(ar?'مثال تركيبي مستورد — للتجربة فقط':'Imported synthetic example — evaluation only'):(ar?'ملفات مستوردة — معالجة محلية':'Imported files — local processing')}
+  function qualityText(text){
+    if(document.documentElement.lang!=='ar')return text;
+    const phrases={
+      'duplicate standard cell: sector/location/ssco/level':'تكرار المجموعة نفسها: القطاع والموقع والمهنة والمستوى',
+      'snapshot rows must share one as_of_date':'يجب أن تحمل جميع الصفوف تاريخ وضع حالي واحدًا',
+      'missing event_history_start_date; surveillance will be shown as insufficient':'بداية تغطية سجل الأحداث غير محددة؛ بيانات الرصد غير كافية',
+      'missing event_history_end_date; incidence unavailable':'نهاية تغطية سجل الأحداث غير محددة؛ معدل النقص الجديد غير متاح',
+      'duplicate event_id makes event history incomplete':'رقم حدث مكرر؛ يجب تصحيح السجل قبل حساب المعدل',
+      'position_group_id does not match a snapshot group':'رقم مجموعة الوظائف لا يطابق ملف الوضع الحالي',
+      'event_date after snapshot as_of_date':'تاريخ الحدث لاحق لتاريخ الوضع الحالي',
+      'event after linked snapshot':'الحدث لاحق لتاريخ الوضع الحالي المرتبط به',
+      'history start is after history end':'بداية السجل لاحقة لنهايته',
+      'event precedes declared event_history_start_date':'الحدث أقدم من بداية التغطية المعلنة للسجل',
+      'exit must reduce capacity only':'حدث المغادرة يجب أن يخفض المتاح فقط، دون تغيير الاحتياج',
+      'coverage must increase capacity only':'حدث التغطية يجب أن يزيد المتاح فقط، دون تغيير الاحتياج',
+      'demand increase must increase demand only':'حدث نمو الاحتياج يجب أن يزيد المطلوب فقط، دون تغيير المتاح',
+      'demand decrease must reduce demand only':'حدث خفض الاحتياج يجب أن يخفض المطلوب فقط، دون تغيير المتاح',
+      'role transformation must not change capacity or demand':'تغيير طبيعة الوظيفة لا يغيّر حجم المطلوب أو المتاح مباشرة',
+      'negative reconstructed history':'الأحداث تعطي احتياجًا أو قدرة متاحة سالبة في الماضي؛ راجع القيم وترتيب الأحداث',
+      'funded_fte exceeds needed_fte':'القدرة الممولة تتجاوز الاحتياج المطلوب',
+      'financial_cost_source required for cost inputs':'أدخل مصدر التكلفة عند إدخال تقديرات مالية',
+      'unknown level for sector':'المستوى غير موجود في قاموس القطاع',
+      'unknown category for sector':'الفئة غير موجودة في قاموس القطاع',
+      'role_transformation should include skill_gap_fte':'يفضّل تحديد حجم نقص المهارات عند تغيير طبيعة الوظيفة',
+      'conflicts with linked position_group_id':'لا يطابق مجموعة الوظائف المرتبطة',
+      'inferred from event_type':'قيمة مستنتجة من نوع الحدث؛ راجعها',
+      'for exit event':'لحدث المغادرة',
+      'for active deficit':'للنقص القائم',
+      'outside 0..1':'يجب أن يكون بين صفر وواحد',
+      'invalid calendar':'تاريخ غير صالح في',
+      'non-standard':'قيمة غير معيارية في',
+      'must be':'يجب أن تكون',
+      'unsupported':'قيمة غير معتمدة في',
+      'duplicate':'قيمة مكررة في',
+      'unknown':'قيمة غير معروفة في',
+      'missing':'قيمة مطلوبة في',
+      'invalid':'قيمة غير صالحة في'
+    };
+    const fields={source_row:'رقم السجل',position_group_id:'رقم مجموعة الوظائف',position_id:'رقم الوظيفة',as_of_date:'تاريخ الوضع الحالي',event_history_start_date:'بداية تغطية الأحداث',event_history_end_date:'نهاية تغطية الأحداث',event_id:'رقم الحدث',event_type:'نوع الحدث',event_date:'تاريخ الحدث',event_sequence:'ترتيب الحدث',separation_nature:'نوع المغادرة',separation_reason:'سبب المغادرة',sector:'القطاع',location:'الموقع',ssco:'رمز المهنة',SSCO:'رمز المهنة',level:'المستوى',category:'الفئة',demand_basis:'أساس الاحتياج',needed_fte:'حجم العمل المطلوب',available_fte:'حجم العمل المتاح',funded_fte:'حجم العمل الممول',capacity_delta_fte:'التغير في المتاح',demand_delta_fte:'التغير في الاحتياج',gap_onset_date:'تاريخ بدء النقص',median_time_to_fill_days:'مدة سد الشاغر بالأيام',scarcity_index:'مؤشر الندرة',internal_substitute_fte:'التغطية الداخلية البديلة',service_criticality_weight:'أهمية الخدمة',service_units_per_gap_fte:'الوحدات المتأثرة بالنقص',skill_gap_fte:'حجم نقص المهارات',scenario_budget_sar:'ميزانية السيناريو',cost_per_uncovered_fte_day:'تكلفة يوم النقص',voluntary:'طوعية',involuntary:'غير طوعية',retirement:'تقاعد',internal_mobility:'انتقال داخلي',other:'أخرى',resignation:'استقالة',termination:'إنهاء خدمة',transfer_out:'نقل خارج المجموعة',long_term_absence:'غياب طويل',internal_promotion:'ترقية داخلية'};
+    let out=String(text).replace(/^Snapshot: /,'الوضع الحالي: ').replace(/^Event: /,'الأحداث: ').replace(/\brow (\d+):/g,'السجل $1:');
+    for(const [a,b] of Object.entries(phrases))out=out.replaceAll(a,b);
+    for(const [a,b] of Object.entries({hire:'التوظيف',transfer:'النقل',upskill:'التأهيل',contract:'التغطية المؤقتة'})){out=out.replaceAll(a+'_unit_cost_sar','تكلفة '+b).replaceAll(a+'_approval_days','مهلة اعتماد '+b)}
+    out=out.replace(/\b[a-zA-Z_]+\b/g,x=>fields[x]||x).replace(/\bfor\b/g,'لحدث');
+    return out;
+  }
+  return {policy,save,reset,manifest,revision,cell,clean,defaults,sourceLabel,qualityText};
 })();
 
 // Validation augments the existing gate; rejected input never enters the engine.

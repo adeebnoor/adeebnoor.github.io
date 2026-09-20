@@ -29,12 +29,12 @@ await check(`${language}/${width}/P0: longer windows never turn insufficient dem
 if(width!==1366)return;
 for(const sector of ['EDU','HLT','MUN','GOV'])await check(`${language}/${width}/P0: ${sector} matching imports produce an evidence-based alert`,async()=>{
  await nav('data');await p.locator('#csv-upload').setInputFiles(path.resolve(__dirname,`../pilot-v1/${sector}_position_snapshot.csv`));await pause();assert.equal(await p.evaluate(()=>snapshotMode),'local');assert.equal(await p.evaluate(()=>eventMode),'gated');assert.equal(await p.evaluate(()=>sectorSummary().incidenceRate),null);assert(await p.locator('#v18-source-status').isVisible());
- await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,`../pilot-v1/${sector}_hr_event_log.csv`));await pause();const state=await p.evaluate(()=>({quality:DATA_QUALITY,alerts:sectorSummary().alerts,rows:currentRows().length}));assert.equal(state.quality.snapshot.quarantined,0);assert.equal(state.quality.events.quarantined,0);assert(state.alerts>0&&state.rows>0);
+ await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,`../pilot-v1/${sector}_hr_event_log.csv`));await pause();const state=await p.evaluate(()=>({quality:DATA_QUALITY,alerts:sectorSummary().alerts,rows:currentRows().length}));assert(await p.evaluate(()=>/تركيبي|synthetic/.test(KHPilot.sourceLabel())));assert.equal(state.quality.snapshot.quarantined,0);assert.equal(state.quality.events.quarantined,0);assert(state.alerts>0&&state.rows>0);
  await nav('scenario');assert(Number(await p.locator('#v07-cost-hire').inputValue())>0);assert(Number(await p.locator('#v07-approval-hire').inputValue())>=0);
 });
 await check(`${language}/${width}/P0: bad event upload removes stale alerts and blocks rates`,async()=>{
  await nav('data');await p.locator('#csv-upload').setInputFiles(path.resolve(__dirname,'../pilot-v1/EDU_position_snapshot.csv'));await pause();await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,'../pilot-v1/EDU_hr_event_log.csv'));await pause();assert((await p.evaluate(()=>sectorSummary().alerts))>0);
- await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,'../pilot-v1/invalid_events.csv'));await pause();assert.equal(await p.evaluate(()=>eventMode),'gated');assert.equal(await p.evaluate(()=>sectorSummary().alerts),0);assert.equal(await p.evaluate(()=>sectorSummary().incidenceRate),null);
+ await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,'../pilot-v1/invalid_events.csv'));await pause();const qualityText=await p.locator('#quality-details').innerText();assert(language==='ar'?qualityText.includes('حدث المغادرة'):qualityText.includes('exit must'));assert.equal(await p.evaluate(()=>eventMode),'gated');assert.equal(await p.evaluate(()=>sectorSummary().alerts),0);assert.equal(await p.evaluate(()=>sectorSummary().incidenceRate),null);
  await p.locator('#event-upload').setInputFiles(path.resolve(__dirname,'../pilot-v1/EDU_hr_event_log.csv'));await pause();
 });
 await check(`${language}/${width}/P0: 90 and 180 day windows work with declared complete example history`,async()=>{
@@ -48,5 +48,6 @@ await check(`${language}/${width}/P0: native DOCX and PPTX and printable PDF car
  }
  await p.pdf({path:path.join(out,`p0-report-${language}.pdf`),format:'A4',printBackground:true});assert.equal(fs.readFileSync(path.join(out,`p0-report-${language}.pdf`)).subarray(0,4).toString(),'%PDF');await p.locator('#v07-close-brief').click();
 });
+if(await p.locator('#v07-brief-overlay').evaluate(e=>e.classList.contains('open')))await p.locator('#v07-close-brief').click();
 await nav('data');await p.locator('#reset-demo').click();await pause();
 };

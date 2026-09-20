@@ -9,7 +9,7 @@ const results=[];let browser;
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS '+name)}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL '+name+': '+e.message)}}
 (async()=>{await new Promise(r=>server.listen(8077,'127.0.0.1',r));browser=await chromium.launch({headless:true});
 for(const width of [1672,1366,390])for(const language of ['ar','en']){
-const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(e.message));p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
+const ctx=await browser.newContext({viewport:{width,height:width===390?844:941}}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(e.message));p.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
 await p.goto('http://127.0.0.1:8077/');await p.locator('.v14-landing-shell').waitFor();await p.waitForTimeout(200);if(language==='en'){await p.locator('[data-v14-lang]').click();await p.waitForTimeout(250)}await p.evaluate(()=>document.fonts.ready);
 await p.screenshot({path:path.join(out,`landing-${language}-${width}.png`),fullPage:true});
 await check(`${language}/${width}: landing has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
