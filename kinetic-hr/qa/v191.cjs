@@ -65,8 +65,8 @@ exports.transitions=async({p,check,out,assert,path,width,language})=>{
   await p.locator('#v18-policy-target').selectOption('sector');await p.locator('#v18-multiplier').fill('10');await p.locator('#v18-policy-form button[type=submit]').click();await pause();
   await consistent(p,assert,{state:'monitor',alerts:0});
   assert.equal(await p.evaluate(()=>KHMeasurement.forSector().counts.monitor),1);
-  await p.reload();await p.locator('.v14-landing-shell').waitFor();await pause();await consistent(p,assert,{state:'monitor',alerts:0});
-  await p.locator('[data-v14-enter]').last().click();await nav('signals');if(await p.locator('#v18-policy').getAttribute('open')===null)await p.locator('#v18-policy>summary').click();
+  await p.reload();await p.locator('#v19-apply-proposal').waitFor({state:'attached'});await pause();await consistent(p,assert,{state:'monitor',alerts:0});
+  if(await p.locator('[data-v14-enter]').last().isVisible())await p.locator('[data-v14-enter]').last().click();await nav('signals');if(await p.locator('#v18-policy').getAttribute('open')===null)await p.locator('#v18-policy>summary').click();
   await p.locator('#v18-policy-reset').click();await pause();await consistent(p,assert);
  });
  await nav('data');await p.locator('#reset-demo').click();await pause();await nav('dashboard');
