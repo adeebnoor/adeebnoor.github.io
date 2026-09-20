@@ -49,6 +49,7 @@ function openModal(){const m=q('#v13-modal');if(!m)return;lastFocus=document.act
 function closeModal(){const m=q('#v13-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';lastFocus?.focus?.()}
 
 function enhanceLanding(){
+  if(document.body.dataset.khDesign==='v14')return;
   const land=q('#v12-landing');if(!land||q('#v13-saas',land))return;
   const nav=q('.v12-landing-links',land);
   if(nav){nav.insertAdjacentHTML('beforeend',`<a href="#v13-saas">${L('الخدمة','SaaS service')}</a><a href="#v13-compliance">${L('الامتثال','Compliance')}</a>`) }
