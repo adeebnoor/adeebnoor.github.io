@@ -10,7 +10,15 @@ const steps=()=>[
  ['audit',L('تتبّع النتيجة وقيّمها','Trace and review'),L('راجع مصدر القياس وإصداره، ثم افتح تقييم الخبير ونزّل ملاحظاتك.','Review measurement source and version, then open the expert review and download your feedback.')]
 ];
 function stepMarkup(){return steps().map(([view,title,desc],i)=>`<button data-v16-view="${view}"><b>${i+1}</b><span><strong>${title}</strong><small>${desc}</small></span></button>`).join('')}
-function comparison(){return `<section class="v14-section v16-difference" id="v16-difference">
+function comparison(){return `<section class="v14-section v16-difference" id="v17-integration">
+<div class="v16-section-head"><div><small>${L('التكامل مع أنظمتكم الحالية','WORKING WITH YOUR EXISTING SYSTEMS')}</small><h2>${L('أنظمتكم تدير الموارد البشرية وKinetic HR يدعم القرار','Your systems run HR. Kinetic HR supports the decision.')}</h2></div></div>
+<p class="v16-lead">${L('تبقى أنظمة الموارد البشرية والمالية لديكم مصدر البيانات المعتمد ومسار تنفيذ الموافقات. نضيف فوقها رصد الفجوات والإنذار المبكر ومقارنة التدخلات، دون مشروع لاستبدالها أو نقل إدارة الموظفين والرواتب إليها.','Your HR and finance systems remain the authoritative records and approval workflows. Kinetic HR adds gap monitoring, early warning and intervention comparisons alongside them; employee administration and payroll stay in your systems.')}</p>
+<div class="v16-proof-grid">
+<article><span>01</span><h3>${L('ابدؤوا بالبيانات التجريبية','Start with the sample data')}</h3><p>${L('جرّبوا المسار الآن دون حساب. استيراد لقطة القوى العاملة وسجل الأحداث عبر CSV متاح، مع فحص الجودة وربط الأحداث بمجموعاتها المهنية.','Explore the workflow now without an account. CSV snapshot and event-log imports are available, with quality checks and events linked to their workforce groups.')}</p><button data-v16-view="data">${L('افتح مركز البيانات ←','Open Data Hub →')}</button></article>
+<article><span>02</span><h3>${L('هيّئوا الربط مع فريق التقنية','Configure integration with your IT team')}</h3><p>${L('نحدد النظام المصدر وحقول الربط ودورية التحديث. الربط الآلي عبر API أو ملفات مجدولة مسار تنفيذ لاحق يحتاج بناء الموصل واختباره؛ ليس مفعّلًا في النسخة العامة.','Agree source systems, field mappings and refresh frequency. Automated API or scheduled-file integration is a later implementation step requiring a connector to be built and tested; it is not active in the public build.')}</p></article>
+<article><span>03</span><h3>${L('اعتمدوا الإجراء داخل أنظمتكم','Approve actions in your existing systems')}</h3><p>${L('راجعوا السيناريو والدليل، ثم صدّروا الملخص لمناقشته واعتماده في إجراءاتكم الحالية. لا تنفّذ النسخة العامة نقلًا أو توظيفًا، ولا تكتب في أنظمتكم.','Review the scenario and evidence, then export the brief for approval through your existing process. The public build does not execute transfers or hiring, or write to your systems.')}</p></article>
+</div><p class="v16-trial-note">${L('المتاح الآن تجربة عامة ببيانات تركيبية وحفظ محلي في المتصفح. استخدام بيانات الجهة والربط المستمر يبدأ بعد تهيئة بيئة مؤسسية معتمدة وتحديد مسؤوليات الوصول والحفظ والتشغيل.','Available now: a public trial with synthetic data and local browser storage. Entity data and continuous integration follow an approved institutional deployment with defined access, persistence and operational responsibilities.')}</p>
+</section><section class="v14-section v16-difference" id="v16-difference">
 <div class="v16-section-head"><div><small>${L('المقارنة التي تستحق أن تسأل عنها','THE COMPARISON WORTH MAKING')}</small><h2>${L('التحليل وحده لا يكفي. أين مسار القرار؟','Analysis alone is not enough. Where is the decision workflow?')}</h2></div><span class="v16-stage">${L('نسخة تقييم الخبراء','Expert evaluation build')}</span></div>
 <p class="v16-lead">${L('قيمة Kinetic HR في ربط السؤال كاملًا: أين تتدهور القدرة؟ هل الفجوة ممولة؟ ما أثر التأخير؟ وهل ينقل الحل المشكلة إلى فريق آخر؟ ثم إبقاء الدليل والافتراضات مع القرار.','Kinetic HR connects the full question: where is capacity deteriorating, is the gap funded, what does delay cost, and would a transfer move the problem elsewhere? Evidence and assumptions stay with the decision.')}</p>
 <div class="v16-proof-grid">
@@ -34,7 +42,7 @@ function enhance(){
  const shell=q('.v14-landing-shell');
  if(shell&&!q('#v16-difference',shell)){
   q('.v14-modules-section',shell)?.insertAdjacentHTML('beforebegin',comparison());
-  const links=q('.v14-links',shell);if(links)links.insertAdjacentHTML('beforeend',`<a href="#v16-difference">${L('لماذا نحن؟','Why Kinetic HR?')}</a>`);
+  const links=q('.v14-links',shell);if(links)links.insertAdjacentHTML('beforeend',`<a href="#v17-integration">${L('التكامل','Integration')}</a><a href="#v16-difference">${L('لماذا نحن؟','Why Kinetic HR?')}</a>`);
   const cta=q('.v14-hero-actions .v14-secondary',shell);if(cta){cta.href='#v16-expert';cta.textContent=L('تجربة الخبير · 5 دقائق','Expert trial · 5 minutes')}
  }
  const top=q('.topbar');
