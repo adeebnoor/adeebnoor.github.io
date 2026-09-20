@@ -28,5 +28,5 @@ let queued=false;function schedule(){if(queued)return;queued=true;queueMicrotask
 for(const key of ['renderAll','renderDashboard','renderScenario','renderGaps','renderSignals','showView','openDrawer']){const base=window[key];window[key]=function(...args){const result=base(...args);schedule();return result}}
 document.addEventListener('click',e=>{if(e.target.closest('[data-v19-method]'))method()});
 document.addEventListener('kinetic:languagechange',()=>{schedule();if(q('#v19-method-overlay.open'))method()});
-document.addEventListener('DOMContentLoaded',()=>{render();new MutationObserver(()=>{if(q('#v18-p0')&&!q('#v19-planning-scope'))schedule()}).observe(document.body,{childList:true,subtree:true})});
+document.addEventListener('DOMContentLoaded',()=>{render();const bar=q('.topbar'),size=()=>document.documentElement.style.setProperty('--v19-topbar-height',bar.getBoundingClientRect().height+'px');size();if(window.ResizeObserver)new ResizeObserver(size).observe(bar);new MutationObserver(()=>{if(q('#v18-p0')&&!q('#v19-planning-scope'))schedule()}).observe(document.body,{childList:true,subtree:true})});
 })();

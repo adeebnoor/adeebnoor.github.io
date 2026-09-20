@@ -30,6 +30,7 @@ await check(`${language}/${width}/v190: methodology, service-burden order and pe
  for(const view of ['dashboard','signals','scenario','gaps','occupations','data','audit']){await nav(view);assert(await p.locator('#v18-source-status').isVisible());assert(/تركيبي|Synthetic/.test(await p.locator('#v18-source-status').innerText()))}
  await nav('gaps');await p.locator('#v19-gap-sort').selectOption('priority');
  await nav('dashboard');const units=[];for(const sector of ['EDU','HLT','MUN']){await p.locator('#sector-select').selectOption(sector);await pause();units.push(await p.locator('#v11-service-impact').innerText())}assert.notEqual(units[0],units[1]);assert.notEqual(units[1],units[2]);await p.locator('#sector-select').selectOption('EDU');await pause();
+ await p.evaluate(()=>window.scrollTo({top:500,behavior:'instant'}));await pause();const positions=await p.evaluate(()=>({bar:document.querySelector('.topbar').getBoundingClientRect().bottom,source:document.querySelector('#v18-source-status').getBoundingClientRect().top}));assert(positions.source>=positions.bar-1,'Data-origin strip must stay below navigation');await p.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
  if(width===1366||width===390)await p.screenshot({path:path.join(out,`v190-command-${language}-${width}.png`),fullPage:true});
 });
 };

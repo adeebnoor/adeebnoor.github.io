@@ -2,9 +2,9 @@
 window.KHReports=(()=>{
  const L=(a,e)=>document.documentElement.lang==='ar'?a:e;
  const pending=new Map();
- let printDetails=[];
- window.addEventListener('beforeprint',()=>{printDetails=[...document.querySelectorAll('#v07-brief-content details')].map(el=>[el,el.open]);printDetails.forEach(([el])=>el.open=true)});
- window.addEventListener('afterprint',()=>{printDetails.forEach(([el,open])=>el.open=open);printDetails=[]});
+ let printDetails=[],printFooter=null;
+ window.addEventListener('beforeprint',()=>{printDetails=[...document.querySelectorAll('#v07-brief-content details')].map(el=>[el,el.open]);printDetails.forEach(([el])=>el.open=true);const content=document.querySelector('#v07-brief-content'),footer=content?.querySelector(':scope>footer'),cases=content?.querySelector(':scope>section:not(.v07-brief-summary)');if(footer&&cases&&!printFooter){const marker=document.createComment('report-reference-position');footer.before(marker);cases.before(footer);printFooter={footer,marker}}});
+ window.addEventListener('afterprint',()=>{printDetails.forEach(([el,open])=>el.open=open);printDetails=[];if(printFooter){printFooter.marker.replaceWith(printFooter.footer);printFooter=null}});
  function load(src,global){if(window[global])return Promise.resolve(window[global]);if(pending.has(src))return pending.get(src);const task=new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=()=>{if(window[global])resolve(window[global]);else{pending.delete(src);s.remove();reject(Error('export library did not initialize'))}};s.onerror=()=>{pending.delete(src);s.remove();reject(Error('export library unavailable'))};document.head.appendChild(s)});pending.set(src,task);return task}
  function content(){
   const box=document.querySelector('#v07-brief-content');
