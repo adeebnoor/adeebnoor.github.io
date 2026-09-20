@@ -21,18 +21,18 @@ const PRESETS={
 };
 
 const DEMO_IMPACT={
-  'demo-001':{perGap:66.67,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لزيادة كثافة الفصول أو تغطية تعليمية غير مثالية',labelEn:'students exposed to higher class density or suboptimal teaching coverage',targetAr:'افتراض Pilot تركيبي — ليس مستهدفًا وطنيًا',targetEn:'Synthetic pilot assumption — not a national target'},
-  'demo-002':{perGap:55,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لتغطية تعليمية أقل من الخطة',labelEn:'students exposed to below-plan teaching coverage',targetAr:'افتراض Pilot تركيبي',targetEn:'Synthetic pilot assumption'},
-  'demo-003':{perGap:45,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لمرونة أقل في توزيع الشعب',labelEn:'students exposed to reduced timetable flexibility',targetAr:'افتراض Pilot تركيبي',targetEn:'Synthetic pilot assumption'},
-  'demo-004':{perGap:6,unitAr:'ساعة تغطية سريرية/أسبوع',unitEn:'clinical coverage hours/week',labelAr:'ساعات تغطية حرجة معرضة للضغط التشغيلي',labelEn:'critical coverage hours exposed to operating pressure',targetAr:'افتراض Pilot تركيبي — يتطلب معايرة سريرية',targetEn:'Synthetic pilot assumption — clinical calibration required'},
-  'demo-005':{perGap:4,unitAr:'ساعة تأخير قدرة/أسبوع',unitEn:'capacity-delay hours/week',labelAr:'ساعات قدرة إجرائية معرضة للتأخير',labelEn:'procedural-capacity hours exposed to delay',targetAr:'افتراض Pilot تركيبي — يتطلب معايرة سريرية',targetEn:'Synthetic pilot assumption — clinical calibration required'},
-  'demo-007':{perGap:12,unitAr:'مهمة تفتيش/أسبوع',unitEn:'inspection tasks/week',labelAr:'مهام تفتيش معرضة للتأخير',labelEn:'inspection tasks exposed to delay',targetAr:'افتراض Pilot تركيبي',targetEn:'Synthetic pilot assumption'},
-  'demo-008':{perGap:3,unitAr:'حزمة تخطيط/شهر',unitEn:'planning work packages/month',labelAr:'حزم تخطيط معرضة للتأخير',labelEn:'planning work packages exposed to delay',targetAr:'افتراض Pilot تركيبي',targetEn:'Synthetic pilot assumption'},
-  'demo-010':{perGap:2,unitAr:'حزمة قرار/شهر',unitEn:'decision work packages/month',labelAr:'حزم تخطيط قوى عاملة معرضة للتأخير',labelEn:'workforce-planning decision packages exposed to delay',targetAr:'افتراض Pilot تركيبي',targetEn:'Synthetic pilot assumption'}
+  'demo-001':{perGap:66.67,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لزيادة كثافة الفصول أو تغطية تعليمية غير مثالية',labelEn:'students exposed to higher class density or suboptimal teaching coverage',targetAr:'افتراض تجريبي توضيحي — ليس مستهدفًا وطنيًا',targetEn:'Synthetic pilot assumption — not a national target'},
+  'demo-002':{perGap:55,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لتغطية تعليمية أقل من الخطة',labelEn:'students exposed to below-plan teaching coverage',targetAr:'افتراض تجريبي توضيحي',targetEn:'Synthetic pilot assumption'},
+  'demo-003':{perGap:45,unitAr:'طالب',unitEn:'students',labelAr:'طلاب معرضون لمرونة أقل في توزيع الشعب',labelEn:'students exposed to reduced timetable flexibility',targetAr:'افتراض تجريبي توضيحي',targetEn:'Synthetic pilot assumption'},
+  'demo-004':{perGap:6,unitAr:'ساعة تغطية سريرية/أسبوع',unitEn:'clinical coverage hours/week',labelAr:'ساعات تغطية حرجة معرضة للضغط التشغيلي',labelEn:'critical coverage hours exposed to operating pressure',targetAr:'افتراض تجريبي توضيحي — يتطلب معايرة سريرية',targetEn:'Synthetic pilot assumption — clinical calibration required'},
+  'demo-005':{perGap:4,unitAr:'ساعة تأخير قدرة/أسبوع',unitEn:'capacity-delay hours/week',labelAr:'ساعات قدرة إجرائية معرضة للتأخير',labelEn:'procedural-capacity hours exposed to delay',targetAr:'افتراض تجريبي توضيحي — يتطلب معايرة سريرية',targetEn:'Synthetic pilot assumption — clinical calibration required'},
+  'demo-007':{perGap:12,unitAr:'مهمة تفتيش/أسبوع',unitEn:'inspection tasks/week',labelAr:'مهام تفتيش معرضة للتأخير',labelEn:'inspection tasks exposed to delay',targetAr:'افتراض تجريبي توضيحي',targetEn:'Synthetic pilot assumption'},
+  'demo-008':{perGap:3,unitAr:'حزمة تخطيط/شهر',unitEn:'planning work packages/month',labelAr:'حزم تخطيط معرضة للتأخير',labelEn:'planning work packages exposed to delay',targetAr:'افتراض تجريبي توضيحي',targetEn:'Synthetic pilot assumption'},
+  'demo-010':{perGap:2,unitAr:'حزمة قرار/شهر',unitEn:'decision work packages/month',labelAr:'حزم تخطيط قوى عاملة معرضة للتأخير',labelEn:'workforce-planning decision packages exposed to delay',targetAr:'افتراض تجريبي توضيحي',targetEn:'Synthetic pilot assumption'}
 };
 
 const SKILL_MAP=[
-  {target:'226301',substitute:'325706',match:.72,days:45,missingAr:'تحليل المخاطر البيئية · المتطلبات التنظيمية البيئية',missingEn:'environmental risk analysis · environmental regulatory requirements',noteAr:'فرضية Pilot فقط؛ يلزم تحقق خبير المهنة والأهلية النظامية',noteEn:'Pilot hypothesis only; SME and regulatory eligibility validation required'},
+  {target:'226301',substitute:'325706',match:.72,days:45,missingAr:'تحليل المخاطر البيئية · المتطلبات التنظيمية البيئية',missingEn:'environmental risk analysis · environmental regulatory requirements',noteAr:'فرضية تجريبية فقط؛ يلزم تحقق خبير المهنة والأهلية النظامية',noteEn:'Pilot hypothesis only; SME and regulatory eligibility validation required'},
   {target:'233014',substitute:'233030',match:.78,days:30,missingAr:'عمق محتوى المرحلة الثانوية · تصميم تقييمات متقدمة',missingEn:'secondary-level content depth · advanced assessment design',noteAr:'يتطلب تحقق المؤهل والترخيص/التكليف قبل النقل',noteEn:'Qualification and assignment eligibility must be validated before transfer'},
   {target:'242309',substitute:'242303',match:.68,days:45,missingAr:'نمذجة العرض والطلب · تخطيط السيناريوهات',missingEn:'supply-demand modelling · scenario planning',noteAr:'خريطة مهارات تجريبية غير رسمية',noteEn:'Illustrative, non-official skills map'}
 ];
@@ -225,6 +225,21 @@ function updateSidebarToggle(){
   const b=q('#v11-sidebar-toggle'),on=q('.app-shell')?.classList.contains('kh-sidebar-expanded');if(b)b.textContent=on?L('إخفاء الأسماء','Hide names'):L('إظهار الأسماء','Show names');
 }
 
+function renderNextAction(){
+  const view=q('#view-dashboard');if(!view)return;
+  let box=q('#v16-next-action');if(!box){box=document.createElement('article');box.id='v16-next-action';view.prepend(box)}
+  const r=topRows(1)[0];if(!r){box.innerHTML=`<h2>${L('ماذا أفعل غدًا؟','What should I do tomorrow?')}</h2><p>${L('لا توجد فجوة نشطة في القطاع الحالي. راجع جودة البيانات واستمر في الرصد.','No active gap in this sector. Review data quality and continue monitoring.')}</p>`;return}
+  const plan=actionPlanFor(r,30),fund=fundingFor(r),loc=sectorCfg(r.sector).locations.find(x=>x.id===r.location)?.[ar()?'ar':'en']||r.location;
+  const units=plan.type==='transfer'?Math.min(30,Math.floor(plan.units)):Math.min(30,Math.ceil(plan.units));
+  let tomorrow,owner,deliverable;
+  if(plan.type==='transfer'&&units>0){tomorrow=L(`اطلب مراجعة أهلية نقل ${fmt(units)} مكافئ دوام كامل إلى ${loc}، مع التحقق من احتياطي الجهة المانحة.`,`Request an eligibility review for transferring ${fmt(units)} FTE to ${loc}, including the donor's remaining capacity.`);owner=L('تخطيط القوى العاملة + شريك الموارد البشرية','Workforce Planning + HR business partner');deliverable=L('قائمة مرشحين مؤهلين، موافقة الجهة المانحة، وتقدير تكلفة قابل للمراجعة.','An eligible candidate list, donor approval and a reviewable cost estimate.')}
+  else if(plan.type==='fund_then_hire'){tomorrow=L(`ارفع طلب التحقق من تمويل ${fmt(fund.unfundedGap,1)} مكافئ دوام كامل قبل بدء مسار الاستقطاب.`,`Request a funding review for ${fmt(fund.unfundedGap,1)} FTE before opening the recruitment path.`);owner=L('الموارد البشرية + المالية','HR + Finance');deliverable=L('تحديد مصدر التمويل وصاحب الموافقة وموعد الرد، مع تقييم تغطية مؤقتة.','Identify the funding source, approver and response date; assess temporary cover.')}
+  else{tomorrow=L(`اطلب خطة استقطاب وتغطية مؤقتة لفجوة ${fmt(deficit(r),1)} مكافئ دوام كامل في ${loc}.`,`Request a recruitment and temporary-cover plan for the ${fmt(deficit(r),1)} FTE gap in ${loc}.`);owner=L('الاستقطاب + مدير التشغيل','Talent Acquisition + Operations');deliverable=L('خطة بمسؤول واضح ومهلة بدء وتكلفة ومؤشر لقياس التحسن.','A plan with an owner, start date, cost and improvement measure.')}
+  box.innerHTML=`<div class="v16-action-main"><span>${L('أول إجراء مقترح · حسب أولوية القطاع','FIRST PROPOSED ACTION · SECTOR PRIORITY')}</span><h2>${L('ماذا أفعل غدًا؟','What should I do tomorrow?')}</h2><p>${esc(tomorrow)}</p><small>${esc(occupationLabel(r.ssco))} · ${esc(loc)} · ${L('أولوية','Priority')} ${decisionPriority(r).score??'—'}</small></div><div class="v16-action-detail"><strong>${L('المسؤول المقترح','Suggested owner')}</strong><p>${owner}</p><strong>${L('ما المطلوب بنهاية الغد؟','Tomorrow’s deliverable')}</strong><p>${deliverable}</p></div><div class="v16-action-buttons"><button id="v16-try-next" type="button">${L('جرّب الإجراء المقترح','Try the proposed action')}</button><button id="v16-next-evidence" type="button">${L('راجع الدليل','Review evidence')}</button><small>${L('اقتراح للمراجعة البشرية؛ لا ينفّذ نقلًا أو توظيفًا.','For human review; no transfer or hiring is executed.')}</small></div>`;
+  q('#v16-next-evidence').onclick=()=>openDrawer(r.source_row);
+  q('#v16-try-next').onclick=()=>{selectedScenarioSource=r.source_row;showView('scenario');['hire','transfer','upskill','contract'].forEach(k=>q('#'+k+'-range').value='0');if(plan.type==='transfer'&&units>0){q('#scenario-donor').value=cellCode(plan.donor.row);q('#transfer-range').value=String(units)}else if(plan.type==='hire')q('#hire-range').value=String(units);renderScenario();q('#view-scenario').scrollIntoView({block:'start',behavior:'smooth'})};
+}
+
 function renderServiceImpact(){
   const box=q('#v11-service-impact');if(!box)return;
   const r=topRows(1)[0];if(!r){box.innerHTML=`<div class="lead"><strong>${L('لا توجد فجوة نشطة','No active gap')}</strong></div>`;return}
@@ -234,7 +249,7 @@ function renderServiceImpact(){
 
 function renderDelivery(){
   const box=q('#v11-delivery-strip');if(!box)return;
-  box.innerHTML=`<div><strong>${L('بطاقات قرار استباقية جاهزة للتكامل','Proactive Decision Cards are integration-ready')}</strong><p><span class="v11-channel">Teams</span><span class="v11-channel">Slack</span><span class="v11-channel">Email</span> ${L('لا يوجد إرسال فعلي في النسخة العامة؛ تُعرض معاينة الرسالة ومسار القرار فقط.','No live delivery in the public demo; only the message and decision path are previewed.')}</p></div><div class="v11-delivery-actions"><button id="v11-preview-cards">${L('معاينة بطاقات القرار','Preview decision cards')}</button></div>`;
+  box.innerHTML=`<div><strong>${L('بطاقات قرار استباقية جاهزة للتكامل','Proactive Decision Cards are integration-ready')}</strong><p><span class="v11-channel">Teams</span><span class="v11-channel">Slack</span><span class="v11-channel">${L('البريد الإلكتروني','Email')}</span> ${L('لا يوجد إرسال فعلي في النسخة العامة؛ تُعرض معاينة الرسالة ومسار القرار فقط.','No live delivery in the public demo; only the message and decision path are previewed.')}</p></div><div class="v11-delivery-actions"><button id="v11-preview-cards">${L('معاينة بطاقات القرار','Preview decision cards')}</button></div>`;
   q('#v11-preview-cards').onclick=openDecisionCards;
 }
 
@@ -262,29 +277,35 @@ function patchCriticalCards(){
   });
 }
 
+const presetFields=['v07-budget','v07-gapday-cost','v07-safety-pct',...['hire','transfer','upskill','contract'].flatMap(k=>['v07-approval-'+k,'v07-cost-'+k])];
+const cellDrafts=new Map();let activeDraftKey=null;
+const captureDraft=()=>Object.fromEntries(presetFields.map(id=>{const el=q('#'+id);return [id,{value:el?.value||'',edited:el?.dataset.userEdited==='1'}]}));
 function bindPresetEdits(){
-  ['v07-budget','v07-gapday-cost','v07-safety-pct',...['hire','transfer','upskill','contract'].flatMap(k=>['v07-approval-'+k,'v07-cost-'+k])].forEach(id=>{
-    const el=q('#'+id);if(!el||el.dataset.v11Bound==='1')return;el.dataset.v11Bound='1';
-    el.addEventListener('input',()=>{if(!applyingPreset)el.dataset.userEdited='1'});
-  });
+  presetFields.forEach(id=>{const el=q('#'+id);if(!el||el.dataset.v11Bound==='1')return;el.dataset.v11Bound='1';el.addEventListener('input',()=>{if(!applyingPreset)el.dataset.userEdited='1'})});
 }
 function applyPreset(){
-  const r=selectedRow();if(!r||snapshotMode!=='synthetic')return false;
-  bindPresetEdits();const p=presetFor(r);if(!p)return false;
-  let changed=false;applyingPreset=true;
-  const set=(id,v)=>{
-    const el=q('#'+id);if(!el||el.dataset.userEdited==='1')return;
-    if(String(el.value).trim()===''){el.value=String(v);changed=true}
-  };
-  set('v07-budget',Math.max(100000,Math.round(deficit(r)*(p.hire||0)*1.05)));
-  set('v07-gapday-cost',p.gapDay);
-  ['hire','transfer','upskill','contract'].forEach(k=>{set('v07-approval-'+k,p.approval[k]);set('v07-cost-'+k,p[k])});
-  applyingPreset=false;return changed;
+  const r=selectedRow();if(!r||!q('#v07-budget'))return false;
+  bindPresetEdits();const key=[snapshotMode,snapshotImportedAt||'demo',r.source_row].join('|');
+  if(key===activeDraftKey)return false;
+  if(activeDraftKey)cellDrafts.set(activeDraftKey,captureDraft());
+  activeDraftKey=key;
+  const saved=cellDrafts.get(key),p=snapshotMode==='synthetic'?presetFor(r):null;
+  const values={'v07-safety-pct':5,'v07-budget':p?Math.max(100000,Math.round(deficit(r)*p.hire*1.05)):'','v07-gapday-cost':p?p.gapDay:(num(r.cost_per_uncovered_fte_day)??'')};
+  ['hire','transfer','upskill','contract'].forEach(k=>{values['v07-approval-'+k]=p?p.approval[k]:'';values['v07-cost-'+k]=p?p[k]:''});
+  applyingPreset=true;
+  for(const id of presetFields){const el=q('#'+id);if(!el)continue;el.value=saved?saved[id].value:String(values[id]??'');el.dataset.userEdited=saved?.[id]?.edited?'1':'0'}
+  applyingPreset=false;return true;
 }
+document.addEventListener('kinetic:reset',()=>{cellDrafts.clear();activeDraftKey=null});
 function renderPresetPanel(){
-  const box=q('#v11-ref-preset'),r=selectedRow();if(!box||!r)return;const p=presetFor(r);
-  if(!p){box.innerHTML='';return}
-  box.innerHTML=`<div class="v11-section-head"><div><span>${L('قيم مرجعية للتجربة المؤسسية','PILOT REFERENCE PRESET')}</span><strong>${L('تعبئة تلقائية قابلة للتعديل','Auto-filled and editable')}</strong><small>${L('قيم توضيحية وليست أسعارًا رسمية. استبدلها ببيانات الموارد البشرية والمالية قبل الإنتاج.','Illustrative values, not official prices. Replace with verified HR/Finance inputs before production.')}</small></div><span class="v11-source-pill" style="background:#eef4f7;color:#607787!important">${esc(p.source)}</span></div><div class="v11-preset-grid"><div><span>${L('تكلفة توظيف/FTE','Hire / FTE')}</span><b>${sar(p.hire)}</b></div><div><span>${L('نقل داخلي/FTE','Transfer / FTE')}</span><b>${sar(p.transfer)}</b></div><div><span>${L('تأهيل/FTE','Upskill / FTE')}</span><b>${sar(p.upskill)}</b></div></div>`;
+  const box=q('#v11-ref-preset'),r=selectedRow();if(!box||!r)return;
+  const p=snapshotMode==='synthetic'?presetFor(r):null,custom=presetFields.some(id=>q('#'+id)?.dataset.userEdited==='1');
+  const heading=p?(custom?L('قيم معدّلة بواسطة المستخدم','User-adjusted values'):L('قيم تجريبية مكتملة وقابلة للتعديل','Complete, editable demo defaults')):L('مدخلات الجهة المستوردة','Imported entity inputs');
+  const note=p?L('هذه افتراضات للتجربة وليست أسعار سوق معتمدة. تشمل التكلفة والميزانية ومهل الموافقة لكل تدخل.','These are illustrative assumptions, not validated market prices. Costs, budget and approval delays are filled for every intervention.'):L('لا تُنسخ القيم التجريبية إلى بيانات الجهة. راجع التكاليف ومهل الموافقة قبل الاعتماد.','Demo assumptions are not copied into entity data. Review costs and approval delays before approval.');
+  box.innerHTML=`<div class="v11-section-head"><div><span>${L('افتراضات السيناريو ومصدرها','SCENARIO ASSUMPTIONS & SOURCE')}</span><strong>${heading}</strong><small>${note}</small></div>${p?`<span class="v11-source-pill">${esc(p.source)}</span>`:''}</div><div class="v16-default-grid">${['hire','transfer','upskill','contract'].map(k=>`<div><strong>${{hire:L('التوظيف','Hire'),transfer:L('النقل','Transfer'),upskill:L('التأهيل','Upskill'),contract:L('التعاقد','Contract')}[k]}</strong><span>${num(q('#v07-cost-'+k)?.value)==null?'—':sar(num(q('#v07-cost-'+k).value))}</span><small>${L('مهلة الموافقة','Approval delay')}: ${q('#v07-approval-'+k)?.value||'—'} ${L('يومًا','days')}</small></div>`).join('')}</div>`;
+  let ready=q('#v16-scenario-ready');if(!ready){ready=document.createElement('div');ready.id='v16-scenario-ready';q('.scenario-actions')?.insertAdjacentElement('afterend',ready)}
+  ready.innerHTML=`<div><strong>${heading}</strong><small>${p?L('يمكنك تجربة التدخل مباشرة؛ راجع الافتراضات أو عدّلها عند الحاجة.','Try an intervention immediately; inspect or adjust assumptions as needed.'):note}</small></div><button id="v16-edit-defaults" type="button">${L('راجع القيم','Review values')}</button>`;
+  q('#v16-edit-defaults').onclick=()=>{q('#v14-advanced').open=true;q('#v07-reality-panel').open=true;q('#v07-budget').focus();q('#v07-reality-panel').scrollIntoView({block:'center',behavior:'smooth'})};
 }
 function renderDoNothing(){
   const box=q('#v11-do-nothing'),r=selectedRow();if(!box||!r)return;
@@ -377,27 +398,44 @@ function renderDataPilot(){
   if(importLinks[0]){importLinks[0].href='sample_position_snapshot_v11.csv';importLinks[0].textContent=L('تحميل لقطة القوى العاملة v1.1','Download Snapshot v1.1')}
   if(importLinks[1]){importLinks[1].href='sample_hr_event_log_v11.csv';importLinks[1].textContent=L('تحميل سجل الأحداث v1.1','Download Event Log v1.1')}
   const ev=q('#v11-event-support');if(ev)ev.innerHTML=`<div class="panel-head compact"><div><span class="panel-kicker">${L('تغطية أحداث الموارد البشرية','HR EVENT COVERAGE')}</span><h3>${L('أحداث قياسية ومتقدمة مدعومة','Standard + advanced workforce events')}</h3></div><code>KHDC-v0.9+</code></div><p style="font-size:9px;color:#647b89">${L('الأحداث المتقدمة لا تُجبر على معنى واحد: role_transformation يمكن أن يحمل skill_gap_fte دون تغيير العدد، بينما long_term_absence يخلق عجزًا مؤقتًا.','Advanced events are not forced into one meaning: role_transformation may carry skill_gap_fte without changing headcount, while long_term_absence creates a temporary capacity gap.')}</p><div class="v11-event-types">${Object.entries(EVENT_LABELS).map(([k,v])=>`<span class="${['long_term_absence','return_from_absence','internal_promotion','role_transformation'].includes(k)?'advanced':''}">${esc(ar()?v[0]:v[1])}</span>`).join('')}</div><div class="v11-compare-actions"><a class="v11-export-btn" href="sample_hr_event_log_v11.csv" download>${L('تحميل عينة الأحداث المتقدمة','Download advanced event sample')}</a><a class="v11-export-btn" href="pilot_reference_presets_v11.json" target="_blank" rel="noreferrer">${L('فتح القيم المرجعية للتجربة المؤسسية','Open pilot reference presets')}</a><a class="v11-export-btn" href="pilot_extension_dictionary_v11.md" target="_blank" rel="noreferrer">${L('دليل التجربة المؤسسية v1.1','Pilot v1.1 dictionary')}</a></div>`;
-  const pr=q('#v11-production-readiness');if(pr)pr.innerHTML=`<div class="panel-head compact"><div><span class="panel-kicker">${L('جاهزية قنوات القرار','DECISION DELIVERY READINESS')}</span><h3>${L('ما الذي يعمل الآن وما الذي يتطلب تكامل مؤسسي فعلي','What works now vs what needs production integration')}</h3></div></div><div class="v11-integration-grid"><div class="v11-integration-card"><strong>Microsoft Teams</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: بطاقة قرار + هوية المستخدم + RBAC + webhook/Graph + سجل موافقة.','Production: decision card + identity + RBAC + webhook/Graph + approval audit.')}</small></div><div class="v11-integration-card"><strong>Slack</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: تطبيق أو مساعد آلي مصادق عليه مع أزرار إجراء مربوطة بحالة القرار.','Production: authenticated App/Bot with actions tied to decision state.')}</small></div><div class="v11-integration-card"><strong>Email</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: رسالة قرار قابلة للتتبع وروابط عميقة للمنصة؛ لا إرسال من النسخة العامة.','Production: traceable decision email with deep links; no sending from the public demo.')}</small></div></div>`;
+  const pr=q('#v11-production-readiness');if(pr)pr.innerHTML=`<div class="panel-head compact"><div><span class="panel-kicker">${L('جاهزية قنوات القرار','DECISION DELIVERY READINESS')}</span><h3>${L('ما الذي يعمل الآن وما الذي يتطلب تكامل مؤسسي فعلي','What works now vs what needs production integration')}</h3></div></div><div class="v11-integration-grid"><div class="v11-integration-card"><strong>Microsoft Teams</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: بطاقة قرار + هوية المستخدم + RBAC + webhook/Graph + سجل موافقة.','Production: decision card + identity + RBAC + webhook/Graph + approval audit.')}</small></div><div class="v11-integration-card"><strong>Slack</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: تطبيق أو مساعد آلي مصادق عليه مع أزرار إجراء مربوطة بحالة القرار.','Production: authenticated App/Bot with actions tied to decision state.')}</small></div><div class="v11-integration-card"><strong>${L('البريد الإلكتروني','Email')}</strong><span>${L('غير متصل','Not connected')}</span><small>${L('في الإنتاج: رسالة قرار قابلة للتتبع وروابط عميقة للمنصة؛ لا إرسال من النسخة العامة.','Production: traceable decision email with deep links; no sending from the public demo.')}</small></div></div>`;
 }
 
 function renderSkillMapPage(){
   const box=q('#v11-skill-map-panel');if(!box)return;
-  box.innerHTML=`<div class="panel-head compact"><div><span class="panel-kicker">${L('طبقة المهارات القابلة للنقل','TRANSFERABLE SKILLS LAYER')}</span><h3>${L('من SSCO إلى بدائل مهارية قابلة للاختبار','From SSCO gaps to testable skill substitutes')}</h3></div><code>DEMO MAP</code></div><p style="font-size:9px;color:#647b89;line-height:1.6">${L('هذه الخريطة فرضيات التجربة المؤسسية وليست خريطة رسمية من التصنيف السعودي للمهارات. الغرض اختبار سير العمل: بديل محتمل → فجوات مهارية → مدة التأهيل → فحص الأهلية/الترخيص.','These mappings are pilot hypotheses, not official Saudi Skills Taxonomy mappings. They test the workflow: potential substitute → skill gaps → upskill duration → eligibility/licensing check.')}</p><div class="v11-skill-map-grid">${SKILL_MAP.map(m=>{const t=sscoByCode(m.target),s=sscoByCode(m.substitute);return `<div class="v11-skill-map-item"><strong>${esc(t?.[ar()?'ar':'en']||m.target)} ← ${esc(s?.[ar()?'ar':'en']||m.substitute)}</strong><small>${fmt(m.match*100)}% ${L('تطابق تجريبي','illustrative match')} · ${m.days} ${L('يوم تأهيل','day upskill')}<br>${esc(ar()?m.noteAr:m.noteEn)}</small></div>`}).join('')}</div>`;
+  box.innerHTML=`<div class="panel-head compact"><div><span class="panel-kicker">${L('طبقة المهارات القابلة للنقل','TRANSFERABLE SKILLS LAYER')}</span><h3>${L('من SSCO إلى بدائل مهارية قابلة للاختبار','From SSCO gaps to testable skill substitutes')}</h3></div><code>${L('خريطة تجريبية','DEMO MAP')}</code></div><p style="font-size:9px;color:#647b89;line-height:1.6">${L('هذه الخريطة فرضيات التجربة المؤسسية وليست خريطة رسمية من التصنيف السعودي للمهارات. الغرض اختبار سير العمل: بديل محتمل → فجوات مهارية → مدة التأهيل → فحص الأهلية/الترخيص.','These mappings are pilot hypotheses, not official Saudi Skills Taxonomy mappings. They test the workflow: potential substitute → skill gaps → upskill duration → eligibility/licensing check.')}</p><div class="v11-skill-map-grid">${SKILL_MAP.map(m=>{const t=sscoByCode(m.target),s=sscoByCode(m.substitute);return `<div class="v11-skill-map-item"><strong>${esc(t?.[ar()?'ar':'en']||m.target)} ← ${esc(s?.[ar()?'ar':'en']||m.substitute)}</strong><small>${fmt(m.match*100)}% ${L('تطابق تجريبي','illustrative match')} · ${m.days} ${L('يوم تأهيل','day upskill')}<br>${esc(ar()?m.noteAr:m.noteEn)}</small></div>`}).join('')}</div>`;
 }
 
+const normalizeAuditText=value=>String(value||'').toLowerCase().normalize('NFKC').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/[٠-٩]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c)));
 function applyAuditFilter(){
   const table=q('#audit-body');if(!table)return;
-  const term=(q('#v11-audit-search')?.value||'').trim().toLowerCase(),kind=q('#v11-audit-kind')?.value||'';
-  let shown=0;qa('tr',table).forEach(tr=>{const cells=qa('td',tr),k=cells[1]?.dataset.auditKind||cells[1]?.textContent.trim()||'',txt=tr.innerText.toLowerCase(),ok=(!term||txt.includes(term))&&(!kind||k===kind);tr.hidden=!ok;if(ok)shown++});
-  const n=q('#v11-audit-count');if(n)n.textContent=L(`${shown} سجل ظاهر`,`${shown} records shown`);
+  const words=normalizeAuditText(q('#v11-audit-search')?.value).trim().split(/\s+/).filter(Boolean),kind=q('#v11-audit-kind')?.value||'',sector=q('#v16-audit-sector')?.value||'',from=q('#v16-audit-from')?.value||'',to=q('#v16-audit-to')?.value||'',order=q('#v16-audit-order')?.value||'newest';
+  const records=qa('tr[data-audit-kind]',table);let shown=0;
+  records.sort((a,b)=>(Number(a.dataset.auditTime)-Number(b.dataset.auditTime))*(order==='oldest'?1:-1)).forEach(tr=>{const text=normalizeAuditText(tr.innerText+' '+tr.dataset.auditContext+' '+tr.dataset.auditKind),date=tr.dataset.auditDate||'',ok=words.every(word=>text.includes(word))&&(!kind||tr.dataset.auditKind===kind)&&(!sector||tr.dataset.auditSector===sector)&&(!from||date>=from)&&(!to||(date&&date<=to));tr.hidden=!ok;if(ok)shown++;table.appendChild(tr)});
+  const n=q('#v11-audit-count');if(n)n.textContent=L(`${shown} من ${records.length} سجل`,`${shown} of ${records.length} records`);
+  const empty=q('#v16-audit-empty');if(empty){empty.hidden=shown>0;empty.textContent=from&&to&&from>to?L('تاريخ البداية يجب أن يسبق تاريخ النهاية.','Start date must be on or before end date.'):L('لا توجد نتائج تطابق الفلاتر. جرّب توسيع التاريخ أو مسح الفلاتر.','No records match these filters. Widen the dates or clear the filters.')}
 }
 document.addEventListener('kinetic:auditrender',()=>patchAuditTools());
 function patchAuditTools(){
-  const sel=q('#v11-audit-kind');if(!sel)return;
-  const current=sel.value,kinds=[...new Set(qa('#audit-body tr td:nth-child(2)').map(td=>td.dataset.auditKind||td.textContent.trim()).filter(Boolean))].sort();
-  sel.innerHTML=`<option value="">${L('كل أنواع السجل','All record types')}</option>`+kinds.map(k=>`<option value="${esc(k)}">${esc(auditKindLabel(k))}</option>`).join('');if(kinds.includes(current))sel.value=current;applyAuditFilter();
+  const sel=q('#v11-audit-kind'),bar=q('#v11-audit-filter');if(!sel||!bar)return;
+  const current=sel.value,kinds=[...new Set(qa('#audit-body tr[data-audit-kind]').map(tr=>tr.dataset.auditKind).filter(Boolean))].sort();
+  sel.innerHTML=`<option value="">${L('كل أنواع السجل','All record types')}</option>`+kinds.map(k=>`<option value="${esc(k)}">${esc(auditKindLabel(k))}</option>`).join('');if(kinds.includes(current))sel.value=current;
+  if(!q('#v16-audit-advanced')){
+    bar.insertAdjacentHTML('afterend','<div id="v16-audit-advanced" class="v16-audit-advanced"></div><p id="v16-audit-empty" class="v16-audit-empty" role="status" hidden></p>');
+  }
+  const advanced=q('#v16-audit-advanced'),language=document.documentElement.lang;
+  if(advanced.dataset.language!==language){
+    const values=Object.fromEntries(qa('input,select',advanced).map(el=>[el.id,el.value]));
+    advanced.innerHTML=`<label><span>${L('القطاع','Sector')}</span><select id="v16-audit-sector"><option value="">${L('كل القطاعات','All sectors')}</option>${Object.entries(CONFIG.sectors).map(([k,v])=>`<option value="${k}">${esc(v[ar()?'ar':'en'])}</option>`).join('')}</select></label><label><span>${L('من تاريخ','From date')}</span><input id="v16-audit-from" type="date"></label><label><span>${L('إلى تاريخ','To date')}</span><input id="v16-audit-to" type="date"></label><label><span>${L('ترتيب السجل','Record order')}</span><select id="v16-audit-order"><option value="newest">${L('الأحدث أولًا','Newest first')}</option><option value="oldest">${L('الأقدم أولًا','Oldest first')}</option></select></label><button id="v16-audit-clear" type="button">${L('مسح الفلاتر','Clear filters')}</button>`;
+    advanced.dataset.language=language;
+    for(const [id,value] of Object.entries(values)){const el=q('#'+id);if(el)el.value=value}
+    qa('input,select',advanced).forEach(el=>el.addEventListener('change',applyAuditFilter));
+    q('#v16-audit-clear').onclick=()=>{q('#v11-audit-search').value='';sel.value='';q('#v16-audit-sector').value='';q('#v16-audit-from').value='';q('#v16-audit-to').value='';q('#v16-audit-order').value='newest';applyAuditFilter()};
+  }
+  q('#v11-audit-search').placeholder=L('ابحث بعدة كلمات: المهنة، الموقع، المصدر، نوع السجل أو التفاصيل','Search multiple words: occupation, location, source, record type or detail');
+  q('#v11-audit-search').setAttribute('aria-label',L('البحث في سجل القرارات','Search decision ledger'));sel.setAttribute('aria-label',L('تصفية نوع السجل','Filter record type'));
+  applyAuditFilter();
 }
-
 function applyTransferFilter(){
   const body=q('#gaps-body');if(!body)return;let shown=0;
   qa('tr',body).forEach(tr=>{const b=q('[data-detail]',tr);if(!b)return;const r=getRowBySource(b.dataset.detail),ok=!transferOnly||transferOptions(r).length>0;tr.hidden=!ok;if(ok)shown++});
@@ -415,7 +453,7 @@ function patchArabicTechnicalTerms(){
   qa('.rate-unit').forEach(el=>{
     if(/100\s*FTE-mo/i.test(el.textContent))el.textContent=el.textContent.replace(/\/100\s*FTE-mo/i,'/100 وظيفة مكافئة-شهر');
   });
-  qa('#executive-metrics .exec-metric strong').forEach(el=>{
+  qa('#executive-metrics .exec-metric strong .v09-unit').forEach(el=>{
     if(/100\s*FTE-mo/i.test(el.textContent))el.textContent=el.textContent.replace(/\/100\s*FTE-mo/i,'/100 وظيفة مكافئة-شهر');
   });
   const legend=q('#pulse-legend');
@@ -449,7 +487,7 @@ function renderStrategic(){
   const transfer=q('#v11-transfer-filter');if(transfer)transfer.textContent=L('قابلة للحل بالنقل','Transfer-solvable');
   const tour=q('#v11-tour-btn');if(tour)tour.textContent=L('جولة','Tour');
 
-  ensureStrategicContext();ensureShell();friendlyPeriod();patchArabicTechnicalTerms();renderServiceImpact();renderDelivery();patchCriticalCards();patchScenario();renderDataPilot();renderSkillMapPage();patchAuditTools();patchGapBuffer();enhanceBrief();updateSidebarToggle();
+  ensureStrategicContext();ensureShell();friendlyPeriod();patchArabicTechnicalTerms();renderServiceImpact();renderNextAction();renderDelivery();patchCriticalCards();patchScenario();renderDataPilot();renderSkillMapPage();patchAuditTools();patchGapBuffer();enhanceBrief();updateSidebarToggle();
 }
 let scheduled=false;
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;renderStrategic()})}

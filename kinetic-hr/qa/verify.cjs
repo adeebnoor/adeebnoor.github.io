@@ -17,6 +17,7 @@ await check(`${language}/${width}: landing uses the selected reading direction`,
 await check(`${language}/${width}: local font loads`,async()=>assert(await p.evaluate(()=>document.fonts.check('700 16px Cairo'))));
 await p.locator('[data-v14-enter]').last().click();await p.locator('#view-scenario.active').waitFor();await p.waitForTimeout(150);
 await p.screenshot({path:path.join(out,`scenario-${language}-${width}.png`),fullPage:true});
+await check(`${language}/${width}: demo starts with complete costs and approval delays`,async()=>{for(const k of ['hire','transfer','upskill','contract']){assert(Number(await p.locator('#v07-cost-'+k).inputValue())>0);assert(Number(await p.locator('#v07-approval-'+k).inputValue())>0)}assert(Number(await p.locator('#v07-budget').inputValue())>0);assert(await p.locator('#v16-scenario-ready').isVisible())});
 await check(`${language}/${width}: workspace has no horizontal overflow`,async()=>assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)));
 if(width>1000)await check(`${language}/${width}: settings are right of chart`,async()=>{const a=await p.locator('.scenario-controls').boundingBox(),b=await p.locator('.scenario-result').boundingBox();assert(a.x>b.x+b.width-1)});
 await check(`${language}/${width}: intervention changes forecast`,async()=>{const before=await p.locator('.v12-outcome-stack').innerText();await p.locator('#v14-hire').fill('5');await p.waitForTimeout(120);assert.notEqual(await p.locator('.v12-outcome-stack').innerText(),before)});

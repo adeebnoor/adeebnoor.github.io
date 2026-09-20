@@ -247,20 +247,20 @@ function renderTranslations(){
 
 function plainLanguageLabels(){
   const gapsK=q('#view-gaps .section-kicker');
-  if(gapsK)gapsK.textContent=L('الفجوة الحالية · PREVALENCE','CURRENT CAPACITY GAP · PREVALENCE');
+  if(gapsK)gapsK.textContent=L('الفجوة الحالية','CURRENT CAPACITY GAP · PREVALENCE');
   const signalsK=q('#view-signals .section-kicker');
-  if(signalsK)signalsK.textContent=L('معدل نشوء فجوة جديدة · INCIDENCE','NEW GAP RATE · INCIDENCE');
+  if(signalsK)signalsK.textContent=L('معدل نشوء فجوة جديدة','NEW GAP RATE · INCIDENCE');
 
   const metrics=qa('#executive-metrics .exec-metric');
   if(metrics[3]){
     const lab=q('.metric-top span',metrics[3]);
     if(lab)lab.textContent=L('سرعة نشوء فجوات جديدة','New uncovered-capacity rate');
     const small=q('small',metrics[3]);
-    if(small&&eventMode!=='gated')small.textContent=L('لكل 100 FTE مطلوبة-شهر','per 100 required FTE-months');
+    if(small&&eventMode!=='gated')small.textContent=L('لكل 100 مكافئ دوام كامل–شهر','per 100 required FTE-months');
   }
   qa('.panel-kicker').forEach(el=>{
-    if(el.textContent.trim()==='STOCK / PREVALENCE')el.textContent=L('الوضع الحالي · PREVALENCE','CURRENT STATE · PREVALENCE');
-    if(el.textContent.trim()==='FLOW / INCIDENCE')el.textContent=L('نشوء الفجوات · INCIDENCE','NEW GAP FLOW · INCIDENCE');
+    if(el.textContent.trim()==='STOCK / PREVALENCE')el.textContent=L('الوضع الحالي','CURRENT STATE · PREVALENCE');
+    if(el.textContent.trim()==='FLOW / INCIDENCE')el.textContent=L('نشوء الفجوات','NEW GAP FLOW · INCIDENCE');
   });
 }
 

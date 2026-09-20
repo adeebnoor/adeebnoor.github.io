@@ -250,8 +250,8 @@ if(typeof renderSignals==='function') renderSignals=function(){
     return `<article class="signal-card ${state}">
       <div class="signal-head"><div><h3>${esc9(occupationLabel(r.ssco))}</h3><small>${esc9(r.position_group_id)} · SSCO ${esc9(r.ssco)} · ${esc9(loc)}</small></div><span class="signal-badge ${state}">${stateLabel9(sv)}</span></div>
       <div class="signal-metrics">
-        <div class="signal-metric"><span>${L9('المعدل الحالي','Current rate')}</span><strong>${sv?.dataSufficient?nf9(sv.currentRate,2):'—'}</strong><small class="rate-unit">/100 FTE-mo</small></div>
-        <div class="signal-metric"><span>${L9('خط الأساس','Baseline')}</span><strong>${sv?.dataSufficient?nf9(sv.baselineRate,2):'—'}</strong><small class="rate-unit">/100 FTE-mo</small></div>
+        <div class="signal-metric"><span>${L9('المعدل الحالي','Current rate')}</span><strong>${sv?.dataSufficient?nf9(sv.currentRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</small></div>
+        <div class="signal-metric"><span>${L9('خط الأساس','Baseline')}</span><strong>${sv?.dataSufficient?nf9(sv.baselineRate,2):'—'}</strong><small class="rate-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</small></div>
         <div class="signal-metric"><span>${L9('التغير','Change')}</span><strong>${ratioText9(sv)}</strong><small class="rate-unit">${sv?.ratio===null&&sv?.dataSufficient?'0/0 · '+L9('لا يُحسب كنسبة','ratio not computed'):''}</small></div>
         <div class="signal-metric"><span>${L9('أولوية القرار','Decision priority')}</span><strong>${dp.score??'—'}</strong><small class="rate-unit">${t('common.'+dp.confidence)}</small></div>
       </div>
@@ -267,7 +267,7 @@ if(typeof renderSignals==='function') renderSignals=function(){
       <div class="v09-sufficiency">
         <span class="${sv?.evidence.observedDays===SURVEILLANCE.windowDays?'ok':'warn'}">${L9('أيام مرصودة','observed days')}: ${sv?.evidence.observedDays??0}/${SURVEILLANCE.windowDays}</span>
         <span class="${sv?.evidence.baselineWindowsComplete===SURVEILLANCE.baselineWindows?'ok':'warn'}">${L9('نوافذ أساس مكتملة','complete baselines')}: ${sv?.evidence.baselineWindowsComplete??0}/${SURVEILLANCE.baselineWindows}</span>
-        <span>${L9('التعرّض','exposure')}: ${sv?.dataSufficient?nf9(sv.denominator,1):'—'} FTE-mo</span>
+        <span>${L9('التعرّض','exposure')}: ${sv?.dataSufficient?nf9(sv.denominator,1):'—'} ${L9('دوام كامل–شهر','FTE-mo')}</span>
         <span>${L9('أحداث منشئة للفجوة','gap events')}: ${sv?.evidence.gapCreatingEventCount??0}</span>
       </div>
       ${why?`<div class="v09-priority-explainer">${esc9(why)}</div>`:''}
@@ -354,7 +354,7 @@ function patchHero9(){
   const parent=box.closest('#v07-exec-translation');
   if(parent){
     let strip=q9('.v09-evidence-strip',parent); if(!strip){strip=document.createElement('div');strip.className='v09-evidence-strip';parent.appendChild(strip)}
-    strip.innerHTML=sv?`<span class="${sv.dataSufficient?'ok':'warn'}">${sv.dataSufficient?L9('سجل الرصد مكتمل','Surveillance history complete'):L9('الرصد غير مكتمل','Surveillance incomplete')}</span><span>${L9('أيام النافذة','window days')}: ${sv.evidence.observedDays}/30</span><span>${L9('التعرّض','exposure')}: ${sv.dataSufficient?nf9(sv.denominator,1):'—'} FTE-mo</span><span>${L9('نوافذ الأساس','baseline windows')}: ${sv.evidence.baselineWindowsComplete}/3</span>`:'';
+    strip.innerHTML=sv?`<span class="${sv.dataSufficient?'ok':'warn'}">${sv.dataSufficient?L9('سجل الرصد مكتمل','Surveillance history complete'):L9('الرصد غير مكتمل','Surveillance incomplete')}</span><span>${L9('أيام النافذة','window days')}: ${sv.evidence.observedDays}/30</span><span>${L9('التعرّض','exposure')}: ${sv.dataSufficient?nf9(sv.denominator,1):'—'} ${L9('دوام كامل–شهر','FTE-mo')}</span><span>${L9('نوافذ الأساس','baseline windows')}: ${sv.evidence.baselineWindowsComplete}/3</span>`:'';
   }
 }
 function patchMetrics9(){
@@ -369,7 +369,7 @@ function patchMetrics9(){
   set(1,L9('التغطية المطابقة','Matched coverage'),`${nf9(s.coverage*100,1)}%`,L9(`${nf9(s.needed-s.gap,1)} FTE مغطاة من ${nf9(s.needed,1)} FTE مطلوبة`,`${nf9(s.needed-s.gap,1)} FTE matched of ${nf9(s.needed,1)} required`));
   set(2,L9('الفجوة الحالية','Current capacity gap'),`${nf9(s.gap,1)} <span class="v09-unit">FTE</span>`,L9(`${nf9(s.needed?100*s.gap/s.needed:0,1)}% من القدرة المطلوبة`,`${nf9(s.needed?100*s.gap/s.needed:0,1)}% of required capacity`));
   const ready=currentRows().filter(r=>surveillanceFor(r)?.dataSufficient),w=getWindows(),den=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).denominator,0),num=ready.reduce((a,r)=>a+incidenceWindow(r,w.current.start,w.current.end).newGapFte,0),rate=den?100*num/den:null;
-  set(3,L9('معدل نشوء فجوة جديدة','New uncovered-capacity rate'),rate==null?'—':`${nf9(rate,2)} <span class="v09-unit">/100 FTE-mo</span>`,rate==null?L9('بيانات الرصد غير كافية','Insufficient surveillance data'):L9(`نافذة 30 يومًا · تعرّض ${nf9(den,1)} FTE-شهر`,`30-day window · ${nf9(den,1)} FTE-month exposure`));
+  set(3,L9('معدل نشوء فجوة جديدة','New uncovered-capacity rate'),rate==null?'—':`${nf9(rate,2)} <span class="v09-unit">${L9('لكل 100 دوام كامل–شهر','/100 FTE-mo')}</span>`,rate==null?L9('بيانات الرصد غير كافية','Insufficient surveillance data'):L9(`نافذة 30 يومًا · تعرّض ${nf9(den,1)} FTE-شهر`,`30-day window · ${nf9(den,1)} FTE-month exposure`));
 }
 function patchQueue9(){
   qa9('#decision-queue .queue-item').forEach(item=>{
@@ -432,7 +432,9 @@ function patchAudit9(){
   body.innerHTML=current.length?current.map(({x,row})=>{
     const pg=x.position_group_id||row?.position_group_id||'—',cell=x.workforce_cell||x.cell||(row?cellCode(row):'—');
     const when=x.recorded_at?new Date(x.recorded_at).toLocaleString(lang==='ar'?'ar-SA':'en-GB'):'—';
-    return `<tr><td>${when}</td><td data-audit-kind="${esc9(x.kind||'')}">${esc9(auditKindLabel(x.kind))}</td><td><span class="v09-pgid">${esc9(pg)}</span><small class="v09-cellcode">${esc9(cell)}</small></td><td>${esc9(auditDetailLabel(x.detail||formatAuditDetail(x)))}</td><td>${esc9(x.basis||'—')}</td><td><span class="v09-source-tag">${esc9(x.source||x.file_name||x.source_row||'—')}</span></td></tr>`;
+    const date=x.recorded_at?new Date(x.recorded_at):null,day=date&&!Number.isNaN(+date)?[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-'):'';
+    const loc=row?sectorCfg(row.sector).locations.find(v=>v.id===row.location):null,occupation=row?sscoByCode(row.ssco):null,context=[occupation?.ar,occupation?.en,loc?.ar,loc?.en,x.kind,auditKindLabel(x.kind,'ar'),auditKindLabel(x.kind,'en'),pg,cell].filter(Boolean).join(' ');
+    return `<tr data-audit-kind="${esc9(x.kind||'')}" data-audit-sector="${esc9(row?.sector||'')}" data-audit-date="${day}" data-audit-time="${date&&!Number.isNaN(+date)?+date:0}" data-audit-context="${esc9(context)}"><td>${when}</td><td data-audit-kind="${esc9(x.kind||'')}">${esc9(auditKindLabel(x.kind))}</td><td><span class="v09-pgid">${esc9(pg)}</span><small class="v09-cellcode">${esc9(cell)}</small></td><td>${esc9(auditDetailLabel(x.detail||formatAuditDetail(x)))}</td><td>${esc9(x.basis||'—')}</td><td><span class="v09-source-tag">${esc9(x.source||x.file_name||x.source_row||'—')}</span></td></tr>`;
   }).join(''):'<tr><td colspan="6">—</td></tr>';
   q9('#v09-audit-legacy')?.remove();
   if(legacy.length){
