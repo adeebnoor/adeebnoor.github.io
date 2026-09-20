@@ -61,7 +61,7 @@ function enhanceLanding(){
 }
 
 function enhanceApp(){
-  const top=q('.top-actions');let b=q('#v13-compliance-btn');if(top&&!b){b=document.createElement('button');b.id='v13-compliance-btn';b.type='button';b.className='utility-btn v13-compliance-btn';b.addEventListener('click',openModal);top.insertBefore(b,top.firstChild)}if(b)b.textContent=L('الثقة والامتثال','Trust & compliance');
+  const top=q('.top-actions');let b=q('#v13-compliance-btn');if(top&&!b){b=document.createElement('button');b.id='v13-compliance-btn';b.type='button';b.className='utility-btn v13-compliance-btn';b.addEventListener('click',openModal);top.insertBefore(b,top.firstChild)}const label=L('الثقة والامتثال','Trust & compliance');if(b&&b.textContent!==label)b.textContent=label;
 }
 
 function ensureShell(){
