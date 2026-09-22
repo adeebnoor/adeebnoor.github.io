@@ -91,13 +91,15 @@ def home_copy(lang):
     if ar:
         return ('<div class="hero-copy"><div class="eyebrow">ما يخفيه الرقم</div><h1><span>أديب</span> نور</h1>'
                 '<p class="role">أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز</p>'
-                '<p class="intro">الرقم ليس قرارًا. أدرس ما يحدث حين تتحول الدرجة إلى قرار يمسّ الناس، في الذكاء الاصطناعي والصحة والتعليم والمؤسسات العامة، وأبني أدوات تجعل هذا القرار قابلًا للمساءلة.</p>'
+                '<p class="hero-thesis">أساعد المؤسسات على تحويل درجات الذكاء الاصطناعي إلى قرارات قابلة للمساءلة.</p>'
+                '<p class="intro">أبحث ما يحدث حين تتحول الدرجة إلى قرار يمسّ الناس في الذكاء الاصطناعي والصحة والتعليم والمؤسسات العامة، وأبني أدوات تجعل القرار قابلًا للفحص والمساءلة.</p>'
                 '<p class="location">جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية</p>'
                 '<div class="actions"><a class="button primary" href="/ar/ideas/position.html">اقرأ أطروحتي ←</a><a class="button" href="/ar/contact.html#inquiry-form">اعمل معي ←</a></div>'
                 '<p class="hero-cv-links"><a href="/ar/executive-cv.html">السيرة التنفيذية</a><span aria-hidden="true"> · </span><a href="/ar/academic-cv.html">السيرة الأكاديمية</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
     return ('<div class="hero-copy"><div class="eyebrow">What the Score Hides</div><h1><span>Adeeb</span> Noor</h1>'
             '<p class="role">Professor of Data Science &amp; AI, King Abdulaziz University</p>'
-            '<p class="intro">A score is not a decision. I study what happens when a score becomes a decision about people — in AI, healthcare, education and public institutions — and build tools that make that decision accountable.</p>'
+            '<p class="hero-thesis">I help institutions turn AI scores into accountable decisions.</p>'
+            '<p class="intro">I study what happens when a score becomes a decision about people — in AI, healthcare, education and public institutions — and build tools that make the decision inspectable and accountable.</p>'
             '<p class="location">King Abdulaziz University · Jeddah, Saudi Arabia</p>'
             '<div class="actions"><a class="button primary" href="/ideas/position.html">Read my position →</a><a class="button" href="/contact.html#inquiry-form">Work with me →</a></div>'
             '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
