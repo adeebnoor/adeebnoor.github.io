@@ -34,7 +34,7 @@
     "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create",
     "state": {
       "en": "Live",
-      "ar": "مباشر"
+      "ar": "Live"
     },
     "updated": {
       "en": "Updated 2026",
@@ -75,7 +75,7 @@
     },
     "state": {
       "en": "Prototype",
-      "ar": "نموذج أولي"
+      "ar": "Prototype"
     },
     "updated": {
       "en": "Updated 2026",
@@ -120,7 +120,7 @@
     },
     "state": {
       "en": "Public Beta",
-      "ar": "نسخة تجريبية عامة"
+      "ar": "Public Beta"
     },
     "updated": {
       "en": "Updated 2026",
@@ -158,8 +158,8 @@
     "repoUrl": "https://github.com/adeebnoor/ridi",
     "osfUrl": "https://osf.io/txwdv/",
     "state": {
-      "en": "Open Research",
-      "ar": "بحث مفتوح"
+      "en": "Prototype",
+      "ar": "Prototype"
     },
     "updated": {
       "en": "Updated 2026",
@@ -192,7 +192,7 @@
     },
     "state": {
       "en": "In Development",
-      "ar": "قيد التطوير"
+      "ar": "In Development"
     },
     "updated": {
       "en": "Updated 2026",
@@ -236,11 +236,11 @@
     },
     "state": {
       "en": "Live",
-      "ar": "مباشر"
+      "ar": "Live"
     },
     "updated": {
-      "en": "Public record 2019",
-      "ar": "سجل عام 2019"
+      "en": "Updated 2019",
+      "ar": "محدّث 2019"
     },
     "role": {
       "en": "My contribution: founder and technology leadership during hospital digital modernization.",
@@ -278,8 +278,8 @@
     "imageWidth": 1348,
     "imageHeight": 926,
     "state": {
-      "en": "Live Teaching System",
-      "ar": "نظام تعليمي مباشر"
+      "en": "Live",
+      "ar": "Live"
     },
     "updated": {
       "en": "Updated 2026",
@@ -313,7 +313,7 @@
     },
     "state": {
       "en": "In Development",
-      "ar": "قيد التطوير"
+      "ar": "In Development"
     },
     "updated": {
       "en": "Updated 2026",
@@ -346,12 +346,12 @@
       "alt": "رسم للحمض النووي والطب الشخصي"
     },
     "state": {
-      "en": "Venture Experience",
-      "ar": "تجربة ريادية"
+      "en": "Prototype",
+      "ar": "Prototype"
     },
     "updated": {
-      "en": "Public record 2017",
-      "ar": "سجل عام 2017"
+      "en": "Updated 2017",
+      "ar": "محدّث 2017"
     },
     "role": {
       "en": "My contribution: co-founder.",

@@ -74,7 +74,7 @@ def input_field(name, label, lang, type_='text', required=False, max_=160, autoc
 
 
 def select_field(name,label,options,lang,required=True):
-    return '<div class="audit-field"><label for="inquiry-'+name+'">'+e(label)+'</label><select id="inquiry-'+name+'" name="'+name+'"'+(' required' if required else '')+'><option value="">'+text('Please select','اختر',lang)+'</option>'+''.join(f'<option value="{e(key)}">{e(text(en,ar,lang))}</option>' for key,en,ar in options)+'</select></div>'
+    return '<div class="audit-field"><label for="inquiry-'+name+'">'+e(label)+'</label><select id="inquiry-'+name+'" name="'+name+'"'+(' required' if required else '')+'><option value="">'+text('Please select','اختر نوع الطلب',lang)+'</option>'+''.join(f'<option value="{e(key)}">{e(text(en,ar,lang))}</option>' for key,en,ar in options)+'</select></div>'
 
 
 def inquiry_form(lang, updates=False):
@@ -84,12 +84,11 @@ def inquiry_form(lang, updates=False):
     if not updates:
         fields+=input_field('organization',text('Organization / affiliation (optional)','الجهة أو الانتماء (اختياري)',lang),lang,autocomplete='organization')
         fields+=select_field('engagement',text('What is this request about?','ما نوع الطلب؟',lang),[
+            ('advisory','Strategic advisory','استشارة'),
             ('venture','Funding / investment','تمويل / استثمار'),
-            ('research','Partnership / collaboration','شراكة / تعاون'),
-            ('other','Student supervision','إشراف طلاب'),
-            ('advisory','Strategic advisory','استشارة استراتيجية'),
-            ('speaking','Lecture / keynote / workshop','محاضرة / كلمة رئيسية / ورشة'),
-            ('board','Board / expert committee','مجلس / لجنة خبراء')],lang)
+            ('other','Student supervision','إشراف'),
+            ('speaking','Lecture / keynote / workshop','محاضرة / كلمة / ورشة'),
+            ('research','Partnership / collaboration','شراكة / تعاون')],lang)
         fields+=select_field('audience',text('I am contacting as','أتواصل بصفتي',lang),[
             ('institution','Institution / government','جهة مؤسسية أو حكومية'),('company','Company / investor','شركة أو مستثمر'),('researcher','Researcher / academic','باحث أو أكاديمي'),('student','Student','طالب')],lang)
         fields+=select_field('timeline',text('Desired timeline','الإطار الزمني المطلوب',lang),[('soon','Within a month','خلال شهر'),('quarter','Within three months','خلال ثلاثة أشهر'),('later','Later / exploratory','لاحقًا أو استكشافي')],lang)

@@ -196,11 +196,11 @@ def apply_home(path, lang, image_url):
         raise ValueError(f'{path}: homepage ideas gateway target missing')
     if lang == 'ar':
         title='د. أديب نور | ما يخفيه الرقم — الذكاء الاصطناعي والقرار، جامعة الملك عبدالعزيز'
-        desc='أديب نور، أستاذ علوم البيانات والذكاء الاصطناعي: الاستراتيجية والحوكمة، رأس المال البشري وذكاء القوى العاملة، الذكاء الاصطناعي وذكاء القرار، الصحة الرقمية والتحول المؤسسي.'
+        desc='الأستاذ الدكتور أديب نور — أستاذ وباحث ومطوّر أنظمة يعمل عبر الذكاء الاصطناعي وذكاء القرار، الاستراتيجية والحوكمة، ذكاء القوى العاملة، الصحة الرقمية، والبحث والتحول المؤسسي.'
         locale='ar_SA'
     else:
         title='Prof. Adeeb Noor — What the Score Hides | AI & Decisions, King Abdulaziz University'
-        desc='Prof. Adeeb Noor: strategy and governance, human capital and workforce intelligence, AI and decision intelligence, digital health and institutional transformation.'
+        desc='Prof. Adeeb Noor — Saudi professor and builder working across AI and decision intelligence, strategy and governance, workforce intelligence, digital health, research and institutional transformation.'
         locale='en_US'
     source=put_title(source,title)
     for attr,key,val in [('name','description',desc),('property','og:title',title),('property','og:description',desc),('property','og:locale',locale)]: source=put_meta(source,attr,key,val)
