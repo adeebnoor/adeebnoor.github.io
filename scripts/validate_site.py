@@ -1,3 +1,4 @@
+# Final clean homepage generated-state validation.
 # Clean homepage final-state validation.
 # Strategy-human-capital-research final validation trigger.
 # Post-generation hero thesis validation trigger.
