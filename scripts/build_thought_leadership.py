@@ -60,7 +60,8 @@ def profile_schema(lang):
             'https://orcid.org/0000-0002-8251-1853',
             'https://www.researchgate.net/profile/Adeeb-Noor-2',
             'https://cemse.kaust.edu.sa/profiles/adeeb-noor',
-            'https://github.com/adeebnoor'
+            'https://github.com/adeebnoor',
+            'https://x.com/AdeebnooR'
         ]
     }
     portrait = ROOT/'assets/adeeb-noor.jpg'
