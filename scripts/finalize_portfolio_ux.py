@@ -2,7 +2,7 @@
 
 Runs last in the generated-site pipeline so project maturity, contact intake,
 mobile asset versions and social metadata cannot be overwritten by earlier
-generators/localizers.
+generators/localizers. The pass is intentionally idempotent so a second build is clean.
 """
 from pathlib import Path
 from html import escape
