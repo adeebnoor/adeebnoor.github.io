@@ -1,32 +1,116 @@
 [
   {
-    "id": "funders", "contact": "inquiry-form", "evidenceUrl": "/funders.html",
-    "ar": {"name": "الجهات المانحة", "promise": "موّل سؤالًا يمكن اختباره وقرارًا يمكن مساءلته.", "contribution": "ثلاثة اتجاهات بحثية جاهزة للنقاش في تدقيق قرارات الذكاء الاصطناعي، واكتمال المعرفة الطبية، وأدلة الجاهزية في التعليم المدعوم بالذكاء الاصطناعي.", "evidence": "السجل والاتجاهات المقترحة", "cta": "ناقش فرصة تمويل"},
-    "en": {"name": "Funders", "promise": "Fund a testable question and an accountable decision.", "contribution": "Three research directions are ready for discussion across public-sector AI decision audits, biomedical knowledge completeness and evidence of readiness in AI-enabled education.", "evidence": "Track record and proposed directions", "cta": "Discuss a funding opportunity"}
+    "id": "funders",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/funders.html",
+    "ar": {
+      "name": "الجهات المانحة",
+      "promise": "موّل سؤالًا يمكن اختباره وقرارًا يمكن مساءلته.",
+      "contribution": "ثلاثة اتجاهات بحثية جاهزة للنقاش في تدقيق قرارات الذكاء الاصطناعي، واكتمال المعرفة الطبية، وأدلة الجاهزية في التعليم المدعوم بالذكاء الاصطناعي.",
+      "evidence": "السجل والاتجاهات المقترحة",
+      "cta": "ناقش فرصة تمويل"
+    },
+    "en": {
+      "name": "Funders",
+      "promise": "Fund a testable question and an accountable decision.",
+      "contribution": "Three research directions are ready for discussion across public-sector AI decision audits, biomedical knowledge completeness and evidence of readiness in AI-enabled education.",
+      "evidence": "Track record and proposed directions",
+      "cta": "Discuss a funding opportunity"
+    }
   },
   {
-    "id": "investors", "contact": "inquiry-form", "evidenceUrl": "/ventures.html",
-    "ar": {"name": "المستثمرون والشركاء", "promise": "اربط العمق البحثي بأصل قابل للتوسع.", "contribution": "استكشف مشاريع في الصحة الرقمية وتقنيات التعليم وذكاء القرار، مع فصل واضح بين ما تم بناؤه وما يزال قيد التطوير.", "evidence": "المشاريع ومراحلها الحالية", "cta": "استكشف شراكة"},
-    "en": {"name": "Investors & Venture Partners", "promise": "Connect research depth to a scalable asset.", "contribution": "Explore work in digital health, education technology and decision intelligence, with a clear distinction between what has been built and what remains in development.", "evidence": "Projects and current stages", "cta": "Explore a partnership"}
+    "id": "investors",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/partnerships.html",
+    "ar": {
+      "name": "المستثمرون والشركاء",
+      "promise": "اربط العمق البحثي بأصل قابل للتوسع.",
+      "contribution": "استكشف مشاريع في الصحة الرقمية وتقنيات التعليم وذكاء القرار، مع فصل واضح بين ما تم بناؤه وما يزال قيد التطوير.",
+      "evidence": "المشاريع ومراحلها الحالية",
+      "cta": "استكشف شراكة"
+    },
+    "en": {
+      "name": "Investors & Venture Partners",
+      "promise": "Connect research depth to a scalable asset.",
+      "contribution": "Explore work in digital health, education technology and decision intelligence, with a clear distinction between what has been built and what remains in development.",
+      "evidence": "Projects and current stages",
+      "cta": "Explore a partnership"
+    }
   },
   {
-    "id": "academic", "contact": "inquiry-form", "evidenceUrl": "/academic.html",
-    "ar": {"name": "الجامعات العالمية", "promise": "تعاون حول سؤال علمي يتجاوز حدود التخصص.", "contribution": "بيان بحثي وتدريسي موجز، والسيرة الأكاديمية، ومسارات للتعاون في الذكاء الاصطناعي والمعلوماتية الطبية والتعليم.", "evidence": "الملف الأكاديمي والتعاون", "cta": "ناقش تعاونًا أكاديميًا"},
-    "en": {"name": "Universities", "promise": "Collaborate around a question that crosses disciplinary boundaries.", "contribution": "A concise research and teaching statement, academic record and collaboration routes across AI, biomedical informatics and education.", "evidence": "Academic profile and collaboration", "cta": "Discuss academic collaboration"}
+    "id": "academic",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/academic.html",
+    "ar": {
+      "name": "الجامعات العالمية",
+      "promise": "تعاون حول سؤال علمي يتجاوز حدود التخصص.",
+      "contribution": "بيان بحثي وتدريسي موجز، والسيرة الأكاديمية، ومسارات للتعاون في الذكاء الاصطناعي والمعلوماتية الطبية والتعليم.",
+      "evidence": "الملف الأكاديمي والتعاون",
+      "cta": "ناقش تعاونًا أكاديميًا"
+    },
+    "en": {
+      "name": "Universities",
+      "promise": "Collaborate around a question that crosses disciplinary boundaries.",
+      "contribution": "A concise research and teaching statement, academic record and collaboration routes across AI, biomedical informatics and education.",
+      "evidence": "Academic profile and collaboration",
+      "cta": "Discuss academic collaboration"
+    }
   },
   {
-    "id": "students", "contact": "inquiry-form", "evidenceUrl": "/students.html",
-    "ar": {"name": "الطلاب", "promise": "ابدأ بسؤال، ثم ابنِ دليلًا على قدرتك.", "contribution": "استكشف موضوعات بحثية مفتوحة، وما يلزم لبدء نقاش إشراف أو مشروع، مع إحالة القبول والتمويل إلى أنظمة الجامعة الرسمية.", "evidence": "موضوعات وطريقة التقديم", "cta": "ناقش مسارك البحثي"},
-    "en": {"name": "Students", "promise": "Start with a question, then build evidence of capability.", "contribution": "Explore open research directions and what to send when starting a supervision or project conversation; admissions and funding remain within university systems.", "evidence": "Topics and how to approach", "cta": "Discuss your research path"}
+    "id": "students",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/students.html",
+    "ar": {
+      "name": "الطلاب",
+      "promise": "ابدأ بسؤال، ثم ابنِ دليلًا على قدرتك.",
+      "contribution": "استكشف موضوعات بحثية مفتوحة، وما يلزم لبدء نقاش إشراف أو مشروع، مع إحالة القبول والتمويل إلى أنظمة الجامعة الرسمية.",
+      "evidence": "موضوعات وطريقة التقديم",
+      "cta": "ناقش مسارك البحثي"
+    },
+    "en": {
+      "name": "Students",
+      "promise": "Start with a question, then build evidence of capability.",
+      "contribution": "Explore open research directions and what to send when starting a supervision or project conversation; admissions and funding remain within university systems.",
+      "evidence": "Topics and how to approach",
+      "cta": "Discuss your research path"
+    }
   },
   {
-    "id": "researchers", "contact": "inquiry-form", "evidenceUrl": "/research.html",
-    "ar": {"name": "الباحثون والتعاون", "promise": "أسئلة بحثية تتصل بقرارات حقيقية.", "contribution": "تعاون في تقييم الذكاء الاصطناعي والمعلوماتية الطبية والتعليم، بفرضيات واضحة وأدلة قابلة للفحص.", "evidence": "اطّلع على RIDI وأبحاث التداخلات الدوائية", "cta": "اقترح تعاونًا بحثيًا"},
-    "en": {"name": "Researchers & Collaborators", "promise": "Research connected to real decisions.", "contribution": "Collaborate on AI evaluation, biomedical informatics and education through clear hypotheses and evidence that can be examined.", "evidence": "Explore RIDI and drug-interaction research", "cta": "Propose research collaboration"}
+    "id": "researchers",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/research.html",
+    "ar": {
+      "name": "الباحثون والتعاون",
+      "promise": "أسئلة بحثية تتصل بقرارات حقيقية.",
+      "contribution": "تعاون في تقييم الذكاء الاصطناعي والمعلوماتية الطبية والتعليم، بفرضيات واضحة وأدلة قابلة للفحص.",
+      "evidence": "اطّلع على RIDI وأبحاث التداخلات الدوائية",
+      "cta": "اقترح تعاونًا بحثيًا"
+    },
+    "en": {
+      "name": "Researchers & Collaborators",
+      "promise": "Research connected to real decisions.",
+      "contribution": "Collaborate on AI evaluation, biomedical informatics and education through clear hypotheses and evidence that can be examined.",
+      "evidence": "Explore RIDI and drug-interaction research",
+      "cta": "Propose research collaboration"
+    }
   },
   {
-    "id": "organizations", "contact": "inquiry-form", "evidenceUrl": "/engagements.html",
-    "ar": {"name": "الحكومة والمؤسسات", "promise": "من أولوية الجهة إلى قدرة مؤسسية.", "contribution": "أربط حوكمة البيانات وتخطيط القوى العاملة والاستراتيجية البحثية بنماذج تشغيل قابلة للتطبيق.", "evidence": "نماذج من القيادة والتنفيذ", "cta": "ناقش أولوية مؤسسية"},
-    "en": {"name": "Government & Institutions", "promise": "From priorities to institutional capability.", "contribution": "Connect data governance, workforce planning and research strategy with practical operating models.", "evidence": "Examples of leadership and implementation", "cta": "Discuss an institutional priority"}
+    "id": "organizations",
+    "contact": "inquiry-form",
+    "evidenceUrl": "/engagements.html",
+    "ar": {
+      "name": "الحكومة والمؤسسات",
+      "promise": "من أولوية الجهة إلى قدرة مؤسسية.",
+      "contribution": "أربط حوكمة البيانات وتخطيط القوى العاملة والاستراتيجية البحثية بنماذج تشغيل قابلة للتطبيق.",
+      "evidence": "نماذج من القيادة والتنفيذ",
+      "cta": "ناقش أولوية مؤسسية"
+    },
+    "en": {
+      "name": "Government & Institutions",
+      "promise": "From priorities to institutional capability.",
+      "contribution": "Connect data governance, workforce planning and research strategy with practical operating models.",
+      "evidence": "Examples of leadership and implementation",
+      "cta": "Discuss an institutional priority"
+    }
   }
 ]
