@@ -45,19 +45,19 @@ def card(item,lang,compact=False):
 def home_section(lang):
     ar=lang=='ar'
     items=[x for x in DATA['items'] if x.get('featured')][:3]
-    kicker='أحدث الأبحاث' if ar else 'Latest research'
-    heading='ما نُشر مؤخرًا.' if ar else 'What was published recently.'
-    intro=('أحدث الأعمال البحثية الموثقة من صفحات الناشرين وPubMed وarXiv. '
+    kicker='أحدث الأبحاث والظهور' if ar else 'Latest research & mentions'
+    heading='ما نُشر عن عملي مؤخرًا.' if ar else 'What was published recently.'
+    intro=('أحدث الأعمال البحثية والإشارات العامة الموثقة من الناشرين وقواعد البحث والمصادر العامة. '
            'للمتابعة المستمرة استخدم الروابط أدناه.') if ar else (
-           'Recent research verified against publisher, PubMed and arXiv records. '
-           'Use the follow links below for the live scholarly record.')
+           'Recent research and public mentions verified against publisher, scholarly and public records. '
+           'Use the follow links below for the live record.')
     all_label='كل الأبحاث والمنشورات ←' if ar else 'All research & publications →'
     pub='/ar/publications.html#latest-research' if ar else '/publications.html#latest-research'
     return START+f'<section class="section latest-updates" id="latest-research"><div class="wrap"><div class="label">{kicker}</div><h2>{heading}</h2><p class="latest-intro">{intro}</p><div class="latest-grid">'+''.join(card(x,lang,True) for x in items)+f'</div>{follow_links(lang)}<p class="latest-all"><a href="{pub}">{all_label}</a></p></div></section>'+END
 
 def publications_section(lang):
     ar=lang=='ar'
-    kicker='أحدث الأبحاث والسجل العام' if ar else 'Latest research & public record'
+    kicker='أحدث الأبحاث والظهور العام' if ar else 'Latest research & public mentions'
     heading='تحديثات موثقة، لا قائمة تلقائية غير مراجعة.' if ar else 'Verified updates, not an unreviewed automated list.'
     intro=('أضيف هنا أحدث الأعمال التي يمكن التحقق منها من الناشر أو قاعدة بحثية عامة. '
            'القائمة الكاملة والاستشهادات تبقى في Google Scholar وORCID.') if ar else (
@@ -72,9 +72,14 @@ def replace_block(text,section):
 for path,lang in [(ROOT/'index.html','en'),(ROOT/'ar/index.html','ar')]:
     text=path.read_text()
     text,section=replace_block(text,home_section(lang))
-    m=re.search(r'(<section class="stats"[^>]*>.*?</section>)',text,flags=re.S)
-    if not m: raise ValueError(f'{path}: stats section missing')
-    text=text[:m.end()]+section+text[m.end():]
+    expertise=re.search(r'<!-- expertise-map:start -->.*?<!-- expertise-map:end -->',text,flags=re.S)
+    if expertise:
+        insert_at=expertise.end()
+    else:
+        m=re.search(r'(<section class="stats"[^>]*>.*?</section>)',text,flags=re.S)
+        if not m: raise ValueError(f'{path}: stats section missing')
+        insert_at=m.end()
+    text=text[:insert_at]+section+text[insert_at:]
     path.write_text(text)
 
 for path,lang in [(ROOT/'publications.html','en'),(ROOT/'ar/publications.html','ar')]:
