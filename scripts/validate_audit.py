@@ -1,3 +1,4 @@
+# UX polish final-state validation marker.
 # Final evidence portfolio validation rerun.
 # Validation rerun marker: final generated portfolio state verified.
 """Audit-specific regression contracts; fail before publishing incomplete flows."""
