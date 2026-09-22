@@ -74,7 +74,7 @@ def input_field(name, label, lang, type_='text', required=False, max_=160, autoc
 
 
 def select_field(name,label,options,lang,required=True):
-    return '<div class="audit-field"><label for="inquiry-'+name+'">'+e(label)+'</label><select id="inquiry-'+name+'" name="'+name+'"'+(' required' if required else '')+'><option value="">'+text('Please select','اختر نوع الطلب',lang)+'</option>'+''.join(f'<option value="{e(key)}">{e(text(en,ar,lang))}</option>' for key,en,ar in options)+'</select></div>'
+    return '<div class="audit-field"><label for="inquiry-'+name+'">'+e(label)+'</label><select id="inquiry-'+name+'" name="'+name+'"'+(' required' if required else '')+'><option value="">'+text('Please select','اختر',lang)+'</option>'+''.join(f'<option value="{e(key)}">{e(text(en,ar,lang))}</option>' for key,en,ar in options)+'</select></div>'
 
 
 def inquiry_form(lang, updates=False):
@@ -94,7 +94,7 @@ def inquiry_form(lang, updates=False):
         fields+=select_field('timeline',text('Desired timeline','الإطار الزمني المطلوب',lang),[('soon','Within a month','خلال شهر'),('quarter','Within three months','خلال ثلاثة أشهر'),('later','Later / exploratory','لاحقًا أو استكشافي')],lang)
         fields+=select_field('authority',text('Your role in the decision','دورك في القرار',lang),[('decision_maker','Decision maker / sponsor','صاحب القرار أو الراعي'),('team','Project team / recommender','فريق المشروع أو مقدم التوصية'),('individual','Individual inquiry / student','تواصل فردي أو طالب')],lang)
         fields+='<div class="audit-field audit-full"><label for="inquiry-problem">'+text('What problem are you trying to solve? What outcome would be useful?','ما المشكلة التي تريد حلّها؟ وما النتيجة التي تحتاجها؟',lang)+'</label><textarea id="inquiry-problem" name="problem" minlength="20" maxlength="4000" required aria-describedby="inquiry-help"></textarea><p class="audit-help" id="inquiry-help">'+text('20–4,000 characters. Do not include patient information, passwords or confidential institutional material.','من 20 إلى 4,000 حرف. لا تُدرج بيانات مرضى أو كلمات مرور أو مواد مؤسسية سرية.',lang)+'</p></div>'
-    fields+='<div class="audit-honeypot" aria-hidden="true"><label for="inquiry-website">Website</label><input id="inquiry-website" name="website" tabindex="-1" autocomplete="off"></div>'
+    fields+='<div class="audit-honeypot" aria-hidden="true"><label for="inquiry-website">'+text('Website','الموقع الإلكتروني',lang)+'</label><input id="inquiry-website" name="website" tabindex="-1" autocomplete="off"></div>'
     consent=text('I agree that Adeeb Noor may use these details to respond to this request.','أوافق على استخدام أديب نور لهذه البيانات للرد على هذا الطلب.',lang)
     if updates:
         consent=text('I request occasional essay updates and agree to being contacted to confirm my email before any subscription is activated.','أطلب تحديثات المقالات من حين لآخر، وأوافق على التواصل معي لتأكيد بريدي قبل تفعيل أي اشتراك.',lang)
