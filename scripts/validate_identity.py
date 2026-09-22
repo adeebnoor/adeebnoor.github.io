@@ -66,7 +66,8 @@ def validate():
                     errors.append(f'{name}: legacy personal email remains')
             for link in doc.links:
                 href = link['href']
-                if href.startswith('mailto:') and link['owner'] != 'external' and urlsplit(href).path != official:
+                allowed = {official, identity.get('opportunities_email', official)}
+                if href.startswith('mailto:') and link['owner'] != 'external' and urlsplit(href).path not in allowed:
                     errors.append(f'{name}: unexpected public contact address {urlsplit(href).path}')
                 if link['site'] == 'institutional-email' and re.sub(r'\s*[→←]\s*$', '', link['text'].strip()) != official:
                     errors.append(f'{name}: displayed email diverges from the canonical contact address')
