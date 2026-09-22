@@ -56,3 +56,60 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .venture-links a.primary{background:linear-gradient(180deg,#f1d487,#d9ae50);border-color:#c89a3f;color:#20180e}
 @media(max-width:980px){.venture-card{grid-template-columns:1fr}.venture-mark{min-height:170px}.venture-mark h2{margin-top:28px}}
 @media(max-width:680px){.venture-stack{gap:20px}.venture-card{border-radius:14px}.venture-mark{padding:24px 22px;min-height:150px}.venture-body{padding:24px 22px 26px}.venture-body h3{font-size:28px}.proof-grid{grid-template-columns:1fr}.venture-links a{width:100%}}
+
+
+/* Students research journey · 2026-09-22 */
+.audience-students .page-hero{padding-block:58px 48px}
+.audience-students .page-hero .wrap{max-width:980px}
+.audience-students .page-hero h1{max-width:840px}
+.audience-students .content{max-width:980px}
+.student-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end;margin:42px 0 34px;padding:0 0 30px;border-bottom:1px solid #ddd4c5}
+.student-intro h2{margin:5px 0 10px;font-size:clamp(28px,3vw,38px)}
+.student-intro p{max-width:760px;margin:0;font-size:17px;line-height:1.65;color:#504b43}
+.student-primary-link{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;font:700 14px/1.5 Arial,Tahoma,sans-serif;color:#76581f;text-decoration:underline;text-underline-offset:4px}
+.student-topics{margin:0 0 44px}
+.student-topics .section-intro,.student-steps .section-intro{margin:0 0 18px}
+.student-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.student-topic{display:grid;grid-template-columns:42px minmax(0,1fr);gap:14px;padding:20px;border:1px solid #ddd2bf;border-radius:12px;background:#fffefa;min-height:180px}
+.student-topic-no{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#0a151a;color:#dfc184;font:700 11px/1 Arial,Tahoma,sans-serif}
+.student-topic h3{font-size:24px;line-height:1.2;margin:1px 0 8px}
+.student-topic p{font:15px/1.6 Arial,Tahoma,sans-serif;color:#5b554d;margin:0 0 12px}
+.student-topic a{font:700 13px/1.5 Arial,Tahoma,sans-serif;color:#75581f;text-decoration:underline;text-underline-offset:3px}
+.student-steps{margin:0 0 44px}
+.student-step-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.student-step-grid article{padding:18px 16px;border-top:3px solid #c9a35a;background:#f7f3ea}
+.student-step-grid span{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:50%;background:#0a151a;color:#dfc184;font:700 11px Arial,Tahoma,sans-serif;margin-bottom:9px}
+.student-step-grid b{display:block;font-size:18px;margin-bottom:5px}
+.student-step-grid p{font:14px/1.5 Arial,Tahoma,sans-serif;color:#5e574f;margin:0}
+.student-prep{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:18px;margin:0 0 42px}
+.student-prep-card,.student-boundaries{padding:24px;border-radius:13px}
+.student-prep-card{background:#fffefa;border:1px solid #ddd2bf}
+.student-prep-card h2{font-size:28px;margin:5px 0 16px}
+.student-prep-card ol{margin:0;padding-inline-start:22px;display:grid;gap:12px}
+.student-prep-card li{padding-inline-start:5px;font:15px/1.5 Arial,Tahoma,sans-serif}
+.student-prep-card li b{display:block;color:#222}
+.student-prep-card li span{display:block;color:#655f55;margin-top:2px}
+.student-boundaries{background:#0f1b21;color:#efe9dc;border:1px solid #26343a}
+.student-boundaries .kicker{color:#dfc184}
+.student-boundaries h3{font-size:25px;line-height:1.25;margin:6px 0 10px;color:#fff}
+.student-boundaries p{font:15px/1.65 Arial,Tahoma,sans-serif;color:#d4cec2;margin:0 0 18px}
+.student-note{padding-top:16px;border-top:1px solid #ffffff26}
+.student-note b{display:block;color:#dfc184;margin-bottom:4px}
+.student-note span{font:13px/1.55 Arial,Tahoma,sans-serif;color:#cbc5ba}
+.student-cta{display:flex;justify-content:space-between;align-items:center;gap:28px;margin:0 0 42px;padding:26px 28px;background:#f2ead9;border:1px solid #d8c7a2;border-radius:14px}
+.student-cta h2{font-size:28px;margin:5px 0 6px}
+.student-cta p{font:15px/1.55 Arial,Tahoma,sans-serif;color:#5e574e;margin:0}
+.student-cta .button{flex-shrink:0}
+@media(max-width:800px){
+  .student-intro{grid-template-columns:1fr;gap:12px;align-items:start}
+  .student-topic-grid,.student-step-grid{grid-template-columns:1fr 1fr}
+  .student-prep{grid-template-columns:1fr}
+  .student-cta{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:560px){
+  .audience-students .page-hero{padding-block:38px 34px}
+  .student-topic-grid,.student-step-grid{grid-template-columns:1fr}
+  .student-topic{min-height:0;padding:18px}
+  .student-prep-card,.student-boundaries{padding:20px}
+  .student-cta{padding:21px}
+}
