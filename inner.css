@@ -113,3 +113,16 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
   .student-prep-card,.student-boundaries{padding:20px}
   .student-cta{padding:21px}
 }
+
+
+/* Unified project lifecycle metadata · 2026-09-22 */
+.venture-card .project-meta,.theme-card .project-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 9px;font:700 11px/1.4 Arial,Tahoma,sans-serif;text-transform:uppercase;letter-spacing:.055em}
+.venture-card .project-state,.venture-card .project-updated,.theme-card .project-state,.theme-card .project-updated{display:inline-flex;align-items:center;min-height:25px;padding:4px 9px;border-radius:999px;border:1px solid #c7b071;background:#f7f0df;color:#4d3b19}
+.venture-card .project-updated,.theme-card .project-updated{background:#f4f3ec;color:#615c52;border-color:#d7d3c9;font-weight:600}
+.venture-card .project-role,.theme-card .project-role{margin:0 0 14px!important;padding:9px 11px;border-inline-start:3px solid #c9a35a;background:#f7f3e8;font:600 14px/1.55 Arial,Tahoma,sans-serif;color:#4b4337}
+@media(max-width:620px){
+  .venture-card .project-meta,.theme-card .project-meta{font-size:10px;gap:6px}
+  .venture-card .project-role,.theme-card .project-role{font-size:13px}
+  .venture-links{display:grid;grid-template-columns:1fr}
+  .venture-links a{width:100%;box-sizing:border-box}
+}
