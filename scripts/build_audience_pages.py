@@ -24,12 +24,13 @@ def page(lang, page_name, title, description, crumb, heading, lead, body, cta_la
     prefix = '/ar' if ar else ''
     share = ORIGIN.rstrip('/') + '/assets/' + ('adeeb-noor-card-ar.jpg' if ar else 'adeeb-noor-card-en.jpg')
     href = prefix + cta_href if cta_href.startswith('/') else cta_href
+    body_class = ' class="audience-page audience-students"' if page_name == 'students.html' else ''
     doc = f'''<!doctype html><html lang="{lang}"{' dir="rtl"' if ar else ''}><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(description, quote=True)}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/inner.css">
 <meta property="og:type" content="website"><meta property="og:title" content="{escape(title, quote=True)}"><meta property="og:description" content="{escape(description, quote=True)}"><meta property="og:image" content="{share}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{'ar_SA' if ar else 'en_US'}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{share}">
-</head><body class="audience-page audience-{page_name.replace('.html','')}"><section class="page-hero"><div class="wrap"><div class="crumb">{escape(crumb)}</div><h1>{escape(heading)}</h1><p>{escape(lead)}</p><div class="hero-actions"><a class="primary" href="{escape(href, quote=True)}">{escape(cta_label)}</a></div></div></section><main class="wrap content">{body}</main></body></html>'''
+</head><body{body_class}><section class="page-hero"><div class="wrap"><div class="crumb">{escape(crumb)}</div><h1>{escape(heading)}</h1><p>{escape(lead)}</p><div class="hero-actions"><a class="primary" href="{escape(href, quote=True)}">{escape(cta_label)}</a></div></div></section><main class="wrap content">{body}</main></body></html>'''
     built = finish(doc, page_name, ar)
     # The central collector currently inventories the long-lived site pages. These
     # new landing pages should never emit partially accepted analytics batches.
