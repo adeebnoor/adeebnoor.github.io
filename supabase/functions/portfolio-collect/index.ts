@@ -20,7 +20,7 @@ const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']
 // visits on those pages. This also keeps privacy preferences outside analytics.
 const TARGET_PAGES = new Set([
   ...PAGES, '/privacy.html', '/ar/privacy.html', '/404.html', '/ar/404.html',
-  '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml',
+  '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml', '/research-updates.xml',
 ]);
 const ANCHORS = new Set([
   'content', 'main-content', 'projects', 'research', 'investors', 'organizations',
@@ -29,7 +29,7 @@ const ANCHORS = new Set([
   'miyar', 'shifaa', 'healthx', 'leadership', 'metric-sources', 'work-and-ideas',
   'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
-  'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones',
+  'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones', 'latest-research',
 ]);
 const DESTINATIONS = new Set([
   'https://github.com/adeebnoor',
@@ -69,6 +69,10 @@ const DESTINATIONS = new Set([
   'https://orcid.org/0000-0002-8251-1853',
   'https://www.linkedin.com/in/adeeb-noor',
   'https://www.maastrichtuniversity.nl/mj-dumontier',
+  'https://www.nature.com/articles/s41598-026-67997-7',
+  'https://pubmed.ncbi.nlm.nih.gov/42226315/',
+  'https://arxiv.org/abs/2604.02904',
+  'https://www.nature.com/articles/s41598-025-14129-2',
   'https://www.researchgate.net/profile/Adeeb-Noor-2',
 ]);
 
