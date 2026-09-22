@@ -67,6 +67,8 @@ const DESTINATIONS = new Set([
   'https://x.com/FCITKAU/status/1255875259733086208',
   'https://x.com/kauh_PM/status/852113792481849344',
   'https://orcid.org/0000-0002-8251-1853',
+  'https://x.com/MSFTSolutions/status/1129844105842974723',
+  'https://x.com/MSFTBusinessMEA/status/1052235310166355970',
   'https://www.linkedin.com/in/adeeb-noor',
   'https://www.maastrichtuniversity.nl/mj-dumontier',
   'https://www.nature.com/articles/s41598-026-67997-7',
