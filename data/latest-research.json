@@ -80,6 +80,26 @@
         "ar": "دراسة بالتعلم الآلي للتنبؤ باستهلاك طاقة المركبات الكهربائية باستخدام بيانات واقعية وتحسين المعلمات وتجميع نماذج بأسلوب stacking."
       },
       "featured": false
+    },
+    {
+      "id": "fcit-full-professor-2024",
+      "date": "2024-06-10",
+      "kind": {
+        "en": "Institutional announcement",
+        "ar": "إعلان مؤسسي"
+      },
+      "title": "FCIT announces Adeeb Noor's promotion to Full Professor",
+      "venue": "King Abdulaziz University · FCIT",
+      "url": "https://x.com/FCITKAU/status/1799921254599958769",
+      "source": {
+        "en": "FCIT KAU on X",
+        "ar": "حساب كلية الحاسبات بجامعة الملك عبدالعزيز على X"
+      },
+      "summary": {
+        "en": "The Faculty of Computing and Information Technology publicly announced the Scientific Council decision promoting Adeeb Noor to Full Professor in the Information Technology Department.",
+        "ar": "أعلنت كلية الحاسبات وتقنية المعلومات بجامعة الملك عبدالعزيز قرار المجلس العلمي بترقية أديب نور إلى رتبة أستاذ دكتور في قسم تقنية المعلومات."
+      },
+      "featured": false
     }
   ],
   "follow": [
