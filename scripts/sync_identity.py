@@ -85,6 +85,9 @@ def standardize_contacts(source, identity, lang):
         if 'data-contact-owner="external"' in opening:
             return match[0]
         is_mail = href.lower().startswith('mailto:')
+        # Keep the separate opportunities address for leadership, board and investment correspondence.
+        if is_mail and identity.get('opportunities_email') and unescape(href[7:].partition('?')[0]).casefold() == identity['opportunities_email'].casefold():
+            return match[0]
         if is_mail:
             recipient, separator, query = href[7:].partition('?')
             replacement = 'mailto:' + escape(official, quote=True) + separator + query
