@@ -48,6 +48,8 @@ const DESTINATIONS = new Set([
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
   'https://cemse.kaust.edu.sa/profiles/adeeb-noor',
   'https://cemse.kaust.edu.sa/topics/personalized-medicine',
+  'https://academic.oup.com/jamia/article-abstract/24/3/556/2734457',
+  'https://accp1.onlinelibrary.wiley.com/doi/abs/10.1002/jcph.70220',
   'https://home.cs.colorado.edu/~martin/_site/group/',
   'https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/cz30ps92j',
   'https://scholar.google.com/citations',
