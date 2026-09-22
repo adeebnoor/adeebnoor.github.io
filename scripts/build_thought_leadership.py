@@ -117,7 +117,7 @@ def home_expertise(lang):
         <article><span>01</span><h3>الاستراتيجية والحوكمة</h3><p>هندسة الاستراتيجية، الأولويات، الحوكمة ونماذج التنفيذ.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN ←</a></article>
         <article><span>02</span><h3>رأس المال البشري وذكاء القوى العاملة</h3><p>تخطيط القوى العاملة، التصميم التنظيمي، هندسة الوظائف والقدرات.</p><a href="/ar/ventures.html#miyar">MIYAR وKinetic HR ←</a></article>
         <article><span>03</span><h3>الذكاء الاصطناعي وذكاء القرار</h3><p>تقييم الأنظمة، الذكاء الاصطناعي المسؤول وتحويل المخرجات إلى قرارات قابلة للمراجعة.</p><a href="/ar/research.html#ridi">RIDI والأبحاث ←</a></article>
-        <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، الابتكار السريري وقيادة التحول الرقمي.</p><a href="/ar/impact.html#hospital-modernization">SHIFAA وLEDD ←</a></article>
+        <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، الابتكار السريري وقيادة التحول الرقمي.</p><a href="/ar/impact.html#institutional-context">SHIFAA وLEDD ←</a></article>
         </div></div></section><!-- expertise-map:end -->'''
     return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap">
     <div class="expertise-heading">
