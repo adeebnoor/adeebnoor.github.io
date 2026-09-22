@@ -15,10 +15,11 @@ class Doc(HTMLParser):
  def handle_endtag(self,tag):
   if tag=='script' and self.script is not None:self.scripts.append(json.loads(self.script));self.script=None
 ideas=json.loads((ROOT/'data/ideas-content.json').read_text())
+featured_projects=json.loads((ROOT/'data/featured-projects.json').read_text())
 for lang in ('en','ar'):
  prefix='ar/' if lang=='ar' else ''
  home=(ROOT/(prefix+'index.html')).read_text()
- assert len(re.findall('data-project=',home))==8 and 'data-project="imam"' in home and 'data-project="sultan"' in home
+ assert len(re.findall('data-project=',home))==len(featured_projects) and all(f'data-project="{p["id"]}"' in home for p in featured_projects)
  assert home.count('id="work-and-ideas"')==1
  for page in ('index.html','about.html'):
   docs=Doc((ROOT/(prefix+page)).read_text());people=[]
@@ -57,4 +58,4 @@ for lang in ('en','ar'):
  assert '/inquiries/' not in (ROOT/'sitemap.xml').read_text()
  assert 'inquiry-privacy' in (ROOT/(prefix+'privacy.html')).read_text()
 import validate_followup
-print('Validated eight paired projects, real opt-in forms, private inbox boundaries, three cases, eight Article schemas and two four-item feeds.')
+print(f'Validated {len(featured_projects)} paired projects, real opt-in forms, private inbox boundaries, three cases, eight Article schemas and two four-item feeds.')
