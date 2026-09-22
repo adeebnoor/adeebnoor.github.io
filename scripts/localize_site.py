@@ -17,7 +17,7 @@ PAGES = ['index.html','about.html','impact.html','research.html','publications.h
          'ventures.html','teaching.html','contact.html','academic-cv.html',
          'executive-cv.html','master-cv.html','phd.html','speaking.html',
          'writing/index.html','writing/same-scores-different-decisions.html',
-         'healthx/index.html','demo/index.html','404.html','collaborate.html']
+         'healthx/index.html','demo/index.html','ledd.html','404.html','collaborate.html']
 IDEAS_FILE = ROOT/'data/ideas-content.json'
 IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
 MANAGED_PAGES = ['engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
