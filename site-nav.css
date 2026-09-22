@@ -58,3 +58,25 @@ html{scroll-padding-top:94px}
 @media(max-width:620px){.site-back-top{inset-inline-end:12px;bottom:12px;width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.site-back-top{transition:none}}
 @media print{.site-back-top,.site-quick-nav{display:none!important}}
+
+
+/* Latest research & public record */
+.latest-updates{border-top:1px solid #dfd5c3;border-bottom:1px solid #dfd5c3;background:#f8f4eb}
+.latest-intro{max-width:760px;color:#5e574c;line-height:1.7}
+.latest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.latest-grid-wide{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 0 34px}
+.latest-card{display:flex;flex-direction:column;min-height:100%;padding:22px;border:1px solid #ddd1bb;border-radius:14px;background:#fffdfa;box-shadow:0 12px 28px rgba(18,27,32,.05)}
+.latest-card-compact{padding:18px}
+.latest-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;font:700 11px/1.4 Arial,Tahoma,sans-serif;letter-spacing:.055em;text-transform:uppercase;color:#8b6724}
+.latest-meta time{font-weight:600;color:#6b655b;letter-spacing:0;text-transform:none;white-space:nowrap}
+.latest-card h3{margin:0 0 7px;font:700 21px/1.22 Georgia,serif;color:#171717}
+.latest-card p{margin:0 0 12px;line-height:1.65;color:#514b42}
+.latest-card .latest-venue{font:700 13px/1.5 Arial,Tahoma,sans-serif;color:#7f6125}
+.latest-source{margin-top:auto;padding-top:8px;font:700 13px/1.5 Arial,Tahoma,sans-serif;color:#765619;text-decoration:underline;text-underline-offset:3px}
+.latest-source small{font-weight:500;color:#6d685f}
+.latest-follow{display:flex;flex-wrap:wrap;gap:9px 14px;align-items:center;margin-top:20px;font:700 13px/1.5 Arial,Tahoma,sans-serif}
+.latest-follow a,.latest-all a{text-decoration:underline;text-underline-offset:3px}
+.latest-all{margin:14px 0 0}
+.latest-publications{scroll-margin-top:96px}
+@media(max-width:900px){.latest-grid,.latest-grid-wide{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.latest-grid,.latest-grid-wide{grid-template-columns:1fr}.latest-card{padding:18px}.latest-meta{display:block}.latest-meta time{display:block;margin-top:4px}.latest-card h3{font-size:20px}}
