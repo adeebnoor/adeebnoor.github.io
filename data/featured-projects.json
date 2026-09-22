@@ -31,7 +31,19 @@
       "en": "https://adeebnoor.github.io/Miyar/",
       "ar": "https://adeebnoor.github.io/Miyar/"
     },
-    "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create"
+    "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create",
+    "state": {
+      "en": "Live",
+      "ar": "مباشر"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: co-developer of the bilingual position-management workspace.",
+      "ar": "إسهامي: مطوّر مشارك لمساحة العمل الثنائية اللغة لإدارة المناصب."
+    }
   },
   {
     "id": "kinetic-hr",
@@ -60,6 +72,18 @@
     "liveUrl": {
       "en": "https://adeebnoor.github.io/kinetic-hr/",
       "ar": "https://adeebnoor.github.io/kinetic-hr/"
+    },
+    "state": {
+      "en": "Prototype",
+      "ar": "نموذج أولي"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: product concept, decision logic and workforce-intelligence direction.",
+      "ar": "إسهامي: مفهوم المنتج ومنطق القرار وتوجيه ذكاء القوى العاملة."
     }
   },
   {
@@ -93,6 +117,18 @@
     "liveUrl": {
       "en": "https://sultan-strategy-beta.onrender.com",
       "ar": "https://sultan-strategy-beta.onrender.com"
+    },
+    "state": {
+      "en": "Public Beta",
+      "ar": "نسخة تجريبية عامة"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: strategy architecture and product direction.",
+      "ar": "إسهامي: هندسة الاستراتيجية وتوجيه المنتج."
     }
   },
   {
@@ -120,7 +156,19 @@
     },
     "ideaUrl": "/ideas/position.html#beyond-the-average",
     "repoUrl": "https://github.com/adeebnoor/ridi",
-    "osfUrl": "https://osf.io/txwdv/"
+    "osfUrl": "https://osf.io/txwdv/",
+    "state": {
+      "en": "Open Research",
+      "ar": "بحث مفتوح"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: research lead and audit-toolkit architecture.",
+      "ar": "إسهامي: قيادة البحث وهندسة أداة التدقيق."
+    }
   },
   {
     "id": "imam",
@@ -141,6 +189,18 @@
       "description": "منظومة تعلّم سعودية بالذكاء الاصطناعي التوليدي تربط الهوية المحلية وتصميم المناهج والجاهزية للعمل. قيد التطوير بمسار للتجريب والتطوير التجاري.",
       "cta": "استكشف IMAM",
       "alt": "رسم تصوّري لأنظمة برمجية تدعم التعلّم بالذكاء الاصطناعي"
+    },
+    "state": {
+      "en": "In Development",
+      "ar": "قيد التطوير"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: Founder & Lead Architect.",
+      "ar": "إسهامي: المؤسس والمعماري الرئيسي."
     }
   },
   {
@@ -173,6 +233,18 @@
     "liveUrl": {
       "en": "https://shifaa.kau.edu.sa/default-en.aspx",
       "ar": "https://shifaa.kau.edu.sa/Default-ar.aspx"
+    },
+    "state": {
+      "en": "Live",
+      "ar": "مباشر"
+    },
+    "updated": {
+      "en": "Public record 2019",
+      "ar": "سجل عام 2019"
+    },
+    "role": {
+      "en": "My contribution: founder and technology leadership during hospital digital modernization.",
+      "ar": "إسهامي: التأسيس والقيادة التقنية خلال التحديث الرقمي للمستشفى."
     }
   },
   {
@@ -204,7 +276,19 @@
     },
     "actualImage": true,
     "imageWidth": 1348,
-    "imageHeight": 926
+    "imageHeight": 926,
+    "state": {
+      "en": "Live Teaching System",
+      "ar": "نظام تعليمي مباشر"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: method creator and course lead.",
+      "ar": "إسهامي: مطوّر المنهجية وقائد المقرر."
+    }
   },
   {
     "id": "healthx",
@@ -226,6 +310,18 @@
       "description": "استكشاف تحويل ابتكارات المستشفيات إلى خدمات صحية رقمية قابلة لإعادة الاستخدام ومنتجات تستند إلى البحث.",
       "cta": "استكشف HEALTHx",
       "alt": "رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"
+    },
+    "state": {
+      "en": "In Development",
+      "ar": "قيد التطوير"
+    },
+    "updated": {
+      "en": "Updated 2026",
+      "ar": "محدّث 2026"
+    },
+    "role": {
+      "en": "My contribution: platform concept and clinical-innovation architecture.",
+      "ar": "إسهامي: مفهوم المنصة وهندسة الابتكار السريري."
     }
   },
   {
@@ -248,6 +344,18 @@
       "description": "مشروع شاركت في تأسيسه لتحليل الجينوم والاستجابة الدوائية، بدعم من برنامج تقدّم في كاوست.",
       "cta": "استكشف GenomeFit",
       "alt": "رسم للحمض النووي والطب الشخصي"
+    },
+    "state": {
+      "en": "Venture Experience",
+      "ar": "تجربة ريادية"
+    },
+    "updated": {
+      "en": "Public record 2017",
+      "ar": "سجل عام 2017"
+    },
+    "role": {
+      "en": "My contribution: co-founder.",
+      "ar": "إسهامي: مؤسس مشارك."
     }
   }
 ]
