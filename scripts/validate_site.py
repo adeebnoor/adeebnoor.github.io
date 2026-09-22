@@ -1,3 +1,4 @@
+# Strategy-human-capital-research final validation trigger.
 # Post-generation hero thesis validation trigger.
 # Final UX state validation trigger.
 """Check public HTML targets and assets before publishing this static portfolio."""
