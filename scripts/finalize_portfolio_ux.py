@@ -13,11 +13,11 @@ ORIGIN = "https://adeebnoor.github.io"
 VERSION = "20260922-ux-final"
 
 def put_meta(source, attr, key, value):
-    pattern = re.compile(r'<meta\\s+' + re.escape(attr) + r'="' + re.escape(key) + r'"\\s+content="[^"]*"\\s*/?>', re.I)
+    pattern = re.compile(r'<meta\s+' + re.escape(attr) + r'="' + re.escape(key) + r'"\s+content="[^"]*"\s*/?>', re.I)
     tag = f'<meta {attr}="{key}" content="{escape(value, quote=True)}">'
     source, count = pattern.subn(tag, source, count=1)
     if not count:
-        source = source.replace('</head>', tag + '\\n</head>', 1)
+        source = source.replace('</head>', tag + '\n</head>', 1)
     return source
 
 def page_title(source):
@@ -46,10 +46,10 @@ def social_meta(source, *, description, image, locale, twitter_title=None):
     return source
 
 def bump_assets(source):
-    source = re.sub(r'/portfolio\\.css(?:\\?v=[^"\\s>]+)?', f'/portfolio.css?v={VERSION}', source)
-    source = re.sub(r'/inner\\.css(?:\\?v=[^"\\s>]+)?', f'/inner.css?v={VERSION}', source)
-    source = re.sub(r'/site-nav\\.css(?:\\?v=[^"\\s>]+)?', f'/site-nav.css?v={VERSION}', source)
-    source = re.sub(r'/site-nav\\.js(?:\\?v=[^"\\s>]+)?', f'/site-nav.js?v={VERSION}', source)
+    source = re.sub(r'/portfolio\.css(?:\?v=[^"\s>]+)?', f'/portfolio.css?v={VERSION}', source)
+    source = re.sub(r'/inner\.css(?:\?v=[^"\s>]+)?', f'/inner.css?v={VERSION}', source)
+    source = re.sub(r'/site-nav\.css(?:\?v=[^"\s>]+)?', f'/site-nav.css?v={VERSION}', source)
+    source = re.sub(r'/site-nav\.js(?:\?v=[^"\s>]+)?', f'/site-nav.js?v={VERSION}', source)
     return source
 
 def normalize_home(source, arabic=False):
@@ -111,7 +111,7 @@ PROJECTS = {
 }
 
 def project_block(source, project_id, state, year, role, arabic):
-    pattern = re.compile(r'(<article\\b[^>]*\\bid="' + re.escape(project_id) + r'"[^>]*>)(.*?)(</article>)', re.S | re.I)
+    pattern = re.compile(r'(<article\b[^>]*\bid="' + re.escape(project_id) + r'"[^>]*>)(.*?)(</article>)', re.S | re.I)
     m = pattern.search(source)
     if not m:
         raise ValueError(f'Missing project card: {project_id}')
@@ -146,7 +146,7 @@ def normalize_contact(source, arabic=False):
     source, count = field_pattern.subn('', source, count=1)
     if count != 1:
         raise ValueError('Missing engagement field')
-    form_pattern = re.compile(r'(<form\\b[^>]*data-inquiry-form[^>]*data-kind="inquiry"[^>]*>)', re.I)
+    form_pattern = re.compile(r'(<form\b[^>]*data-inquiry-form[^>]*data-kind="inquiry"[^>]*>)', re.I)
     source, count = form_pattern.subn(lambda m: m.group(1)+engagement_field(arabic), source, count=1)
     if count != 1:
         raise ValueError('Missing inquiry form')
