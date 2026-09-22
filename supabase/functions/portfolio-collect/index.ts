@@ -66,6 +66,7 @@ const DESTINATIONS = new Set([
   'https://x.com/FCITKAU/status/1799921254599958769',
   'https://x.com/FCITKAU/status/1255875259733086208',
   'https://x.com/kauh_PM/status/852113792481849344',
+  'https://orcid.org/0000-0002-8251-1853',
   'https://www.linkedin.com/in/adeeb-noor',
   'https://www.maastrichtuniversity.nl/mj-dumontier',
   'https://www.researchgate.net/profile/Adeeb-Noor-2',
