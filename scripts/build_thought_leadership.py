@@ -143,7 +143,7 @@ def apply_home(path, lang, image_url):
     if count != 1:
         raise ValueError(f'{path}: homepage hero target missing')
     home_stats = ('<section class="stats" aria-label="الأرقام الرئيسية"><div class="wrap stat-grid">'
-        '<div class="stat"><b>18+ سنة</b><p>خبرة تراكمية عبر الجامعة والحكومة والصحة والاستشارات</p><a href="/ar/executive-cv.html#experience-basis">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>أكثر من 18 عامًا</b><p>خبرة تراكمية عبر الجامعة والحكومة والصحة والاستشارات</p><a href="/ar/executive-cv.html#experience-basis">النطاق والمصدر ←</a></div>'
         '<div class="stat"><b>540,000+</b><p>معلم ومعلمة ضمن نطاق البرامج الوطنية المبلّغ عنه</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
         '<div class="stat"><b>49</b><p>إدارة تعليمية ضمن نطاق برامج تخطيط القوى العاملة 2021–2024</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
         '<div class="stat"><b>1,000,000+</b><p>وصول للمنصات المؤسسية بحسب سجل السيرة الذاتية</p><a href="/ar/executive-cv.html#platform-reach">النطاق والمصدر ←</a></div>'
