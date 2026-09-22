@@ -1,3 +1,4 @@
+# Final linked-evidence portfolio validation rerun.
 # UX polish final-state validation marker.
 # Final evidence portfolio validation rerun.
 # Validation rerun marker: final generated portfolio state verified.
