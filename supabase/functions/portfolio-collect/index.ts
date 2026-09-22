@@ -13,7 +13,7 @@ const BASE_PAGES = [
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
   '/demo/', '/ideas/', '/ideas/position.html', '/kinetic-hr/', '/ledd.html',
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
-  '/ideas/readiness-needs-evidence.html',
+  '/ideas/readiness-needs-evidence.html', '/advisory.html', '/partnerships.html',
 ];
 const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']);
 // Informational/error/redirect pages may be link destinations without collecting
@@ -23,7 +23,7 @@ const TARGET_PAGES = new Set([
   '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml', '/research-updates.xml',
 ]);
 const ANCHORS = new Set([
-  'content', 'main-content', 'projects', 'research', 'investors', 'organizations',
+  'content', 'main-content', 'roles', 'delivered', 'career', 'start', 'ventures-open', 'track-record', 'bring', 'direct-routes', 'projects', 'research', 'investors', 'organizations',
   'researchers', 'students', 'iscarb', 'philosophy', 'educator-scope', 'experience-basis',
   'platform-reach', 'evidence', 'beyond-the-average', 'imam', 'ridi', 'genomefit',
   'miyar', 'shifaa', 'healthx', 'leadership', 'metric-sources', 'work-and-ideas',
