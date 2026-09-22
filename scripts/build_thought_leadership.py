@@ -53,7 +53,7 @@ def profile_schema(lang):
             {'@type':'CollegeOrUniversity','name':'University of Colorado Boulder'},
             {'@type':'CollegeOrUniversity','name':'Taibah University'}
         ],
-        'knowsAbout': ['Decision intelligence','AI evaluation','Biomedical informatics','Drug–drug interactions','Digital health','AI in education','Workforce planning','Research governance'],
+        'knowsAbout': ['Decision intelligence','AI evaluation','AI ethics','Responsible AI','Biomedical informatics','Drug–drug interactions','Digital health','AI in education','Workforce planning','Research governance'],
         'sameAs': [
             'https://www.linkedin.com/in/adeeb-noor',
             'https://scholar.google.com/citations?user=XUQD1WAAAAAJ',

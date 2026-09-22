@@ -1,6 +1,7 @@
 {
   "about.html": {
     "text": {
+      "2021": "2021",
       "About — Adeeb Noor": "نبذة — أديب نور",
       "ADEEB NOOR": "أديب نور",
       "Home": "الرئيسية",
@@ -66,7 +67,6 @@
       "Senior Executive Advisor — National Human Capability Development, Ministry of Education": "مستشار تنفيذي أول — تنمية القدرات البشرية الوطنية، وزارة التعليم",
       "National workforce planning, human-capability strategy, organizational redesign, privatization, governance and data-driven decision systems.": "التخطيط الوطني للقوى العاملة واستراتيجية القدرات البشرية وإعادة التصميم التنظيمي والتخصيص والحوكمة وأنظمة القرار القائمة على البيانات.",
       "National scale · Human capital · Operating models": "النطاق الوطني · رأس المال البشري · نماذج التشغيل",
-      "2021": "2021",
       "Executive Director of Advisory & AI Strategy — Islamic University of Madinah": "المدير التنفيذي للاستشارات واستراتيجية الذكاء الاصطناعي — الجامعة الإسلامية بالمدينة المنورة",
       "Built an AI R&D center and operating model centered on Arabic and Islamic data assets, ethical AI and commercialization.": "أسست مركزًا للبحث والتطوير في الذكاء الاصطناعي ونموذج تشغيل يتمحور حول أصول البيانات العربية والإسلامية والذكاء الاصطناعي الأخلاقي والاستثمار التجاري.",
       "AI strategy · Ethical AI · Institutional design": "استراتيجية الذكاء الاصطناعي · الذكاء الاصطناعي الأخلاقي · التصميم المؤسسي",
@@ -123,12 +123,26 @@
       "Scholar": "الباحث العلمي",
       "Speaking": "المحاضرات",
       "© 2026 Adeeb Noor": "© 2026 أديب نور",
-      "Research · Advisory · Ventures": "الأبحاث · الاستشارات · المشاريع"
+      "Research · Advisory · Ventures": "الأبحاث · الاستشارات · المشاريع",
+      "I am a Professor of Data Science and Artificial Intelligence at King Abdulaziz University, working across research, AI ethics and responsible AI, public-sector transformation, healthcare technology, AI strategy and venture building.": "أنا أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز، وأعمل عبر البحث وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والتحول في القطاع العام وتقنيات الرعاية الصحية واستراتيجية الذكاء الاصطناعي وبناء المشاريع.",
+      "AI ethics & research depth": "أخلاقيات الذكاء الاصطناعي والعمق البحثي",
+      "AI ethics, responsible AI, decision intelligence, biomedical informatics, data governance and research systems.": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وذكاء القرار والمعلوماتية الطبية الحيوية وحوكمة البيانات وأنظمة البحث.",
+      "2016–Present": "2016–حتى الآن",
+      "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "AI ETHICS & RESPONSIBLE AI": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
+      "Accountable AI for consequential decisions": "ذكاء اصطناعي خاضع للمساءلة في القرارات عالية الأثر",
+      "My experience includes AI ethics, responsible AI and the governance of high-stakes decision systems, with emphasis on transparency, human oversight, data governance and institutional accountability.": "تشمل خبرتي أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وحوكمة أنظمة القرار عالية الأثر، مع التركيز على الشفافية والإشراف البشري وحوكمة البيانات والمساءلة المؤسسية.",
+      "AI Ethics & Responsible AI": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
+      "Governance, transparency, human oversight and accountability for high-stakes AI-assisted decisions.": "الحوكمة والشفافية والإشراف البشري والمساءلة في القرارات عالية الأثر المدعومة بالذكاء الاصطناعي.",
+      "Kinetic HR": "Kinetic HR",
+      "Workforce early warning and decision intelligence with auditable data and scenario logic.": "إنذار مبكر للقوى العاملة وذكاء قرار ببيانات ومنطق سيناريوهات قابلين للتدقيق."
     },
     "attrs": {
       "Adeeb Noor — Saudi Professor of Data Science and Artificial Intelligence, researcher, executive advisor and builder working across AI, digital health, education and institutional transformation.": "أديب نور — أستاذ دكتور سعودي في علم البيانات والذكاء الاصطناعي، وباحث ومستشار تنفيذي ومؤسس مشاريع في الذكاء الاصطناعي والصحة الرقمية والتعليم والتحول المؤسسي.",
       "Primary navigation": "التنقل الرئيسي",
-      "Saudi professor, researcher and transformation leader across academia, government, healthcare, AI and venture building.": "أستاذ دكتور سعودي وباحث وقائد تحول في التعليم الجامعي والقطاع الحكومي والرعاية الصحية والذكاء الاصطناعي وتأسيس المشاريع."
+      "Saudi professor, researcher and transformation leader across academia, government, healthcare, AI and venture building.": "أستاذ دكتور سعودي وباحث وقائد تحول في التعليم الجامعي والقطاع الحكومي والرعاية الصحية والذكاء الاصطناعي وتأسيس المشاريع.",
+      "Adeeb Noor — Saudi Professor of Data Science and Artificial Intelligence working across decision intelligence, AI ethics and responsible AI, digital health, education and institutional transformation.": "أديب نور — أستاذ علوم البيانات والذكاء الاصطناعي، يعمل في ذكاء القرار وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والصحة الرقمية والتعليم والتحول المؤسسي.",
+      "Saudi professor and transformation leader across AI ethics, responsible AI, decision intelligence, government, healthcare, education and venture building.": "أستاذ سعودي وقائد تحول يعمل عبر أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وذكاء القرار والحكومة والصحة والتعليم وبناء المشاريع."
     }
   },
   "impact.html": {
@@ -262,6 +276,9 @@
   },
   "academic-cv.html": {
     "text": {
+      "2006": "2006",
+      "2010": "2010",
+      "2015": "2015",
       "Academic CV — Adeeb Noor": "السيرة الأكاديمية — أديب نور",
       "ADEEB NOOR": "أديب نور",
       "Home": "الرئيسية",
@@ -304,12 +321,9 @@
       "Visiting Professor (former) — Computational Bioscience Research Center, KAUST": "أستاذ دكتور زائر سابقًا — مركز أبحاث العلوم الحيوية الحاسوبية، كاوست",
       "Collaborative R&D in bioinformatics, personalized medicine and translational research.": "بحث وتطوير تعاوني في المعلوماتية الحيوية والطب الشخصي والبحث التطبيقي.",
       "Education": "التعليم",
-      "2015": "2015",
       "PhD, Computer Science (Bioinformatics) — University of Colorado Boulder": "دكتوراه في علوم الحاسب (المعلوماتية الحيوية) — جامعة كولورادو بولدر",
       "D3 Pharmacovigilance System: characterization of drug–drug interactions through statistical inference, big-data mining and Semantic Web technologies.": "نظام D3 لليقظة الدوائية: توصيف التداخلات الدوائية باستخدام الاستدلال الإحصائي والتنقيب في البيانات الضخمة وتقنيات الويب الدلالي.",
-      "2010": "2010",
       "MS, Computer Science — University of Colorado Boulder": "ماجستير في علوم الحاسب — جامعة كولورادو بولدر",
-      "2006": "2006",
       "BS, Information Technology — Taibah University": "بكالوريوس في تقنية المعلومات — جامعة طيبة",
       "Research Areas": "المجالات البحثية",
       "Decision Intelligence & RIDI": "ذكاء القرار وRIDI",
@@ -366,7 +380,11 @@
       "KAUST CEMSE": "قسم العلوم والهندسة الحاسوبية والكهربائية والحسابية في كاوست",
       "Former visiting-professor profile": "ملف الأستاذ الزائر السابق",
       "© 2026 Adeeb Noor": "© 2026 أديب نور",
-      "Academic CV": "السيرة الأكاديمية"
+      "Academic CV": "السيرة الأكاديمية",
+      "2016–Present": "2016–حتى الآن",
+      "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "AI ethics, responsible AI, predictive analytics, graph/knowledge systems and decision support.": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والتحليلات التنبؤية وأنظمة الرسوم البيانية/المعرفة ودعم القرار.",
+      "Visiting Professor · Bio-Ontology Research Group": "أستاذ زائر · مجموعة أبحاث الأنطولوجيا الحيوية"
     },
     "attrs": {
       "Academic CV of Adeeb Noor — Professor at King Abdulaziz University working across AI, decision intelligence, biomedical informatics, digital health and education.": "السيرة الأكاديمية لأديب نور — أستاذ دكتور بجامعة الملك عبدالعزيز يعمل في الذكاء الاصطناعي وذكاء القرار والمعلوماتية الطبية الحيوية والصحة الرقمية والتعليم.",
@@ -375,6 +393,10 @@
   },
   "executive-cv.html": {
     "text": {
+      "2006": "2006",
+      "2010": "2010",
+      "2015": "2015",
+      "2021": "2021",
       "Executive CV — Adeeb Noor": "السيرة التنفيذية — أديب نور",
       "ADEEB NOOR": "أديب نور",
       "Home": "الرئيسية",
@@ -450,7 +472,6 @@
       "Senior Executive Advisor — National Human Capability Development, Ministry of Education": "مستشار تنفيذي أول — تنمية القدرات البشرية الوطنية، وزارة التعليم",
       "Designed and oversaw national human-capital and workforce-planning programs for 540,000+ educators.": "صمّم وأشرف على برامج وطنية لرأس المال البشري وتخطيط القوى العاملة لأكثر من 540,000 معلم ومعلمة.",
       "Served as the institutional lead/counterpart on commissioned workstreams delivered with major consulting and technology partners including KPMG, BCG, EY, PwC and Devoteam.": "عمل قائدًا وممثلًا مؤسسيًا لمسارات عمل متعاقد عليها، نُفذت مع كبار شركاء الاستشارات والتقنية، ومنهم KPMG وBCG وEY وPwC وDevoteam.",
-      "2021": "2021",
       "Executive Director of Advisory & AI Strategy — Islamic University of Madinah": "المدير التنفيذي للاستشارات واستراتيجية الذكاء الاصطناعي — الجامعة الإسلامية بالمدينة المنورة",
       "Built an AI R&D center and enterprise operating model centered on Arabic and Islamic data assets, ethical AI, IP licensing and digital transformation.": "أسس مركزًا للبحث والتطوير في الذكاء الاصطناعي ونموذج تشغيل مؤسسي يتمحور حول أصول البيانات العربية والإسلامية والذكاء الاصطناعي الأخلاقي وترخيص الملكية الفكرية والتحول الرقمي.",
       "2019–2021": "2019–2021",
@@ -488,12 +509,9 @@
       "Healthcare": "الرعاية الصحية",
       "Advisory Committee — King Abdulaziz University Hospital": "اللجنة الاستشارية — مستشفى جامعة الملك عبدالعزيز",
       "Education & Credentials": "التعليم والمؤهلات",
-      "2015": "2015",
       "PhD, Computer Science (Bioinformatics) — University of Colorado Boulder": "دكتوراه في علوم الحاسب (المعلوماتية الحيوية) — جامعة كولورادو بولدر",
       "D3 Pharmacovigilance System: drug–drug interaction characterization using statistical inference, big-data mining and Semantic Web technologies.": "نظام D3 لليقظة الدوائية: توصيف التداخلات الدوائية بالاستدلال الإحصائي والتنقيب في البيانات الضخمة وتقنيات الويب الدلالي.",
-      "2010": "2010",
       "MS, Computer Science — University of Colorado Boulder": "ماجستير في علوم الحاسب — جامعة كولورادو بولدر",
-      "2006": "2006",
       "BS, Information Technology — Taibah University": "بكالوريوس في تقنية المعلومات — جامعة طيبة",
       "PMP": "PMP",
       "Certified ScrumMaster": "شهادة Certified ScrumMaster",
@@ -506,7 +524,10 @@
       "Live research record": "السجل البحثي المباشر",
       "Professional profile": "الملف المهني",
       "© 2026 Adeeb Noor": "© 2026 أديب نور",
-      "Executive CV": "السيرة التنفيذية"
+      "Executive CV": "السيرة التنفيذية",
+      "AI Ethics & Responsible AI": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
+      "2016–Present": "2016–حتى الآن",
+      "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست"
     },
     "attrs": {
       "Executive CV of Adeeb Noor — Professor at King Abdulaziz University and executive advisor across AI, research and innovation, digital health and institutional transformation.": "السيرة التنفيذية لأديب نور — أستاذ دكتور بجامعة الملك عبدالعزيز ومستشار تنفيذي في الذكاء الاصطناعي والبحث والابتكار والصحة الرقمية والتحول المؤسسي.",
@@ -547,6 +568,7 @@
   },
   "phd.html": {
     "text": {
+      "2015": "2015",
       "Doctoral Foundations — Adeeb Noor": "الأسس البحثية للدكتوراه — أديب نور",
       "ADEEB NOOR": "أديب نور",
       "Home": "الرئيسية",
@@ -563,7 +585,6 @@
       "My PhD in Computer Science at the University of Colorado Boulder focused on characterizing drug–drug interactions through statistical inference, big-data mining and Semantic Web technologies. The deeper lesson carried forward: consequential decisions depend on how evidence is represented, connected and translated into action.": "ركزت أطروحتي للدكتوراه في علوم الحاسب بجامعة كولورادو بولدر على توصيف التداخلات الدوائية باستخدام الاستدلال الإحصائي وتنقيب البيانات الضخمة وتقنيات الويب الدلالي. والدرس الأعمق الذي امتد إلى أعمالي اللاحقة هو أن القرارات ذات التبعات الفعلية تعتمد على كيفية تمثيل الأدلة وربطها وتحويلها إلى إجراءات عملية.",
       "Read dissertation →": "اقرأ الأطروحة ←",
       "See current research →": "اطّلع على الأبحاث الحالية ←",
-      "2015": "2015",
       "PhD in Computer Science, University of Colorado Boulder": "دكتوراه في علوم الحاسب، جامعة كولورادو بولدر",
       "D3": "D3",
       "Pharmacovigilance system for characterizing drug–drug interactions": "نظام لليقظة الدوائية وتوصيف التداخلات الدوائية",

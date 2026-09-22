@@ -90,13 +90,28 @@
       "ranking updates, allocation identity, the identity–utility frontier and consequential evaluation.": "تحديثات أنظمة الترتيب، وهوية التخصيص، وجبهة الهوية–المنفعة، والتقييم المرتبط بالعواقب.",
       "exact turnover budgeting, reproducible audit tooling and outcome-checked update governance.": "ميزنة دقيقة لدوران الاختيارات، وأدوات تدقيق قابلة لإعادة الإنتاج، وحوكمة للتحديثات تُراجع مقابل النتائج.",
       "Selection identity & utility": "هوية الاختيار والمنفعة",
-      "Measure what changed, then compute the minimum turnover compatible with an explicit utility budget.": "قِس ما تغيّر، ثم احسب الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة."
+      "Measure what changed, then compute the minimum turnover compatible with an explicit utility budget.": "قِس ما تغيّر، ثم احسب الحد الأدنى للدوران المتوافق مع ميزانية منفعة صريحة.",
+      "Five connected questions.": "خمسة أسئلة مترابطة.",
+      "05 · AI ETHICS & RESPONSIBLE AI": "05 · أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
+      "Accountability when AI affects real decisions": "المساءلة عندما يؤثر الذكاء الاصطناعي في قرارات حقيقية",
+      "My work in AI ethics focuses on the institutional conditions that make AI-assisted decisions responsible: transparent evidence, human oversight, data governance, contestability and clear accountability for consequences.": "يركز عملي في أخلاقيات الذكاء الاصطناعي على الشروط المؤسسية التي تجعل القرارات المدعومة بالذكاء الاصطناعي مسؤولة: أدلة شفافة، وإشراف بشري، وحوكمة بيانات، وإمكانية الاعتراض، ومساءلة واضحة عن النتائج.",
+      "What governance makes an AI-assisted decision explainable, contestable and accountable?": "ما الحوكمة التي تجعل القرار المدعوم بالذكاء الاصطناعي قابلًا للتفسير والاعتراض والمساءلة؟",
+      "AI ethics, responsible AI, transparency, human oversight, data governance and high-stakes decision systems.": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والشفافية والإشراف البشري وحوكمة البيانات وأنظمة القرار عالية الأثر.",
+      "applied evaluation and governance across education, healthcare and public institutions.": "التقييم التطبيقي والحوكمة عبر التعليم والرعاية الصحية والمؤسسات العامة.",
+      "Discuss responsible AI research →": "ناقش أبحاث الذكاء الاصطناعي المسؤول ←",
+      "Responsible AI governance": "حوكمة الذكاء الاصطناعي المسؤول",
+      "Make human oversight, transparency and accountability explicit when AI informs consequential decisions.": "جعل الإشراف البشري والشفافية والمساءلة صريحة عندما يساهم الذكاء الاصطناعي في قرارات عالية الأثر.",
+      "Workforce decision intelligence": "ذكاء قرار القوى العاملة",
+      "Use auditable early-warning signals and scenarios to support capacity decisions before operational escalation.": "استخدام إشارات إنذار مبكر وسيناريوهات قابلة للتدقيق لدعم قرارات القدرة قبل التصعيد التشغيلي.",
+      "Visiting Professor · Bio-Ontology Research Group →": "أستاذ زائر · مجموعة أبحاث الأنطولوجيا الحيوية ←"
     },
     "attrs": {
       "Adeeb Noor — research in decision intelligence, biomedical AI, digital health, education and institutional systems.": "أديب نور — أبحاث في ذكاء القرار، والذكاء الاصطناعي الطبي الحيوي، والصحة الرقمية، والتعليم، والأنظمة المؤسسية.",
       "Primary navigation": "التنقل الرئيسي",
       "Research — Adeeb Noor": "الأبحاث — أديب نور",
-      "Research on allocation identity, biomedical knowledge integrity, AI and education, and institutional decision systems.": "أبحاث في هوية التخصيص، وسلامة المعرفة الطبية الحيوية، والذكاء الاصطناعي والتعليم، وأنظمة القرار المؤسسي."
+      "Research on allocation identity, biomedical knowledge integrity, AI and education, and institutional decision systems.": "أبحاث في هوية التخصيص، وسلامة المعرفة الطبية الحيوية، والذكاء الاصطناعي والتعليم، وأنظمة القرار المؤسسي.",
+      "Adeeb Noor — research in decision intelligence, AI ethics and responsible AI, biomedical AI, digital health, education and institutional systems.": "أديب نور — أبحاث في ذكاء القرار وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والذكاء الاصطناعي الطبي الحيوي والصحة الرقمية والتعليم والأنظمة المؤسسية.",
+      "Research on allocation identity, AI ethics and responsible AI, biomedical knowledge integrity, AI and education, and institutional decision systems.": "أبحاث في هوية التخصيص وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وسلامة المعرفة الطبية الحيوية والذكاء الاصطناعي والتعليم وأنظمة القرار المؤسسي."
     }
   },
   "ventures.html": {
@@ -216,7 +231,21 @@
       "The current prototype also exposes data-quality, provenance and audit views so recommendations can be traced to their measurement basis rather than presented as opaque AI output.": "كما يعرض النموذج الحالي جودة البيانات ومصدر القياس وسجل التدقيق، بحيث يمكن تتبع القرار إلى أساسه بدل تقديم توصيات غير قابلة للمراجعة.",
       "Open Kinetic HR →": "افتح Kinetic HR ←",
       "Open English interface →": "افتح الواجهة الإنجليزية ←",
-      "Discuss an institutional pilot →": "ناقش تجربة مؤسسية ←"
+      "Discuss an institutional pilot →": "ناقش تجربة مؤسسية ←",
+      "I build research-backed systems where evidence, operational need and scalable technology meet — across workforce intelligence, digital health, education, responsible AI and institutional transformation.": "أبني أنظمة تستند إلى البحث حيث تلتقي الأدلة بالحاجة التشغيلية والتقنية القابلة للتوسع، عبر ذكاء القوى العاملة والصحة الرقمية والتعليم والذكاء الاصطناعي المسؤول والتحول المؤسسي.",
+      "The portfolio spans working systems, public prototypes and research-backed venture concepts. The common build logic is the same: define the consequential problem, make the evidence inspectable, build the operating layer, then design for adoption and governance.": "تضم المحفظة أنظمة عاملة ونماذج أولية عامة ومفاهيم مشاريع تستند إلى البحث. ويظل منطق البناء واحدًا: تحديد المشكلة ذات الأثر، وجعل الأدلة قابلة للفحص، وبناء الطبقة التشغيلية، ثم التصميم للتبنّي والحوكمة.",
+      "Position definition": "تعريف المنصب",
+      "Responsibilities, requirements and role intent are made explicit before approval.": "توضيح المسؤوليات والمتطلبات وغرض الدور قبل الاعتماد.",
+      "Review workflow": "مسار المراجعة",
+      "Structured requests, review steps and shared institutional decision paths.": "طلبات منظّمة وخطوات مراجعة ومسارات قرار مؤسسية مشتركة.",
+      "Bilingual workspace": "مساحة عمل ثنائية اللغة",
+      "Arabic and English position design for Saudi institutional use.": "تصميم المناصب بالعربية والإنجليزية للاستخدام المؤسسي في السعودية.",
+      "Early warning": "الإنذار المبكر",
+      "Surface workforce pressure, capacity gaps and decision bottlenecks before escalation.": "إظهار ضغط القوى العاملة وفجوات القدرة ونقاط اختناق القرار قبل التصعيد.",
+      "Scenario lab": "مختبر السيناريوهات",
+      "Compare staffing responses and their operational effect without writing back to source systems.": "مقارنة استجابات القوى العاملة وأثرها التشغيلي دون الكتابة على الأنظمة المصدرية.",
+      "Auditability": "قابلية التدقيق",
+      "Keep data quality, provenance and decision logic visible for institutional review.": "إبقاء جودة البيانات ومصدرها ومنطق القرار ظاهرًا للمراجعة المؤسسية."
     },
     "attrs": {
       "Adeeb Noor — ventures and research-to-market work in personalized medicine, clinical AI and digital health.": "أديب نور — المشاريع وتحويل الأبحاث إلى تطبيقات في الطب الشخصي، والذكاء الاصطناعي السريري، والصحة الرقمية.",
