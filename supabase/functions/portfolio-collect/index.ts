@@ -53,6 +53,7 @@ const DESTINATIONS = new Set([
   'https://home.cs.colorado.edu/~martin/_site/group/',
   'https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/cz30ps92j',
   'https://scholar.google.com/citations',
+  'https://shifaa.kau.edu.sa/',
   'https://shifaa.kau.edu.sa/Default-ar.aspx',
   'https://shifaa.kau.edu.sa/default-en.aspx',
   'https://www.generalassemb.ly/instructors/dr-adeeb-noor/23954',

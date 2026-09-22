@@ -292,7 +292,20 @@
       "consequential AI evaluation and ranking-update governance.": "تقييم الذكاء الاصطناعي ذي العواقب وحوكمة تحديثات أنظمة الترتيب.",
       "Open work:": "العمل المفتوح:",
       "interactive demo, code and reproducible research assets.": "عرض تفاعلي وكود وأصول بحثية قابلة لإعادة الإنتاج.",
-      "Explore RIDI →": "استكشف RIDI ←"
+      "Explore RIDI →": "استكشف RIDI ←",
+      "Live Emergency Department Dashboard": "لوحة قسم الطوارئ الحية",
+      "Live Emergency Department Dashboard was designed to make emergency-department crowding visible to patients and staff. The project pitch documents CTAS-based triage categories, live case counts and estimated waiting times, with data pulled automatically from hospital systems and published in the waiting room and on the web.": "صُممت لوحة قسم الطوارئ الحية LEDD لجعل ازدحام الطوارئ مرئيًا للمرضى والعاملين. ويوثّق عرض المشروع تصنيف الفرز وفق CTAS، وأعداد الحالات الحية، وأزمنة الانتظار المقدرة، مع سحب البيانات آليًا من أنظمة المستشفى ونشرها في صالة الانتظار وعلى الويب.",
+      "Triage visibility:": "وضوح الفرز:",
+      "five CTAS categories, from resuscitation/major trauma to lower-acuity cases.": "خمس فئات وفق CTAS، من الإنعاش والإصابات الكبرى إلى الحالات الأقل حدة.",
+      "Real-time flow:": "التدفق اللحظي:",
+      "live numbers in each category plus estimated waiting time.": "أعداد حية في كل فئة مع زمن الانتظار المقدر.",
+      "Patient decision support:": "دعم قرار المريض:",
+      "help patients understand ER procedure and make a more informed decision before arrival.": "مساعدة المرضى على فهم إجراءات الطوارئ واتخاذ قرار أكثر وعيًا قبل الوصول.",
+      "My role:": "دوري:",
+      "IT Director, King Abdulaziz University Hospital, on the LEDD project team.": "مدير تقنية المعلومات في مستشفى جامعة الملك عبدالعزيز ضمن فريق مشروع LEDD.",
+      "View SHIFAA ER page →": "افتح صفحة طوارئ شفاء ←",
+      "Health & digital impact →": "الأثر الصحي والرقمي ←",
+      "Executive record →": "السجل التنفيذي ←"
     },
     "attrs": {
       "Adeeb Noor — ventures and research-to-market work in personalized medicine, clinical AI and digital health.": "أديب نور — المشاريع وتحويل الأبحاث إلى تطبيقات في الطب الشخصي، والذكاء الاصطناعي السريري، والصحة الرقمية.",
