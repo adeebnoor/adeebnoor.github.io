@@ -20,7 +20,7 @@ PAGES = ['index.html','about.html','impact.html','research.html','publications.h
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
 IDEAS_FILE = ROOT/'data/ideas-content.json'
 IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
-MANAGED_PAGES = ['engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
+MANAGED_PAGES = ['advisory.html','partnerships.html','engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
 PAGES = list(dict.fromkeys(PAGES + MANAGED_PAGES))
 TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
@@ -159,7 +159,7 @@ def nav(page, arabic):
     items = json.loads((ROOT/'data/site-navigation.json').read_text())
     choices = [(item['page'], *(identity[item['identity_label']][lang] if 'identity_label' in item else item[lang] for lang in ('en','ar'))) for item in items]
     selected = page
-    if page in ('academic-cv.html','master-cv.html','speaking.html'):
+    if page in ('academic-cv.html','master-cv.html','speaking.html','teaching.html'):
         selected = 'about.html'
     if page == 'executive-cv.html':
         selected = 'impact.html'
