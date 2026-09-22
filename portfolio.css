@@ -52,18 +52,18 @@ html{scroll-padding-top:90px}body{font-size:16px;line-height:1.55}img,svg{max-wi
 
 
 /* Executive expertise map */
-.expertise-map{background:#fffefa;border-bottom:1px solid var(--line)}
-.expertise-layout{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.65fr);gap:34px;align-items:stretch}
-.expertise-person{display:grid;grid-template-columns:170px minmax(0,1fr);gap:22px;align-items:center;padding:22px;background:#0a151a;color:#f3eee2;border-radius:16px;overflow:hidden}
-.expertise-photo{display:block;width:170px;aspect-ratio:367/364;background:#0a151a;border-radius:12px;overflow:hidden}
-.expertise-person .label{color:#d9b86f;margin-bottom:8px}
-.expertise-person h2{font-size:31px;margin:0 0 10px}
-.expertise-person p{font:16px/1.65 Arial,Tahoma,sans-serif;color:#ded8cc;margin:0}
-.expertise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.expertise-grid article{position:relative;padding:20px 20px 18px;border:1px solid #ded2bd;border-radius:13px;background:#f7f3ea}
-.expertise-grid article>span{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#0a151a;color:#dfc184;font:700 12px Arial,Tahoma,sans-serif;margin-bottom:10px}
-.expertise-grid h3{font-size:22px;line-height:1.25;margin:0 0 8px}
-.expertise-grid p{font:15px/1.62 Arial,Tahoma,sans-serif;color:#585147;margin:0 0 13px}
-.expertise-grid a{font:700 13px/1.5 Arial,Tahoma,sans-serif;color:#76581f;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:980px){.expertise-layout{grid-template-columns:1fr}.expertise-person{grid-template-columns:145px minmax(0,1fr)}.expertise-photo{width:145px}}
-@media(max-width:620px){.expertise-person{grid-template-columns:1fr;padding:18px}.expertise-photo{width:100%;max-width:260px;margin:auto}.expertise-grid{grid-template-columns:1fr}.expertise-person h2{font-size:28px}}
+.expertise-map{background:#fffefa;border-bottom:1px solid var(--line);padding:34px 0}
+.expertise-heading{margin-bottom:18px}
+.expertise-profile{display:grid;grid-template-columns:104px minmax(0,1fr);gap:18px;align-items:center;max-width:850px}
+.expertise-photo{display:block;width:104px;height:104px;border-radius:50%;overflow:hidden;background:#0a151a;border:3px solid #e0c98e;box-shadow:0 8px 24px rgba(10,21,26,.08)}
+.expertise-profile .label{margin-bottom:4px}
+.expertise-profile h2{font-size:32px;margin:0 0 5px}
+.expertise-profile p{font:16px/1.55 Arial,Tahoma,sans-serif;color:#5c554b;margin:0}
+.expertise-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.expertise-grid article{padding:17px 16px 15px;border-top:3px solid #c9a35a;background:#f7f4ec;min-height:170px}
+.expertise-grid article>span{font:700 11px/1 Arial,Tahoma,sans-serif;color:#8c6b2d}
+.expertise-grid h3{font-size:20px;line-height:1.25;margin:9px 0 7px}
+.expertise-grid p{font:14px/1.5 Arial,Tahoma,sans-serif;color:#5f584e;margin:0 0 10px}
+.expertise-grid a{font:700 13px/1.4 Arial,Tahoma,sans-serif;color:#76581f;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1000px){.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.expertise-map{padding:26px 0}.expertise-profile{grid-template-columns:78px minmax(0,1fr);gap:14px}.expertise-photo{width:78px;height:78px}.expertise-profile h2{font-size:27px}.expertise-profile p{font-size:14px}.expertise-grid{grid-template-columns:1fr}.expertise-grid article{min-height:0}}
