@@ -37,8 +37,11 @@ def card(item,lang,compact=False):
     date=escape(label_date(item['date'],lang))
     source=escape(item['source'][lang])
     cta='افتح المصدر ←' if ar else 'Open source →'
-    cls='latest-card latest-card-compact' if compact else 'latest-card'
-    return (f'<article class="{cls}"><div class="latest-meta"><span>{kind}</span><time>{date}</time></div>'
+    if compact:
+        return (f'<article class="latest-row"><div class="latest-row-date"><time>{date}</time><span>{kind}</span></div>'
+                f'<div class="latest-row-main"><h3>{title}</h3><p>{venue}</p></div>'
+                f'<a class="latest-row-link" href="{escape(item["url"],quote=True)}" aria-label="{cta} {title}">↗</a></article>')
+    return (f'<article class="latest-card"><div class="latest-meta"><span>{kind}</span><time>{date}</time></div>'
             f'<h3>{title}</h3><p class="latest-venue">{venue}</p><p>{summary}</p>'
             f'<a class="latest-source" href="{escape(item["url"],quote=True)}">{cta} <small>{source}</small></a></article>')
 
@@ -53,7 +56,7 @@ def home_section(lang):
            'Use the follow links below for the live record.')
     all_label='كل الأبحاث والمنشورات ←' if ar else 'All research & publications →'
     pub='/ar/publications.html#latest-research' if ar else '/publications.html#latest-research'
-    return START+f'<section class="section latest-updates" id="latest-research"><div class="wrap"><div class="label">{kicker}</div><h2>{heading}</h2><p class="latest-intro">{intro}</p><div class="latest-grid">'+''.join(card(x,lang,True) for x in items)+f'</div>{follow_links(lang)}<p class="latest-all"><a href="{pub}">{all_label}</a></p></div></section>'+END
+    return START+f'<section class="section latest-updates" id="latest-research"><div class="wrap latest-home"><div class="latest-home-head"><div><div class="label">{kicker}</div><h2>{heading}</h2><p class="latest-intro">{intro}</p></div><a class="latest-all-link" href="{pub}">{all_label}</a></div><div class="latest-list">'+''.join(card(x,lang,True) for x in items)+f'</div>{follow_links(lang)}</div></section>'+END
 
 def publications_section(lang):
     ar=lang=='ar'
