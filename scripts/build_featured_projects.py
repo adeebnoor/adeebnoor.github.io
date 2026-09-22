@@ -40,7 +40,12 @@ for lang, page in [('en','index.html'),('ar','ar/index.html')]:
         if item.get('ideaUrl'):
             idea_url=('/ar' if arabic else '')+item['ideaUrl']
             secondary=f'<a class="project-context" href="{idea_url}">{escape(copy["ideaCta"])}</a>'
-        cards.append(f'<article class="card" data-project="{item["id"]}">{visual}<div class="card-copy"><div class="status">{escape(copy["stage"])}</div><h3>{escape(copy["name"])}</h3><div class="subtitle">{escape(copy["domain"])}</div><p>{escape(copy["description"])}</p><div class="project-actions"><a class="button primary" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{escape(open_label)} {"↗" if external else "←" if arabic else "→"}</a>{secondary}</div></div></article>')
+        state=item.get('state',{}).get(lang,copy['stage'])
+        updated=item.get('updated',{}).get(lang,'')
+        role=item.get('role',{}).get(lang,'')
+        meta='<div class="project-meta"><span class="project-state">'+escape(state)+'</span>'+('<span class="project-updated">'+escape(updated)+'</span>' if updated else '')+'</div>'
+        role_html='<p class="project-role">'+escape(role)+'</p>' if role else ''
+        cards.append(f'<article class="card" data-project="{item["id"]}">{visual}<div class="card-copy">{meta}<div class="status">{escape(copy["stage"])}</div><h3>{escape(copy["name"])}</h3><div class="subtitle">{escape(copy["domain"])}</div><p>{escape(copy["description"])}</p>{role_html}<div class="project-actions"><a class="button primary" href="{url}" aria-label="{escape(accessible_label)}"{link_attrs}>{escape(open_label)} {"↗" if external else "←" if arabic else "→"}</a>{secondary}</div></div></article>')
     heading='بحث. ابتكار. أثر واقعي.' if arabic else 'Research. Innovation. Real-World Impact.'
     label='مشاريع مختارة' if arabic else 'Selected Projects'
     note='افتح صورة المشروع لاستكشافه، واطّلع على خلفيته للتعرّف إلى دوري ومرحلة العمل.' if arabic else 'Open a project image to explore the work, or read its background for my contribution and the project’s stage.'
