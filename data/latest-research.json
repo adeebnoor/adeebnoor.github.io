@@ -1,0 +1,103 @@
+{
+  "updated": "2026-09-22",
+  "items": [
+    {
+      "id": "context-aware-cxr-2026",
+      "date": "2026-08-28",
+      "kind": {
+        "en": "Peer-reviewed article",
+        "ar": "مقالة محكّمة"
+      },
+      "title": "Context-aware AI assistance reduces diagnostic error in chest X-ray interpretation",
+      "venue": "Scientific Reports",
+      "url": "https://www.nature.com/articles/s41598-026-67997-7",
+      "source": {
+        "en": "Nature / Scientific Reports",
+        "ar": "Nature / Scientific Reports"
+      },
+      "summary": {
+        "en": "With Redhwan Nour, this study evaluates selective, context-aware AI assistance for chest X-ray interpretation rather than assuming AI should always be shown.",
+        "ar": "بالتعاون مع رضوان نور، تقيّم الدراسة المساعدة الانتقائية والمدركة للسياق بالذكاء الاصطناعي في تفسير أشعة الصدر بدل افتراض أن عرض الذكاء الاصطناعي مفيد دائمًا."
+      },
+      "featured": true
+    },
+    {
+      "id": "ontology-ddi-2026",
+      "date": "2026-06",
+      "kind": {
+        "en": "Peer-reviewed article",
+        "ar": "مقالة محكّمة"
+      },
+      "title": "Ontology-Enhanced Deep Learning for Mechanistic Prediction of Drug-Drug Interactions: A Clinically Interpretable Framework",
+      "venue": "Journal of Clinical Pharmacology",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42226315/",
+      "source": {
+        "en": "PubMed",
+        "ar": "PubMed"
+      },
+      "summary": {
+        "en": "A clinically interpretable DDI framework combining ontology-based embeddings with deep learning to predict pharmacokinetic and pharmacodynamic interaction mechanisms.",
+        "ar": "إطار قابل للتفسير سريريًا للتنبؤ بالتداخلات الدوائية، يجمع تضمينات مبنية على الأنطولوجيا مع التعلم العميق للتنبؤ بآليات التداخل الحركية والديناميكية الدوائية."
+      },
+      "featured": true
+    },
+    {
+      "id": "biouner-2026",
+      "date": "2026-04-03",
+      "kind": {
+        "en": "Preprint · benchmark dataset",
+        "ar": "نسخة أولية · مجموعة بيانات معيارية"
+      },
+      "title": "BioUNER: A Benchmark Dataset for Clinical Urdu Named Entity Recognition",
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2604.02904",
+      "source": {
+        "en": "arXiv",
+        "ar": "arXiv"
+      },
+      "summary": {
+        "en": "A biomedical Urdu named-entity recognition benchmark built from 153K annotated tokens and evaluated with classical, deep-learning and multilingual transformer baselines.",
+        "ar": "مجموعة بيانات معيارية للتعرف على الكيانات الطبية الحيوية باللغة الأردية، مبنية على 153 ألف رمز مُعنون ومقيمة بنماذج تقليدية وعميقة ومحولات متعددة اللغات."
+      },
+      "featured": true
+    },
+    {
+      "id": "ev-energy-2025",
+      "date": "2025-08-08",
+      "kind": {
+        "en": "Peer-reviewed article",
+        "ar": "مقالة محكّمة"
+      },
+      "title": "Optimizing electric vehicle energy consumption prediction through machine learning and ensemble approaches",
+      "venue": "Scientific Reports",
+      "url": "https://www.nature.com/articles/s41598-025-14129-2",
+      "source": {
+        "en": "Nature / Scientific Reports",
+        "ar": "Nature / Scientific Reports"
+      },
+      "summary": {
+        "en": "A machine-learning study of EV energy-consumption prediction using real-world data, hyperparameter optimization and a stacking ensemble.",
+        "ar": "دراسة بالتعلم الآلي للتنبؤ باستهلاك طاقة المركبات الكهربائية باستخدام بيانات واقعية وتحسين المعلمات وتجميع نماذج بأسلوب stacking."
+      },
+      "featured": false
+    }
+  ],
+  "follow": [
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0002-8251-1853"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/adeeb-noor"
+    },
+    {
+      "label": "X",
+      "url": "https://x.com/AdeebnooR"
+    }
+  ]
+}
