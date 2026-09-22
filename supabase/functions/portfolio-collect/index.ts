@@ -11,7 +11,7 @@ const BASE_PAGES = [
   '/executive-cv.html', '/master-cv.html', '/phd.html', '/speaking.html',
   '/funders.html', '/students.html', '/academic.html', '/press.html',
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
-  '/demo/', '/ideas/', '/ideas/position.html', '/kinetic-hr/',
+  '/demo/', '/ideas/', '/ideas/position.html', '/kinetic-hr/', '/ledd.html',
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
   '/ideas/readiness-needs-evidence.html',
 ];
@@ -29,7 +29,7 @@ const ANCHORS = new Set([
   'miyar', 'shifaa', 'healthx', 'leadership', 'metric-sources', 'work-and-ideas',
   'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
-  'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence',
+  'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones',
 ]);
 const DESTINATIONS = new Set([
   'https://github.com/adeebnoor',
@@ -57,6 +57,15 @@ const DESTINATIONS = new Set([
   'https://shifaa.kau.edu.sa/Default-ar.aspx',
   'https://shifaa.kau.edu.sa/default-en.aspx',
   'https://www.generalassemb.ly/instructors/dr-adeeb-noor/23954',
+  'https://x.com/AdeebnooR',
+  'https://x.com/KAU_Health/status/1097924370205421569',
+  'https://x.com/KAU_Health/status/1077963621634842624',
+  'https://x.com/KAU_Health/status/981396112975319042',
+  'https://x.com/KAU_Health/status/986587039977140224',
+  'https://x.com/KAU_Health/status/968381652513820673',
+  'https://x.com/FCITKAU/status/1799921254599958769',
+  'https://x.com/FCITKAU/status/1255875259733086208',
+  'https://x.com/kauh_PM/status/852113792481849344',
   'https://www.linkedin.com/in/adeeb-noor',
   'https://www.maastrichtuniversity.nl/mj-dumontier',
   'https://www.researchgate.net/profile/Adeeb-Noor-2',
