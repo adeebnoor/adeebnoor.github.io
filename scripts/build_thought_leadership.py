@@ -91,15 +91,15 @@ def home_copy(lang):
     if ar:
         return ('<div class="hero-copy"><div class="eyebrow">ما يخفيه الرقم</div><h1><span>أديب</span> نور</h1>'
                 '<p class="role">أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز</p>'
-                '<p class="hero-thesis">أساعد المؤسسات على تحويل درجات الذكاء الاصطناعي إلى قرارات قابلة للمساءلة.</p>'
-                '<p class="intro">أبحث ما يحدث حين تتحول الدرجة إلى قرار يمسّ الناس في الذكاء الاصطناعي والصحة والتعليم والمؤسسات العامة، وأبني أدوات تجعل القرار قابلًا للفحص والمساءلة.</p>'
+                '<p class="hero-thesis">أساعد المؤسسات على تحويل الاستراتيجية ورأس المال البشري والذكاء الاصطناعي إلى قرارات وقدرات قابلة للتنفيذ.</p>'
+                '<p class="intro">الاستراتيجية والحوكمة · رأس المال البشري وذكاء القوى العاملة · الذكاء الاصطناعي وذكاء القرار · الصحة الرقمية والتحول المؤسسي.</p>'
                 '<p class="location">جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية</p>'
                 '<div class="actions"><a class="button primary" href="/ar/ideas/position.html">اقرأ أطروحتي ←</a><a class="button" href="/ar/contact.html#inquiry-form">اعمل معي ←</a></div>'
                 '<p class="hero-cv-links"><a href="/ar/executive-cv.html">السيرة التنفيذية</a><span aria-hidden="true"> · </span><a href="/ar/academic-cv.html">السيرة الأكاديمية</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
     return ('<div class="hero-copy"><div class="eyebrow">What the Score Hides</div><h1><span>Adeeb</span> Noor</h1>'
             '<p class="role">Professor of Data Science &amp; AI, King Abdulaziz University</p>'
-            '<p class="hero-thesis">I help institutions turn AI scores into accountable decisions.</p>'
-            '<p class="intro">I study what happens when a score becomes a decision about people — in AI, healthcare, education and public institutions — and build tools that make the decision inspectable and accountable.</p>'
+            '<p class="hero-thesis">I help institutions turn strategy, human capital and AI into accountable decisions and executable capability.</p>'
+            '<p class="intro">Strategy &amp; governance · Human capital &amp; workforce intelligence · AI &amp; decision intelligence · Digital health &amp; institutional transformation.</p>'
             '<p class="location">King Abdulaziz University · Jeddah, Saudi Arabia</p>'
             '<div class="actions"><a class="button primary" href="/ideas/position.html">Read my position →</a><a class="button" href="/contact.html#inquiry-form">Work with me →</a></div>'
             '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
@@ -109,21 +109,25 @@ def home_copy(lang):
 def home_expertise(lang):
     ar = lang == 'ar'
     if ar:
-        return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap expertise-layout">
-        <div class="expertise-person"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="أديب نور"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">خريطة الخبرة</div><h2>أربع ساحات مترابطة.</h2><p>أجمع بين الاستراتيجية ورأس المال البشري والذكاء الاصطناعي والصحة الرقمية عندما تحتاج المؤسسة إلى قرار قابل للتفسير والتنفيذ.</p></div></div>
+        return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap">
+        <div class="expertise-heading">
+          <div class="expertise-profile"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="أديب نور"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">مجالات عملي</div><h2>أربع قدرات مترابطة.</h2><p>أجمع بين الاستراتيجية ورأس المال البشري والذكاء الاصطناعي والصحة الرقمية لبناء قدرة مؤسسية قابلة للتنفيذ والقياس.</p></div></div>
+        </div>
         <div class="expertise-grid">
-        <article><span>01</span><h3>الاستراتيجية والحوكمة</h3><p>هندسة الاستراتيجية، حوكمة القرار، البحث والابتكار، وربط الاختيارات بالصلاحيات والتنفيذ.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN ←</a></article>
-        <article><span>02</span><h3>رأس المال البشري وذكاء القوى العاملة</h3><p>تخطيط القوى العاملة، التصميم التنظيمي، هندسة الوظائف، الفجوات والقدرات والقرارات المرتبطة بها.</p><a href="/ar/ventures.html#miyar">MIYAR وKinetic HR ←</a></article>
-        <article><span>03</span><h3>الذكاء الاصطناعي وذكاء القرار</h3><p>تقييم الأنظمة، الذكاء الاصطناعي المسؤول، هوية التخصيص، وتحويل الدرجات إلى قرارات قابلة للمراجعة.</p><a href="/ar/research.html#ridi">RIDI والأبحاث ←</a></article>
-        <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، قيادة تقنية المستشفيات، الابتكار السريري وتحويل الضغط التشغيلي إلى أنظمة قرار.</p><a href="/ar/impact.html#hospital-modernization">SHIFAA وLEDD ←</a></article>
+        <article><span>01</span><h3>الاستراتيجية والحوكمة</h3><p>هندسة الاستراتيجية، الأولويات، الحوكمة ونماذج التنفيذ.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN ←</a></article>
+        <article><span>02</span><h3>رأس المال البشري وذكاء القوى العاملة</h3><p>تخطيط القوى العاملة، التصميم التنظيمي، هندسة الوظائف والقدرات.</p><a href="/ar/ventures.html#miyar">MIYAR وKinetic HR ←</a></article>
+        <article><span>03</span><h3>الذكاء الاصطناعي وذكاء القرار</h3><p>تقييم الأنظمة، الذكاء الاصطناعي المسؤول وتحويل المخرجات إلى قرارات قابلة للمراجعة.</p><a href="/ar/research.html#ridi">RIDI والأبحاث ←</a></article>
+        <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، الابتكار السريري وقيادة التحول الرقمي.</p><a href="/ar/impact.html#hospital-modernization">SHIFAA وLEDD ←</a></article>
         </div></div></section><!-- expertise-map:end -->'''
-    return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap expertise-layout">
-    <div class="expertise-person"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="Adeeb Noor"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">Where I work</div><h2>Four connected arenas.</h2><p>I work where strategy, human capital, AI and digital health meet consequential institutional decisions.</p></div></div>
+    return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap">
+    <div class="expertise-heading">
+      <div class="expertise-profile"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="Adeeb Noor"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">Executive focus</div><h2>Four connected capabilities.</h2><p>I combine strategy, human capital, AI and digital health to build institutional capability that can be executed and measured.</p></div></div>
+    </div>
     <div class="expertise-grid">
-    <article><span>01</span><h3>Strategy &amp; Governance</h3><p>Strategy architecture, decision governance, research and innovation, and the link between choices, authority and execution.</p><a href="https://sultan-strategy-beta.onrender.com">Explore SULTAN →</a></article>
-    <article><span>02</span><h3>Human Capital &amp; Workforce Intelligence</h3><p>Workforce planning, organizational design, job architecture, capacity gaps and evidence-backed workforce decisions.</p><a href="/ventures.html#miyar">MIYAR &amp; Kinetic HR →</a></article>
-    <article><span>03</span><h3>AI &amp; Decision Intelligence</h3><p>System evaluation, responsible AI, allocation identity, and making model-driven decisions inspectable and accountable.</p><a href="/research.html#ridi">RIDI &amp; research →</a></article>
-    <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Patient platforms, hospital technology leadership, clinical innovation and operational decision systems.</p><a href="/impact.html#hospital-modernization">SHIFAA &amp; LEDD →</a></article>
+    <article><span>01</span><h3>Strategy &amp; Governance</h3><p>Strategy architecture, priorities, governance and execution models.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN →</a></article>
+    <article><span>02</span><h3>Human Capital &amp; Workforce Intelligence</h3><p>Workforce planning, organizational design, job architecture and capability.</p><a href="/ventures.html#miyar">MIYAR &amp; Kinetic HR →</a></article>
+    <article><span>03</span><h3>AI &amp; Decision Intelligence</h3><p>System evaluation, responsible AI and accountable decision design.</p><a href="/research.html#ridi">RIDI &amp; research →</a></article>
+    <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Health platforms, clinical innovation and digital transformation leadership.</p><a href="/impact.html#hospital-modernization">SHIFAA &amp; LEDD →</a></article>
     </div></div></section><!-- expertise-map:end -->'''
 
 def card(lang):
