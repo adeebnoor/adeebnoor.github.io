@@ -142,6 +142,20 @@ def apply_home(path, lang, image_url):
     source, count = re.subn(r'<div class="hero-copy">.*?</div><div class="portrait">', hero+'<div class="portrait">', source, count=1, flags=re.S)
     if count != 1:
         raise ValueError(f'{path}: homepage hero target missing')
+    home_stats = ('<section class="stats" aria-label="الأرقام الرئيسية"><div class="wrap stat-grid">'
+        '<div class="stat"><b>18+ سنة</b><p>خبرة تراكمية عبر الجامعة والحكومة والصحة والاستشارات</p><a href="/ar/executive-cv.html#experience-basis">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>540,000+</b><p>معلم ومعلمة ضمن نطاق البرامج الوطنية المبلّغ عنه</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>49</b><p>إدارة تعليمية ضمن نطاق برامج تخطيط القوى العاملة 2021–2024</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>1,000,000+</b><p>وصول للمنصات المؤسسية بحسب سجل السيرة الذاتية</p><a href="/ar/executive-cv.html#platform-reach">النطاق والمصدر ←</a></div>'
+        '</div></section>') if lang=='ar' else ('<section class="stats" aria-label="Key numbers"><div class="wrap stat-grid">'
+        '<div class="stat"><b>18+ Years</b><p>Cumulative experience across academia, government, healthcare and advisory work</p><a href="/executive-cv.html#experience-basis">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>540,000+</b><p>Educators within the reported scope of national programs</p><a href="/executive-cv.html#educator-scope">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>49</b><p>Education districts within the reported 2021–2024 workforce-planning scope</p><a href="/executive-cv.html#educator-scope">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>1,000,000+</b><p>Institutional platform reach as reported in the CV record</p><a href="/executive-cv.html#platform-reach">Scope &amp; source →</a></div>'
+        '</div></section>')
+    source, stats_count = re.subn(r'<section class="stats"[^>]*>.*?</section>', home_stats, source, count=1, flags=re.S)
+    if stats_count != 1:
+        raise ValueError(f'{path}: homepage stats target missing')
     quote = '«الرقم ليس قرارًا.»' if lang=='ar' else '“A score is not a decision.”'
     source = re.sub(r'(<section class="hero">.*?<blockquote>).*?(</blockquote>)', lambda m:m[1]+quote+m[2], source, count=1, flags=re.S)
     source, count = re.subn(r'<!-- ideas-gateway:start -->.*?<!-- ideas-gateway:end -->', home_gateway(lang), source, count=1, flags=re.S)
