@@ -43,6 +43,7 @@
   const sets = {
     '/about.html': [['career-milestones','Career milestones','المحطات المهنية'],['recognition','Recognition','التكريم'],['open-source','Open work','العمل المفتوح']],
     '/research.html': [['ndi-lab','Research initiative','المبادرة البحثية'],['ai-ethics','AI ethics','أخلاقيات الذكاء الاصطناعي'],['open-source','Open work','العمل المفتوح']],
+    '/publications.html': [['latest-research','Latest research','أحدث الأبحاث']],
     '/ventures.html': [['miyar','MIYAR','MIYAR'],['kinetic-hr','Kinetic HR','Kinetic HR'],['additional-systems','More systems','أنظمة إضافية']],
     '/impact.html': [['national-workforce','National workforce','القوى العاملة الوطنية'],['hospital-modernization','Digital health','الصحة الرقمية'],['institutional-context','Institutional context','السياق المؤسسي']]
   };

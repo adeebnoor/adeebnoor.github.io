@@ -44,7 +44,7 @@ def profile_schema(lang):
         'alternateName': ['Adeeb Noor','د. أديب نور','Dr. Adeeb Noor','B. Adeeb Noor'] if ar else ['أديب نور','د. أديب نور','Dr. Adeeb Noor','B. Adeeb Noor'],
         'honorificPrefix': 'Prof.',
         'jobTitle': 'Professor of Data Science and Artificial Intelligence',
-        'description': ('أستاذ سعودي يدرس ما يحدث عندما تتحول الدرجة إلى قرار يمس الناس في الذكاء الاصطناعي والصحة والتعليم والمؤسسات العامة.' if ar else 'Saudi professor studying what happens when a score becomes a decision about people — in AI, healthcare, education and public institutions.'),
+        'description': ('أستاذ سعودي يعمل عبر الاستراتيجية والحوكمة ورأس المال البشري وذكاء القوى العاملة والذكاء الاصطناعي وذكاء القرار والصحة الرقمية والتحول المؤسسي.' if ar else 'Saudi professor working across strategy and governance, human capital and workforce intelligence, AI and decision intelligence, digital health and institutional transformation.'),
         'url': ORIGIN+'/',
         'email': 'mailto:arnoor@kau.edu.sa',
         'nationality': {'@type':'Country','name':'Saudi Arabia'},
@@ -53,7 +53,7 @@ def profile_schema(lang):
             {'@type':'CollegeOrUniversity','name':'University of Colorado Boulder'},
             {'@type':'CollegeOrUniversity','name':'Taibah University'}
         ],
-        'knowsAbout': ['Decision intelligence','AI evaluation','AI ethics','Responsible AI','Biomedical informatics','Drug–drug interactions','Digital health','AI in education','Workforce planning','Research governance'],
+        'knowsAbout': ['Strategy and governance','Human capital strategy','Workforce intelligence','Organizational design','Decision intelligence','AI evaluation','AI ethics','Responsible AI','Biomedical informatics','Drug–drug interactions','Digital health','Digital transformation','AI in education','Workforce planning','Research governance'],
         'sameAs': [
             'https://www.linkedin.com/in/adeeb-noor',
             'https://scholar.google.com/citations?user=XUQD1WAAAAAJ',
@@ -105,6 +105,27 @@ def home_copy(lang):
             '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
 
 
+
+def home_expertise(lang):
+    ar = lang == 'ar'
+    if ar:
+        return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap expertise-layout">
+        <div class="expertise-person"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="أديب نور"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">خريطة الخبرة</div><h2>أربع ساحات مترابطة.</h2><p>أجمع بين الاستراتيجية ورأس المال البشري والذكاء الاصطناعي والصحة الرقمية عندما تحتاج المؤسسة إلى قرار قابل للتفسير والتنفيذ.</p></div></div>
+        <div class="expertise-grid">
+        <article><span>01</span><h3>الاستراتيجية والحوكمة</h3><p>هندسة الاستراتيجية، حوكمة القرار، البحث والابتكار، وربط الاختيارات بالصلاحيات والتنفيذ.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN ←</a></article>
+        <article><span>02</span><h3>رأس المال البشري وذكاء القوى العاملة</h3><p>تخطيط القوى العاملة، التصميم التنظيمي، هندسة الوظائف، الفجوات والقدرات والقرارات المرتبطة بها.</p><a href="/ar/ventures.html#miyar">MIYAR وKinetic HR ←</a></article>
+        <article><span>03</span><h3>الذكاء الاصطناعي وذكاء القرار</h3><p>تقييم الأنظمة، الذكاء الاصطناعي المسؤول، هوية التخصيص، وتحويل الدرجات إلى قرارات قابلة للمراجعة.</p><a href="/ar/research.html#ridi">RIDI والأبحاث ←</a></article>
+        <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، قيادة تقنية المستشفيات، الابتكار السريري وتحويل الضغط التشغيلي إلى أنظمة قرار.</p><a href="/ar/impact.html#hospital-modernization">SHIFAA وLEDD ←</a></article>
+        </div></div></section><!-- expertise-map:end -->'''
+    return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap expertise-layout">
+    <div class="expertise-person"><svg class="expertise-photo" preserveAspectRatio="xMidYMid slice" viewBox="560 60 367 364" role="img" aria-label="Adeeb Noor"><image width="1122" height="1402" href="/assets/portfolio-art.webp"/></svg><div><div class="label">Where I work</div><h2>Four connected arenas.</h2><p>I work where strategy, human capital, AI and digital health meet consequential institutional decisions.</p></div></div>
+    <div class="expertise-grid">
+    <article><span>01</span><h3>Strategy &amp; Governance</h3><p>Strategy architecture, decision governance, research and innovation, and the link between choices, authority and execution.</p><a href="https://sultan-strategy-beta.onrender.com">Explore SULTAN →</a></article>
+    <article><span>02</span><h3>Human Capital &amp; Workforce Intelligence</h3><p>Workforce planning, organizational design, job architecture, capacity gaps and evidence-backed workforce decisions.</p><a href="/ventures.html#miyar">MIYAR &amp; Kinetic HR →</a></article>
+    <article><span>03</span><h3>AI &amp; Decision Intelligence</h3><p>System evaluation, responsible AI, allocation identity, and making model-driven decisions inspectable and accountable.</p><a href="/research.html#ridi">RIDI &amp; research →</a></article>
+    <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Patient platforms, hospital technology leadership, clinical innovation and operational decision systems.</p><a href="/impact.html#hospital-modernization">SHIFAA &amp; LEDD →</a></article>
+    </div></div></section><!-- expertise-map:end -->'''
+
 def card(lang):
     try:
         from PIL import Image, ImageDraw, ImageFont
@@ -122,7 +143,7 @@ def card(lang):
         return ImageFont.load_default()
     f_small, f_title, f_name, f_body = font(regulars,26), font(candidates,62), font(candidates,34), font(regulars,30)
     if ar:
-        items=[('أديب نور',f_name,132),('ما يخفيه الرقم',f_title,210),('الرقم ليس قرارًا.',f_body,330),('الذكاء الاصطناعي · الصحة · التعليم · المؤسسات العامة',f_small,404),('adeebnoor.github.io',f_small,520)]
+        items=[('أديب نور',f_name,132),('ما يخفيه الرقم',f_title,210),('الرقم ليس قرارًا.',f_body,330),('الاستراتيجية · رأس المال البشري · الذكاء الاصطناعي · الصحة الرقمية',f_small,404),('adeebnoor.github.io',f_small,520)]
         for text,f,y in items:
             try: draw.text((1110,y),text,font=f,fill='white' if y!=404 else '#d8dee2',anchor='ra',direction='rtl',language='ar')
             except Exception: draw.text((1100,y),text,font=f,fill='white' if y!=404 else '#d8dee2',anchor='ra')
@@ -130,7 +151,7 @@ def card(lang):
         draw.text((126,132),'ADEEB NOOR',font=f_name,fill='white')
         draw.text((126,210),'What the Score Hides',font=f_title,fill='white')
         draw.text((126,330),'A score is not a decision.',font=f_body,fill='white')
-        draw.text((126,404),'AI · healthcare · education · public institutions',font=f_small,fill='#d8dee2')
+        draw.text((126,404),'Strategy · human capital · AI · digital health',font=f_small,fill='#d8dee2')
         draw.text((126,520),'adeebnoor.github.io',font=f_small,fill='#d8dee2')
     out = ROOT/'assets'/('adeeb-noor-card-ar.jpg' if ar else 'adeeb-noor-card-en.jpg')
     image.save(out, format='JPEG', quality=92, optimize=False, progressive=False)
@@ -158,6 +179,12 @@ def apply_home(path, lang, image_url):
     source, stats_count = re.subn(r'<section class="stats"[^>]*>.*?</section>', home_stats, source, count=1, flags=re.S)
     if stats_count != 1:
         raise ValueError(f'{path}: homepage stats target missing')
+    source = re.sub(r'<!-- expertise-map:start -->.*?<!-- expertise-map:end -->', '', source, flags=re.S)
+    expertise = home_expertise(lang)
+    stats_match = re.search(r'<section class="stats"[^>]*>.*?</section>', source, flags=re.S)
+    if not stats_match:
+        raise ValueError(f'{path}: homepage stats target missing after cleanup')
+    source = source[:stats_match.end()] + expertise + source[stats_match.end():]
     quote = '«الرقم ليس قرارًا.»' if lang=='ar' else '“A score is not a decision.”'
     source = re.sub(r'(<section class="hero">.*?<blockquote>).*?(</blockquote>)', lambda m:m[1]+quote+m[2], source, count=1, flags=re.S)
     source, count = re.subn(r'<!-- ideas-gateway:start -->.*?<!-- ideas-gateway:end -->', home_gateway(lang), source, count=1, flags=re.S)
@@ -165,11 +192,11 @@ def apply_home(path, lang, image_url):
         raise ValueError(f'{path}: homepage ideas gateway target missing')
     if lang == 'ar':
         title='د. أديب نور | ما يخفيه الرقم — الذكاء الاصطناعي والقرار، جامعة الملك عبدالعزيز'
-        desc='أديب نور، أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز: ذكاء القرار، أخلاقيات الذكاء الاصطناعي، الذكاء الاصطناعي المسؤول، الصحة الرقمية والتحول المؤسسي.'
+        desc='أديب نور، أستاذ علوم البيانات والذكاء الاصطناعي: الاستراتيجية والحوكمة، رأس المال البشري وذكاء القوى العاملة، الذكاء الاصطناعي وذكاء القرار، الصحة الرقمية والتحول المؤسسي.'
         locale='ar_SA'
     else:
         title='Prof. Adeeb Noor — What the Score Hides | AI & Decisions, King Abdulaziz University'
-        desc='Prof. Adeeb Noor at King Abdulaziz University: decision intelligence, AI ethics, responsible AI, digital health, workforce strategy and institutional transformation.'
+        desc='Prof. Adeeb Noor: strategy and governance, human capital and workforce intelligence, AI and decision intelligence, digital health and institutional transformation.'
         locale='en_US'
     source=put_title(source,title)
     for attr,key,val in [('name','description',desc),('property','og:title',title),('property','og:description',desc),('property','og:locale',locale)]: source=put_meta(source,attr,key,val)
