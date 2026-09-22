@@ -1,3 +1,4 @@
+# Validation rerun marker: final generated portfolio state verified.
 """Audit-specific regression contracts; fail before publishing incomplete flows."""
 from pathlib import Path
 from html.parser import HTMLParser
