@@ -127,7 +127,7 @@ def home_expertise(lang):
     <article><span>01</span><h3>Strategy &amp; Governance</h3><p>Strategy architecture, priorities, governance and execution models.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN →</a></article>
     <article><span>02</span><h3>Human Capital &amp; Workforce Intelligence</h3><p>Workforce planning, organizational design, job architecture and capability.</p><a href="/ventures.html#miyar">MIYAR &amp; Kinetic HR →</a></article>
     <article><span>03</span><h3>AI &amp; Decision Intelligence</h3><p>System evaluation, responsible AI and accountable decision design.</p><a href="/research.html#ridi">RIDI &amp; research →</a></article>
-    <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Health platforms, clinical innovation and digital transformation leadership.</p><a href="/impact.html#hospital-modernization">SHIFAA &amp; LEDD →</a></article>
+    <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Health platforms, clinical innovation and digital transformation leadership.</p><a href="/impact.html#institutional-context">SHIFAA &amp; LEDD →</a></article>
     </div></div></section><!-- expertise-map:end -->'''
 
 def card(lang):
