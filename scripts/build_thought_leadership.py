@@ -10,7 +10,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io'
-TODAY = '2026-09-16'
+TODAY = '2026-09-22'
 PROFILE_BLOCK = re.compile(r'<!-- site-audit:person:start -->.*?<!-- site-audit:person:end -->', re.S)
 STYLE_BLOCK = re.compile(r'<!-- thought-leadership:style:start -->.*?<!-- thought-leadership:style:end -->', re.S)
 
@@ -158,7 +158,7 @@ def apply_home(path, lang, image_url):
     for attr,key,val in [('name','description',desc),('property','og:title',title),('property','og:description',desc),('property','og:locale',locale)]: source=put_meta(source,attr,key,val)
     if image_url:
         for attr,key,val in [('property','og:image',image_url),('property','og:image:width','1200'),('property','og:image:height','630'),('property','og:image:alt',title),('name','twitter:image',image_url),('name','twitter:card','summary_large_image')]: source=put_meta(source,attr,key,val)
-    style='''<!-- thought-leadership:style:start --><style id="thought-leadership-home">.hero-cv-links{margin-top:12px;font-size:.9rem;opacity:.82}.hero-cv-links a{text-decoration:underline;text-underline-offset:3px}.identity-path-primary{border-color:#c9a35a;box-shadow:0 12px 32px rgba(10,21,26,.08)}.identity-path-primary .label{color:#8a672b}@media(max-width:520px){.hero{padding-top:38px;padding-bottom:28px}.hero-grid{display:block}.hero-copy h1{font-size:clamp(2.35rem,13vw,3.25rem);margin-bottom:10px}.hero-copy .role{font-size:.95rem}.hero-copy .intro{font-size:1.02rem;line-height:1.52;margin-top:14px}.hero-copy .location{font-size:.82rem}.hero-copy .actions{margin-top:18px;gap:8px}.hero-copy .button{padding:11px 14px}.hero .portrait{display:none}}</style><!-- thought-leadership:style:end -->'''
+    style='''<!-- thought-leadership:style:start --><style id="thought-leadership-home">.hero-cv-links{margin-top:12px;font-size:.9rem;opacity:.82}.hero-cv-links a{text-decoration:underline;text-underline-offset:3px}.identity-path-primary{border-color:#c9a35a;box-shadow:0 12px 32px rgba(10,21,26,.08)}.identity-path-primary .label{color:#8a672b}@media(max-width:520px){.hero{padding-top:38px;padding-bottom:28px}.hero-grid{display:block}.hero-copy h1{font-size:clamp(2.35rem,13vw,3.25rem);margin-bottom:10px}.hero-copy .role{font-size:.95rem}.hero-copy .intro{font-size:1.02rem;line-height:1.52;margin-top:14px}.hero-copy .location{font-size:.82rem}.hero-copy .actions{margin-top:18px;gap:8px}.hero-copy .button{padding:11px 14px}.hero .portrait{display:block;margin:22px auto 0;max-width:330px}.hero .portrait .art{max-height:none}.hero .portrait blockquote{font-size:15px;margin-top:0}}</style><!-- thought-leadership:style:end -->'''
     source=source.replace('</head>',style+'</head>',1)
     source=PROFILE_BLOCK.sub(profile_schema(lang),source,count=1)
     path.write_text(source)

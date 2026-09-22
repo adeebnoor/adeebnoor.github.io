@@ -34,6 +34,35 @@
     "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create"
   },
   {
+    "id": "kinetic-hr",
+    "name": "Kinetic HR",
+    "image": "/kinetic-hr/assets/reference-workspace.webp",
+    "url": "/ventures.html#kinetic-hr",
+    "en": {
+      "name": "Kinetic HR",
+      "stage": "Public prototype · Workforce decision intelligence",
+      "domain": "Workforce early warning",
+      "description": "A bilingual decision layer for monitoring workforce capacity signals, exploring staffing scenarios, and keeping decisions traceable through data-quality and audit views.",
+      "cta": "Explore Kinetic HR",
+      "alt": "Kinetic HR workforce early-warning and decision intelligence workspace",
+      "liveCta": "Open Kinetic HR"
+    },
+    "ar": {
+      "name": "Kinetic HR",
+      "stage": "نموذج أولي عام · ذكاء قرار القوى العاملة",
+      "domain": "الإنذار المبكر للقوى العاملة",
+      "description": "طبقة قرار ثنائية اللغة لمراقبة إشارات القدرة والفجوات، وتجربة سيناريوهات القوى العاملة، وربط القرارات بجودة البيانات وسجل قابل للمراجعة.",
+      "cta": "استكشف Kinetic HR",
+      "alt": "واجهة Kinetic HR للإنذار المبكر وذكاء قرارات القوى العاملة",
+      "liveCta": "افتح Kinetic HR"
+    },
+    "actualImage": true,
+    "liveUrl": {
+      "en": "https://adeebnoor.github.io/kinetic-hr/",
+      "ar": "https://adeebnoor.github.io/kinetic-hr/"
+    }
+  },
+  {
     "id": "sultan",
     "name": "SULTAN",
     "image": "/assets/sultan-strategy-logo.svg",
