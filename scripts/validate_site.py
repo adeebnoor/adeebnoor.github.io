@@ -1,3 +1,4 @@
+# Final UX state validation trigger.
 """Check public HTML targets and assets before publishing this static portfolio."""
 from html.parser import HTMLParser
 from pathlib import Path
