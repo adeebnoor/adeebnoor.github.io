@@ -83,9 +83,15 @@ def inquiry_form(lang, updates=False):
     fields+=input_field('email',text('Email address','البريد الإلكتروني',lang),lang,'email',True,254,'email')
     if not updates:
         fields+=input_field('organization',text('Organization / affiliation (optional)','الجهة أو الانتماء (اختياري)',lang),lang,autocomplete='organization')
+        fields+=select_field('engagement',text('What is this request about?','ما نوع الطلب؟',lang),[
+            ('venture','Funding / investment','تمويل / استثمار'),
+            ('research','Partnership / collaboration','شراكة / تعاون'),
+            ('other','Student supervision','إشراف طلاب'),
+            ('advisory','Strategic advisory','استشارة استراتيجية'),
+            ('speaking','Lecture / keynote / workshop','محاضرة / كلمة رئيسية / ورشة'),
+            ('board','Board / expert committee','مجلس / لجنة خبراء')],lang)
         fields+=select_field('audience',text('I am contacting as','أتواصل بصفتي',lang),[
             ('institution','Institution / government','جهة مؤسسية أو حكومية'),('company','Company / investor','شركة أو مستثمر'),('researcher','Researcher / academic','باحث أو أكاديمي'),('student','Student','طالب')],lang)
-        fields+=select_field('engagement',text('Type of engagement','نوع التعاون',lang),[(s['id'],s['title']['en'],s['title']['ar']) for s in DATA['ways']]+[('other','Other / not sure yet','أخرى أو لم يتضح بعد')],lang)
         fields+=select_field('timeline',text('Desired timeline','الإطار الزمني المطلوب',lang),[('soon','Within a month','خلال شهر'),('quarter','Within three months','خلال ثلاثة أشهر'),('later','Later / exploratory','لاحقًا أو استكشافي')],lang)
         fields+=select_field('authority',text('Your role in the decision','دورك في القرار',lang),[('decision_maker','Decision maker / sponsor','صاحب القرار أو الراعي'),('team','Project team / recommender','فريق المشروع أو مقدم التوصية'),('individual','Individual inquiry / student','تواصل فردي أو طالب')],lang)
         fields+='<div class="audit-field audit-full"><label for="inquiry-problem">'+text('What problem are you trying to solve? What outcome would be useful?','ما المشكلة التي تريد حلّها؟ وما النتيجة التي تحتاجها؟',lang)+'</label><textarea id="inquiry-problem" name="problem" minlength="20" maxlength="4000" required aria-describedby="inquiry-help"></textarea><p class="audit-help" id="inquiry-help">'+text('20–4,000 characters. Do not include patient information, passwords or confidential institutional material.','من 20 إلى 4,000 حرف. لا تُدرج بيانات مرضى أو كلمات مرور أو مواد مؤسسية سرية.',lang)+'</p></div>'
@@ -101,7 +107,12 @@ def inquiry_form(lang, updates=False):
 
 
 def footer(lang):
-    return '<div class="audit-footer"><nav aria-label="'+text('Explore further','استكشف المزيد',lang)+'">'+''.join(link(path,text(en,ar,lang),lang) for path,en,ar in [('/ideas/','Ideas','الأفكار'),('/writing/','Essays','المقالات'),('/engagements.html','Selected engagements','نماذج من العمل'),('/speaking.html','Speaking & media','التحدث والإعلام'),(DATA['github'],'GitHub','GitHub'),('/feed.xml','RSS','RSS')])+'</nav></div>'
+    links=[('/ideas/','Ideas','الأفكار'),('/writing/','Essays','المقالات'),('/engagements.html','Selected engagements','نماذج من العمل'),('/speaking.html','Speaking & media','التحدث والإعلام'),
+           ('https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en','Google Scholar','Google Scholar'),
+           ('https://orcid.org/0000-0002-8251-1853','ORCID','ORCID'),
+           ('https://www.linkedin.com/in/adeeb-noor','LinkedIn','LinkedIn'),
+           (DATA['github'],'GitHub','GitHub'),('/feed.xml','RSS','RSS')]
+    return '<div class="audit-footer"><nav aria-label="'+text('Explore further','استكشف المزيد',lang)+'">'+''.join(link(path,text(en,ar,lang),lang) for path,en,ar in links)+'</nav></div>'
 
 
 def common_head(lang, form=False):
@@ -140,7 +151,7 @@ def render_inbox(lang):
 
 
 def person(lang):
-    return {'@context':'https://schema.org','@type':'Person','@id':ORIGIN+'/#person','name':'Adeeb Noor','alternateName':['أديب نور','B. Adeeb Noor'],'url':ORIGIN+'/','jobTitle':'Professor','worksFor':{'@type':'CollegeOrUniversity','name':'King Abdulaziz University'},'sameAs':['https://www.linkedin.com/in/adeeb-noor','https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en','https://orcid.org/0000-0002-8251-1853',DATA['github']]}
+    return {'@context':'https://schema.org','@type':'Person','@id':ORIGIN+'/#person','name':'Adeeb Noor','alternateName':['أديب نور','B. Adeeb Noor'],'url':ORIGIN+'/','jobTitle':'Professor','worksFor':{'@type':'CollegeOrUniversity','name':'King Abdulaziz University'},'sameAs':['https://www.linkedin.com/in/adeeb-noor','https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en','https://orcid.org/0000-0002-8251-1853',DATA['github'],'https://x.com/AdeebnooR']}
 
 
 def essay_meta(article,lang):

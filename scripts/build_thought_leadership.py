@@ -94,13 +94,13 @@ def home_copy(lang):
                 '<p class="intro">الرقم ليس قرارًا. أدرس ما يحدث حين تتحول الدرجة إلى قرار يمسّ الناس، في الذكاء الاصطناعي والصحة والتعليم والمؤسسات العامة، وأبني أدوات تجعل هذا القرار قابلًا للمساءلة.</p>'
                 '<p class="location">جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية</p>'
                 '<div class="actions"><a class="button primary" href="/ar/ideas/position.html">اقرأ أطروحتي ←</a><a class="button" href="/ar/contact.html#inquiry-form">اعمل معي ←</a></div>'
-                '<p class="hero-cv-links"><a href="/ar/executive-cv.html">السيرة التنفيذية</a><span aria-hidden="true"> · </span><a href="/ar/academic-cv.html">السيرة الأكاديمية</a></p></div>')
+                '<p class="hero-cv-links"><a href="/ar/executive-cv.html">السيرة التنفيذية</a><span aria-hidden="true"> · </span><a href="/ar/academic-cv.html">السيرة الأكاديمية</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
     return ('<div class="hero-copy"><div class="eyebrow">What the Score Hides</div><h1><span>Adeeb</span> Noor</h1>'
             '<p class="role">Professor of Data Science &amp; AI, King Abdulaziz University</p>'
             '<p class="intro">A score is not a decision. I study what happens when a score becomes a decision about people — in AI, healthcare, education and public institutions — and build tools that make that decision accountable.</p>'
             '<p class="location">King Abdulaziz University · Jeddah, Saudi Arabia</p>'
             '<div class="actions"><a class="button primary" href="/ideas/position.html">Read my position →</a><a class="button" href="/contact.html#inquiry-form">Work with me →</a></div>'
-            '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p></div>')
+            '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
 
 
 def card(lang):
@@ -142,6 +142,20 @@ def apply_home(path, lang, image_url):
     source, count = re.subn(r'<div class="hero-copy">.*?</div><div class="portrait">', hero+'<div class="portrait">', source, count=1, flags=re.S)
     if count != 1:
         raise ValueError(f'{path}: homepage hero target missing')
+    home_stats = ('<section class="stats" aria-label="الأرقام الرئيسية"><div class="wrap stat-grid">'
+        '<div class="stat"><b>18+ سنة</b><p>خبرة تراكمية عبر الجامعة والحكومة والصحة والاستشارات</p><a href="/ar/executive-cv.html#experience-basis">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>540,000+</b><p>معلم ومعلمة ضمن نطاق البرامج الوطنية المبلّغ عنه</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>49</b><p>إدارة تعليمية ضمن نطاق برامج تخطيط القوى العاملة 2021–2024</p><a href="/ar/executive-cv.html#educator-scope">النطاق والمصدر ←</a></div>'
+        '<div class="stat"><b>1,000,000+</b><p>وصول للمنصات المؤسسية بحسب سجل السيرة الذاتية</p><a href="/ar/executive-cv.html#platform-reach">النطاق والمصدر ←</a></div>'
+        '</div></section>') if lang=='ar' else ('<section class="stats" aria-label="Key numbers"><div class="wrap stat-grid">'
+        '<div class="stat"><b>18+ Years</b><p>Cumulative experience across academia, government, healthcare and advisory work</p><a href="/executive-cv.html#experience-basis">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>540,000+</b><p>Educators within the reported scope of national programs</p><a href="/executive-cv.html#educator-scope">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>49</b><p>Education districts within the reported 2021–2024 workforce-planning scope</p><a href="/executive-cv.html#educator-scope">Scope &amp; source →</a></div>'
+        '<div class="stat"><b>1,000,000+</b><p>Institutional platform reach as reported in the CV record</p><a href="/executive-cv.html#platform-reach">Scope &amp; source →</a></div>'
+        '</div></section>')
+    source, stats_count = re.subn(r'<section class="stats"[^>]*>.*?</section>', home_stats, source, count=1, flags=re.S)
+    if stats_count != 1:
+        raise ValueError(f'{path}: homepage stats target missing')
     quote = '«الرقم ليس قرارًا.»' if lang=='ar' else '“A score is not a decision.”'
     source = re.sub(r'(<section class="hero">.*?<blockquote>).*?(</blockquote>)', lambda m:m[1]+quote+m[2], source, count=1, flags=re.S)
     source, count = re.subn(r'<!-- ideas-gateway:start -->.*?<!-- ideas-gateway:end -->', home_gateway(lang), source, count=1, flags=re.S)
@@ -149,17 +163,17 @@ def apply_home(path, lang, image_url):
         raise ValueError(f'{path}: homepage ideas gateway target missing')
     if lang == 'ar':
         title='د. أديب نور | ما يخفيه الرقم — الذكاء الاصطناعي والقرار، جامعة الملك عبدالعزيز'
-        desc='الرقم ليس قرارًا. أديب نور يدرس ما يحدث عندما تتحول الدرجة إلى قرار يمس الناس، ويبني أدوات تجعل القرار قابلًا للمساءلة.'
+        desc='أديب نور، أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز: ذكاء القرار، أخلاقيات الذكاء الاصطناعي، الذكاء الاصطناعي المسؤول، الصحة الرقمية والتحول المؤسسي.'
         locale='ar_SA'
     else:
         title='Prof. Adeeb Noor — What the Score Hides | AI & Decisions, King Abdulaziz University'
-        desc='A score is not a decision. Adeeb Noor studies what happens when scores become decisions about people and builds tools that make those decisions accountable.'
+        desc='Prof. Adeeb Noor at King Abdulaziz University: decision intelligence, AI ethics, responsible AI, digital health, workforce strategy and institutional transformation.'
         locale='en_US'
     source=put_title(source,title)
     for attr,key,val in [('name','description',desc),('property','og:title',title),('property','og:description',desc),('property','og:locale',locale)]: source=put_meta(source,attr,key,val)
     if image_url:
         for attr,key,val in [('property','og:image',image_url),('property','og:image:width','1200'),('property','og:image:height','630'),('property','og:image:alt',title),('name','twitter:image',image_url),('name','twitter:card','summary_large_image')]: source=put_meta(source,attr,key,val)
-    style='''<!-- thought-leadership:style:start --><style id="thought-leadership-home">.hero-cv-links{margin-top:12px;font-size:.9rem;opacity:.82}.hero-cv-links a{text-decoration:underline;text-underline-offset:3px}.identity-path-primary{border-color:#c9a35a;box-shadow:0 12px 32px rgba(10,21,26,.08)}.identity-path-primary .label{color:#8a672b}@media(max-width:520px){.hero{padding-top:38px;padding-bottom:28px}.hero-grid{display:block}.hero-copy h1{font-size:clamp(2.35rem,13vw,3.25rem);margin-bottom:10px}.hero-copy .role{font-size:.95rem}.hero-copy .intro{font-size:1.02rem;line-height:1.52;margin-top:14px}.hero-copy .location{font-size:.82rem}.hero-copy .actions{margin-top:18px;gap:8px}.hero-copy .button{padding:11px 14px}.hero .portrait{display:block;margin:22px auto 0;max-width:330px}.hero .portrait .art{max-height:none}.hero .portrait blockquote{font-size:15px;margin-top:0}}</style><!-- thought-leadership:style:end -->'''
+    style='''<!-- thought-leadership:style:start --><style id="thought-leadership-home">.hero-thesis{font:700 18px/1.45 Arial,Tahoma,sans-serif;color:#f2d89c;margin:6px 0 10px;max-width:640px}.hero-cv-links{margin-top:12px;font-size:.9rem;opacity:.88}.hero-cv-links a{text-decoration:underline;text-underline-offset:3px}.hero-trust-links{display:flex;flex-wrap:wrap;gap:8px 11px;margin:10px 0 0;font:600 13px/1.5 Arial,Tahoma,sans-serif;color:#d7d0c2}.hero-trust-links a{text-decoration:underline;text-underline-offset:3px}.hero .actions .button{font-size:15px;min-height:50px;padding:13px 19px;font-weight:700}.hero .actions .button.primary{box-shadow:0 8px 20px rgba(201,163,90,.18)}.identity-path-primary{border-color:#c9a35a;box-shadow:0 12px 32px rgba(10,21,26,.08)}.identity-path-primary .label{color:#8a672b}@media(max-width:520px){.hero{padding-top:38px;padding-bottom:28px}.hero-grid{display:block}.hero-copy h1{font-size:clamp(2.35rem,13vw,3.25rem);margin-bottom:10px}.hero-copy .role{font-size:.95rem}.hero-copy .intro{font-size:1.02rem;line-height:1.52;margin-top:14px}.hero-copy .location{font-size:.82rem}.hero-copy .actions{margin-top:18px;gap:8px}.hero-copy .button{padding:12px 15px}.hero-thesis{font-size:16px}.hero-trust-links{font-size:12px;gap:6px 9px}.hero .portrait{display:block;margin:22px auto 0;max-width:330px}.hero .portrait .art{max-height:none}.hero .portrait blockquote{font-size:15px;margin-top:0}}</style><!-- thought-leadership:style:end -->'''
     source=source.replace('</head>',style+'</head>',1)
     source=PROFILE_BLOCK.sub(profile_schema(lang),source,count=1)
     path.write_text(source)
