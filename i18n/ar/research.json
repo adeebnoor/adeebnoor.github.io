@@ -208,7 +208,15 @@
       "Position management service": "خدمة إدارة المناصب",
       "Create, review and manage position requests.": "أنشئ طلبات المناصب وراجعها وتابعها.",
       "Start with a position request and save your draft on this device. Organization accounts provide shared storage and approval workflows.": "ابدأ بطلب منصب واحفظ مسودتك على هذا الجهاز. توفر حسابات المؤسسة الحفظ المشترك ومسار الاعتمادات.",
-      "Create a position request →": "إنشاء طلب منصب ←"
+      "Create a position request →": "إنشاء طلب منصب ←",
+      "Workforce Decision Intelligence": "ذكاء قرار القوى العاملة",
+      "Public prototype · Early-warning decision layer": "نموذج أولي عام · طبقة إنذار مبكر للقرار",
+      "See workforce pressure before it becomes a staffing crisis.": "اكتشف ضغط القوى العاملة قبل أن يتحول إلى أزمة تشغيلية.",
+      "Kinetic HR is a bilingual workforce decision-intelligence prototype designed to sit alongside existing HR systems. It surfaces capacity signals, workforce gaps and decision queues, then lets users explore staffing scenarios without writing back to source systems.": "Kinetic HR نموذج أولي ثنائي اللغة لذكاء قرارات القوى العاملة، صُمم ليعمل إلى جانب أنظمة الموارد البشرية الحالية. يعرض إشارات القدرة والفجوات وطوابير القرار، ويتيح تجربة سيناريوهات القوى العاملة دون الكتابة على الأنظمة المصدرية.",
+      "The current prototype also exposes data-quality, provenance and audit views so recommendations can be traced to their measurement basis rather than presented as opaque AI output.": "كما يعرض النموذج الحالي جودة البيانات ومصدر القياس وسجل التدقيق، بحيث يمكن تتبع القرار إلى أساسه بدل تقديم توصيات غير قابلة للمراجعة.",
+      "Open Kinetic HR →": "افتح Kinetic HR ←",
+      "Open English interface →": "افتح الواجهة الإنجليزية ←",
+      "Discuss an institutional pilot →": "ناقش تجربة مؤسسية ←"
     },
     "attrs": {
       "Adeeb Noor — ventures and research-to-market work in personalized medicine, clinical AI and digital health.": "أديب نور — المشاريع وتحويل الأبحاث إلى تطبيقات في الطب الشخصي، والذكاء الاصطناعي السريري، والصحة الرقمية.",
