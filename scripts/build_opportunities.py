@@ -19,7 +19,7 @@ IDENTITY=json.loads((ROOT/'data'/'site_identity.json').read_text())
 EMAIL = IDENTITY['opportunities_email']
 OFFICIAL = IDENTITY['institutional_email']
 ORIGIN = 'https://adeebnoor.github.io'
-CSS = '/opportunities.css?v=20260923-opp1'
+CSS = '/opportunities.css?v=20260924-opp2'
 PAGES = ('advisory.html', 'partnerships.html')
 def e(text):
     return escape(str(text), quote=True)
@@ -112,7 +112,7 @@ def render_page(page, lang):
 def patch_home(lang):
     ar = lang == 'ar'
     path = ROOT / (('ar/' if ar else '') + 'index.html')
-    source = strip(strip(path.read_text(), 'head'), 'home')
+    source = strip(strip(strip(path.read_text(), 'head'), 'home'), 'recog')
     h = DATA['home'][lang]
     source = source.replace('</head>', block('head', f'<link rel="stylesheet" href="{CSS}">') + '</head>', 1)
     old = re.search(r'<title>(.*?)</title>', source, re.S)[1]
@@ -130,7 +130,22 @@ def patch_home(lang):
     part = re.sub(r'(<p class="hero-cv-links">)(.*?)(</p>)',
                   lambda m: m[1] + re.sub(r'<span aria-hidden="true"> · </span><a href="[^"]*position\.html">.*?</a>', '', m[2]) +
                   f'<span aria-hidden="true"> · </span><a href="{position}">{e(h["position_link"])}</a>' + m[3], part, count=1, flags=re.S)
+    part = re.sub(r'<p class="hero-thesis">.*?</p>', f'<p class="hero-thesis">{e(h["thesis"])}</p>', part, count=1, flags=re.S)
     source = source[:hero.start()] + part + source[hero.end():]
+    stats = re.search(r'<section class="stats".*?</section>', source, re.S)
+    if stats:
+        block_html = stats[0]
+        for before, after in h['stat_labels']:
+            block_html = block_html.replace(f'<p>{before}</p>', f'<p>{e(after)}</p>')
+        source = source[:stats.start()] + block_html + source[stats.end():]
+        r = h['recognition']
+        items = ''.join(f'<a class="opp-recog-item" href="{e(i["href"])}" target="_blank" rel="noopener noreferrer"><b>{e(i["title"])}</b><span>{e(i["meta"])}</span></a>' for i in r['items'])
+        more = ''.join(f'<a href="{e(href)}">{e(text)}</a>' for href, text in r['links'])
+        recog = (f'<section class="opp-recog" id="recognition" aria-labelledby="recognition-title"><div class="wrap"><div class="opp-recog-head">'
+                 f'<div><p class="opp-kicker">{e(r["kicker"])}</p><h2 id="recognition-title">{e(r["heading"])}</h2></div><p class="opp-recog-more">{more}</p></div>'
+                 f'<div class="opp-recog-grid">{items}</div></div></section>')
+        end = source.index('</section>', stats.start()) + len('</section>')
+        source = source[:end] + block('recog', recog) + source[end:]
     path.write_text(source)
 def patch_contact(lang):
     ar = lang == 'ar'
