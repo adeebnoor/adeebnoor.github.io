@@ -295,7 +295,7 @@
       "cta_projects": "All projects & stages",
       "meta": "No revenue or adoption figures are claimed on this page; details are shared in conversation.",
       "ventures_h2": "Ventures",
-      "ventures_intro": "Where each venture stands today, using the same Live / Public Beta / Prototype / In Development lifecycle used across the site.",
+      "ventures_intro": "Where each venture stands today.",
       "labels": {
         "sector": "Sector",
         "role": "My role",
@@ -452,7 +452,7 @@
       "cta_projects": "جميع المشاريع ومراحلها",
       "meta": "لا تدّعي هذه الصفحة أرقام إيرادات أو انتشار؛ تُشارك التفاصيل عند التواصل.",
       "ventures_h2": "المشاريع",
-      "ventures_intro": "المرحلة الحالية لكل مشروع باستخدام التصنيف الموحد نفسه في الموقع: Live / Public Beta / Prototype / In Development.",
+      "ventures_intro": "أين يقف كل مشروع اليوم.",
       "labels": {
         "sector": "القطاع",
         "role": "دوري",
