@@ -84,7 +84,8 @@ def inquiry_form(lang, updates=False):
     if not updates:
         fields+=input_field('organization',text('Organization / affiliation (optional)','الجهة أو الانتماء (اختياري)',lang),lang,autocomplete='organization')
         fields+=select_field('engagement',text('What is this request about?','ما نوع الطلب؟',lang),[
-            ('advisory','Strategic advisory','استشارة'),
+            ('advisory','Advisory or leadership engagement','استشارة أو تكليف قيادي'),
+            ('board','Board / expert committee','مجلس إدارة / لجنة خبراء'),
             ('venture','Funding / investment','تمويل / استثمار'),
             ('other','Student supervision','إشراف'),
             ('speaking','Lecture / keynote / workshop','محاضرة / كلمة / ورشة'),
