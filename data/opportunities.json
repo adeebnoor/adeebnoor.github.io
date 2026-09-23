@@ -1,0 +1,631 @@
+{
+  "_note": "Source for /advisory.html and /partnerships.html (EN/AR) plus the homepage and contact entry points. Rendered by scripts/build_opportunities.py. Edit text here, then run python scripts/build_site.py.",
+  "home": {
+    "en": {
+      "eyebrow": "What the Score Hides",
+      "title": "Prof. Adeeb Noor — AI, Data & Institutional Leadership | King Abdulaziz University",
+      "cta_roles": "Leadership & advisory →",
+      "cta_investors": "Ventures & partnerships →",
+      "position_link": "Read my position"
+    },
+    "ar": {
+      "eyebrow": "ما يخفيه الرقم",
+      "title": "أ.د. أديب نور — الذكاء الاصطناعي والبيانات والقيادة المؤسسية | جامعة الملك عبدالعزيز",
+      "cta_roles": "القيادة والاستشارات ←",
+      "cta_investors": "المشاريع والشراكات ←",
+      "position_link": "اقرأ أطروحتي"
+    }
+  },
+  "opportunities": {
+    "en": {
+      "title": "Leadership & Advisory — Adeeb Noor",
+      "description": "The leadership and advisory record of Prof. Adeeb Noor across government, universities and healthcare: strategy, workforce intelligence, AI and digital health.",
+      "kicker": "Leadership & Advisory",
+      "h1": "Leadership across government, universities and healthcare.",
+      "lead": "Professor of Data Science & AI at King Abdulaziz University. My record spans national workforce planning at the Ministry of Education, hospital digital modernization, and research and innovation strategy — translating evidence into institutional capability.",
+      "mail_subject": "Invitation",
+      "cta_cv": "Executive CV",
+      "cta_second": "Selected engagements",
+      "cta_second_link": "/engagements.html",
+      "roles_h2": "Areas of service",
+      "roles_intro": "Four areas in which I have served, each with a record that can be examined.",
+      "roles": [
+        {
+          "title": "Institutional leadership",
+          "text": "Leading technology, data and strategy functions in government, a university hospital and a university research office.",
+          "fit": [
+            "Chief Strategy Advisor — Research & Innovation, KAU",
+            "Senior Executive Advisor — Ministry of Education",
+            "IT Director — King Abdulaziz University Hospital"
+          ],
+          "link": "/executive-cv.html",
+          "link_text": "Executive CV →"
+        },
+        {
+          "title": "Strategic advisory",
+          "text": "AI strategy and governance, national workforce planning, research-to-market operating models and digital-health transformation.",
+          "fit": [
+            "Data strategy and governance for national policy",
+            "Institutional counterpart on commissioned national workstreams",
+            "AI R&D center and operating model design"
+          ],
+          "link": "/engagements.html",
+          "link_text": "Selected engagements →"
+        },
+        {
+          "title": "Boards & expert committees",
+          "text": "Service on national and institutional expert bodies in education, research and healthcare.",
+          "fit": [
+            "National Council of Experts — Educational Job Classifications (MoE)",
+            "KAU Research & Innovation Strategy Committees",
+            "Healthcare Advisory Committee — KAU Hospital"
+          ],
+          "link": "/impact.html",
+          "link_text": "Leadership record →"
+        },
+        {
+          "title": "Academic leadership",
+          "text": "Research and scholarship in AI, decision intelligence and biomedical informatics.",
+          "fit": [
+            "PhD & MS, University of Colorado Boulder",
+            "Visiting Professor, KAUST (since 2016)",
+            "Continuing publication record in AI and health"
+          ],
+          "link": "/academic-cv.html",
+          "link_text": "Academic CV →"
+        }
+      ],
+      "proof_h2": "Record of delivery",
+      "proof_intro": "Selected figures from my executive record.",
+      "proof": [
+        {
+          "value": "~SAR 190M",
+          "label": "Program portfolios shaped or overseen across multi-stakeholder initiatives"
+        },
+        {
+          "value": "540,000+",
+          "label": "Educators within the scope of national workforce-planning programs (49 districts, 2021–2024)"
+        },
+        {
+          "value": "~SAR 11.3M",
+          "label": "Reported year-one savings from strategic workforce analysis"
+        },
+        {
+          "value": "70+ team",
+          "label": "Technology organization led at KAU Hospital, ~SAR 18.8M operating budget"
+        }
+      ],
+      "proof_note": "Figures come from my CV record; they are rounded and owner-reported.",
+      "proof_source": "Scope & source",
+      "career_h2": "Career",
+      "career": [
+        {
+          "when": "2025–present",
+          "role": "Chief Strategy Advisor",
+          "org": "Office of the VP for Research & Innovation, King Abdulaziz University"
+        },
+        {
+          "when": "2024–present",
+          "role": "Full Professor, Data Science & AI",
+          "org": "Faculty of Computing & IT, King Abdulaziz University"
+        },
+        {
+          "when": "2021–2024",
+          "role": "Senior Executive Advisor — National Human Capability Development",
+          "org": "Ministry of Education"
+        },
+        {
+          "when": "2021",
+          "role": "Executive Director of Advisory & AI Strategy",
+          "org": "Islamic University of Madinah"
+        },
+        {
+          "when": "2019–2021",
+          "role": "Senior National Advisor — Data Strategy",
+          "org": "Ministry of Education"
+        },
+        {
+          "when": "2016–2018",
+          "role": "IT Director & Digital Modernization Lead",
+          "org": "King Abdulaziz University Hospital"
+        }
+      ],
+      "contact_h2": "Correspondence",
+      "contact_text": "Invitations to serve on boards and committees, advisory engagements and leadership appointments may be addressed to:",
+      "contact_list": [],
+      "routes_title": "Also",
+      "routes": [
+        {
+          "href": "/contact.html#inquiry-form",
+          "text": "Contact form"
+        },
+        {
+          "href": "https://www.linkedin.com/in/adeeb-noor",
+          "text": "LinkedIn"
+        },
+        {
+          "href": "/partnerships.html",
+          "text": "Ventures & partnerships"
+        }
+      ],
+      "institutional": "Academic correspondence:"
+    },
+    "ar": {
+      "title": "القيادة والاستشارات — أديب نور",
+      "description": "السجل القيادي والاستشاري للأستاذ الدكتور أديب نور في الجهات الحكومية والجامعات والقطاع الصحي: الاستراتيجية وذكاء القوى العاملة والذكاء الاصطناعي والصحة الرقمية.",
+      "kicker": "القيادة والاستشارات",
+      "h1": "مسيرة قيادية في الجهات الحكومية والجامعات والقطاع الصحي.",
+      "lead": "أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز. تمتد مسيرتي من تخطيط القوى العاملة الوطنية في وزارة التعليم، إلى التحديث الرقمي في المستشفى الجامعي، إلى استراتيجية البحث والابتكار، بتحويل الأدلة إلى قدرات مؤسسية.",
+      "mail_subject": "دعوة",
+      "cta_cv": "السيرة التنفيذية",
+      "cta_second": "نماذج من العمل",
+      "cta_second_link": "/ar/engagements.html",
+      "roles_h2": "مجالات الإسهام",
+      "roles_intro": "أربعة مجالات خدمتُ فيها، ولكل منها سجل يمكن الرجوع إليه.",
+      "roles": [
+        {
+          "title": "القيادة المؤسسية",
+          "text": "قيادة وظائف التقنية والبيانات والاستراتيجية في جهة حكومية ومستشفى جامعي ومكتب البحث والابتكار بالجامعة.",
+          "fit": [
+            "كبير المستشارين الاستراتيجيين — البحث والابتكار، جامعة الملك عبدالعزيز",
+            "مستشار تنفيذي أول — وزارة التعليم",
+            "مدير تقنية المعلومات — مستشفى جامعة الملك عبدالعزيز"
+          ],
+          "link": "/ar/executive-cv.html",
+          "link_text": "السيرة التنفيذية ←"
+        },
+        {
+          "title": "الاستشارات الاستراتيجية",
+          "text": "استراتيجية الذكاء الاصطناعي وحوكمته، وتخطيط القوى العاملة الوطنية، ونماذج تحويل البحث إلى السوق، وتحول الصحة الرقمية.",
+          "fit": [
+            "استراتيجية البيانات وحوكمتها للسياسات الوطنية",
+            "ممثل مؤسسي في أعمال وطنية مكلّفة",
+            "تصميم مركز بحث وتطوير في الذكاء الاصطناعي ونموذج تشغيله"
+          ],
+          "link": "/ar/engagements.html",
+          "link_text": "نماذج من العمل ←"
+        },
+        {
+          "title": "المجالس ولجان الخبراء",
+          "text": "العضوية في هيئات خبراء وطنية ومؤسسية في التعليم والبحث والرعاية الصحية.",
+          "fit": [
+            "المجلس الوطني للخبراء — التصنيفات الوظيفية التعليمية (وزارة التعليم)",
+            "لجان استراتيجية البحث والابتكار — جامعة الملك عبدالعزيز",
+            "اللجنة الاستشارية للرعاية الصحية — مستشفى جامعة الملك عبدالعزيز"
+          ],
+          "link": "/ar/impact.html",
+          "link_text": "السجل القيادي ←"
+        },
+        {
+          "title": "القيادة الأكاديمية",
+          "text": "البحث العلمي في الذكاء الاصطناعي وذكاء القرار والمعلوماتية الحيوية الطبية.",
+          "fit": [
+            "دكتوراه وماجستير — جامعة كولورادو بولدر",
+            "أستاذ زائر في KAUST منذ 2016",
+            "سجل نشر مستمر في الذكاء الاصطناعي والصحة"
+          ],
+          "link": "/ar/academic-cv.html",
+          "link_text": "السيرة الأكاديمية ←"
+        }
+      ],
+      "proof_h2": "سجل الإنجاز",
+      "proof_intro": "أرقام مختارة من سجلي التنفيذي.",
+      "proof": [
+        {
+          "value": "~190 مليون ريال",
+          "label": "محافظ برامج شكّلتها أو أشرفت عليها ضمن مبادرات متعددة الأطراف"
+        },
+        {
+          "value": "540,000+",
+          "label": "معلم ومعلمة ضمن نطاق برامج تخطيط القوى العاملة الوطنية (49 إدارة تعليمية، 2021–2024)"
+        },
+        {
+          "value": "~11.3 مليون ريال",
+          "label": "وفورات مبلّغ عنها في السنة الأولى من التحليل الاستراتيجي للقوى العاملة"
+        },
+        {
+          "value": "70+ موظفًا",
+          "label": "منظومة تقنية قدتها في مستشفى جامعة الملك عبدالعزيز بميزانية تشغيلية تقارب 18.8 مليون ريال"
+        }
+      ],
+      "proof_note": "الأرقام من سجل سيرتي الذاتية، وهي مقرّبة ومبلّغ عنها ذاتيًا.",
+      "proof_source": "النطاق والمصدر",
+      "career_h2": "المسيرة المهنية",
+      "career": [
+        {
+          "when": "2025–الآن",
+          "role": "كبير المستشارين الاستراتيجيين",
+          "org": "مكتب وكيل الجامعة للبحث والابتكار، جامعة الملك عبدالعزيز"
+        },
+        {
+          "when": "2024–الآن",
+          "role": "أستاذ علوم البيانات والذكاء الاصطناعي",
+          "org": "كلية الحاسبات وتقنية المعلومات، جامعة الملك عبدالعزيز"
+        },
+        {
+          "when": "2021–2024",
+          "role": "مستشار تنفيذي أول — تنمية القدرات البشرية الوطنية",
+          "org": "وزارة التعليم"
+        },
+        {
+          "when": "2021",
+          "role": "المدير التنفيذي للاستشارات واستراتيجية الذكاء الاصطناعي",
+          "org": "الجامعة الإسلامية بالمدينة المنورة"
+        },
+        {
+          "when": "2019–2021",
+          "role": "مستشار وطني أول — استراتيجية البيانات",
+          "org": "وزارة التعليم"
+        },
+        {
+          "when": "2016–2018",
+          "role": "مدير تقنية المعلومات وقائد التحديث الرقمي",
+          "org": "مستشفى جامعة الملك عبدالعزيز"
+        }
+      ],
+      "contact_h2": "المراسلات",
+      "contact_text": "يمكن توجيه الدعوات لعضوية المجالس واللجان، والتكليفات الاستشارية والقيادية، إلى:",
+      "contact_list": [],
+      "routes_title": "وأيضًا",
+      "routes": [
+        {
+          "href": "/ar/contact.html#inquiry-form",
+          "text": "نموذج التواصل"
+        },
+        {
+          "href": "https://www.linkedin.com/in/adeeb-noor",
+          "text": "LinkedIn"
+        },
+        {
+          "href": "/ar/partnerships.html",
+          "text": "المشاريع والشراكات"
+        }
+      ],
+      "institutional": "للمراسلات الأكاديمية:"
+    }
+  },
+  "investors": {
+    "en": {
+      "title": "Ventures & Partnerships — Adeeb Noor",
+      "description": "Research-backed ventures in AI, workforce intelligence, education and digital health by Prof. Adeeb Noor, each presented at its actual stage, with the partnerships that suit it.",
+      "kicker": "Ventures & Partnerships",
+      "h1": "Research-backed ventures, built inside Saudi institutions.",
+      "lead": "The ventures below grew out of research and institutional work. Each is presented at its actual stage, together with the kind of partnership that suits it.",
+      "mail_subject": "Partnership",
+      "cta_projects": "All projects & stages",
+      "meta": "No revenue or adoption figures are claimed on this page; details are shared in conversation.",
+      "ventures_h2": "Ventures",
+      "ventures_intro": "Where each venture stands today, using the same Live / Public Beta / Prototype / In Development lifecycle used across the site.",
+      "labels": {
+        "sector": "Sector",
+        "role": "My role",
+        "built": "Stage detail",
+        "seeking": "Suited partners"
+      },
+      "ventures": [
+        {
+          "name": "IMAM GenAI",
+          "stage": "In Development",
+          "stage_class": "",
+          "sector": "EdTech · Generative AI",
+          "text": "A Saudi GenAI learning ecosystem connecting local identity, AI-native curriculum design and workforce readiness.",
+          "role": "Founder & Lead Architect",
+          "built": "Ecosystem design; pilot and commercialization pathway defined",
+          "seeking": "Pilot institutions, education and investment partners",
+          "link": "/ventures.html#imam",
+          "link_text": "Venture background →",
+          "updated": "2026"
+        },
+        {
+          "name": "SULTAN",
+          "stage": "Public Beta",
+          "stage_class": "beta",
+          "sector": "GovTech · Strategy software",
+          "text": "A strategy-building workspace linking institutional identity and ambition to explicit choices, authority, initiatives and funding context.",
+          "role": "Strategy architecture & product direction",
+          "built": "Public beta workspace online",
+          "seeking": "Institutional pilots and partners",
+          "link": "https://sultan-strategy-beta.onrender.com",
+          "link_text": "Open SULTAN ↗",
+          "updated": "2026"
+        },
+        {
+          "name": "MIYAR",
+          "stage": "Live",
+          "stage_class": "live",
+          "sector": "HR tech · Workforce architecture",
+          "text": "A bilingual position-management service: position requests, responsibilities, requirements, job descriptions and approvals.",
+          "role": "Co-developer",
+          "built": "Live service with organization accounts and approval workflows",
+          "seeking": "Institutional adoption and growth partners",
+          "link": "/ventures.html#miyar",
+          "link_text": "Venture background →",
+          "updated": "2026"
+        },
+        {
+          "name": "Kinetic HR",
+          "stage": "Prototype",
+          "stage_class": "",
+          "sector": "Workforce decision intelligence",
+          "text": "An early-warning layer beside existing HR systems: capacity signals, staffing scenarios and auditable decision logic.",
+          "role": "Product concept & decision logic",
+          "built": "Public bilingual prototype with scenario lab and audit views",
+          "seeking": "Pilot partners",
+          "link": "/ventures.html#kinetic-hr",
+          "link_text": "Venture background →",
+          "updated": "2026"
+        },
+        {
+          "name": "HEALTHx",
+          "stage": "In Development",
+          "stage_class": "",
+          "sector": "Digital health · Clinical innovation",
+          "text": "A platform to turn hospital innovation into licensable digital-health IP, APIs, AI models and health-as-a-service offerings.",
+          "role": "Platform concept & clinical-innovation architecture",
+          "built": "Platform concept and architecture",
+          "seeking": "Health-system, technology and investment partners",
+          "link": "/healthx/",
+          "link_text": "HEALTHx concept →",
+          "updated": "2026"
+        }
+      ],
+      "record_h2": "Founding record",
+      "record": [
+        {
+          "title": "SHIFAA — founded",
+          "text": "Patient portal founded and launched at King Abdulaziz University Hospital as part of digital modernization; live since 2019.",
+          "link": "/ventures.html#shifaa",
+          "link_text": "Project record →"
+        },
+        {
+          "title": "GenomeFit — co-founded",
+          "text": "Genomic screening and drug-response venture developed through the KAUST ecosystem and the TAQADAM program (2017).",
+          "link": "/ventures.html#genomefit",
+          "link_text": "Project record →"
+        },
+        {
+          "title": "AI R&D center — built",
+          "text": "An AI R&D center and enterprise operating model around Arabic and Islamic data assets, ethical AI and IP licensing (Islamic University of Madinah, 2021).",
+          "link": "/executive-cv.html",
+          "link_text": "Executive CV →"
+        }
+      ],
+      "bring_h2": "Collaboration with founders and investors",
+      "bring_intro": "Alongside my own ventures, I collaborate selectively in fields where my experience is relevant.",
+      "bring": [
+        {
+          "title": "Fields",
+          "items": [
+            "AI & decision intelligence",
+            "Digital health",
+            "Education & AI-enabled learning",
+            "Workforce intelligence",
+            "Institutional and government software"
+          ]
+        },
+        {
+          "title": "Forms of collaboration",
+          "items": [
+            "Advisory boards",
+            "Strategic partnership",
+            "Co-investment",
+            "Technical and research due diligence"
+          ]
+        },
+        {
+          "title": "Relevant experience",
+          "items": [
+            "Government, university and hospital institutions",
+            "AI, data and research (PhD, continuing publications)",
+            "Product governance and responsible AI",
+            "Bilingual Arabic–English product design"
+          ]
+        }
+      ],
+      "contact_h2": "Correspondence",
+      "contact_text": "Partnership and investment correspondence may be addressed to:",
+      "contact_list": [],
+      "routes_title": "Also",
+      "routes": [
+        {
+          "href": "/contact.html?engagement=venture&audience=company#inquiry-form",
+          "text": "Contact form"
+        },
+        {
+          "href": "/ventures.html",
+          "text": "All projects & stages"
+        },
+        {
+          "href": "/advisory.html",
+          "text": "Leadership & advisory"
+        }
+      ],
+      "disclaimer": "This page describes projects and forms of collaboration. It is not an offer of securities or investment advice."
+    },
+    "ar": {
+      "title": "المشاريع والشراكات — أديب نور",
+      "description": "مشاريع قائمة على البحث في الذكاء الاصطناعي وذكاء القوى العاملة والتعليم والصحة الرقمية للأستاذ الدكتور أديب نور، معروضة بمرحلتها الفعلية مع الشراكات المناسبة لها.",
+      "kicker": "المشاريع والشراكات",
+      "h1": "مشاريع قائمة على البحث، بُنيت داخل مؤسسات سعودية.",
+      "lead": "نشأت هذه المشاريع من العمل البحثي والمؤسسي. يُعرض كل منها بمرحلته الفعلية، مع نوع الشراكة الذي يناسبه.",
+      "mail_subject": "شراكة",
+      "cta_projects": "جميع المشاريع ومراحلها",
+      "meta": "لا تدّعي هذه الصفحة أرقام إيرادات أو انتشار؛ تُشارك التفاصيل عند التواصل.",
+      "ventures_h2": "المشاريع",
+      "ventures_intro": "المرحلة الحالية لكل مشروع باستخدام التصنيف الموحد نفسه في الموقع: Live / Public Beta / Prototype / In Development.",
+      "labels": {
+        "sector": "القطاع",
+        "role": "دوري",
+        "built": "المرحلة",
+        "seeking": "الشراكات المناسبة"
+      },
+      "ventures": [
+        {
+          "name": "IMAM GenAI",
+          "stage": "In Development",
+          "stage_class": "",
+          "sector": "تقنيات التعليم · الذكاء الاصطناعي التوليدي",
+          "text": "منظومة تعلم سعودية بالذكاء الاصطناعي التوليدي تربط الهوية المحلية بتصميم المناهج الأصيل بالذكاء الاصطناعي وجاهزية سوق العمل.",
+          "role": "المؤسس والمعماري الرئيس",
+          "built": "تصميم المنظومة؛ ومسار التجربة والتسويق محدد",
+          "seeking": "مؤسسات للتجربة، وشركاء في التعليم والاستثمار",
+          "link": "/ar/ventures.html#imam",
+          "link_text": "خلفية المشروع ←",
+          "updated": "2026"
+        },
+        {
+          "name": "SULTAN",
+          "stage": "Public Beta",
+          "stage_class": "beta",
+          "sector": "التقنية الحكومية · برمجيات الاستراتيجية",
+          "text": "مساحة عمل لبناء الاستراتيجية تربط هوية المؤسسة وطموحها بخيارات صريحة وصلاحيات ومبادرات وسياق التمويل.",
+          "role": "معمارية الاستراتيجية وتوجيه المنتج",
+          "built": "إصدار تجريبي عام متاح على الإنترنت",
+          "seeking": "تجارب مؤسسية وشركاء",
+          "link": "https://sultan-strategy-beta.onrender.com",
+          "link_text": "افتح SULTAN ↗",
+          "updated": "2026"
+        },
+        {
+          "name": "MIYAR",
+          "stage": "Live",
+          "stage_class": "live",
+          "sector": "تقنيات الموارد البشرية · معمارية الوظائف",
+          "text": "خدمة ثنائية اللغة لإدارة الوظائف: طلبات الوظائف والمسؤوليات والمتطلبات والأوصاف الوظيفية والاعتمادات.",
+          "role": "مطوّر مشارك",
+          "built": "خدمة تعمل بحسابات للمنظمات ومسارات اعتماد",
+          "seeking": "تبنٍّ مؤسسي وشركاء نمو",
+          "link": "/ar/ventures.html#miyar",
+          "link_text": "خلفية المشروع ←",
+          "updated": "2026"
+        },
+        {
+          "name": "Kinetic HR",
+          "stage": "Prototype",
+          "stage_class": "",
+          "sector": "ذكاء قرارات القوى العاملة",
+          "text": "طبقة إنذار مبكر بجانب أنظمة الموارد البشرية القائمة: مؤشرات السعة، وسيناريوهات التوظيف، ومنطق قرار قابل للتدقيق.",
+          "role": "مفهوم المنتج ومنطق القرار",
+          "built": "نموذج أولي عام ثنائي اللغة مع مختبر سيناريوهات وواجهات تدقيق",
+          "seeking": "شركاء تجربة",
+          "link": "/ar/ventures.html#kinetic-hr",
+          "link_text": "خلفية المشروع ←",
+          "updated": "2026"
+        },
+        {
+          "name": "HEALTHx",
+          "stage": "In Development",
+          "stage_class": "",
+          "sector": "الصحة الرقمية · الابتكار السريري",
+          "text": "منصة لتحويل ابتكارات المستشفيات إلى ملكية فكرية قابلة للترخيص وواجهات برمجية ونماذج ذكاء اصطناعي وخدمات صحية.",
+          "role": "مفهوم المنصة ومعمارية الابتكار السريري",
+          "built": "مفهوم المنصة ومعماريتها",
+          "seeking": "شركاء من الأنظمة الصحية وقطاع التقنية والاستثمار",
+          "link": "/ar/healthx/",
+          "link_text": "مفهوم HEALTHx ←",
+          "updated": "2026"
+        }
+      ],
+      "record_h2": "سجل التأسيس",
+      "record": [
+        {
+          "title": "SHIFAA — تأسيس",
+          "text": "بوابة المرضى التي أسستها وأطلقتها في مستشفى جامعة الملك عبدالعزيز ضمن التحديث الرقمي؛ تعمل منذ 2019.",
+          "link": "/ar/ventures.html#shifaa",
+          "link_text": "سجل المشروع ←"
+        },
+        {
+          "title": "GenomeFit — تأسيس مشارك",
+          "text": "مشروع للفحص الجيني والاستجابة الدوائية طُوّر عبر منظومة KAUST وبرنامج تقدّم (2017).",
+          "link": "/ar/ventures.html#genomefit",
+          "link_text": "سجل المشروع ←"
+        },
+        {
+          "title": "مركز بحث وتطوير في الذكاء الاصطناعي — بناء",
+          "text": "مركز بحث وتطوير في الذكاء الاصطناعي ونموذج تشغيل مؤسسي حول أصول البيانات العربية والإسلامية والذكاء الاصطناعي الأخلاقي وترخيص الملكية الفكرية (الجامعة الإسلامية، 2021).",
+          "link": "/ar/executive-cv.html",
+          "link_text": "السيرة التنفيذية ←"
+        }
+      ],
+      "bring_h2": "التعاون مع المؤسسين والمستثمرين",
+      "bring_intro": "إلى جانب مشاريعي، أتعاون بانتقاء في المجالات التي تتصل بخبرتي.",
+      "bring": [
+        {
+          "title": "المجالات",
+          "items": [
+            "الذكاء الاصطناعي وذكاء القرار",
+            "الصحة الرقمية",
+            "التعليم والتعلم بالذكاء الاصطناعي",
+            "ذكاء القوى العاملة",
+            "البرمجيات المؤسسية والحكومية"
+          ]
+        },
+        {
+          "title": "صيغ التعاون",
+          "items": [
+            "المجالس الاستشارية",
+            "الشراكة الاستراتيجية",
+            "الاستثمار المشترك",
+            "الفحص النافي للجهالة تقنيًا وبحثيًا"
+          ]
+        },
+        {
+          "title": "الخبرة ذات الصلة",
+          "items": [
+            "الجهات الحكومية والجامعات والمستشفيات",
+            "الذكاء الاصطناعي والبيانات والبحث (دكتوراه ونشر مستمر)",
+            "حوكمة المنتج والذكاء الاصطناعي المسؤول",
+            "تصميم منتجات ثنائية اللغة عربي–إنجليزي"
+          ]
+        }
+      ],
+      "contact_h2": "المراسلات",
+      "contact_text": "يمكن توجيه مراسلات الشراكة والاستثمار إلى:",
+      "contact_list": [],
+      "routes_title": "وأيضًا",
+      "routes": [
+        {
+          "href": "/ar/contact.html?engagement=venture&audience=company#inquiry-form",
+          "text": "نموذج التواصل"
+        },
+        {
+          "href": "/ar/ventures.html",
+          "text": "جميع المشاريع ومراحلها"
+        },
+        {
+          "href": "/ar/advisory.html",
+          "text": "القيادة والاستشارات"
+        }
+      ],
+      "disclaimer": "تصف هذه الصفحة مشاريع وصيغًا للتعاون، ولا تُعد عرضًا لأوراق مالية أو نصيحة استثمارية."
+    }
+  },
+  "contact": {
+    "en": {
+      "kicker": "Correspondence",
+      "heading": "Invitations and partnerships",
+      "text": "Invitations to boards and committees, advisory and leadership engagements, and venture partnerships may be addressed directly to:",
+      "roles": "Leadership & advisory →",
+      "investors": "Ventures & partnerships →",
+      "institutional": "Academic correspondence:"
+    },
+    "ar": {
+      "kicker": "المراسلات",
+      "heading": "الدعوات والشراكات",
+      "text": "يمكن توجيه الدعوات لعضوية المجالس واللجان، والتكليفات الاستشارية والقيادية، والشراكات في المشاريع مباشرة إلى:",
+      "roles": "القيادة والاستشارات ←",
+      "investors": "المشاريع والشراكات ←",
+      "institutional": "للمراسلات الأكاديمية:"
+    }
+  },
+  "footer": {
+    "en": {
+      "roles": "Leadership & advisory",
+      "investors": "Ventures & partnerships"
+    },
+    "ar": {
+      "roles": "القيادة والاستشارات",
+      "investors": "المشاريع والشراكات"
+    }
+  }
+}

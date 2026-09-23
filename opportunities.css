@@ -1,0 +1,59 @@
+/* Leadership & advisory / ventures & partnerships pages. Generated markup lives in scripts/build_opportunities.py. */
+.opp-page{--o-navy:#0a151a;--o-ink:#17262d;--o-muted:#4e5c5d;--o-gold:#dfc184;--o-gold-dk:#775715;--o-line:#ded6c7;--o-paper:#faf9f4;--o-card:#fffefa;margin:0;background:var(--o-paper);color:var(--o-ink);font:17px/1.6 Arial,Helvetica,sans-serif}
+.opp-page *{box-sizing:border-box}
+.opp-wrap{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+.opp-hero{background:var(--o-navy,#0a151a);color:#f6f2e9;padding:56px 0 48px}
+.opp-kicker{font:700 12px/1.5 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#dfc184;margin:0 0 14px}
+.opp-hero h1{font:400 clamp(34px,5vw,58px)/1.1 Georgia,serif;letter-spacing:-.01em;margin:0 0 18px;max-width:20ch;color:#fff}
+.opp-lead{font-size:clamp(17px,1.6vw,20px);line-height:1.6;max-width:62ch;margin:0 0 24px;color:#e7e1d3}
+.opp-actions{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+.opp-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border:1.5px solid #c9aa6e;border-radius:4px;font:700 15px/1.3 Arial,Tahoma,sans-serif;color:#f6f2e9;text-decoration:none;background:#ffffff0a}
+.opp-btn:hover{background:#f3ddb0;color:#211b0f}
+.opp-btn.primary{background:linear-gradient(120deg,#ddbd80,#efdab0);color:#211b0f;border-color:#ddbd80;box-shadow:0 8px 20px rgba(201,163,90,.18)}
+.opp-btn.dark{background:#17262d;color:#fff;border-color:#88692d}.opp-btn.dark:hover{background:#2d424b;color:#fff}
+.opp-meta{font-size:14px;color:#cfc8b8;margin:0}.opp-meta a{color:#dfc184;text-decoration:underline;text-underline-offset:3px}
+.opp-section{padding:44px 0;border-bottom:1px solid #ece6d9}
+.opp-section:last-of-type{border-bottom:0}
+.opp-section h2{font:600 clamp(26px,3vw,36px)/1.25 Georgia,serif;margin:0 0 10px;color:#17262d}
+.opp-intro{color:#4e5c5d;max-width:70ch;margin:0 0 24px}
+.opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.opp-card{background:#fffefa;border:1px solid #ded6c7;border-radius:6px;padding:22px;display:flex;flex-direction:column;min-width:0}
+.opp-card h3{font:700 19px/1.35 Arial,Tahoma,sans-serif;margin:0 0 8px;color:#17262d}
+.opp-card p{margin:0 0 12px;font-size:16px;color:#33474d}
+.opp-card ul{margin:0 0 12px;padding-inline-start:18px;font-size:15px;color:#33474d}
+.opp-card li{margin:3px 0}
+.opp-card .opp-link{margin-top:auto;color:#775715;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.opp-tag{display:inline-block;align-self:flex-start;font:700 12px/1.4 Arial,sans-serif;letter-spacing:.04em;padding:4px 9px;border-radius:999px;margin:0 0 10px;background:#f2ead8;color:#5d4513;border:1px solid #e0d0a8}
+.opp-tag.live{background:#e5f1e8;color:#1f5a33;border-color:#b9d9c2}
+.opp-tag.beta{background:#e7eef7;color:#1f4570;border-color:#bfd0e6}
+.opp-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 14px;font-size:15px}
+.opp-dl dt{font-weight:700;color:#17262d}.opp-dl dd{margin:0;color:#33474d}
+.opp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:#ded6c7;border:1px solid #ded6c7;border-radius:6px;overflow:hidden}
+.opp-stat{background:#fffefa;padding:20px}
+.opp-stat b{display:block;font:700 clamp(24px,2.6vw,30px)/1.2 Georgia,serif;color:#17262d;margin-bottom:6px}
+.opp-stat span{font-size:15px;color:#4e5c5d;line-height:1.5;display:block}
+.opp-note{font-size:14px;color:#5b6666;margin:14px 0 0;max-width:80ch}.opp-note a{color:#775715;text-decoration:underline}
+.opp-timeline{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.opp-timeline li{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-top:1px solid #ece6d9}
+.opp-timeline time{font:700 14px/1.6 Arial,sans-serif;color:#775715}
+.opp-timeline b{display:block;color:#17262d}.opp-timeline span{color:#4e5c5d;font-size:15px}
+.opp-contact{background:#17262d;color:#f6f2e9;border-radius:8px;padding:30px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}
+.opp-contact h2{color:#fff}.opp-contact p{color:#d9d3c4;margin:0 0 14px}
+.opp-contact .opp-email{font:700 clamp(18px,2vw,22px)/1.4 Arial,sans-serif;color:#dfc184;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
+.opp-contact ul{margin:0;padding-inline-start:18px;color:#d9d3c4;font-size:15px}.opp-contact li{margin:4px 0}
+.opp-contact .opp-routes{display:flex;flex-direction:column;gap:10px}
+.opp-contact .opp-routes a{color:#f6f2e9;text-decoration:underline;text-underline-offset:3px}
+.opp-disclaimer{font-size:13px;color:#6a7272;margin:18px 0 0}
+html[lang=ar] .opp-page{font-family:Tahoma,Arial,sans-serif}
+html[lang=ar] .opp-hero h1,html[lang=ar] .opp-section h2,html[lang=ar] .opp-stat b{font-family:Tahoma,Arial,sans-serif;letter-spacing:0;line-height:1.45}
+html[lang=ar] .opp-kicker{letter-spacing:0;font-size:14px}
+@media(max-width:760px){.opp-hero{padding:38px 0 32px}.opp-contact{grid-template-columns:1fr}.opp-timeline li{grid-template-columns:1fr;gap:2px}.opp-contact{padding:22px}.opp-section{padding:32px 0}.opp-btn{flex:1 1 auto}}
+.opp-ventures{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+/* Canonical project lifecycle parity */
+.opp-lifecycle{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.opp-lifecycle .opp-tag{margin:0}
+.opp-updated{display:inline-flex;align-items:center;min-height:25px;padding:4px 9px;border-radius:999px;border:1px solid #d7d3c9;background:#f4f3ec;color:#615c52;font:600 12px/1.4 Arial,Tahoma,sans-serif}
+.opp-tag.prototype{background:#f2ead8;color:#5d4513;border-color:#e0d0a8}
+.opp-tag.development{background:#f3edf7;color:#664276;border-color:#dac6e3}
+html[lang=ar] .opp-lifecycle{direction:rtl}
