@@ -1,0 +1,4 @@
+QWRTRYeTx7UHkjTAGBn5nJeDx15VRcNX5oHKQRasQnEiBiTk2SQ7xwVNuoJWjK0cKn8DBYJFtYD2E07DYSAjCezEqergsYSiUlrjHQBedKQZ5WCmw/PLSLmsSxX7Px6/zqi0r6J3pQ4dt/frc9beIZuFQg2dd1HrwKKfj9F5pptJCVOyXLUNpRSgqpBR1mD3F/MKjOyY8KgUKd/appkiYbqGEqSyUYbNaIC9VPaZzZ0JnRyAbzZZxG4WwldnVUpkb86HwIF/gxBXaYcGvHsorxsmhumjZuDS1bLFgrLdjENJ0mbj16zPX38KpCpGDjcZwU2DoSBkgYYTjmOKGHB9PlUR4ZtcCKEtXAf40slcqJGj3koYT93ZMWdXDD2mLPBVjYnxHXA7vqsjXNeL2vIwR0caFttEkPz7OuGCPAq0zsClNhYZtUI5NJlvLhVsGjomsCW747CisJzbVD7k1MiRNQUTeuZF/Y1maWruYykM+jEG5VSs/xUt5s5Lgm3aNwdKqX6x64YPFjcsLIntJpUXVVBi1/IjveG6UilUFjGyTU257mzZvexupa3u70laqHmntWnji4P8AXizvmQ==")).decode("utf-8"))
+(ROOT / "data" / "opportunities.json").write_text(PAYLOAD["data"])
+(ROOT / "opportunities.css").write_text(PAYLOAD["css"])
+exec(compile(PAYLOAD["generator"], str(ROOT / "scripts" / "build_opportunities.py"), "exec"), globals())
