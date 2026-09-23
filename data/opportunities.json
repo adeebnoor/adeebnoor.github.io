@@ -6,14 +6,126 @@
       "title": "Prof. Adeeb Noor — AI, Data & Institutional Leadership | King Abdulaziz University",
       "cta_roles": "Leadership & advisory →",
       "cta_investors": "Ventures & partnerships →",
-      "position_link": "Read my position"
+      "position_link": "Read my position",
+      "thesis": "I help institutions make fairer, more accurate decisions about people — with data and AI that can be held to account.",
+      "stat_labels": [
+        [
+          "Educators within the reported scope of national programs",
+          "Educators within national workforce-planning programs"
+        ],
+        [
+          "Education districts within the reported 2021–2024 workforce-planning scope",
+          "Education districts covered, 2021–2024"
+        ],
+        [
+          "Institutional platform reach as reported in the CV record",
+          "Users reached by institutional platforms"
+        ]
+      ],
+      "recognition": {
+        "kicker": "Recognition & public record",
+        "heading": "On the public record.",
+        "items": [
+          {
+            "title": "Jeddah Creativity Award",
+            "meta": "SHIFAA patient platform · KAU Hospital",
+            "href": "https://x.com/KAU_Health/status/1097924370205421569"
+          },
+          {
+            "title": "20,000+ registered users",
+            "meta": "SHIFAA milestone announced by KAU Hospital",
+            "href": "https://x.com/KAU_Health/status/1077963621634842624"
+          },
+          {
+            "title": "Scientific Reports, 2026",
+            "meta": "Context-aware AI assistance reduces diagnostic error",
+            "href": "https://www.nature.com/articles/s41598-026-67997-7"
+          },
+          {
+            "title": "KAUST Research Conference",
+            "meta": "Invited speaker, 2016",
+            "href": "https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor"
+          },
+          {
+            "title": "KAUST feature",
+            "meta": "GenomeFit and personalized medicine, 2017",
+            "href": "https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor"
+          }
+        ],
+        "links": [
+          [
+            "/speaking.html",
+            "Speaking & media →"
+          ],
+          [
+            "/press.html",
+            "Press bio →"
+          ]
+        ]
+      }
     },
     "ar": {
       "eyebrow": "ما يخفيه الرقم",
       "title": "أ.د. أديب نور — الذكاء الاصطناعي والبيانات والقيادة المؤسسية | جامعة الملك عبدالعزيز",
       "cta_roles": "القيادة والاستشارات ←",
       "cta_investors": "المشاريع والشراكات ←",
-      "position_link": "اقرأ أطروحتي"
+      "position_link": "اقرأ أطروحتي",
+      "thesis": "أساعد الجهات على اتخاذ قرارات أدق وأكثر عدلًا بشأن الناس، باستخدام البيانات والذكاء الاصطناعي بطريقة قابلة للمساءلة.",
+      "stat_labels": [
+        [
+          "معلم ومعلمة ضمن نطاق البرامج الوطنية المبلّغ عنه",
+          "معلم ومعلمة ضمن برامج تخطيط القوى العاملة الوطنية"
+        ],
+        [
+          "إدارة تعليمية ضمن نطاق برامج تخطيط القوى العاملة 2021–2024",
+          "إدارة تعليمية شملتها البرامج، 2021–2024"
+        ],
+        [
+          "وصول للمنصات المؤسسية بحسب سجل السيرة الذاتية",
+          "مستخدم وصلت إليهم المنصات المؤسسية"
+        ]
+      ],
+      "recognition": {
+        "kicker": "التقدير والسجل العام",
+        "heading": "في السجل العام.",
+        "items": [
+          {
+            "title": "جائزة جدة للإبداع",
+            "meta": "منصة شفاء للمرضى · مستشفى جامعة الملك عبدالعزيز",
+            "href": "https://x.com/KAU_Health/status/1097924370205421569"
+          },
+          {
+            "title": "أكثر من 20,000 مستخدم مسجّل",
+            "meta": "إنجاز شفاء كما أعلنه مستشفى الجامعة",
+            "href": "https://x.com/KAU_Health/status/1077963621634842624"
+          },
+          {
+            "title": "Scientific Reports، 2026",
+            "meta": "مساعدة الذكاء الاصطناعي الواعية بالسياق تقلل أخطاء التشخيص",
+            "href": "https://www.nature.com/articles/s41598-026-67997-7"
+          },
+          {
+            "title": "مؤتمر KAUST للأبحاث",
+            "meta": "متحدث مدعو، 2016",
+            "href": "https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor"
+          },
+          {
+            "title": "تقرير KAUST",
+            "meta": "GenomeFit والطب الشخصي، 2017",
+            "href": "https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor"
+          }
+        ],
+        "links": [
+          [
+            "/ar/speaking.html",
+            "التحدث والإعلام ←"
+          ],
+          [
+            "/ar/press.html",
+            "النبذة الإعلامية ←"
+          ]
+        ]
+      }
     }
   },
   "opportunities": {
@@ -22,7 +134,7 @@
       "description": "The leadership and advisory record of Prof. Adeeb Noor across government, universities and healthcare: strategy, workforce intelligence, AI and digital health.",
       "kicker": "Leadership & Advisory",
       "h1": "Leadership across government, universities and healthcare.",
-      "lead": "Professor of Data Science & AI at King Abdulaziz University. My record spans national workforce planning at the Ministry of Education, hospital digital modernization, and research and innovation strategy — translating evidence into institutional capability.",
+      "lead": "I help institutions make fairer, more accurate decisions about people — with data and AI that can be held to account. My record spans national workforce planning at the Ministry of Education, hospital digital modernization, and research and innovation strategy at King Abdulaziz University, where I am Professor of Data Science & AI.",
       "mail_subject": "Invitation",
       "cta_cv": "Executive CV",
       "cta_second": "Selected engagements",
@@ -155,7 +267,7 @@
       "description": "السجل القيادي والاستشاري للأستاذ الدكتور أديب نور في الجهات الحكومية والجامعات والقطاع الصحي: الاستراتيجية وذكاء القوى العاملة والذكاء الاصطناعي والصحة الرقمية.",
       "kicker": "القيادة والاستشارات",
       "h1": "مسيرة قيادية في الجهات الحكومية والجامعات والقطاع الصحي.",
-      "lead": "أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز. تمتد مسيرتي من تخطيط القوى العاملة الوطنية في وزارة التعليم، إلى التحديث الرقمي في المستشفى الجامعي، إلى استراتيجية البحث والابتكار، بتحويل الأدلة إلى قدرات مؤسسية.",
+      "lead": "أساعد الجهات على اتخاذ قرارات أدق وأكثر عدلًا بشأن الناس، باستخدام البيانات والذكاء الاصطناعي بطريقة قابلة للمساءلة. تمتد مسيرتي من تخطيط القوى العاملة الوطنية في وزارة التعليم، إلى التحديث الرقمي في المستشفى الجامعي، إلى استراتيجية البحث والابتكار في جامعة الملك عبدالعزيز حيث أعمل أستاذًا لعلوم البيانات والذكاء الاصطناعي.",
       "mail_subject": "دعوة",
       "cta_cv": "السيرة التنفيذية",
       "cta_second": "نماذج من العمل",
