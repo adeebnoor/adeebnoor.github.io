@@ -9,8 +9,6 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Seed the readable opportunities data/CSS once, then bootstrap the bilingual pages.
-subprocess.run([sys.executable, str(ROOT/'scripts'/'seed_opportunities_assets.py')], cwd=ROOT, check=True)
 # Bootstrap the bilingual advisory/partnership pages before localization sees them.
 subprocess.run([sys.executable, str(ROOT/'scripts'/'build_opportunities.py'), '--bootstrap'], cwd=ROOT, check=True)
 
