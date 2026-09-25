@@ -126,3 +126,28 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
   .venture-links{display:grid;grid-template-columns:1fr}
   .venture-links a{width:100%;box-sizing:border-box}
 }
+
+
+/* Research agenda architecture · 2026-09-25 */
+.research-program-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 38px}
+.research-program-grid>*{min-width:0}
+.research-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 38px}
+.research-question-card{padding:22px 23px;background:linear-gradient(145deg,#fffdf8,#f6f1e8);border:1px solid var(--line);box-shadow:0 9px 24px rgba(0,0,0,.04)}
+.research-question-card h3{font:700 23px/1.16 Georgia,serif;margin:8px 0 8px}
+.research-question-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.62}
+.research-work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 40px}
+.research-work-card{padding:22px 23px;background:#fff;border:1px solid var(--line);box-shadow:0 9px 24px rgba(0,0,0,.04);min-width:0}
+.research-work-card h3{font:700 23px/1.14 Georgia,serif;margin:7px 0 9px}
+.research-work-card p{margin:0 0 13px;color:var(--muted);font-size:15px;line-height:1.62}
+.work-tag{font:700 11px/1.4 Arial,Tahoma,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-dark)}
+.work-note{display:inline-block;margin-top:2px;padding:6px 9px;background:#f0e9dc;border:1px solid #ddd1be;color:#6d5a36;font:700 11px/1.4 Arial,Tahoma,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.research-participation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 24px}
+.research-participation-card{padding:21px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(0,0,0,.035);min-width:0}
+.research-participation-card h3{font:700 21px/1.18 Georgia,serif;margin:8px 0}
+.research-participation-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.62}
+.collaboration-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+.collaboration-links>div{background:#fff;border:1px solid var(--line);padding:17px;box-shadow:0 8px 20px rgba(0,0,0,.035);min-width:0}
+.collaboration-links b{font:700 18px Georgia,serif}
+.collaboration-links span{display:block;color:var(--muted);font-size:14px;line-height:1.55;margin-top:4px}
+@media(max-width:980px){.research-program-grid,.research-work-grid{grid-template-columns:1fr 1fr}.research-participation-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.research-program-grid,.research-question-grid,.research-work-grid,.research-participation-grid,.collaboration-links{grid-template-columns:1fr}}
