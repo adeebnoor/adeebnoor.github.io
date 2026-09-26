@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io/'
 VERSION = '20260913-analytics1'
 PAGES = ['index.html','about.html','impact.html','research.html','publications.html',
-         'ventures.html','teaching.html','contact.html','academic-cv.html',
+         'ventures.html','teaching.html','contact.html','adeeb-intelligence.html','academic-cv.html',
          'executive-cv.html','master-cv.html','phd.html','speaking.html',
          'writing/index.html','writing/same-scores-different-decisions.html',
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
@@ -163,7 +163,7 @@ def nav(page, arabic):
         selected = 'about.html'
     if page == 'executive-cv.html':
         selected = 'impact.html'
-    if page in ('phd.html','publications.html','demo/index.html'):
+    if page in ('phd.html','publications.html','demo/index.html','adeeb-intelligence.html'):
         selected = 'research.html'
     if page == 'healthx/index.html':
         selected = 'ventures.html'

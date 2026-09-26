@@ -230,3 +230,53 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .compact-cta{margin-top:8px}
 @media(max-width:980px){.compact-program-grid{grid-template-columns:1fr 1fr}.compact-record-grid{grid-template-columns:1fr}.research-kpi-strip{grid-template-columns:1fr 1fr}.research-kpi-strip>div:nth-child(2){border-inline-end:0}.research-kpi-strip>div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 @media(max-width:680px){.compact-program-grid,.compact-ip-grid,.compact-participation-grid,.research-kpi-strip{grid-template-columns:1fr}.research-kpi-strip>div{border-inline-end:0;border-bottom:1px solid var(--line)}.research-kpi-strip>div:last-child{border-bottom:0}.compact-ip-card{align-items:flex-start;flex-direction:column}}
+
+
+/* Adeeb Intelligence research initiative · 2026-09-26 */
+.ai-lab-hero{padding-top:70px}
+.ai-lab-hero .wrap{max-width:1180px}
+.ai-lab-wordmark{display:flex;align-items:center;gap:14px;margin:12px 0 18px}
+.ai-lab-mark{display:grid;place-items:center;width:54px;height:54px;border:1px solid rgba(226,189,105,.75);border-radius:14px;background:rgba(226,189,105,.08);color:#f0cf83;font:700 20px/1 Arial,sans-serif;letter-spacing:.06em}
+.ai-lab-name{color:#f8f3e8;font:700 13px/1.2 Arial,sans-serif;letter-spacing:.21em}
+.ai-lab-hero h1{max-width:860px}
+.ai-lab-lead{max-width:900px!important}
+.ai-lab-content{max-width:1180px}
+.ai-lab-mission{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:30px;align-items:start;margin:12px 0 40px;padding:28px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.05)}
+.ai-lab-mission h2,.ai-lab-people h2{font:700 clamp(30px,3.7vw,46px)/1.05 Georgia,serif;margin:7px 0 12px}
+.ai-lab-mission p,.ai-lab-people p{color:var(--muted);margin:0}
+.ai-lab-goals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ai-lab-goals article{padding:17px;background:#f7f2e9;border:1px solid #e1d7c8;min-width:0}
+.ai-lab-goals b{display:block;font:700 17px/1.2 Georgia,serif}
+.ai-lab-goals span{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.55}
+.ai-lab-thrust-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:0 0 38px}
+.ai-lab-thrust-grid article{padding:22px;background:#fff;border:1px solid var(--line);box-shadow:0 9px 24px rgba(0,0,0,.04);min-width:0}
+.ai-lab-thrust-grid h3{font:700 23px/1.15 Georgia,serif;margin:7px 0 10px}
+.ai-lab-thrust-grid p{margin:0 0 9px;color:var(--muted);font-size:14px}
+.ai-lab-thrust-grid p b{color:var(--ink)}
+.ai-lab-thrust-grid span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+.ai-lab-thrust-grid a{display:inline-block;margin-top:13px;color:var(--gold-dark);font-size:12px;font-weight:700}
+.ai-lab-method-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 38px}
+.ai-lab-method-grid article{padding:20px 18px;border-top:3px solid var(--gold);background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ai-lab-method-grid article>span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#0b1921;color:#e5c477;font:700 10px Arial,sans-serif;margin-bottom:10px}
+.ai-lab-method-grid b{display:block;font:700 18px/1.2 Georgia,serif}
+.ai-lab-method-grid p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+.ai-lab-systems-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:0 0 38px}
+.ai-lab-systems-grid article{display:grid;grid-template-columns:160px minmax(0,1fr);background:#fff;border:1px solid var(--line);overflow:hidden;min-width:0}
+.ai-lab-systems-grid img{width:100%;height:100%;min-height:160px;object-fit:cover;background:#ece7de}
+.ai-lab-systems-grid article>div{padding:20px}
+.ai-lab-systems-grid h3{font:700 24px/1.1 Georgia,serif;margin:5px 0 7px}
+.ai-lab-systems-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.ai-lab-systems-grid a{display:block;margin-top:11px;color:var(--gold-dark);font-size:12px;font-weight:700}
+.ai-system-status{display:inline-flex;margin-top:10px;padding:5px 8px;border-radius:999px;background:#102734;color:#fff;font:700 9px/1.3 Arial,sans-serif;letter-spacing:.04em}
+.ai-lab-people{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.52fr);gap:18px;align-items:stretch;margin:8px 0 38px}
+.ai-lab-people>div{padding:25px;background:#fff;border:1px solid var(--line)}
+.ai-lab-independence{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#07131c,#12303e)!important;color:#fff}
+.ai-lab-independence b{font:700 21px Georgia,serif;color:#fff}
+.ai-lab-independence span{display:block;margin-top:8px;color:#c8d2d6;font-size:13px;line-height:1.6}
+.ai-lab-contact-note{display:flex;gap:10px;align-items:flex-start;margin:-6px 0 28px;padding:13px 16px;background:#f2ead9;border:1px solid #ddcfb5}
+.ai-lab-contact-note b{font:700 14px Georgia,serif;white-space:nowrap}
+.ai-lab-contact-note span{color:var(--muted);font-size:13px}
+.ai-lab-cta-links{display:flex;gap:9px;flex-wrap:wrap}
+.ai-lab-cta-links a{display:inline-flex;padding:10px 12px;background:#111b22;color:#fff;border:1px solid #111b22;font-size:12px;font-weight:700}
+@media(max-width:980px){.ai-lab-mission,.ai-lab-people{grid-template-columns:1fr}.ai-lab-goals,.ai-lab-thrust-grid{grid-template-columns:1fr 1fr}.ai-lab-method-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.ai-lab-wordmark{align-items:flex-start}.ai-lab-mark{width:46px;height:46px}.ai-lab-goals,.ai-lab-thrust-grid,.ai-lab-method-grid,.ai-lab-systems-grid{grid-template-columns:1fr}.ai-lab-systems-grid article{grid-template-columns:1fr}.ai-lab-systems-grid img{aspect-ratio:16/8;min-height:0}.ai-lab-contact-note{flex-direction:column}.ai-lab-contact-note b{white-space:normal}}
