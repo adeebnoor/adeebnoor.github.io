@@ -1,11 +1,11 @@
 [
   {
     "id": "miyar",
-    "name": "MIYAR 5.0",
+    "name": "MIYAR",
     "image": "/assets/miyar-actual.webp",
     "url": "/ventures.html#miyar",
     "en": {
-      "name": "MIYAR 5.0",
+      "name": "MIYAR",
       "stage": "Public pilot · Under evaluation",
       "domain": "Strategy-to-workforce intelligence",
       "description": "Connect strategy, organization design, job evaluation, workforce planning, compensation and institutional approval in a bilingual working prototype with explicit assumptions and human review.",
@@ -15,7 +15,7 @@
       "reviewCta": "Create a position request"
     },
     "ar": {
-      "name": "مِعيار · MIYAR 5.0",
+      "name": "مِعيار · MIYAR",
       "stage": "إصدار تجريبي عام · قيد التقييم",
       "domain": "من الاستراتيجية إلى تخطيط القوى العاملة",
       "description": "يربط الاستراتيجية والتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد المؤسسي في نموذج أولي ثنائي اللغة، بافتراضات واضحة ومراجعة بشرية.",

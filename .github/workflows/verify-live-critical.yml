@@ -1,9 +1,10 @@
 name: Verify live critical portfolio features
 on:
-  # The content build may commit generated files after the source push. Verify
-  # the revision Pages actually deployed, including github-actions[bot] commits.
+  # Chain from our explicit workflow: the built-in Pages workflow does not
+  # reliably emit workflow_run here. The content build pushes generated output
+  # before it succeeds; main then contains the complete artifact to verify.
   workflow_run:
-    workflows: ["pages build and deployment"]
+    workflows: ["Publish generated site files"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
@@ -20,7 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          # workflow_run.head_sha is the input commit, not a generated bot
+          # commit. Snapshot main after the build; the verifier uses this HEAD
+          # and waits for its exact bytes to reach Pages before testing.
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'

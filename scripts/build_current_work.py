@@ -16,7 +16,7 @@ CPIT = 'https://adeebnoor.github.io/CPIT/'
 COPY = {
  'en': {
   'miyar': ('From strategy to an approved workforce decision.', [
-   'MI’YĀR 5.0 connects strategy, organizational design, job evaluation, workforce planning, compensation and approval. Developed with Ahmad Raza Khan, it makes assumptions, role responsibilities and review steps visible across the workflow.',
+   'MI’YĀR connects strategy, organizational design, job evaluation, workforce planning, compensation and approval. Developed with Ahmad Raza Khan, it makes assumptions, role responsibilities and review steps visible across the workflow.',
    'The public prototype supports exploration and evaluation. Institutional pilots should validate data, approval rules and integration needs in their own setting.'
   ], [('Strategy & structure', 'Translate strategic intent into organization and job architecture.'), ('Scenarios & cost', 'Explore workforce plans, job evaluation and compensation assumptions.'), ('Review & approval', 'Carry the evidence and responsibilities into an explicit approval workflow.')]),
   'kamin': ('Understand your capabilities. Explain your next step.', [
@@ -42,7 +42,7 @@ COPY = {
  },
  'ar': {
   'miyar': ('من الاستراتيجية إلى قرار معتمد للقوى العاملة.', [
-   'يربط معيار 5.0 الاستراتيجية بالتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد. طُوّر بالتعاون مع أحمد رضا خان، ويُظهر الافتراضات ومسؤوليات الوظائف وخطوات المراجعة عبر مسار العمل.',
+   'يربط معيار الاستراتيجية بالتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد. طُوّر بالتعاون مع أحمد رضا خان، ويُظهر الافتراضات ومسؤوليات الوظائف وخطوات المراجعة عبر مسار العمل.',
    'تتيح النسخة الأولية العامة الاستكشاف والتقييم. وتحتاج التجارب المؤسسية إلى التحقق من البيانات وقواعد الاعتماد ومتطلبات التكامل في بيئتها الفعلية.'
   ], [('الاستراتيجية والهيكل', 'ترجمة التوجه الاستراتيجي إلى تصميم تنظيمي وهندسة وظائف.'), ('السيناريوهات والتكلفة', 'استكشاف خطط القوى العاملة وتقييم الوظائف وافتراضات التعويضات.'), ('المراجعة والاعتماد', 'نقل الأدلة والمسؤوليات إلى مسار اعتماد واضح.')]),
   'kamin': ('افهم قدراتك. واعرف سبب خطوتك القادمة.', [
