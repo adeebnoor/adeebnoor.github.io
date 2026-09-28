@@ -37,8 +37,8 @@
       "Reported year-one savings through workforce analysis"
     ],
     [
-      "5 Platforms",
-      "Research and operational needs translated into systems and ventures"
+      "Research to Practice",
+      "Selected teaching systems, institutional platforms and ventures at different development stages"
     ]
   ],
   "competencies": [
@@ -70,7 +70,7 @@
     },
     {
       "date": "Dec 2024–Present",
-      "title": "Founder & Lead Architect — IMAM GenAI Ecosystem",
+      "title": "Founder & Lead Architect — IMAM, now within iSCARB",
       "org": "Independent Venture",
       "audiences": [
         "master",
@@ -78,8 +78,8 @@
         "academic"
       ],
       "bullets": [
-        "Built a Saudi GenAI learning ecosystem connecting local identity, AI-native curriculum design and workforce readiness.",
-        "Pilot and commercialization metrics are separated from realized institutional outcomes and labeled accordingly."
+        "Developed a Saudi GenAI learning ecosystem connecting local identity, AI-assisted curriculum design and workforce readiness.",
+        "Current teaching work incorporates IMAM as an optional contextualization layer within iSCARB, linking local educational context to evidence of engineering judgment."
       ]
     },
     {
@@ -219,8 +219,16 @@
   ],
   "ventures": [
     [
-      "IMAM GenAI",
-      "Founder; Saudi GenAI learning ecosystem with pilot and commercialization pathway."
+      "iSCARB",
+      "Method creator and course lead; a teaching system for defensible engineering judgment, with IMAM incorporated as an optional contextualization layer."
+    ],
+    [
+      "Kamin",
+      "Project concept and capability-network design; a public pilot connecting learner interests, goals and reviewed academic evidence with learning and career pathways."
+    ],
+    [
+      "MIYAR 5.0",
+      "Co-developed with Ahmad Raza Khan; a bilingual public pilot connecting strategy, organization design, job evaluation, workforce planning, compensation and institutional approval."
     ],
     [
       "GenomeFit",
@@ -248,7 +256,7 @@
   "research": [
     [
       "RIDI",
-      "Selection identity and the identity–utility frontier: measuring ranking-update turnover and computing the exact minimum change compatible with a declared utility budget."
+      "Working manuscript: Performance equivalence does not imply action equivalence. Research on what a reported evaluation leaves unspecified about the action that follows it."
     ],
     [
       "D3 / Anti-DDI",
@@ -263,8 +271,8 @@
       "Personalized medicine, genetic screening and drug-response decision support."
     ],
     [
-      "CIMT / IMAM / iSCARB",
-      "AI-enabled curriculum design, readiness, evidence and instructional systems."
+      "iSCARB",
+      "Research on defensible engineering judgment, readiness and evidence, informed by CIMT and incorporating IMAM as an optional contextualization layer."
     ]
   ],
   "education": [

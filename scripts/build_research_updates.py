@@ -30,43 +30,53 @@ def follow_links(lang):
 
 def card(item,lang,compact=False):
     ar=lang=='ar'
-    title=escape(item['title'])
+    title=escape(item.get(f'title_{lang}',item['title']))
     summary=escape(item['summary'][lang])
     kind=escape(item['kind'][lang])
-    venue=escape(item['venue'])
+    venue=escape(item.get(f'venue_{lang}',item['venue']))
     date=escape(label_date(item['date'],lang))
     source=escape(item['source'][lang])
-    cta='افتح المصدر ←' if ar else 'Open source →'
+    url=escape(item.get(f'url_{lang}',item['url']),quote=True)
+    ongoing=item.get('record_type')=='work_in_progress'
+    cta=('استكشف البحث ←' if ar else 'Explore research →') if ongoing else ('افتح المصدر ←' if ar else 'Open source →')
     if compact:
         return (f'<article class="latest-row"><div class="latest-row-date"><time>{date}</time><span>{kind}</span></div>'
                 f'<div class="latest-row-main"><h3>{title}</h3><p>{venue}</p></div>'
-                f'<a class="latest-row-link" href="{escape(item["url"],quote=True)}" aria-label="{cta} {title}">↗</a></article>')
+                f'<a class="latest-row-link" href="{url}" aria-label="{cta} {title}">↗</a></article>')
     return (f'<article class="latest-card"><div class="latest-meta"><span>{kind}</span><time>{date}</time></div>'
             f'<h3>{title}</h3><p class="latest-venue">{venue}</p><p>{summary}</p>'
-            f'<a class="latest-source" href="{escape(item["url"],quote=True)}">{cta} <small>{source}</small></a></article>')
+            f'<a class="latest-source" href="{url}">{cta} <small>{source}</small></a></article>')
 
 def home_section(lang):
     ar=lang=='ar'
     items=[x for x in DATA['items'] if x.get('featured')][:3]
-    kicker='أحدث الأبحاث والظهور' if ar else 'Latest research & mentions'
-    heading='ما نُشر عن عملي مؤخرًا.' if ar else 'What was published recently.'
-    intro=('أحدث الأعمال البحثية والإشارات العامة الموثقة من الناشرين وقواعد البحث والمصادر العامة. '
-           'للمتابعة المستمرة استخدم الروابط أدناه.') if ar else (
-           'Recent research and public mentions verified against publisher, scholarly and public records. '
-           'Use the follow links below for the live record.')
+    kicker='البحث الحالي وأحدث المنشورات' if ar else 'Current research & publications'
+    heading='أسئلة جديدة، وأعمال منشورة.' if ar else 'New questions. Published work.'
+    intro=('تحديثات من البحث الجاري والنسخ الأولية والأعمال المنشورة، مع توضيح مرحلة كل عمل. '
+           'تربط المنشورات بسجلاتها العامة، والبحث الجاري بوصف مساره.') if ar else (
+           'Updates from ongoing research, preprints and published work, with each stage stated explicitly. '
+           'Publications link to public records; work in progress links to the research program.')
     all_label='كل الأبحاث والمنشورات ←' if ar else 'All research & publications →'
     pub='/ar/publications.html#latest-research' if ar else '/publications.html#latest-research'
     return START+f'<section class="section latest-updates" id="latest-research"><div class="wrap latest-home"><div class="latest-home-head"><div><div class="label">{kicker}</div><h2>{heading}</h2><p class="latest-intro">{intro}</p></div><a class="latest-all-link" href="{pub}">{all_label}</a></div><div class="latest-list">'+''.join(card(x,lang,True) for x in items)+f'</div>{follow_links(lang)}</div></section>'+END
 
 def publications_section(lang):
     ar=lang=='ar'
-    kicker='أحدث الأبحاث والظهور العام' if ar else 'Latest research & public mentions'
-    heading='تحديثات موثقة، لا قائمة تلقائية غير مراجعة.' if ar else 'Verified updates, not an unreviewed automated list.'
-    intro=('أضيف هنا أحدث الأعمال التي يمكن التحقق منها من الناشر أو قاعدة بحثية عامة. '
-           'القائمة الكاملة والاستشهادات تبقى في Google Scholar وORCID.') if ar else (
-           'This section surfaces recent work that can be verified at the publisher or a public scholarly record. '
+    kicker='أحدث الأبحاث والسجلات العامة' if ar else 'Latest research & public records'
+    heading='منشورات ونسخ أولية بمراحل واضحة.' if ar else 'Publications and preprints, with clear status.'
+    intro=('تربط الأعمال أدناه بسجلات الناشرين والمستودعات والمصادر العامة، مع تمييز النسخ الأولية عن المقالات المحكّمة. '
+           'تبقى القائمة الكاملة والاستشهادات في Google Scholar وORCID.') if ar else (
+           'The entries below link to publisher, repository and public records, distinguishing preprints from peer-reviewed articles. '
            'Google Scholar and ORCID remain the live source for the complete record.')
-    return START+f'<section class="section-intro latest-publications" id="latest-research"><div class="kicker">{kicker}</div><div><h2>{heading}</h2><p>{intro}</p>{follow_links(lang)}</div></section><section class="latest-grid latest-grid-wide">'+''.join(card(x,lang) for x in DATA['items'])+'</section>'+END
+    public=[x for x in DATA['items'] if x.get('record_type')!='work_in_progress']
+    ongoing=[x for x in DATA['items'] if x.get('record_type')=='work_in_progress']
+    section=START+f'<section class="section-intro latest-publications" id="latest-research"><div class="kicker">{kicker}</div><div><h2>{heading}</h2><p>{intro}</p>{follow_links(lang)}</div></section><section class="latest-grid latest-grid-wide">'+''.join(card(x,lang) for x in public)+'</section>'
+    if ongoing:
+        heading='بحث جارٍ' if ar else 'Work in progress'
+        kicker='المسار البحثي الحالي' if ar else 'Current research program'
+        note='هذه الأعمال قيد التطوير؛ ولا يعني إدراجها قبولًا أو نشرًا في مجلة.' if ar else 'These projects are in development; inclusion does not imply journal acceptance or publication.'
+        section+=f'<section class="section-intro latest-publications"><div class="kicker">{kicker}</div><div><h2>{heading}</h2><p>{note}</p></div></section><section class="latest-grid latest-grid-wide">'+''.join(card(x,lang) for x in ongoing)+'</section>'
+    return section+END
 
 def replace_block(text,section):
     text=re.sub(re.escape(START)+r'.*?'+re.escape(END),'',text,flags=re.S)
@@ -98,7 +108,7 @@ items=[]
 for item in DATA['items']:
     title=escape(item['title'])
     link=escape(item['url'])
-    desc=escape(item['summary']['en'])
+    desc=escape(f'{item["kind"]["en"]}. {item["summary"]["en"]}')
     pub=''
     if re.fullmatch(r'\d{4}-\d{2}-\d{2}',item['date']):
         dt=datetime.fromisoformat(item['date']).replace(tzinfo=timezone.utc)
@@ -106,4 +116,4 @@ for item in DATA['items']:
     items.append(f'<item><title>{title}</title><link>{link}</link><guid>{link}</guid><description>{desc}</description>{pub}</item>')
 rss='<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Adeeb Noor — Research Updates</title><link>https://adeebnoor.github.io/publications.html</link><description>Curated recent research and public scholarly updates by Adeeb Noor.</description><language>en</language>'+''.join(items)+'</channel></rss>'
 (ROOT/'research-updates.xml').write_text(rss)
-print(f'Built latest-research sections with {len(DATA["items"])} verified items and research-updates.xml.')
+print(f'Built latest-research sections with {len(DATA["items"])} status-labelled items and research-updates.xml.')

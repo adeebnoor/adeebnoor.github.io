@@ -26,6 +26,39 @@ TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
     TRANSLATIONS.update(json.loads(file.read_text()))
 
+# Current research copy lives with the English source; bibliographic titles retain
+# their published or manuscript wording in both languages.
+TRANSLATIONS['research.html']['text'].update({
+    'I study what happens when evaluation becomes action: the evidence an AI system uses, the items it selects, the answers it produces and the human judgment needed to govern those choices.': 'أدرس ما يحدث عندما يتحول التقييم إلى فعل: الأدلة التي يستخدمها نظام الذكاء الاصطناعي، والعناصر التي يختارها، والإجابات التي ينتجها، والحكم البشري اللازم لحوكمة هذه الخيارات.',
+    'When does maintained performance conceal changed actions?': 'متى يخفي ثبات الأداء تغيّر أفعال النظام؟',
+    'My current work separates performance equivalence, action identity and the minimum selection change required by an explicit objective. RIDI provides research tools for examining the objects selected by a system.': 'يميّز عملي الحالي بين تكافؤ الأداء وهوية الأفعال والحد الأدنى من تغيّر الاختيار الذي يتطلبه هدف صريح. ويقدّم RIDI أدوات بحثية لفحص العناصر التي يختارها النظام.',
+    'Action auditing · execution provenance · evaluator-robust comparisons · necessary and avoidable selection change.': 'تدقيق الأفعال · تتبّع مصدر التنفيذ · مقارنات متينة أمام اختلاف المقيمين · تغيّر الاختيار الضروري والقابل للتجنب.',
+    'Research software →': 'البرمجيات البحثية ←',
+    'What changes when drug knowledge loses identity, context or provenance?': 'ما الذي يتغير عندما تفقد المعرفة الدوائية الهوية أو السياق أو قابلية تتبّع المصدر؟',
+    'Building on D3 pharmacovigilance, I investigate terminology aggregation, knowledge completeness and the evidence used to prioritize drug interactions. The aim is to make biomedical knowledge and its limits inspectable.': 'انطلاقًا من أبحاث D3 في اليقظة الدوائية، أبحث تجميع المصطلحات واكتمال المعرفة والأدلة المستخدمة في ترتيب أولوية التداخلات الدوائية، بهدف جعل المعرفة الطبية الحيوية وحدودها قابلة للفحص.',
+    'Drug identity & provenance · completeness & popularity · clinical relevance · evidence-graded negative controls.': 'هوية الدواء ومصدر المعرفة · الاكتمال والشيوع · الصلة السريرية · ضوابط سلبية مصنفة بحسب قوة الدليل.',
+    'How can students own and defend engineering judgment when AI can produce the answer?': 'كيف يتحمل الطلاب مسؤولية الحكم الهندسي ويدافعون عنه حين يستطيع الذكاء الاصطناعي إنتاج الإجابة؟',
+    'iSCARB brings evidence, limits, changed conditions and justified revision into computing education. Its research lineage includes culturally responsive design and curriculum fidelity; its current implementation spans nine software-engineering chapters.': 'يدمج iSCARB الأدلة والحدود وتغيّر الشروط والمراجعة المبررة في تعليم الحوسبة. وتشمل جذوره البحثية التصميم المستجيب للثقافة والحفاظ على التزامات المنهج، ويغطي تطبيقه الحالي تسعة فصول في هندسة البرمجيات.',
+    'iSCARB · human-owned judgment · Calibrated Universalism · Fidelity Debt · CIMT.': 'iSCARB · مسؤولية الإنسان عن الحكم · الكونية المعايرة · دين الوفاء بالتزامات المنهج · CIMT.',
+    'iSCARB preprint →': 'النسخة الأولية من بحث iSCARB ←',
+    'Published work and current research.': 'الأعمال المنشورة والبحث الجاري.',
+    'Publications, accepted work, preprints and manuscripts are labelled separately. Ongoing work is not a publication or acceptance claim.': 'تُوضَّح مرحلة كل عمل: منشور أو مقبول أو نسخة أولية أو مخطوطة. ولا يعني إدراج البحث الجاري أنه منشور أو مقبول للنشر.',
+    'Manuscripts & preprints listed': 'مخطوطات ونسخ أولية مدرجة',
+    'Connected research programs': 'مسارات بحثية مترابطة',
+    'Current manuscripts & preprints': 'المخطوطات والنسخ الأولية الحالية',
+    'Performance equivalence does not imply action equivalence in AI systems': 'Performance equivalence does not imply action equivalence in AI systems',
+    'Work in progress · Not published or accepted': 'بحث جارٍ · غير منشور أو مقبول للنشر',
+    'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation': 'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation',
+    'Zenodo v1.0 · Preprint · Not peer reviewed': 'Zenodo v1.0 · نسخة أولية · غير محكّمة',
+    'Research translation': 'تحويل البحث إلى تطبيق',
+    'From research questions to usable tools.': 'من أسئلة البحث إلى أدوات قابلة للاستخدام.',
+    'Clinical innovation and workforce decision support are development pathways with distinct stages and validation needs.': 'الابتكار السريري ودعم قرارات القوى العاملة مساران للتطوير، ولكل منهما مراحله ومتطلبات التحقق الخاصة به.',
+    'A platform concept exploring how clinical knowledge can become reusable digital-health tools and services.': 'تصوّر لمنصة تستكشف تحويل المعرفة السريرية إلى أدوات وخدمات صحية رقمية قابلة لإعادة الاستخدام.',
+    'Platform concept': 'تصوّر لمنصة',
+    'A bilingual workforce prototype that makes position requirements, planning assumptions and review steps explicit.': 'نموذج أولي ثنائي اللغة للقوى العاملة يوضح متطلبات الوظائف وافتراضات التخطيط وخطوات المراجعة.',
+    'Working prototype': 'نموذج أولي قابل للتجربة',
+})
+
 EMAIL_COPY = {
     'Speaking Invitation': 'دعوة لإلقاء محاضرة',
     'Research Inquiry': 'استفسار بحثي',

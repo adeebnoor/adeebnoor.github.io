@@ -5,16 +5,22 @@ No fabricated historical cadence, subscriber service or social account is used.
 """
 from pathlib import Path
 from html import escape
+from datetime import date
 import json
 import re
 from localize_site import finish
-from essay_dates import date_badge
+from essay_dates import date_badge, MONTHS
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT/'data/ideas-content.json').read_text())
 IDENTITY = json.loads((ROOT/'data/site_identity.json').read_text())
 ORIGIN = 'https://adeebnoor.github.io'
-EDITION = {'en': '13 September 2026', 'ar': '١٣ سبتمبر ٢٠٢٦'}
+
+def edition_badge(article, lang):
+    """Keep the original edition unless an essay has a recorded revision."""
+    revision = date.fromisoformat(article.get('updated', '2026-09-13'))
+    label = f'{revision.day} {MONTHS[lang][revision.month - 1]} {revision.year}'
+    return f'<time datetime="{revision.isoformat()}">{escape(label)}</time>'
 
 
 def t(value, lang):
@@ -72,8 +78,9 @@ def evidence_case(lang):
 
 
 def imam_position(lang):
+    # Retain #imam for links to the earlier standalone position.
     position = DATA['imamPosition']
-    return '<section class="ideas-section" id="imam"><div class="ideas-kicker">'+('الهوية والسيادة في سياق التعليم' if lang=='ar' else 'Identity & sovereignty in education')+'</div><h2>'+t(position['title'],lang)+'</h2><p>'+t(position['body'],lang)+'</p>'+link('/ideas/readiness-needs-evidence.html','اقرأ الموقف التعليمي كاملًا ←' if lang=='ar' else 'Read the education argument →',lang)+'<br>'+link('/ventures.html#imam','IMAM: مسار التنفيذ والتطوير ←' if lang=='ar' else 'IMAM: implementation & development →',lang)+'</section>'
+    return '<section class="ideas-section" id="imam"><div class="ideas-kicker">'+('iSCARB · الحكم والدليل والسياق' if lang=='ar' else 'iSCARB · judgment, evidence & context')+'</div><h2>'+t(position['title'],lang)+'</h2><p>'+t(position['body'],lang)+'</p>'+link('/ideas/readiness-needs-evidence.html','اقرأ الموقف التعليمي كاملًا ←' if lang=='ar' else 'Read the education argument →',lang)+'<br>'+link('/teaching.html#iscarb','iSCARB: التصميم التعليمي والتطبيق ←' if lang=='ar' else 'iSCARB: learning design & practice →',lang)+'</section>'
 
 
 def render(lang):
@@ -99,7 +106,7 @@ def render(lang):
 
     for article in DATA['articles']:
         label = 'أديب نور · مقال رأي · نسخة ' if lang=='ar' else 'Adeeb Noor · Perspective · Edition of '
-        body = '<main class="ideas-article" id="main-content">'+link('/writing/','← أرشيف المقالات' if lang=='ar' else '← Essay archive',lang)+'<article><div class="ideas-kicker">'+t(article['theme'],lang)+'</div><h1>'+t(article['title'],lang)+'</h1><p class="idea-standfirst">'+t(article['standfirst'],lang)+'</p><div class="idea-byline">'+label+'<time datetime="2026-09-13">'+EDITION[lang]+'</time></div><div class="article-body">'
+        body = '<main class="ideas-article" id="main-content">'+link('/writing/','← أرشيف المقالات' if lang=='ar' else '← Essay archive',lang)+'<article><div class="ideas-kicker">'+t(article['theme'],lang)+'</div><h1>'+t(article['title'],lang)+'</h1><p class="idea-standfirst">'+t(article['standfirst'],lang)+'</p><div class="idea-byline">'+label+edition_badge(article,lang)+'</div><div class="article-body">'
         for section in article['sections']:
             body += '<section><h2>'+t(section['heading'],lang)+'</h2>'+''.join('<p>'+escape(p)+'</p>' for p in section['paragraphs'][lang])+'</section>'
         body += '</div><aside class="ideas-evidence"><h2>'+('عمل مرتبط بالحجة' if lang=='ar' else 'Work connected to the argument')+'</h2><ul>'+''.join('<li>'+link(x['path'],x['label'][lang],lang,'')+'</li>' for x in article['evidence'])+'</ul></aside><nav class="ideas-related" aria-label="'+('متابعة القراءة' if lang=='ar' else 'Continue reading')+'">'+link('/ideas/position.html','ارجع إلى الموقف الفكري ←' if lang=='ar' else 'Return to my position →',lang)+'<br>'+link('/writing/','تصفّح المقالات الأربعة ←' if lang=='ar' else 'Browse all four essays →',lang)+'</nav></article></main>'
@@ -132,17 +139,12 @@ def homepage_gateway(lang):
 
 
 def project_bridge(lang):
+    """Remove the legacy standalone IMAM card; current-work owns venture cards."""
     ar = lang == 'ar'
     name = 'ventures.html'
     target = ROOT/(('ar/' if ar else '')+name)
     source = re.sub(r'<!-- ideas-project:start -->.*?<!-- ideas-project:end -->','',target.read_text(),flags=re.S)
-    description = ('منظومة تعلّم سعودية بالذكاء الاصطناعي التوليدي تربط الهوية المحلية وتصميم المناهج والجاهزية. يصف سجلي المهني دوري كمؤسس ومعماري رئيسي، مع مسار للتجريب والتطوير التجاري. أعرضها هنا كعمل قيد التطوير، دون ادعاء انتشار تجاري أو أثر تعليمي مثبت.' if ar else
-        'A Saudi GenAI learning ecosystem connecting local identity, curriculum design and readiness. My professional record describes my role as founder and lead architect, with a pilot and commercialization pathway. I present it here as work in development, without claiming commercial adoption or demonstrated learning gains.')
-    card = '<!-- ideas-project:start --><article class="venture-card" id="imam"><div class="venture-mark"><div class="vtype">'+('التعليم والذكاء الاصطناعي التوليدي' if ar else 'Education & generative AI')+'</div><h2>IMAM GenAI</h2></div><div class="venture-body"><div class="mini">'+('مسار تطوير وتجريب' if ar else 'Development & pilot pathway')+'</div><h3>'+('من الهوية المحلية إلى تصميم التعلّم' if ar else 'From local identity to learning design')+'</h3><p>'+description+'</p><p>'+link('/ideas/position.html#imam','الموقف الفكري: مَن يملك قرار التعلّم؟ ←' if ar else 'The position: who owns the purpose of learning? →',lang,'')+'</p><p>'+link('/executive-cv.html','دوري في السجل المهني ←' if ar else 'My role in the professional record →',lang,'')+' · '+link('/teaching.html#philosophy','السياق التعليمي ←' if ar else 'Educational context →',lang,'')+'</p></div></article><!-- ideas-project:end -->'
-    marker = '<section class="venture-stack">'
-    if source.count(marker) != 1:
-        raise ValueError('Expected the venture stack in '+str(target))
-    target.write_text(source.replace(marker,marker+card))
+    target.write_text(source)
 
 
 if __name__ == '__main__':

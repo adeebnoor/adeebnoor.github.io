@@ -1,24 +1,24 @@
 [
   {
     "id": "miyar",
-    "name": "MIYAR",
+    "name": "MIYAR 5.0",
     "image": "/assets/miyar-actual.webp",
     "url": "/ventures.html#miyar",
     "en": {
-      "name": "MIYAR",
-      "stage": "Position management service",
-      "domain": "Workforce architecture",
-      "description": "Create position requests, define responsibilities and requirements, and manage job descriptions and approvals in a bilingual workspace.",
+      "name": "MIYAR 5.0",
+      "stage": "Public pilot · Under evaluation",
+      "domain": "Strategy-to-workforce intelligence",
+      "description": "Connect strategy, organization design, job evaluation, workforce planning, compensation and institutional approval in a bilingual working prototype with explicit assumptions and human review.",
       "cta": "Explore MIYAR",
       "alt": "Actual MIYAR interface: workforce architecture and position design",
       "liveCta": "Open MIYAR",
       "reviewCta": "Create a position request"
     },
     "ar": {
-      "name": "مِعيار · MIYAR",
-      "stage": "خدمة إدارة المناصب",
-      "domain": "هندسة القوى العاملة",
-      "description": "أنشئ طلبات المناصب، وحدد المسؤوليات والمتطلبات، وتابع الأوصاف الوظيفية والاعتمادات في مساحة عمل ثنائية اللغة.",
+      "name": "مِعيار · MIYAR 5.0",
+      "stage": "إصدار تجريبي عام · قيد التقييم",
+      "domain": "من الاستراتيجية إلى تخطيط القوى العاملة",
+      "description": "يربط الاستراتيجية والتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد المؤسسي في نموذج أولي ثنائي اللغة، بافتراضات واضحة ومراجعة بشرية.",
       "cta": "استكشف مِعيار",
       "alt": "واجهة مِعيار الفعلية لهندسة القوى العاملة وتصميم المناصب",
       "liveCta": "افتح مِعيار",
@@ -33,16 +33,16 @@
     },
     "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create",
     "state": {
-      "en": "Live",
-      "ar": "Live"
+      "en": "Prototype",
+      "ar": "Prototype"
     },
     "updated": {
       "en": "Updated 2026",
       "ar": "محدّث 2026"
     },
     "role": {
-      "en": "My contribution: co-developer of the bilingual position-management workspace.",
-      "ar": "إسهامي: مطوّر مشارك لمساحة العمل الثنائية اللغة لإدارة المناصب."
+      "en": "My contribution: co-development with Ahmad Raza Khan.",
+      "ar": "إسهامي: التطوير المشترك مع أحمد رضا خان."
     }
   },
   {
@@ -171,36 +171,46 @@
     }
   },
   {
-    "id": "imam",
-    "url": "/ventures.html#imam",
-    "viewBox": "830 623 244 146",
+    "id": "kamin",
+    "name": "Kamin",
+    "url": "/ventures.html#kamin",
+    "image": "/assets/kamin-actual.jpg",
+    "actualImage": true,
+    "imageWidth": 1348,
+    "imageHeight": 926,
     "en": {
-      "name": "IMAM GenAI",
-      "stage": "Founder & lead architect · Development",
-      "domain": "Saudi AI-enabled learning",
-      "description": "A Saudi GenAI learning ecosystem connecting local identity, curriculum design and workforce readiness. In development, with a pilot and commercialization pathway.",
-      "cta": "Explore IMAM",
-      "alt": "Concept illustration of software systems supporting AI-enabled learning"
+      "name": "Kamin",
+      "stage": "Public pilot · Under evaluation",
+      "domain": "Learner-owned capability networks",
+      "description": "Connect interests, goals and reviewed academic evidence with learning and career pathways. Explore the relationships, evidence gaps and next steps in a profile the learner controls.",
+      "cta": "Explore Kamin",
+      "alt": "Kamin public pilot: interests, capabilities and evidence connected in a learning and career network",
+      "liveCta": "Open Kamin"
     },
     "ar": {
-      "name": "IMAM GenAI",
-      "stage": "مؤسس ومعماري رئيسي · قيد التطوير",
-      "domain": "التعلّم السعودي المدعوم بالذكاء الاصطناعي",
-      "description": "منظومة تعلّم سعودية بالذكاء الاصطناعي التوليدي تربط الهوية المحلية وتصميم المناهج والجاهزية للعمل. قيد التطوير بمسار للتجريب والتطوير التجاري.",
-      "cta": "استكشف IMAM",
-      "alt": "رسم تصوّري لأنظمة برمجية تدعم التعلّم بالذكاء الاصطناعي"
+      "name": "كامن · Kamin",
+      "stage": "إصدار تجريبي عام · قيد التقييم",
+      "domain": "شبكة قدرات يملكها المتعلّم",
+      "description": "يربط الاهتمامات والأهداف والأدلة الأكاديمية المراجعة بمسارات التعلم والعمل، ويشرح العلاقات وفجوات الأدلة والخطوة التالية داخل ملف يتحكم فيه المتعلّم.",
+      "cta": "استكشف كامن",
+      "alt": "واجهة كامن التجريبية: شبكة تربط الاهتمامات والقدرات والأدلة بمسارات التعلم والعمل",
+      "liveCta": "افتح كامن"
+    },
+    "liveUrl": {
+      "en": "https://kamin-12mf.onrender.com/?lang=en",
+      "ar": "https://kamin-12mf.onrender.com/?lang=ar"
     },
     "state": {
-      "en": "In Development",
-      "ar": "In Development"
+      "en": "Public Pilot",
+      "ar": "Public Pilot"
     },
     "updated": {
       "en": "Updated 2026",
       "ar": "محدّث 2026"
     },
     "role": {
-      "en": "My contribution: Founder & Lead Architect.",
-      "ar": "إسهامي: المؤسس والمعماري الرئيسي."
+      "en": "My contribution: project concept and capability-network design.",
+      "ar": "إسهامي: فكرة المشروع وتصميم شبكة القدرات."
     }
   },
   {
@@ -254,18 +264,18 @@
     "url": "/teaching.html#iscarb",
     "en": {
       "name": "iSCARB",
-      "stage": "Teaching system",
-      "domain": "Evidence-centered learning",
-      "description": "Course design that connects engineering cases, after-class reasoning and evidence of what students can explain and defend.",
+      "stage": "Live course · Open preprint",
+      "domain": "Defensible engineering judgment",
+      "description": "Nine software-engineering chapters train learners to justify a choice, state its limits, inspect evidence and revise after a changed condition. IMAM provides an optional contextualization layer.",
       "cta": "Explore iSCARB",
       "alt": "Actual iSCARB interface for interactive software engineering lectures",
       "liveCta": "Open iSCARB"
     },
     "ar": {
       "name": "iSCARB",
-      "stage": "إطار تعليمي تطبيقي",
-      "domain": "التعلّم القائم على الأدلة",
-      "description": "تصميم تعليمي يربط الحالات الهندسية بالتفكير بعد المحاضرة وأدلة قدرة الطالب على التفسير والدفاع عن قراره.",
+      "stage": "مقرر متاح · ورقة أولية منشورة",
+      "domain": "الحكم الهندسي القابل للدفاع",
+      "description": "تسعة فصول في هندسة البرمجيات يتدرّب فيها الطالب على تبرير الاختيار وتحديد حدوده وفحص الأدلة ومراجعة القرار عند تغيّر الظروف. ويتيح IMAM طبقة اختيارية لتكييف السياق.",
       "cta": "استكشف iSCARB",
       "alt": "واجهة iSCARB الفعلية للمحاضرات التفاعلية في هندسة البرمجيات",
       "liveCta": "افتح iSCARB"

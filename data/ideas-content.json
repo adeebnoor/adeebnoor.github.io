@@ -8,12 +8,12 @@
     {
       "id": "beyond-the-average",
       "title": {
-        "en": "An aggregate score is an incomplete account of a consequential decision.",
-        "ar": "الدرجة المجمّعة لا تقدّم حسابًا كافيًا عن قرار يمسّ الناس."
+        "en": "Equivalent measured performance does not establish equivalent action.",
+        "ar": "تكافؤ الأداء المقاس لا يثبت تكافؤ الفعل."
       },
       "body": {
-        "en": "I believe an audit should show who changes when a model or decision rule changes. Similar averages can coexist with different selections; I want that difference examined before an institution calls two systems equivalent. I would narrow this requirement where decisions are demonstrably insensitive to identity and the cost of tracing it outweighs its value.",
-        "ar": "أعتقد أن التدقيق ينبغي أن يُظهر مَن يتغيّر اختياره عندما يتغيّر النموذج أو قاعدة القرار. فقد تتقارب المتوسطات مع اختلاف الأشخاص المختارين؛ وأريد فحص هذا الفرق قبل أن تصف المؤسسة نظامين بأنهما متكافئان. وأقبل تضييق هذا المطلب حين يثبت أن هوية الاختيار لا تغيّر النتائج وأن تكلفة تتبّعها تتجاوز فائدتها."
+        "en": "I believe an audit must distinguish agreement on its reported measures from agreement on the actions a system takes. The same measured performance can leave the identity of selected people, retrieved evidence or final decisions unspecified. I want institutions to examine those differences before treating two systems as interchangeable, with a level of scrutiny proportionate to the consequences.",
+        "ar": "أعتقد أن التدقيق ينبغي أن يميّز بين الاتفاق في المقاييس المعلَنة والاتفاق في الأفعال التي يتخذها النظام. فقد يترك الأداء المقاس نفسه هوية الأشخاص المختارين أو الأدلة المسترجعة أو القرارات النهائية غير محدّدة. وأريد من المؤسسات فحص هذه الفروق قبل التعامل مع نظامين باعتبارهما قابلين للاستبدال، بمستوى من التدقيق يتناسب مع التبعات."
       },
       "evidenceLabel": {
         "en": "RIDI: the research question behind the position",
@@ -76,12 +76,12 @@
   ],
   "evidenceBridge": {
     "title": {
-      "en": "RIDI is one way I put the question to work.",
-      "ar": "RIDI إحدى الطرق التي أحوّل بها السؤال إلى عمل قابل للفحص."
+      "en": "RIDI: I ask what performance equivalence leaves undecided.",
+      "ar": "RIDI: أسأل عمّا يتركه تكافؤ الأداء غير محسوم."
     },
     "body": {
-      "en": "I use RIDI to investigate what an evaluation leaves unspecified about a downstream decision. I use the public demonstration as a replay of one SciFact case: the displayed retrieval metrics remain unchanged while the recorded answer changes. I treat that case as a reason to examine the relationship between an audit and an action; it is not a universal estimate of harm or proof that every deployment behaves the same way.",
-      "ar": "أستخدم RIDI لفحص ما يتركه التقييم غير محدّد بشأن القرار الذي يليه. وأستخدم العرض العام لإعادة عرض حالة واحدة من SciFact: تبقى مقاييس الاسترجاع المعروضة ثابتة، بينما تتغيّر الإجابة المسجّلة. وأتعامل مع هذه الحالة بوصفها سببًا لفحص العلاقة بين التدقيق والفعل؛ ولا أعدّها تقديرًا عامًا للضرر أو دليلًا على أن جميع التطبيقات تتصرف بالطريقة نفسها."
+      "en": "I investigate why equivalence on declared performance measures need not imply equivalence in downstream action. I use RIDI to make that question inspectable, including how selection identity can change under a stated constraint. The public demonstration replays one SciFact case: the displayed retrieval metrics remain unchanged while the recorded answer changes. I use that case to examine the limits of the reported audit; I would need separate evidence to estimate the frequency or consequences of such changes in a deployment.",
+      "ar": "أدرس لماذا لا يستلزم التكافؤ في مقاييس الأداء المعلَنة تكافؤًا في الفعل اللاحق. وأستخدم RIDI لجعل هذا السؤال قابلًا للفحص، بما يشمل كيف تتغيّر هوية الاختيار في ظل قيد محدّد. ويعيد العرض العام تقديم حالة واحدة من SciFact: تبقى مقاييس الاسترجاع المعروضة ثابتة، بينما تتغيّر الإجابة المسجّلة. وأستخدم هذه الحالة لفحص حدود التدقيق المعلَن؛ وأحتاج إلى أدلة مستقلة لتقدير تواتر هذه التغيّرات أو تبعاتها في تطبيق فعلي."
     },
     "links": [
       {
@@ -113,8 +113,8 @@
         "ar": "درجات متشابهة، قرارات مختلفة: ما الذي قد يفوته تقييم الذكاء الاصطناعي؟"
       },
       "standfirst": {
-        "en": "I argue that evaluation should follow a score into the decision it produces, including who receives an opportunity when capacity is limited.",
-        "ar": "أدافع عن تقييم يتتبّع الدرجة إلى القرار الذي تنتجه، بما في ذلك مَن يحصل على الفرصة عندما تكون السعة محدودة."
+        "en": "I argue that equivalent reported performance does not establish equivalent action. I want evaluation to follow the score into the selection, evidence or decision it produces.",
+        "ar": "أرى أن تكافؤ الأداء المعلَن لا يثبت تكافؤ الفعل. وأريد للتقييم أن يتتبّع الدرجة إلى الاختيار أو الدليل أو القرار الذي تنتجه."
       },
       "theme": {
         "en": "AI & allocation",
@@ -180,10 +180,10 @@
           },
           "paragraphs": {
             "en": [
-              "I connect this argument to RIDI, a research and software program that measures selection change and computes the exact minimum turnover compatible with a declared utility budget. I am interested in what a reported audit leaves unspecified about the action that follows it. I see the allocation question as part of a broader obligation to examine systems at the level where they act. When someone tells me two systems perform similarly, my next question is: do they make the same decisions about the same people, and does the difference matter here?"
+              "I connect this argument to my research on RIDI and a broader question: why does equivalence on declared performance measures leave downstream action unresolved? I want to examine what an audit identifies, what remains free to change and which of those changes matters in context. Selection identity is one part of that inquiry; the evidence a system uses and the action it produces can also require examination. When someone tells me two systems perform similarly, I ask which measures support that statement and whether the systems act equivalently where it matters."
             ],
             "ar": [
-              "أربط هذه الحجة ببحثي في RIDI والعلاقة بين التقييم والقرارات اللاحقة. ويهمّني ما يتركه التدقيق المعلَن غير محدّد بشأن الفعل الذي يليه. وأرى سؤال التخصيص جزءًا من التزام أوسع بفحص الأنظمة عند المستوى الذي تعمل فيه. وعندما يقال لي إن نظامين يتقاربان في الأداء، يكون سؤالي التالي: هل يتخذان القرارات نفسها بشأن الأشخاص أنفسهم، وهل يهمّ الفرق في هذا السياق؟"
+              "أربط هذه الحجة ببحثي في RIDI وبسؤال أوسع: لماذا يترك التكافؤ في مقاييس الأداء المعلَنة الفعل اللاحق غير محسوم؟ وأريد فحص ما يحدّده التدقيق، وما يبقى قابلًا للتغيّر، وأيّ هذه التغيّرات مهم في سياقه. وتمثّل هوية الاختيار جزءًا من هذا البحث؛ وقد تحتاج الأدلة التي يستخدمها النظام والفعل الذي ينتجه إلى فحص أيضًا. وعندما يقال لي إن نظامين يتقاربان في الأداء، أسأل عن المقاييس التي تسند هذا الوصف، وعمّا إذا كان النظامان يتكافآن في الفعل حيث يهمّ ذلك."
             ]
           }
         }
@@ -203,7 +203,8 @@
             "ar": "تابع القراءة: السعة المتاحة خيار مؤسسي"
           }
         }
-      ]
+      ],
+      "updated": "2026-09-28"
     },
     {
       "slug": "capacity-is-a-policy-choice",
@@ -390,8 +391,8 @@
         "ar": "الجاهزية تحتاج إلى دليل"
       },
       "standfirst": {
-        "en": "I want to know what a student can explain, test and defend when the conditions change. A polished submission gives me only part of that answer.",
-        "ar": "أريد أن أعرف ما يستطيع الطالب شرحه واختباره والدفاع عنه عندما تتغيّر الظروف. والعمل المصقول الذي يسلّمه لا يمنحني إلا جزءًا من الإجابة."
+        "en": "I judge readiness through a learner’s ability to connect a choice to evidence, state its limits and revise it when a consequential constraint changes.",
+        "ar": "أحكم على الجاهزية من قدرة المتعلّم على ربط اختياره بدليل، وبيان حدوده، ومراجعته عندما يتغيّر قيد مؤثر."
       },
       "theme": {
         "en": "Education & judgment",
@@ -405,11 +406,11 @@
           },
           "paragraphs": {
             "en": [
-              "I use readiness to describe a learner’s ability to act with reasons within a defined scope. In software engineering, I want a student to connect a requirement to a design choice, anticipate a relevant failure and explain what evidence would change that choice. I would not infer readiness for every professional setting from success in one classroom task. The scope of the claim should match the scope of the evidence.",
+              "I use readiness to describe a learner’s ability to make and defend a judgment within a defined scope. In software engineering, I want a student to connect a requirement to a design choice, anticipate a relevant failure and explain what evidence would change that choice. I also want the student to identify what remains uncertain. I would limit any claim about professional readiness to what the assessed task and its evidence can support.",
               "I still consider disciplinary knowledge essential. A student cannot reason well about reliability without understanding the mechanisms and assumptions involved. I want explanations, examples and diagrams to make those mechanisms accessible, followed by opportunities to use them. I become concerned when completing content replaces checking what a learner can do with it, or when a visually impressive lesson leaves the important technical reasoning implicit."
             ],
             "ar": [
-              "أستخدم الجاهزية لوصف قدرة المتعلّم على التصرّف بأسباب واضحة داخل نطاق محدّد. ففي هندسة البرمجيات، أريد من الطالب ربط متطلب بقرار تصميم، وتوقّع إخفاق ذي صلة، وشرح الدليل الذي قد يغيّر اختياره. ولا أستنتج من نجاحه في مهمة صفية واحدة أنه جاهز لكل سياق مهني. ينبغي أن يطابق نطاق الادّعاء نطاق الدليل.",
+              "أستخدم الجاهزية لوصف قدرة المتعلّم على اتخاذ حكم والدفاع عنه داخل نطاق محدّد. ففي هندسة البرمجيات، أريد من الطالب ربط متطلب بقرار تصميم، وتوقّع إخفاق ذي صلة، وشرح الدليل الذي قد يغيّر اختياره. وأريده أيضًا أن يحدّد ما يبقى غير يقيني. وأحصر أيّ ادّعاء عن الجاهزية المهنية في الحدود التي تستطيع المهمة المقوّمة وأدلتها إسنادها.",
               "وأظلّ أرى المعرفة التخصصية أساسًا لا غنى عنه. فالطالب لا يستطيع التفكير جيدًا في الموثوقية دون فهم الآليات والافتراضات المتصلة بها. وأريد للشروح والأمثلة والرسومات أن تجعل تلك الآليات واضحة، ثم تتيح فرصًا لاستخدامها. ويقلقني أن يحلّ استكمال المحتوى محلّ فحص ما يستطيع المتعلّم فعله به، أو أن يترك درس جذّاب بصريًا منطقه التقني المهم ضمنيًا."
             ]
           }
@@ -438,25 +439,25 @@
           "paragraphs": {
             "en": [
               "I welcome AI assistance when its role is explicit and consistent with the learning task. If a tool helps produce an artifact, I need evidence of the learner’s contribution and understanding before drawing conclusions about individual capability. I might ask for a short explanation, a modification to the solution or a test of an assumption. I would choose the method to fit the discipline, access needs and available teaching time.",
-              "I connect this position to my educational design work across CIMT, IMAM and the iSCARB teaching system. I use these efforts to investigate how instructional structure, interaction and evidence can remain visible when AI helps produce learning materials. I do not regard a prescribed slide count or a completed design checklist as proof of learning. I would want evidence from student reasoning and performance, interpreted with the limitations of the study or classroom context."
+              "I put this position to work through iSCARB. I want a learning sequence to connect the initial problem, the relevant mechanisms, a defensible choice and evidence of the learner’s reasoning. I would examine how the learner responds when an assumption fails or a constraint changes. A completed lecture, a prescribed slide count or a polished submission cannot by itself establish that the learner can make that judgment."
             ],
             "ar": [
               "أرحّب بمساعدة الذكاء الاصطناعي عندما يكون دوره معلنًا ومتّسقًا مع المهمة التعليمية. وإذا ساعدت أداة في إنتاج العمل، أحتاج إلى دليل على إسهام المتعلّم وفهمه قبل أن أستنتج قدرته الفردية. وقد أطلب شرحًا قصيرًا، أو تعديلًا للحل، أو اختبارًا لافتراض. وأختار الطريقة وفق التخصص واحتياجات إتاحة التعلّم والوقت التدريسي المتاح.",
-              "أربط هذا الموقف بعملي في التصميم التعليمي عبر CIMT وIMAM ونظام iSCARB. وأستخدم هذه الجهود لفحص كيفية إبقاء البنية التعليمية والتفاعل والأدلة واضحة عندما يساعد الذكاء الاصطناعي في إنتاج مواد التعلّم. ولا أعدّ عددًا محدّدًا من الشرائح أو اكتمال قائمة فحص التصميم دليلًا على التعلّم. بل أطلب دليلًا من تفكير الطلاب وأدائهم، وأفسّره في ضوء حدود الدراسة أو السياق الصفي."
+              "أحوّل هذا الموقف إلى عمل من خلال iSCARB. وأريد لمسار التعلّم أن يصل بين المشكلة الأولى والآليات ذات الصلة والاختيار القابل للدفاع عنه والدليل على تفكير المتعلّم. وأفحص كيف يستجيب عندما يسقط افتراض أو يتغيّر قيد. ولا أستنتج من اكتمال محاضرة أو الالتزام بعدد شرائح أو تسليم عمل مصقول وحده قدرة المتعلّم على إصدار ذلك الحكم."
             ]
           }
         },
         {
           "heading": {
-            "en": "What I mean by sovereignty in AI-enabled education",
-            "ar": "ماذا أعني بالسيادة في التعليم المدعوم بالذكاء الاصطناعي؟"
+            "en": "How context belongs inside the learning design",
+            "ar": "كيف يدخل السياق في تصميم التعلّم؟"
           },
           "paragraphs": {
             "en": [
-              "I connect the identity question in IMAM to who defines the purpose of learning, selects the knowledge and judges the evidence of readiness. I believe a university should be able to explain and revise those choices in its own language and disciplinary context, even when it uses external AI tools. I would judge that control by visible authority over curriculum, assessment and revision; an Arabic interface alone would not establish it."
+              "I place IMAM within iSCARB as a contextual design layer. I want language, local examples and educational purpose to make the disciplinary problem meaningful without weakening its technical substance. I would ask whether a contextual choice helps students explain an assumption, examine evidence or defend a revision. I keep responsibility for curriculum and assessment with the educational institution, and I would review any design choice that makes the evidence of learning harder to interpret."
             ],
             "ar": [
-              "أربط سؤال الهوية في IMAM بمَن يحدّد غاية التعلّم، ويختار المعرفة، ويحكم على دليل الجاهزية. وأعتقد أن الجامعة ينبغي أن تستطيع شرح هذه الاختيارات ومراجعتها بلغتها وفي سياق تخصصها، حتى عندما تستخدم أدوات ذكاء اصطناعي خارجية. وأقيس امتلاكها لهذا القرار بوضوح صلاحيتها على المنهج والتقييم والتعديل، ولا أكتفي بوجود واجهة عربية."
+              "أضع IMAM داخل iSCARB بوصفه طبقة للتصميم المراعي للسياق. وأريد للغة والأمثلة المحلية وغاية التعلّم أن تجعل المشكلة التخصصية ذات معنى، مع الحفاظ على مضمونها التقني. وأسأل عمّا إذا كان الاختيار السياقي يساعد الطالب على شرح افتراض أو فحص دليل أو الدفاع عن تعديل. وأُبقي مسؤولية المنهج والتقييم لدى المؤسسة التعليمية، وأراجع أيّ اختيار تصميمي يجعل تفسير دليل التعلّم أصعب."
             ]
           }
         },
@@ -484,7 +485,8 @@
           },
           "path": "/teaching.html#iscarb"
         }
-      ]
+      ],
+      "updated": "2026-09-28"
     }
   ],
   "pageCopy": {
@@ -529,12 +531,12 @@
   },
   "imamPosition": {
     "title": {
-      "en": "IMAM: who owns the purpose of learning?",
-      "ar": "IMAM: مَن يملك قرار التعلّم؟"
+      "en": "iSCARB: what makes a judgment defensible?",
+      "ar": "iSCARB: ما الذي يجعل الحكم قابلًا للدفاع عنه؟"
     },
     "body": {
-      "en": "I connect the identity question in IMAM to who defines the purpose of learning, selects the knowledge and judges the evidence of readiness. I believe a university should be able to explain and revise those choices in its own language and disciplinary context, even when it uses external AI tools. I would judge that control by visible authority over curriculum, assessment and revision; an Arabic interface alone would not establish it.",
-      "ar": "أربط سؤال الهوية في IMAM بمَن يحدّد غاية التعلّم، ويختار المعرفة، ويحكم على دليل الجاهزية. وأعتقد أن الجامعة ينبغي أن تستطيع شرح هذه الاختيارات ومراجعتها بلغتها وفي سياق تخصصها، حتى عندما تستخدم أدوات ذكاء اصطناعي خارجية. وأقيس امتلاكها لهذا القرار بوضوح صلاحيتها على المنهج والتقييم والتعديل، ولا أكتفي بوجود واجهة عربية."
+      "en": "I want a learner to connect a claim to evidence, explain the limits of that evidence and revise a choice when a consequential constraint changes. I bring this position into iSCARB, with IMAM as a contextual design layer for language, local examples and educational purpose. I believe that context should help a student reason within the discipline while the university retains responsibility for curriculum, assessment and the meaning of readiness.",
+      "ar": "أريد من المتعلّم أن يربط ادّعاءه بدليل، ويشرح حدود ذلك الدليل، ويراجع اختياره عندما يتغيّر قيد مؤثر. وأترجم هذا الموقف في iSCARB، مع IMAM بوصفه طبقة تصميم تراعي اللغة والأمثلة المحلية وغاية التعلّم. وأعتقد أن هذا السياق ينبغي أن يساعد الطالب على التفكير داخل تخصصه، مع بقاء الجامعة مسؤولة عن المنهج والتقييم ومعنى الجاهزية."
     }
   }
 }

@@ -1,6 +1,53 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-29",
   "items": [
+    {
+      "id": "action-equivalence-current-research",
+      "date": "2026-09-25",
+      "record_type": "work_in_progress",
+      "kind": {
+        "en": "Manuscript · work in progress",
+        "ar": "مخطوطة · بحث جارٍ"
+      },
+      "title": "Performance equivalence does not imply action equivalence in AI systems",
+      "title_ar": "تكافؤ الأداء لا يعني تكافؤ الأفعال في أنظمة الذكاء الاصطناعي",
+      "venue": "AI evaluation & decision systems",
+      "venue_ar": "تقييم الذكاء الاصطناعي وأنظمة القرار",
+      "url": "https://adeebnoor.github.io/research.html#ridi",
+      "url_ar": "https://adeebnoor.github.io/ar/research.html#ridi",
+      "source": {
+        "en": "Current research program",
+        "ar": "المسار البحثي الحالي"
+      },
+      "summary": {
+        "en": "Ongoing research on the gap between maintained aggregate performance and changed system actions: which evidence is used, what is selected, and which changes an explicit objective requires. This is a work in progress, not a published or accepted article.",
+        "ar": "بحث جارٍ في الفجوة بين ثبات الأداء الإجمالي وتغيّر أفعال النظام: الأدلة التي يستخدمها، والعناصر التي يختارها، والتغييرات التي يتطلبها هدف محدد. هذه مخطوطة قيد العمل وليست مقالة منشورة أو مقبولة للنشر."
+      },
+      "featured": true
+    },
+    {
+      "id": "iscarb-preprint-2026",
+      "date": "2026-09-25",
+      "record_type": "preprint",
+      "kind": {
+        "en": "Preprint · not peer reviewed",
+        "ar": "نسخة أولية · غير محكّمة"
+      },
+      "title": "From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation",
+      "title_ar": "من إنتاج الإجابة إلى حكم هندسي قابل للدفاع عنه في الأنظمة المتضمنة للذكاء الاصطناعي: إطار iSCARB وتطبيق عبر تسعة فصول في هندسة البرمجيات",
+      "venue": "Zenodo · v1.0",
+      "venue_ar": "Zenodo · الإصدار 1.0",
+      "url": "https://zenodo.org/records/22964248",
+      "source": {
+        "en": "Zenodo · DOI 10.5281/zenodo.22964248",
+        "ar": "Zenodo · DOI 10.5281/zenodo.22964248"
+      },
+      "summary": {
+        "en": "A framework and nine-chapter implementation for human-owned engineering judgment in systems containing AI. It combines evidence, explicit limits, changed conditions and justified revision; learning effectiveness remains an evaluation question.",
+        "ar": "إطار وتطبيق عبر تسعة فصول لتنمية حكم هندسي يتحمل الإنسان مسؤوليته في أنظمة تتضمن الذكاء الاصطناعي. يجمع الأدلة والحدود الصريحة وتغيّر الشروط والمراجعة المبررة؛ وتظل فاعليته التعليمية سؤالًا للتقييم."
+      },
+      "featured": true
+    },
     {
       "id": "context-aware-cxr-2026",
       "date": "2026-08-28",

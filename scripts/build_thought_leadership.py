@@ -10,7 +10,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io'
-TODAY = '2026-09-22'
+TODAY = '2026-09-29'
 PROFILE_BLOCK = re.compile(r'<!-- site-audit:person:start -->.*?<!-- site-audit:person:end -->', re.S)
 STYLE_BLOCK = re.compile(r'<!-- thought-leadership:style:start -->.*?<!-- thought-leadership:style:end -->', re.S)
 

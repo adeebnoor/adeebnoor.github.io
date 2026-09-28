@@ -10,7 +10,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://adeebnoor.github.io"
-VERSION = "20260922-ux-final"
+VERSION = "20260929-current-work"
 
 def put_meta(source, attr, key, value):
     pattern = re.compile(r'<meta\s+' + re.escape(attr) + r'="' + re.escape(key) + r'"\s+content="[^"]*"\s*/?>', re.I)
@@ -52,23 +52,14 @@ def bump_assets(source):
     source = re.sub(r'/site-nav\.js(?:\?v=[^"\s>]+)?', f'/site-nav.js?v={VERSION}', source)
     return source
 
+AR_STATES = {'Live':'متاح', 'Public Beta':'نسخة تجريبية عامة', 'Public Pilot':'تجربة أولية عامة', 'Prototype':'نموذج أولي', 'In Development':'قيد التطوير'}
+
 def normalize_home(source, arabic=False):
     if arabic:
-        mapping = {
-            'مباشر':'Live',
-            'نموذج أولي':'Prototype',
-            'نسخة تجريبية عامة':'Public Beta',
-            'بحث مفتوح':'Prototype',
-            'قيد التطوير':'In Development',
-            'نظام تعليمي مباشر':'Live',
-            'تجربة ريادية':'Prototype',
-        }
-        for old,new in mapping.items():
-            source = source.replace(f'<span class="project-state">{old}</span>', f'<span class="project-state" lang="en">{new}</span>')
+        for state,label in AR_STATES.items():
+            source = re.sub(r'<span class="project-state"(?: lang="en")?>'+re.escape(state)+r'</span>', '<span class="project-state">'+label+'</span>', source)
         source = source.replace('<span class="project-updated">سجل عام 2019</span>','<span class="project-updated">محدّث 2019</span>')
         source = source.replace('<span class="project-updated">سجل عام 2017</span>','<span class="project-updated">محدّث 2017</span>')
-        for state in ('Live','Public Beta','Prototype','In Development'):
-            source = source.replace(f'<span class="project-state">{state}</span>', f'<span class="project-state" lang="en">{state}</span>')
     else:
         mapping = {'Open Research':'Prototype','Live Teaching System':'Live','Venture Experience':'Prototype'}
         for old,new in mapping.items():
@@ -78,9 +69,9 @@ def normalize_home(source, arabic=False):
     return source
 
 PROJECTS = {
-    'miyar': ('Live','2026',
-        'My role: co-developer of the bilingual position-management workspace.',
-        'دوري: مطوّر مشارك لمساحة العمل الثنائية اللغة لإدارة المناصب.'),
+    'miyar': ('Prototype','2026',
+        'My role: co-development with Ahmad Raza Khan.',
+        'دوري: التطوير المشترك مع أحمد رضا خان.'),
     'kinetic-hr': ('Prototype','2026',
         'My role: product concept, decision logic and workforce-intelligence direction.',
         'دوري: مفهوم المنتج ومنطق القرار وتوجيه ذكاء القوى العاملة.'),
@@ -90,9 +81,9 @@ PROJECTS = {
     'ridi-system': ('Prototype','2026',
         'My role: research lead and audit-toolkit architecture.',
         'دوري: قيادة البحث وهندسة أداة التدقيق.'),
-    'imam': ('In Development','2026',
-        'My role: Founder & Lead Architect.',
-        'دوري: المؤسس والمعماري الرئيسي.'),
+    'kamin': ('Public Pilot','2026',
+        'My role: project concept and capability-network design.',
+        'دوري: فكرة المشروع وتصميم شبكة القدرات.'),
     'shifaa': ('Live','2019',
         'My role: founder and technology leadership during hospital digital modernization.',
         'دوري: التأسيس والقيادة التقنية خلال التحديث الرقمي للمستشفى.'),
@@ -118,7 +109,7 @@ def project_block(source, project_id, state, year, role, arabic):
     body = m.group(2)
     body = re.sub(r'<div class="project-meta">.*?</div>', '', body, flags=re.S, count=1)
     body = re.sub(r'<p class="project-role">.*?</p>', '', body, flags=re.S, count=1)
-    state_html = f'<span class="project-state" lang="en">{escape(state)}</span>' if arabic else f'<span class="project-state">{escape(state)}</span>'
+    state_html = f'<span class="project-state">{escape(AR_STATES.get(state,state))}</span>' if arabic else f'<span class="project-state">{escape(state)}</span>'
     updated = ('محدّث ' if arabic else 'Updated ') + year
     meta = f'<div class="project-meta">{state_html}<span class="project-updated">{updated}</span></div><p class="project-role">{escape(role)}</p>'
     mini = re.search(r'<div class="mini">.*?</div>', body, re.S)

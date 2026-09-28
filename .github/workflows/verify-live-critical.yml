@@ -1,19 +1,26 @@
 name: Verify live critical portfolio features
 on:
-  push:
+  # The content build may commit generated files after the source push. Verify
+  # the revision Pages actually deployed, including github-actions[bot] commits.
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: live-critical-${{ github.ref }}
+  group: live-critical-main
   cancel-in-progress: true
 jobs:
   inspect:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -24,7 +31,8 @@ jobs:
       - name: Verify live content, dates, navigation, project parity and intake
         run: |
           mkdir -p live-critical
-          node scripts/verify_live_critical.mjs
+          git rev-parse HEAD > live-critical/revision.txt
+          GITHUB_SHA="$(git rev-parse HEAD)" node scripts/verify_live_critical.mjs
           npx agent-browser open https://adeebnoor.github.io/
           npx agent-browser snapshot -i > live-critical/home-snapshot.txt
           npx agent-browser close

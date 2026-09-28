@@ -13,7 +13,7 @@ const BASE_PAGES = [
   '/writing/', '/writing/same-scores-different-decisions.html', '/healthx/',
   '/demo/', '/ideas/', '/ideas/position.html', '/kinetic-hr/', '/ledd.html',
   '/ideas/capacity-is-a-policy-choice.html', '/ideas/define-the-position-before-filling-it.html',
-  '/ideas/readiness-needs-evidence.html', '/advisory.html', '/partnerships.html',
+  '/ideas/readiness-needs-evidence.html', '/advisory.html', '/partnerships.html', '/adeeb-intelligence.html',
 ];
 const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']);
 // Informational/error/redirect pages may be link destinations without collecting
@@ -30,6 +30,8 @@ const ANCHORS = new Set([
   'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
   'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones', 'latest-research',
+  'programs', 'research-record', 'inventions', 'participate', 'research-lineage', 'kamin',
+  'mission', 'thrusts', 'systems', 'join',
 ]);
 const DESTINATIONS = new Set([
   'https://github.com/adeebnoor',
@@ -40,16 +42,22 @@ const DESTINATIONS = new Set([
   'https://github.com/adeebnoor/CPIT',
   'https://adeebnoor.github.io/CPIT/',
   'https://adeebnoor.github.io/CPIT/iscarb.html',
+  'https://adeebnoor.github.io/CPIT/methodology.html',
+  'https://adeebnoor.github.io/CPIT/nelc-alignment.html',
   'https://adeebnoor.github.io/Miyar/',
   'https://adeebnoor.github.io/kinetic-hr/sample_position_snapshot_v05.csv',
   'https://adeebnoor.github.io/kinetic-hr/sample_hr_event_log_v05.csv',
   'https://sultan-strategy-beta.onrender.com/',
+  'https://kamin-12mf.onrender.com/',
+  'https://zenodo.org/records/22964248',
+  'https://doi.org/10.5281/zenodo.22964248',
   'https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor',
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
   'https://cemse.kaust.edu.sa/profiles/adeeb-noor',
   'https://cemse.kaust.edu.sa/topics/personalized-medicine',
   'https://academic.oup.com/jamia/article-abstract/24/3/556/2734457',
   'https://accp1.onlinelibrary.wiley.com/doi/abs/10.1002/jcph.70220',
+  'https://onlinelibrary.wiley.com/doi/10.1155/er/4759362',
   'https://home.cs.colorado.edu/~martin/_site/group/',
   'https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/cz30ps92j',
   'https://scholar.google.com/citations',

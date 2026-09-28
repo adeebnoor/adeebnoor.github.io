@@ -28,7 +28,12 @@ for lang in ('en','ar'):
     home=(ROOT/(prefix+'index.html')).read_text()
     assert home.count('id="work-and-ideas"')==1
     assert len(re.findall('data-project=',home))==len(PROJECTS)
-    assert 'data-project="imam"' in home and 'data-project="sultan"' in home
+    assert 'data-project="kamin"' in home and 'data-project="sultan"' in home
+    assert 'data-project="imam"' not in home, 'IMAM belongs within iSCARB, not a separate homepage project'
+    iscarb = next(item for item in PROJECTS if item['id'] == 'iscarb')
+    assert 'IMAM' in iscarb[lang]['description'], 'The iSCARB project must explain its IMAM contextualization layer'
+    teaching = (ROOT/(prefix+'teaching.html')).read_text()
+    assert 'id="iscarb"' in teaching and 'IMAM' in teaching, 'Teaching must retain the integrated iSCARB / IMAM context'
     for item in PROJECTS:
         if item.get('reviewUrl'): assert 'href="'+item['reviewUrl']+'"' in home
         if item.get('ideaUrl'): assert 'href="'+('/ar' if lang=='ar' else '')+item['ideaUrl']+'"' in home

@@ -71,9 +71,9 @@ def page_investors(lang):
     c = DATA['investors'][lang]
     ar = lang == 'ar'
     L = c['labels']
-    stage_classes = {'Live':'live','Public Beta':'beta','Prototype':'prototype','In Development':'development'}
+    stage_classes = {'Live':'live','Public Beta':'beta','Public Pilot':'beta','Prototype':'prototype','In Development':'development'}
     ventures = ''.join(
-        f'<article class="opp-card"><div class="opp-lifecycle"><span class="opp-tag {stage_classes.get(v["stage"], "")}"'+(' lang="en"' if ar else '')+f'>{e(v["stage"])}</span>'
+        f'<article class="opp-card"><div class="opp-lifecycle"><span class="opp-tag {stage_classes.get(v["stage"], "")}"'+f'>{e(({"Live":"متاح","Public Beta":"نسخة تجريبية عامة","Public Pilot":"تجربة أولية عامة","Prototype":"نموذج أولي","In Development":"قيد التطوير"}.get(v["stage"], v["stage"])) if ar else v["stage"])}</span>'
         f'<span class="opp-updated">{e(("محدّث " if ar else "Updated ") + v.get("updated", ""))}</span></div><h3>{e(v["name"])}</h3><p>{e(v["text"])}</p>'
         f'<dl class="opp-dl"><dt>{e(L["sector"])}</dt><dd>{e(v["sector"])}</dd><dt>{e(L["role"])}</dt><dd>{e(v["role"])}</dd>'
         f'<dt>{e(L["built"])}</dt><dd>{e(v["built"])}</dd><dt>{e(L["seeking"])}</dt><dd>{e(v["seeking"])}</dd></dl>'
