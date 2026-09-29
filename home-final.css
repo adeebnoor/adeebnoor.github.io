@@ -1,7 +1,7 @@
 :root{
   --navy:#07151b;--navy2:#0c222c;--paper:#fbfaf5;--cream:#f3f1e8;
   --ink:#17140f;--muted:#625c53;--line:#dfd9cd;--gold:#d9b96f;--gold2:#b58a38;
-  --max:1180px;--serif:Georgia,'Times New Roman',serif;--sans:Inter,Arial,Helvetica,sans-serif
+  --max:1180px;--serif:Georgia,'Times New Roman',serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.45}
 a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}

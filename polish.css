@@ -1,0 +1,151 @@
+/* Design polish layer — loaded last on every public page by scripts/polish_site.py.
+   Keeps content untouched; unifies type, spacing, interaction and the footer. */
+
+@font-face{font-family:Cairo;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/cairo-400.woff2) format("woff2")}
+@font-face{font-family:Cairo;font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/cairo-700.woff2) format("woff2")}
+
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+  --ink:#16222a;--muted:#5b5f63;--gold-deep:#8a6524;
+  --radius:10px;--shadow-sm:0 1px 2px rgba(10,21,26,.05);--shadow-md:0 10px 30px rgba(10,21,26,.08);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------- Global ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+::selection{background:#ecd9ae;color:#16222a}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #ac8131;outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* Arabic: one modern, legible typeface everywhere (the Latin monogram keeps its serif). */
+html[lang=ar] body,html[lang=ar] body :not(.site-brand):not(.site-brand *):not(.brand):not(svg):not(svg *):not(code):not(pre){font-family:Cairo,Tahoma,Arial,sans-serif!important;letter-spacing:0!important}
+
+/* ---------- Unified footer (three stacked strips read as one) ---------- */
+body:has(> .audit-footer){display:flex;flex-direction:column}
+body:has(> .audit-footer)>*{flex-shrink:0}
+body:has(> .audit-footer)>main{flex:1 0 auto}
+body:has(> .audit-footer)>.site-privacy{order:99}
+body:has(> .audit-footer)>script{order:100}
+.audit-footer{display:block;border-top:1px solid #ffffff14;padding-top:18px;padding-bottom:18px}
+.audit-footer nav{gap:4px 22px;font-size:14px}
+.audit-footer a{min-height:40px;color:#d9c08a}
+.site-privacy{background:#0a151a!important;color:#9aa3a6;border-top:1px solid #ffffff14;padding:14px 20px 22px!important;text-align:center;font:13px/1.5 var(--sans)}
+.site-privacy a{color:#b7bec1!important;text-decoration:underline;text-underline-offset:3px}
+.site-privacy a:hover{color:#fff!important}
+body>.footer{border-bottom:0}
+
+/* ---------- Buttons & cards: consistent, tactile ---------- */
+.button,.audit-button,.hero-actions a{border-radius:8px;transition:background-color .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+.button:hover,.audit-button:hover,.hero-actions a:hover{transform:translateY(-1px)}
+.button.primary{box-shadow:0 6px 18px rgba(223,193,132,.25)}
+
+/* ================= Homepage ================= */
+body:has(> main > .hero) {font-family:var(--sans);color:var(--ink)}
+body:has(> main > .hero) :is(h1,h2,h3,.brand,blockquote){font-family:var(--serif)}
+html[lang=ar] body:has(> main > .hero) :is(h1,h2,h3){line-height:1.45}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 85% 20%,#12303a 0%,rgba(10,21,26,0) 60%),var(--navy)}
+.hero .eyebrow{font-family:var(--sans);font-weight:600;letter-spacing:.22em}
+.hero .role{font-family:var(--serif);color:#f3efe6}
+.hero .hero-thesis{font-family:var(--sans);font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:#f0d9a6;max-width:560px;font-weight:600}
+.hero .intro{font-family:var(--sans);font-size:15px;line-height:1.7;color:#c9d1d4;max-width:560px}
+.hero .location{font-size:14px;color:#9fb0b6}
+.hero .actions .button{padding:13px 20px;font-weight:600}
+.hero-cv-links,.hero-trust-links{font-size:14px}
+.hero-cv-links a,.hero-trust-links a{color:#e6e0d2;text-decoration-color:rgba(223,193,132,.55);text-underline-offset:4px}
+.hero-cv-links a:hover,.hero-trust-links a:hover{color:var(--gold)}
+.portrait .art{border-radius:14px 14px 0 0;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.portrait blockquote{border-radius:0 0 12px 12px;background:#0e1f26}
+
+/* Proof bar */
+.stats{background:#fff;border-bottom:1px solid var(--line)}
+.stat b{font-family:var(--serif);font-size:clamp(24px,2.3vw,30px);font-weight:400;color:var(--ink);letter-spacing:-.01em}
+.stat p{color:var(--muted)}
+.stat a{color:var(--gold-deep)!important;font-size:13px!important}
+
+/* Recognition */
+.opp-recog-item{border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.opp-recog-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+/* Capabilities: the hero already shows the portrait */
+.expertise-photo{display:none!important}
+.expertise-profile{grid-template-columns:minmax(0,1fr)!important}
+.expertise-grid article{border-radius:0 0 var(--radius) var(--radius);transition:transform .2s var(--ease),box-shadow .2s var(--ease);background:#f8f5ee}
+.expertise-grid article:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+/* Services come right after capabilities (moved by polish_site.py) */
+#content>.wrap:has(>#engagement-options){padding-block:8px 40px}
+#engagement-options{border-radius:16px;box-shadow:var(--shadow-sm)}
+#engagement-options article,#engagement-options .audit-card{border-radius:var(--radius);transition:border-color .2s var(--ease),box-shadow .2s var(--ease),transform .2s var(--ease)}
+#engagement-options article:hover,#engagement-options .audit-card:hover{border-color:#c9a35a;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+
+/* Projects */
+#projects .card{border-radius:14px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+#projects .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(10,21,26,.1)}
+#projects .card .button{border-radius:8px;font-weight:600}
+#projects .project-image{transition:transform .5s var(--ease)}
+#projects .card:hover .project-image{transform:scale(1.02)}
+
+/* Audiences: 3-up grid avoids a half-empty second row */
+#collaboration .partners{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px}
+.partner{border-radius:var(--radius);transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+.partner:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.quick a{border-radius:var(--radius);background:#fff;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.quick a:hover{box-shadow:var(--shadow-sm)}
+
+/* Closing call to action */
+.polish-cta{background:linear-gradient(135deg,#0a151a 0%,#12303a 100%);color:#fff;padding:64px 0}
+.polish-cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.polish-cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin:0 0 10px;color:#fff}
+.polish-cta p{margin:0;color:#c9d1d4;font-size:17px;line-height:1.6;max-width:620px}
+.polish-cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.polish-cta-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1.5px solid #d4bd86;color:#f6f2e9;transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.polish-cta-actions a.primary{background:linear-gradient(120deg,#ddbd80,#efdab0);color:#211b0f;border-color:transparent}
+.polish-cta-actions a:hover{transform:translateY(-1px);background:#f3ddb0;color:#211b0f}
+html[lang=ar] .polish-cta h2{line-height:1.5}
+
+/* ---------- Tablet ---------- */
+@media (max-width:1000px){
+  #collaboration .partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* ---------- Phone: shorter, scannable homepage ---------- */
+@media (max-width:640px){
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0;padding:8px 0!important}
+  .stat,[dir=rtl] .stat{padding:14px 10px!important;border:0!important;border-bottom:1px solid var(--line)!important}
+  .stat:nth-child(odd){border-inline-end:1px solid var(--line)!important}
+  .stat:nth-last-child(-n+2){border-bottom:0!important}
+  .stat b{font-size:22px}
+  .stat p{font-size:13px!important}
+  .opp-recog-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:6px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+  .opp-recog-grid::-webkit-scrollbar{display:none}
+  .opp-recog-item{flex:0 0 72%;scroll-snap-align:start}
+  .expertise-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .expertise-grid article{min-height:0!important;padding:14px 12px!important}
+  .expertise-grid h3{font-size:17px!important}
+  .expertise-grid p{display:none}
+  #collaboration .partners{grid-template-columns:1fr!important}
+  .partner p{display:none}
+  .polish-cta{padding:44px 0}
+  .polish-cta-actions,.polish-cta-actions a{width:100%}
+}
+
+@media print{.polish-cta,.site-privacy,.audit-footer{display:none!important}}
+.audit-footer{padding-inline:max(40px,calc((100% - 1220px)/2))!important}
+@media (max-width:640px){.audit-footer{padding-inline:20px!important}}
+@media (max-width:640px){
+  #engagement-options{padding:20px 16px!important}
+  #engagement-options article,#engagement-options .audit-card{padding:16px!important}
+  #engagement-options article p,#engagement-options .audit-card p{margin:6px 0 10px!important;font-size:15px}
+  .hero .portrait{max-width:300px}
+}
+/* Five services: 3 + 2 layout instead of an orphaned card */
+@media (min-width:900px){
+  #engagement-options .audit-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:14px}
+  #engagement-options .audit-card{grid-column:span 2;display:flex;flex-direction:column}
+  #engagement-options .audit-card:nth-child(n+4){grid-column:span 3}
+  #engagement-options .audit-card a{margin-top:auto}
+}

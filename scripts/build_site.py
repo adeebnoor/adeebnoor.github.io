@@ -16,5 +16,5 @@ subprocess.run([sys.executable, str(ROOT/'scripts'/'build_opportunities.py'), '-
 # thought-leadership, audience and language guards last: all generated EN/AR
 # pages are verified from this final state.
 for script in ('build_raster_assets.py', 'localize_site.py', 'build_featured_projects.py',
-               'build_homepage_positioning.py', 'build_ideas.py', 'build_analytics.py', 'sync_identity.py', 'build_social_cards.py', 'build_audit.py', 'build_thought_leadership.py', 'build_research_updates.py', 'build_audience_pages.py', 'enable_audience_analytics.py', 'build_current_work.py', 'finalize_public_identity.py', 'finalize_portfolio_ux.py', 'build_opportunities.py'):
+               'build_homepage_positioning.py', 'build_ideas.py', 'build_analytics.py', 'sync_identity.py', 'build_social_cards.py', 'build_audit.py', 'build_thought_leadership.py', 'build_research_updates.py', 'build_audience_pages.py', 'enable_audience_analytics.py', 'build_current_work.py', 'finalize_public_identity.py', 'finalize_portfolio_ux.py', 'build_opportunities.py', 'polish_site.py'):
     subprocess.run([sys.executable, str(ROOT/'scripts'/script)], cwd=ROOT, check=True)
