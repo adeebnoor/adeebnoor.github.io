@@ -4,9 +4,9 @@
 .top .brand{font:700 25px Georgia,serif;letter-spacing:.12em;white-space:nowrap;color:#dfc184}
 .top .menu{display:flex;align-items:center;gap:18px;overflow:visible;padding:0;margin:0;width:auto}
 .top .navitem{display:block}
-.top .navitem>a{display:block;padding:24px 0;color:#fff;font:14px/1.4 Arial,sans-serif}
+.top .navitem>a{display:block;padding:24px 0;color:#fff;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 .top .navitem>a:hover,.top .navitem>a[aria-current=page]{color:#dfc184;text-decoration:underline;text-underline-offset:6px}
-.menu-toggle{display:none;min-height:44px;padding:10px 12px;background:transparent;border:1px solid #c9aa6e;color:#dfc184;font:600 14px/1.4 Arial,sans-serif;cursor:pointer;border-radius:3px}
+.menu-toggle{display:none;min-height:44px;padding:10px 12px;background:transparent;border:1px solid #c9aa6e;color:#dfc184;font:600 14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;cursor:pointer;border-radius:3px}
 .top a:focus-visible,.menu-toggle:focus-visible{outline:3px solid #dfc184;outline-offset:4px}
 html{scroll-padding-top:90px}
 @media(max-width:1000px){
