@@ -216,7 +216,7 @@
   {
     "id": "shifaa",
     "name": "SHIFAA",
-    "image": "https://shifaa.kau.edu.sa/assets/images/shifaaServices.png",
+    "image": "/assets/shifaa-actual.webp",
     "url": "/ventures.html#shifaa",
     "en": {
       "name": "SHIFAA",
@@ -224,7 +224,7 @@
       "domain": "Patient digital services",
       "description": "Founding the KAU Hospital patient portal as part of hospital digital modernization and better access to services.",
       "cta": "Explore SHIFAA",
-      "alt": "SHIFAA patient services graphic from King Abdulaziz University Hospital",
+      "alt": "SHIFAA patient portal at King Abdulaziz University Hospital: login, new user, open file and appointment services",
       "liveCta": "Visit SHIFAA",
       "fallbackAlt": "Concept illustration of patient access to digital hospital services"
     },
@@ -234,11 +234,10 @@
       "domain": "الخدمات الرقمية للمرضى",
       "description": "تأسيس بوابة المرضى في مستشفى جامعة الملك عبدالعزيز ضمن التحديث الرقمي وتيسير الوصول إلى الخدمات.",
       "cta": "استكشف شفاء",
-      "alt": "صورة خدمات شفاء من بوابة مستشفى جامعة الملك عبدالعزيز",
+      "alt": "بوابة شفاء للمرضى في مستشفى جامعة الملك عبدالعزيز: تسجيل الدخول والمستخدم الجديد وفتح الملف وخدمات المواعيد",
       "liveCta": "زيارة شفاء",
       "fallbackAlt": "تصور فني لوصول المرضى إلى خدمات المستشفى الرقمية"
     },
-    "fallbackImage": "/assets/project-shifaa.webp",
     "actualImage": true,
     "liveUrl": {
       "en": "https://shifaa.kau.edu.sa/default-en.aspx",
@@ -255,7 +254,9 @@
     "role": {
       "en": "My contribution: founder and technology leadership during hospital digital modernization.",
       "ar": "إسهامي: التأسيس والقيادة التقنية خلال التحديث الرقمي للمستشفى."
-    }
+    },
+    "imageWidth": 1200,
+    "imageHeight": 800
   },
   {
     "id": "iscarb",

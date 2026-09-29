@@ -9,9 +9,10 @@ Goal: make the homepage work as a business front door while keeping every existi
 - **Removed visual duplication:** the second small portrait in "Executive focus" is hidden (the hero already shows it).
 - **Layout fixes:** services show 3 + 2 instead of an orphan card; audience cards use 3 columns instead of 4 + 2; the three stacked footer strips read as one footer with privacy last.
 - **Mobile:** 2×2 proof numbers, swipeable recognition row, compact capability tiles and audience cards (~1,400 px shorter page).
+- **SHIFAA image:** now a locally hosted screenshot of the live patient portal (`assets/shifaa-actual.webp`, supplied by the owner) instead of a hot-linked image from shifaa.kau.edu.sa that could fail or leak visitor requests.
+- **Proof bar:** "49 districts" restated the 540,000-educator programme; it is replaced on the homepage by the reported ~SAR 11.3M year-one savings, linked to its case and caveats.
 - **Interaction:** consistent 8–14 px radii, hover lift on cards, visible focus rings, reduced-motion aware smooth scrolling.
 
 ## Not changed (owner decisions)
 - Content, numbers and claims are unchanged. No testimonials or client logos were invented.
-- SHIFAA's card still hot-links an image from shifaa.kau.edu.sa (with a local fallback); host a copy locally if permission allows.
-- Consider adding the advisory page's delivery figures (programme portfolios, reported savings) to the homepage proof bar once you confirm they are fit for the front page.
+- Testimonials still require genuine, approved quotations.

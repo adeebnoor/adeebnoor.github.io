@@ -32,8 +32,16 @@ def cta(lang):
             '</div></div></section><!-- polish:cta:end -->')
 
 
+SAVINGS = {
+    'en': '<div class="stat"><b>~SAR 11.3M</b><p>Reported year-one savings from ML-supported workforce analysis</p><a href="/engagements.html#national-workforce">Case &amp; caveats →</a></div>',
+    'ar': '<div class="stat"><b>~11.3 مليون ريال</b><p>وفورات مُعلنة في السنة الأولى من تحليل القوى العاملة المدعوم بالتعلّم الآلي</p><a href="/ar/engagements.html#national-workforce">الحالة والتحفظات ←</a></div>',
+}
+
+
 def polish_home(source, lang):
     source = CTA_BLOCK.sub('', source)
+    # "49 districts" restates the 540,000-educator programme; show its reported outcome instead.
+    source = re.sub(r'<div class="stat"><b>49</b>.*?</div>', lambda m: SAVINGS[lang], source, count=1, flags=re.S)
     services = SERVICES.search(source)
     anchor = '<!-- expertise-map:end -->'
     if services and anchor in source:
