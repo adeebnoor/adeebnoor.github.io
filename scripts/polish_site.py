@@ -32,23 +32,18 @@ def cta(lang):
             '</div></div></section><!-- polish:cta:end -->')
 
 
-SAVINGS = {
-    'en': '<div class="stat"><b>~SAR 11.3M</b><p>Reported year-one savings from ML-supported workforce analysis</p><a href="/engagements.html#national-workforce">Case &amp; caveats →</a></div>',
-    'ar': '<div class="stat"><b>~11.3 مليون ريال</b><p>وفورات مُعلنة في السنة الأولى من تحليل القوى العاملة المدعوم بالتعلّم الآلي</p><a href="/ar/engagements.html#national-workforce">الحالة والتحفظات ←</a></div>',
-}
-
-
 def polish_home(source, lang):
     source = CTA_BLOCK.sub('', source)
-    # "49 districts" restates the 540,000-educator programme; show its reported outcome instead.
-    source = re.sub(r'<div class="stat"><b>49</b>.*?</div>', lambda m: SAVINGS[lang], source, count=1, flags=re.S)
     services = SERVICES.search(source)
     anchor = '<!-- expertise-map:end -->'
     if services and anchor in source:
         # Lead with how to engage, right after the four capabilities.
         source = source[:services.start()] + source[services.end():]
         source = source.replace(anchor, anchor + services[0], 1)
-    return source.replace('</main>', cta(lang) + '</main>', 1)
+    source = source.replace('</main>', cta(lang) + '</main>', 1)
+    # The hero portrait is the largest above-the-fold image: fetch it first.
+    source = re.sub(r'<link rel="preload" as="image" href="/assets/portfolio-art.webp"[^>]*>', '', source)
+    return source.replace('</head>', '<link rel="preload" as="image" href="/assets/portfolio-art.webp" fetchpriority="high"></head>', 1)
 
 
 changed = 0
