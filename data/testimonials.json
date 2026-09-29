@@ -1,0 +1,46 @@
+{
+  "_note": "Public LinkedIn recommendations received by Adeeb Noor (visible to all LinkedIn members). Excerpts are verbatim; omissions are marked with an ellipsis. Arabic text is a translation. Rendered on the homepage by scripts/polish_site.py.",
+  "source": "https://www.linkedin.com/in/adeeb-noor",
+  "items": [
+    {
+      "name": "Prof. Amin Noaman",
+      "initials": "AN",
+      "title": {"en": "Vice President for Scientific Research and Innovation, King Abdulaziz University", "ar": "نائب الرئيس للبحث العلمي والابتكار، جامعة الملك عبدالعزيز"},
+      "relation": {"en": "Managed Adeeb directly · October 2024", "ar": "كان مديره المباشر · أكتوبر 2024"},
+      "quote": {
+        "en": "I wholeheartedly endorse Adeeb for any leadership role that demands a profound understanding of digital transformation and AI-driven innovation. As a visionary leader, he has consistently demonstrated the ability to craft and execute organizational strategies that harness technology to drive business success.",
+        "ar": "أؤيد أديب بكل ثقة لأي دور قيادي يتطلب فهمًا عميقًا للتحول الرقمي والابتكار القائم على الذكاء الاصطناعي. بوصفه قائدًا صاحب رؤية، أثبت باستمرار قدرته على صياغة استراتيجيات مؤسسية وتنفيذها بتوظيف التقنية لتحقيق النجاح."
+      }
+    },
+    {
+      "name": "Samera Albasri",
+      "initials": "SA",
+      "title": {"en": "CEO, King Abdulaziz University Hospital", "ar": "الرئيسة التنفيذية، مستشفى جامعة الملك عبدالعزيز"},
+      "relation": {"en": "Worked on the same team · November 2024", "ar": "عملت معه في الفريق نفسه · نوفمبر 2024"},
+      "quote": {
+        "en": "It was a great pleasure and a memorable experience working with Prof. Adeeb when he was the IT director at King Abdulaziz University Hospital. The development of the Shifaa patient portal was one of many successful projects he led. Prof. Adeeb would be a great asset to any institution he joins and an excellent team leader.",
+        "ar": "كان العمل مع البروفيسور أديب حين كان مديرًا لتقنية المعلومات في مستشفى جامعة الملك عبدالعزيز تجربة ممتعة لا تُنسى. كان تطوير بوابة شفاء للمرضى واحدًا من مشاريع ناجحة كثيرة قادها. سيكون إضافة كبيرة لأي مؤسسة ينضم إليها، وقائد فريق متميزًا."
+      }
+    },
+    {
+      "name": "Hussam Al-Baz",
+      "initials": "HB",
+      "title": {"en": "Director of Quality Management, King Abdulaziz University Hospital", "ar": "مدير إدارة الجودة، مستشفى جامعة الملك عبدالعزيز"},
+      "relation": {"en": "Worked on the same team · February 2024", "ar": "عمل معه في الفريق نفسه · فبراير 2024"},
+      "quote": {
+        "en": "Dr. Adeeb has excelled in this role, teamwork and exhibited one of the highest levels of leadership and productivity I have seen in my 17 years in the hospital’s leadership. … These efforts resulted in getting the ISO certification for his department for the first time in the University Hospital.",
+        "ar": "تميّز د. أديب في هذا الدور وفي العمل الجماعي، وأظهر واحدًا من أعلى مستويات القيادة والإنتاجية التي رأيتها خلال 17 عامًا في قيادة المستشفى. … وأسفرت هذه الجهود عن حصول إدارته على شهادة ISO لأول مرة في المستشفى الجامعي."
+      }
+    },
+    {
+      "name": "Stela Lupushor",
+      "initials": "SL",
+      "title": {"en": "Chief-Reframer, Reframe.Work Inc.; co-author of Humans at Work and Humanizing Human Capital", "ar": "Chief-Reframer في Reframe.Work Inc.، ومؤلفة مشاركة لكتابَي Humans at Work وHumanizing Human Capital"},
+      "relation": {"en": "Mentor · January 2024", "ar": "مرشدته · يناير 2024"},
+      "quote": {
+        "en": "I had the pleasure of collaborating with Adeeb and am impressed by his deep passion for the impact of AI on organizations and businesses. … His ability to analyze AI’s influence and translate it into actionable business insights is remarkable.",
+        "ar": "سعدتُ بالتعاون مع أديب، وأُعجبت بشغفه العميق بأثر الذكاء الاصطناعي في المؤسسات والأعمال. … وقدرته على تحليل أثر الذكاء الاصطناعي وتحويله إلى رؤى عملية قابلة للتنفيذ لافتة حقًا."
+      }
+    }
+  ]
+}

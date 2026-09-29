@@ -89,8 +89,35 @@ html[lang=ar] body:has(> main > .hero) :is(h1,h2,h3){line-height:1.45}
 #projects .project-image{transition:transform .5s var(--ease)}
 #projects .card:hover .project-image{transform:scale(1.02)}
 
-/* Audiences: 3-up grid avoids a half-empty second row */
-#collaboration .partners{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px}
+/* "Start here": two paths, audience shortcuts and resources in one section */
+#work-and-ideas .polish-sub{font:600 13px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#776039;margin:34px 0 12px}
+html[lang=ar] #work-and-ideas .polish-sub{letter-spacing:0;font-size:15px}
+.polish-aud-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px}
+.polish-aud{padding:18px 18px 16px!important;display:flex;flex-direction:column;gap:6px}
+.polish-aud h3{font-size:19px!important;margin:0!important}
+.polish-aud h3 a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s var(--ease)}
+.polish-aud h3 a:hover{background-size:100% 1px}
+.polish-aud .partner-promise{flex:1;color:var(--muted);font-size:15px;line-height:1.5}
+.polish-aud .partner-cta{font:600 14px/1.4 var(--sans);color:var(--gold-deep);margin-top:6px}
+.polish-resources{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.polish-resources a{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font:14px/1.2 var(--sans);color:var(--ink);transition:border-color .2s var(--ease),background-color .2s var(--ease)}
+.polish-resources a:hover{border-color:#c9a35a;background:#fbf6ea}
+
+/* Recommendations */
+.polish-quotes{background:#f4f2ea;border-block:1px solid var(--line);padding:56px 0!important}
+.polish-quotes .section-heading>a{color:var(--gold-deep)}
+.polish-quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:8px}
+.polish-quote{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;box-shadow:var(--shadow-sm)}
+.polish-quote blockquote{margin:0;position:relative;padding-top:26px}
+.polish-quote blockquote:before{content:"\201C";position:absolute;top:-14px;inset-inline-start:-4px;font:64px/1 var(--serif);color:#d9bf85}
+html[lang=ar] .polish-quote blockquote:before{content:"\201D"}
+.polish-quote blockquote p{margin:0;font:17px/1.65 var(--serif)!important;color:var(--ink)}
+html[lang=ar] .polish-quote blockquote p{font-size:16px!important;line-height:1.9!important}
+.polish-quote figcaption{display:flex;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:16px}
+.polish-avatar{flex:0 0 44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#0a151a;color:var(--gold);font:600 14px/1 var(--sans);letter-spacing:.04em}
+.polish-quote figcaption b{display:block;font:600 15px/1.35 var(--sans);color:var(--ink)}
+.polish-quote figcaption small{display:block;font:13px/1.45 var(--sans);color:var(--muted)}
+.polish-quote-note{margin:16px 0 0;font:13px/1.5 var(--sans);color:var(--muted)}
 .partner{border-radius:var(--radius);transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
 .partner:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .quick a{border-radius:var(--radius);background:#fff;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
@@ -109,7 +136,8 @@ html[lang=ar] .polish-cta h2{line-height:1.5}
 
 /* ---------- Tablet ---------- */
 @media (max-width:1000px){
-  #collaboration .partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .polish-aud-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .polish-quote-grid{grid-template-columns:1fr}
 }
 
 /* ---------- Phone: shorter, scannable homepage ---------- */
@@ -127,8 +155,9 @@ html[lang=ar] .polish-cta h2{line-height:1.5}
   .expertise-grid article{min-height:0!important;padding:14px 12px!important}
   .expertise-grid h3{font-size:17px!important}
   .expertise-grid p{display:none}
-  #collaboration .partners{grid-template-columns:1fr!important}
-  .partner p{display:none}
+  .polish-aud-grid{grid-template-columns:1fr!important}
+  .polish-quote{padding:22px 18px 18px}
+  .polish-quotes{padding:40px 0!important}
   .polish-cta{padding:44px 0}
   .polish-cta-actions,.polish-cta-actions a{width:100%}
 }
@@ -148,4 +177,10 @@ html[lang=ar] .polish-cta h2{line-height:1.5}
   #engagement-options .audit-card{grid-column:span 2;display:flex;flex-direction:column}
   #engagement-options .audit-card:nth-child(n+4){grid-column:span 3}
   #engagement-options .audit-card a{margin-top:auto}
+}
+@media (max-width:640px){
+  .polish-quote-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:4px 20px 10px;scrollbar-width:none}
+  .polish-quote-grid::-webkit-scrollbar{display:none}
+  .polish-quote{flex:0 0 86%;scroll-snap-align:start}
+  .polish-aud .partner-promise{font-size:14px}
 }
