@@ -20,7 +20,8 @@ for lang, filename in [('en','index.html'),('ar','ar/index.html')]:
     path = ROOT/filename
     source = path.read_text()
     source,count = re.subn(r'<section class="section"(?: id="collaboration")?><div class="wrap"><div class="label">'+label+r'</div>.*?</section>',section,source,flags=re.S)
-    if count != 1:
+    # scripts/polish_site.py folds these cards into the "start here" section.
+    if count != 1 and '<!-- polish:audiences-merged -->' not in source:
         raise ValueError(f'Missing audience section in {filename}')
     intro = 'أحوّل الأسئلة البحثية والتحديات المؤسسية إلى أدوات لدعم القرار وأنظمة قابلة للتطبيق، بخبرة في الذكاء الاصطناعي والحكومة والصحة الرقمية والتعليم.' if arabic else 'I turn research questions and institutional challenges into decision tools and practical systems, drawing on experience in AI, government, healthcare and education.'
     source = re.sub(r'<p class="intro">.*?</p>',f'<p class="intro">{intro}</p>',source,count=1,flags=re.S)
