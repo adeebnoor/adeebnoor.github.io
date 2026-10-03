@@ -10,7 +10,8 @@ import re
 from html import escape
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = ('kinetic-hr/', 'SulTaN/', 'healthx/', 'ar/healthx/')
+SKIP = ('kinetic-hr/', 'SulTaN/')
+DESIGN_SKIP = ('healthx/', 'ar/healthx/')
 CSS_VERSION = hashlib.sha256((ROOT/'polish.css').read_bytes()).hexdigest()[:10]
 CSS_BLOCK = re.compile(r'<!-- polish:css:start -->.*?<!-- polish:css:end -->', re.S)
 CTA_BLOCK = re.compile(r'<!-- polish:cta:start -->.*?<!-- polish:cta:end -->', re.S)
@@ -20,6 +21,11 @@ GATEWAY = re.compile(r'(<!-- ideas-gateway:start -->)(.*?)(<!-- ideas-gateway:en
 AUDIENCES = re.compile(r'<section class="section" id="collaboration">.*?</section>', re.S)
 RESOURCES = re.compile(r'<section class="section partners-section"><div class="wrap">(?:(?!</section>).)*?<nav class="quick".*?</section>', re.S)
 VISITORS_BLOCK = re.compile(r'<!-- polish:visitors:start -->.*?<!-- polish:visitors:end -->', re.S)
+VISITORS_STYLE_BLOCK = re.compile(r'<!-- polish:visitors-style:start -->.*?<!-- polish:visitors-style:end -->', re.S)
+VISITORS_STYLE = ('<!-- polish:visitors-style:start --><style>'
+                  '.site-privacy .visitor-count:not([hidden]){display:inline-block;margin-inline:9px;font:inherit;color:inherit}'
+                  '.site-privacy .visitor-count:not([hidden])::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#5fbf8a;margin-inline-end:8px;vertical-align:middle}'
+                  '</style><!-- polish:visitors-style:end -->')
 PRIVACY_END = re.compile(r'</div>(<!-- site-privacy:end -->)')
 COUNT_ENDPOINT = 'https://xcirpzxpcpbxpowjbpiq.supabase.co/functions/v1/portfolio-public-count'
 JS_VERSION = hashlib.sha256((ROOT/'visitor-count.js').read_bytes()).hexdigest()[:10]
@@ -129,8 +135,13 @@ for path in sorted(ROOT.rglob('*.html')):
     original = path.read_text(encoding='utf-8')
     if 'site-nav.css' not in original or '</head>' not in original:
         continue
-    source = CSS_BLOCK.sub('', original)
-    source = source.replace('</head>', f'<!-- polish:css:start --><link rel="stylesheet" href="/polish.css?v={CSS_VERSION}"><!-- polish:css:end --></head>', 1)
+    source = VISITORS_STYLE_BLOCK.sub('', original)
+    if rel.startswith(DESIGN_SKIP):
+        # HEALTHx retains its own design; only the new footer count is styled.
+        source = source.replace('</head>', VISITORS_STYLE + '</head>', 1)
+    else:
+        source = CSS_BLOCK.sub('', source)
+        source = source.replace('</head>', f'<!-- polish:css:start --><link rel="stylesheet" href="/polish.css?v={CSS_VERSION}"><!-- polish:css:end --></head>', 1)
     # Aggregate visitor count beside the privacy link (hidden until the public endpoint answers).
     source = VISITORS_BLOCK.sub('', source)
     source = PRIVACY_END.sub(lambda m: '<!-- polish:visitors:start --><span class="visitor-count" data-visitor-count data-endpoint="' + COUNT_ENDPOINT

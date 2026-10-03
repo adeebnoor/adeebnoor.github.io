@@ -34,6 +34,8 @@ For key rotation, generate a new 32-byte random token, replace `admin_key_hash` 
 
 ## Public visitor count
 
-- `supabase/functions/portfolio-public-count/index.ts`: deploy as `portfolio-public-count` with gateway JWT verification disabled. It calls `portfolio_analytics_stats(90)` with the service role and returns only `{"visitors_90d": N}`, cached for 15 minutes, to the site origin.
-- `visitor-count.js` shows that number beside the footer privacy link on every page. It sends no identifiers, omits credentials and referrer, and stays hidden until the function is deployed or if it fails.
+- Apply `supabase/schema/portfolio-public-count.sql` before deployment. Its service-role-only, read-only RPC counts anonymous browser IDs for the same 90-day Riyadh calendar window, without running cleanup or the private reporting query.
+- `supabase/functions/portfolio-public-count/index.ts`: deploy as `portfolio-public-count` with gateway JWT verification disabled. It returns only `{"visitors_90d": N}`. Each Edge isolate caches successful counts for up to 15 minutes and coalesces concurrent requests; this is not a global rate limiter. Browser cache lifetime respects remaining freshness, and errors use `no-store`.
+- `visitor-count.js` shows that number beside the footer privacy link on portfolio pages, including both HEALTHx pages. It sends no identifiers, omits credentials and referrer, and stays hidden until the function is deployed or if it fails.
 - Deploy: `supabase functions deploy portfolio-public-count --no-verify-jwt`.
+- Verify the public response, cache behavior and SQL permissions with `node --test scripts/test_public_count.mjs`.
