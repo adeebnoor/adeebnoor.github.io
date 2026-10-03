@@ -18,3 +18,9 @@ Goal: make the homepage work as a business front door while keeping every existi
 ## Not changed (owner decisions)
 - Content, numbers and claims are unchanged; financial figures stay off the homepage by owner decision. No testimonials or client logos were invented.
 - To change or add a recommendation, edit `data/testimonials.json` and run `python scripts/build_site.py`.
+
+## Update — 3 October 2026 (RIDI and iSCARB)
+- **RIDI:** current manuscript title *Equal evaluation scores do not certify equivalent AI behaviour* (submission-ready, not peer reviewed); new open dataset on Zenodo (record 22974727, CC BY 4.0) added to latest research, research page, ventures and CV blocks; project card links to the RIDI project page with a real screenshot (`assets/ridi-actual.webp`).
+- **iSCARB:** story-led lectures (Chapters 12–20), executable labs, two-minute ownership check and AI study coach reflected on the project card, teaching, ventures and CV blocks; card image is a real Chapter 12 lecture slide (`assets/iscarb-lecture.webp`).
+- Homepage "New questions. Published work." now shows four featured records.
+- `supabase/functions/portfolio-collect/index.ts` allows the new Zenodo link. Redeploy `portfolio-collect` so clicks on it are counted; the site works without the redeploy.

@@ -134,40 +134,49 @@
   {
     "id": "ridi",
     "name": "RIDI",
-    "viewBox": "50 623 247 146",
     "url": "/demo/",
     "en": {
       "name": "RIDI",
-      "stage": "Research & open-source audit toolkit",
-      "domain": "Ranking update governance",
-      "description": "Measure how much a ranking update changes the selected items, then compute the exact minimum turnover compatible with a declared utility budget.",
+      "stage": "Research project · open toolkit · open data",
+      "domain": "AI evaluation & decision identity",
+      "description": "Equal evaluation scores do not certify equivalent AI behaviour. RIDI measures what an AI system actually selects and computes the minimum change an update requires. Submission-ready manuscript, ridi-audit on PyPI and an open reproducibility package.",
       "cta": "Explore RIDI",
-      "alt": "RIDI: measuring selection change and the identity–utility frontier",
-      "ideaCta": "Why selection change needs a budget"
+      "alt": "RIDI project page: Equal evaluation scores do not certify equivalent AI behaviour",
+      "ideaCta": "Why selection change needs a budget",
+      "liveCta": "Open RIDI"
     },
     "ar": {
       "name": "RIDI",
-      "stage": "بحث وأداة تدقيق مفتوحة المصدر",
-      "domain": "حوكمة تحديث أنظمة الترتيب",
-      "description": "قياس مقدار تغيّر العناصر المختارة بعد تحديث نظام الترتيب، ثم حساب الحد الأدنى الدقيق للتغيّر المتوافق مع ميزانية منفعة معلنة.",
+      "stage": "مشروع بحثي · أداة مفتوحة · بيانات مفتوحة",
+      "domain": "تقييم الذكاء الاصطناعي وهوية القرار",
+      "description": "تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي. يقيس RIDI ما يختاره النظام فعلًا، ويحسب الحد الأدنى من التغيير الذي يتطلبه التحديث. مخطوطة جاهزة للتقديم، وحزمة ridi-audit على PyPI، وحزمة بيانات مفتوحة لإعادة الإنتاج.",
       "cta": "استكشف RIDI",
-      "alt": "RIDI: قياس تغيّر الاختيار وجبهة الهوية–المنفعة",
-      "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية"
+      "alt": "صفحة مشروع RIDI: تساوي درجات التقييم لا يضمن تكافؤ سلوك الذكاء الاصطناعي",
+      "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية",
+      "liveCta": "افتح RIDI"
     },
     "ideaUrl": "/ideas/position.html#beyond-the-average",
     "repoUrl": "https://github.com/adeebnoor/ridi",
     "osfUrl": "https://osf.io/txwdv/",
     "state": {
-      "en": "Prototype",
-      "ar": "Prototype"
+      "en": "Open toolkit",
+      "ar": "Open toolkit"
     },
     "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
+      "en": "Updated Sep 2026",
+      "ar": "محدّث سبتمبر 2026"
     },
     "role": {
       "en": "My contribution: research lead and audit-toolkit architecture.",
       "ar": "إسهامي: قيادة البحث وهندسة أداة التدقيق."
+    },
+    "image": "/assets/ridi-actual.webp",
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "actualImage": true,
+    "liveUrl": {
+      "en": "https://adeebnoor.github.io/ridi/",
+      "ar": "https://adeebnoor.github.io/ridi/"
     }
   },
   {
@@ -261,24 +270,24 @@
   {
     "id": "iscarb",
     "name": "iSCARB",
-    "image": "/assets/iscarb-actual.webp",
+    "image": "/assets/iscarb-lecture.webp",
     "url": "/teaching.html#iscarb",
     "en": {
       "name": "iSCARB",
       "stage": "Live course · Open preprint",
       "domain": "Defensible engineering judgment",
-      "description": "Nine software-engineering chapters train learners to justify a choice, state its limits, inspect evidence and revise after a changed condition. IMAM provides an optional contextualization layer.",
+      "description": "Story-led lectures for Chapters 12–20 make each chapter a decision case, with executable labs, a two-minute ownership check and an AI study coach: AI is the practice layer, judgment is what is assessed. IMAM provides an optional contextualization layer.",
       "cta": "Explore iSCARB",
-      "alt": "Actual iSCARB interface for interactive software engineering lectures",
+      "alt": "iSCARB story-led lecture, Chapter 12 Safety Engineering: Episode 1, Every command within limits",
       "liveCta": "Open iSCARB"
     },
     "ar": {
       "name": "iSCARB",
       "stage": "مقرر متاح · ورقة أولية منشورة",
       "domain": "الحكم الهندسي القابل للدفاع",
-      "description": "تسعة فصول في هندسة البرمجيات يتدرّب فيها الطالب على تبرير الاختيار وتحديد حدوده وفحص الأدلة ومراجعة القرار عند تغيّر الظروف. ويتيح IMAM طبقة اختيارية لتكييف السياق.",
+      "description": "محاضرات قصصية للفصول 12–20 تجعل كل فصل حالة قرار، مع معامل تطبيقية وتحقق ملكية في دقيقتين ومدرّب دراسة بالذكاء الاصطناعي: الذكاء الاصطناعي للتدريب، والحكم الهندسي هو ما يُقيَّم. ويتيح IMAM طبقة اختيارية لتكييف السياق.",
       "cta": "استكشف iSCARB",
-      "alt": "واجهة iSCARB الفعلية للمحاضرات التفاعلية في هندسة البرمجيات",
+      "alt": "محاضرة iSCARB القصصية، الفصل 12 هندسة السلامة: الحلقة الأولى «كل أمر ضمن حدوده»",
       "liveCta": "افتح iSCARB"
     },
     "liveUrl": {
@@ -286,15 +295,15 @@
       "ar": "https://adeebnoor.github.io/CPIT/iscarb.html"
     },
     "actualImage": true,
-    "imageWidth": 1348,
-    "imageHeight": 926,
+    "imageWidth": 1280,
+    "imageHeight": 720,
     "state": {
       "en": "Live",
       "ar": "Live"
     },
     "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
+      "en": "Updated Oct 2026",
+      "ar": "محدّث أكتوبر 2026"
     },
     "role": {
       "en": "My contribution: method creator and course lead.",

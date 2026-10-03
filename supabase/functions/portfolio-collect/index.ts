@@ -51,6 +51,7 @@ const DESTINATIONS = new Set([
   'https://kamin-12mf.onrender.com/',
   'https://zenodo.org/records/22964248',
   'https://doi.org/10.5281/zenodo.22964248',
+  'https://zenodo.org/records/22974727',
   'https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor',
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
   'https://cemse.kaust.edu.sa/profiles/adeeb-noor',

@@ -24,19 +24,19 @@ COPY = {
    'The public pilot includes a knowledge explorer and traceable semantic relationships. Current pathways are reference examples; recommendation quality is an active validation question.'
   ], [('Start with the person', 'Connect interests and goals with the evidence the student chooses to add.'), ('Explain the connection', 'Inspect the sources and relationships behind a suggested pathway.'), ('Own the next step', 'Review the profile and turn evidence gaps into a learning plan.')]),
   'iscarbTitle': 'iSCARB — defensible engineering judgment',
-  'iscarbBody': 'When AI can generate an answer, students still need to explain why it is justified and when it stops being justified. iSCARB is implemented across nine software-engineering chapters and assignments, connecting a choice to its assumptions, boundaries, action and evidence.',
+  'iscarbBody': 'When AI can generate an answer, students still need to explain why it is justified and when it stops being justified. iSCARB is implemented across nine software-engineering chapters and assignments, connecting a choice to its assumptions, boundaries, action and evidence. From Chapter 12, story-led lectures turn each chapter into a decision case, supported by executable labs, a two-minute ownership check and an AI study coach: AI is the practice layer, and engineering judgment is what is assessed.',
   'iscarbMethod': 'FIT · BOUND · ACT · EVIDENCE, followed by STRESS and REFIT: change a constraint, then retain or revise the decision. Commitment before disclosure, declared AI use and sampled oral verification keep ownership with the learner.',
   'imamTitle': 'IMAM within iSCARB',
   'imamBody': 'IMAM is the optional Saudi and Islamic contextualization layer within iSCARB. It connects relevant context, values and purpose to the same evidence and technical-fidelity requirements. It is presented as part of this teaching program.',
   'alignment': 'The teaching design includes NELC alignment and a proposed Jaheziah readiness mapping for review and piloting.',
   'paperStatus': 'Open preprint · 25 September 2026 · Not peer reviewed. The implementation is available to inspect; learning effectiveness remains a research question.',
   'hub': 'Explore iSCARB', 'paper': 'Read the open preprint', 'method': 'Method & evidence', 'alignmentLink': 'Read the alignment note',
-  'ridiBody': 'RIDI is an open research toolkit for selection-change auditing and the exact identity–utility frontier. It provides a concrete case for my broader research question: how can systems retain aggregate performance while changing their actions, and how much change is actually required by an explicit objective?',
-  'ridiStatus': 'The broader manuscript is work in progress. Public code, demonstrations and research records are linked separately from publication claims.',
-  'ridiLink': 'Explore RIDI', 'background': 'Research context', 'contact': 'Discuss a pilot',
-  'cvHeading': 'Current systems & research · September 2026',
-  'cvResearch': 'Research in progress: performance equivalence does not imply action equivalence in AI systems. I examine action identity, evidence and the distinction between observed and necessary change.',
-  'cvIsCarb': 'iSCARB integrates IMAM as an optional contextualization layer. Current implementation spans nine software-engineering chapters, with an open preprint.',
+  'ridiBody': 'RIDI is the research project behind the manuscript “Equal evaluation scores do not certify equivalent AI behaviour”, with an open toolkit (ridi-audit) for selection-change auditing and the exact identity–utility frontier. It asks how systems can retain aggregate performance while changing their actions, and how much change an explicit objective actually requires.',
+  'ridiStatus': 'The manuscript is submission-ready and not peer reviewed. Source data and a reproducibility package are open on Zenodo (CC BY 4.0); code, demonstrations and research records are linked separately from publication claims.',
+  'ridiLink': 'Explore RIDI', 'ridiProject': 'RIDI project page', 'ridiData': 'Open data (Zenodo)', 'background': 'Research context', 'contact': 'Discuss a pilot',
+  'cvHeading': 'Current systems & research · October 2026',
+  'cvResearch': 'Submission-ready manuscript (not peer reviewed): Equal evaluation scores do not certify equivalent AI behaviour, with open source data on Zenodo (DOI 10.5281/zenodo.22974727). I examine action identity, evidence and the distinction between observed and necessary change.',
+  'cvIsCarb': 'iSCARB integrates IMAM as an optional contextualization layer. Current implementation spans nine software-engineering chapters, with story-led lectures from Chapter 12, executable labs and an open preprint.',
   'imamRole': 'Founder & Lead Architect — IMAM, now within iSCARB',
   'translation': 'GenomeFit, iSCARB including IMAM, Kamin, MI’YĀR, HEALTHx, SHIFAA, LEDD and research-to-market operating models.',
  },
@@ -50,19 +50,19 @@ COPY = {
    'يتضمن الإصدار التجريبي العام مستكشفًا للمعرفة وعلاقات دلالية يمكن تتبّعها. المسارات الحالية أمثلة مرجعية، وجودة التوصيات موضوع للتحقق البحثي.'
   ], [('البداية من الشخص', 'ربط الاهتمامات والأهداف بالأدلة التي يختار الطالب إضافتها.'), ('تفسير العلاقة', 'فحص المصادر والعلاقات وراء المسار المقترح.'), ('امتلاك الخطوة التالية', 'مراجعة الملف وتحويل فجوات الأدلة إلى خطة تعلم.')]),
   'iscarbTitle': 'iSCARB — حكم هندسي يمكن الدفاع عنه',
-  'iscarbBody': 'عندما يستطيع الذكاء الاصطناعي توليد إجابة، يبقى على الطالب تفسير سبب صلاحيتها ومتى تتوقف عن الصلاحية. يُطبّق iSCARB في تسعة فصول وتكليفات لهندسة البرمجيات، ويربط الخيار بافتراضاته وحدوده وإجراءاته وأدلته.',
+  'iscarbBody': 'عندما يستطيع الذكاء الاصطناعي توليد إجابة، يبقى على الطالب تفسير سبب صلاحيتها ومتى تتوقف عن الصلاحية. يُطبّق iSCARB في تسعة فصول وتكليفات لهندسة البرمجيات، ويربط الخيار بافتراضاته وحدوده وإجراءاته وأدلته. ومن الفصل الثاني عشر، تحوّل المحاضرات القصصية كل فصل إلى حالة قرار، تدعمها معامل تطبيقية قابلة للتشغيل وتحقق من ملكية العمل في دقيقتين ومدرّب دراسة بالذكاء الاصطناعي: الذكاء الاصطناعي للتدريب، والحكم الهندسي هو ما يُقيَّم.',
   'iscarbMethod': 'الملاءمة والحدود والإجراء والدليل، ثم اختبار الضغط وإعادة الملاءمة: يتغير قيد، فيُبقي الطالب قراره أو يراجعه. ويساعد تثبيت موقف الطالب قبل كشف الإجابة، والإفصاح عن استخدام الذكاء الاصطناعي، والتحقق الشفهي بالعينة على إبقاء مسؤولية الحكم لدى المتعلم.',
   'imamTitle': 'IMAM ضمن iSCARB',
   'imamBody': 'يمثل IMAM طبقة اختيارية للسياق السعودي والإسلامي ضمن iSCARB. يربط السياق والقيم والغاية ذات الصلة بالمتطلبات نفسها للأدلة والأمانة التقنية، ويُعرض جزءًا من هذا البرنامج التعليمي.',
   'alignment': 'يتضمن التصميم التعليمي مواءمة مع إطار المركز الوطني للتعليم الإلكتروني وخريطة مقترحة للجاهزية، مطروحتين للمراجعة والتجريب.',
   'paperStatus': 'ورقة أولية مفتوحة · 25 سبتمبر 2026 · غير محكّمة. التطبيق متاح للفحص، وفعاليته التعليمية موضوع للبحث.',
   'hub': 'استكشف iSCARB', 'paper': 'اقرأ الورقة الأولية', 'method': 'المنهجية والأدلة', 'alignmentLink': 'اقرأ مذكرة المواءمة',
-  'ridiBody': 'RIDI أداة بحثية مفتوحة لتدقيق تغيّر الاختيارات وحساب جبهة الهوية–المنفعة الدقيقة. يقدم حالة تطبيقية لسؤالي البحثي الأوسع: كيف تحافظ الأنظمة على أدائها الإجمالي بينما تتغير أفعالها، وما مقدار التغيير الذي يتطلبه هدف معلن فعلًا؟',
-  'ridiStatus': 'المخطوطة الأوسع عمل بحثي جارٍ. تُعرض الشفرة والعروض والموارد البحثية العامة مع تمييزها عن حالة النشر العلمي.',
-  'ridiLink': 'استكشف RIDI', 'background': 'السياق البحثي', 'contact': 'ناقش تجربة أولية',
-  'cvHeading': 'الأنظمة والأبحاث الحالية · سبتمبر 2026',
-  'cvResearch': 'بحث جارٍ: تكافؤ الأداء لا يعني تكافؤ الأفعال في أنظمة الذكاء الاصطناعي. أدرس هوية الأفعال وأدلتها والتمييز بين التغيير المرصود والتغيير الضروري.',
-  'cvIsCarb': 'يضم iSCARB طبقة IMAM الاختيارية للسياق. يشمل التطبيق الحالي تسعة فصول لهندسة البرمجيات، مع ورقة أولية مفتوحة.',
+  'ridiBody': 'RIDI هو المشروع البحثي وراء مخطوطة «تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي»، ومعه أداة مفتوحة (ridi-audit) لتدقيق تغيّر الاختيارات وحساب جبهة الهوية–المنفعة الدقيقة. يسأل: كيف تحافظ الأنظمة على أدائها الإجمالي بينما تتغير أفعالها، وما مقدار التغيير الذي يتطلبه هدف معلن فعلًا؟',
+  'ridiStatus': 'المخطوطة جاهزة للتقديم وغير محكّمة. بيانات المصدر وحزمة إعادة الإنتاج متاحة مفتوحة على Zenodo (CC BY 4.0)، وتُعرض الشفرة والعروض والموارد البحثية مع تمييزها عن حالة النشر العلمي.',
+  'ridiLink': 'استكشف RIDI', 'ridiProject': 'صفحة مشروع RIDI', 'ridiData': 'البيانات المفتوحة (Zenodo)', 'background': 'السياق البحثي', 'contact': 'ناقش تجربة أولية',
+  'cvHeading': 'الأنظمة والأبحاث الحالية · أكتوبر 2026',
+  'cvResearch': 'مخطوطة جاهزة للتقديم (غير محكّمة): تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي، مع بيانات مصدر مفتوحة على Zenodo (DOI 10.5281/zenodo.22974727). أدرس هوية الأفعال وأدلتها والتمييز بين التغيير المرصود والتغيير الضروري.',
+  'cvIsCarb': 'يضم iSCARB طبقة IMAM الاختيارية للسياق. يشمل التطبيق الحالي تسعة فصول لهندسة البرمجيات، مع محاضرات قصصية من الفصل الثاني عشر ومعامل تطبيقية وورقة أولية مفتوحة.',
   'imamRole': 'المؤسس ورئيس التصميم المعماري — IMAM، ضمن iSCARB حاليًا',
   'translation': 'GenomeFit وiSCARB الذي يضم IMAM وكامن ومعيار وHEALTHx وSHIFAA وLEDD ونماذج تشغيل لنقل الأبحاث إلى السوق.',
  }
@@ -105,7 +105,7 @@ for lang in ('en', 'ar'):
         s = s.replace('<section class="venture-stack">', '<section class="venture-stack">'+venture('kamin', lang), 1)
     iscarb = '<article class="theme-card" id="iscarb-project"><div class="theme-no">iSCARB</div><h2>'+escape(c['iscarbTitle'])+'</h2>'+paras([c['iscarbBody']])+'<h3 id="imam">'+escape(c['imamTitle'])+'</h3>'+paras([c['imamBody'], c['paperStatus']])+'<div class="venture-links">'+a(CPIT+'iscarb.html', c['hub'], True)+a(PAPER,c['paper'])+'</div></article>'
     s = replace_card(s, 'iscarb-project', iscarb)
-    ridi = '<article class="theme-card" id="ridi-system"><div class="theme-no">RIDI</div><h2>RIDI</h2>'+paras([c['ridiBody'], c['ridiStatus']])+'<div class="venture-links">'+a(public+'/demo/',c['ridiLink'],True)+a(public+'/research.html#ridi',c['background'])+'</div></article>'
+    ridi = '<article class="theme-card" id="ridi-system"><div class="theme-no">RIDI</div><h2>RIDI</h2>'+paras([c['ridiBody'], c['ridiStatus']])+'<div class="venture-links">'+a('https://adeebnoor.github.io/ridi/',c['ridiProject'],True)+a(public+'/demo/',c['ridiLink'])+a('https://zenodo.org/records/22974727',c['ridiData'])+a(public+'/research.html#ridi',c['background'])+'</div></article>'
     p.write_text(replace_card(s, 'ridi-system', ridi))
 
     p = ROOT/(prefix+'teaching.html'); s = p.read_text()

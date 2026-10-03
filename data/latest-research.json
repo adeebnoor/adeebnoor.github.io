@@ -1,27 +1,50 @@
 {
-  "updated": "2026-09-29",
+  "updated": "2026-10-03",
   "items": [
     {
-      "id": "action-equivalence-current-research",
-      "date": "2026-09-25",
-      "record_type": "work_in_progress",
+      "id": "ridi-reproducibility-2026",
+      "date": "2026-09-26",
+      "record_type": "dataset",
       "kind": {
-        "en": "Manuscript · work in progress",
-        "ar": "مخطوطة · بحث جارٍ"
+        "en": "Open data · CC BY 4.0",
+        "ar": "بيانات مفتوحة · CC BY 4.0"
       },
-      "title": "Performance equivalence does not imply action equivalence in AI systems",
-      "title_ar": "تكافؤ الأداء لا يعني تكافؤ الأفعال في أنظمة الذكاء الاصطناعي",
-      "venue": "AI evaluation & decision systems",
-      "venue_ar": "تقييم الذكاء الاصطناعي وأنظمة القرار",
-      "url": "https://adeebnoor.github.io/research.html#ridi",
-      "url_ar": "https://adeebnoor.github.io/ar/research.html#ridi",
+      "title": "RIDI source data and reproducibility package for “Equal evaluation scores do not certify equivalent AI behaviour”",
+      "title_ar": "بيانات المصدر وحزمة إعادة الإنتاج لمشروع RIDI",
+      "venue": "Zenodo · v1.0.0",
+      "venue_ar": "Zenodo · الإصدار 1.0.0",
+      "url": "https://zenodo.org/records/22974727",
       "source": {
-        "en": "Current research program",
-        "ar": "المسار البحثي الحالي"
+        "en": "Zenodo · DOI 10.5281/zenodo.22974727",
+        "ar": "Zenodo · DOI 10.5281/zenodo.22974727"
       },
       "summary": {
-        "en": "Ongoing research on the gap between maintained aggregate performance and changed system actions: which evidence is used, what is selected, and which changes an explicit objective requires. This is a work in progress, not a published or accepted article.",
-        "ar": "بحث جارٍ في الفجوة بين ثبات الأداء الإجمالي وتغيّر أفعال النظام: الأدلة التي يستخدمها، والعناصر التي يختارها، والتغييرات التي يتطلبها هدف محدد. هذه مخطوطة قيد العمل وليست مقالة منشورة أو مقبولة للنشر."
+        "en": "Source-data tables for the main and Extended Data figures, registered-extension summaries, P5b practitioner-equivalence outputs and second-judge robustness summaries, so the reported results can be audited. Third-party benchmark corpora are not redistributed.",
+        "ar": "جداول بيانات المصدر للأشكال الرئيسية والممتدة، وملخصات الامتدادات المسجّلة، ومخرجات تحليل P5b، وملخصات متانة المُحكِّم الثاني، بما يتيح تدقيق النتائج المعلنة. لا تُعاد إتاحة مجموعات البيانات المعيارية الخارجية."
+      },
+      "featured": true
+    },
+    {
+      "id": "action-equivalence-current-research",
+      "date": "2026-09-26",
+      "record_type": "work_in_progress",
+      "kind": {
+        "en": "Manuscript · submission-ready, not peer reviewed",
+        "ar": "مخطوطة · جاهزة للتقديم، غير محكّمة"
+      },
+      "title": "Equal evaluation scores do not certify equivalent AI behaviour",
+      "title_ar": "تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي",
+      "venue": "RIDI research project",
+      "venue_ar": "مشروع RIDI البحثي",
+      "url": "https://adeebnoor.github.io/ridi/",
+      "url_ar": "https://adeebnoor.github.io/ridi/",
+      "source": {
+        "en": "RIDI project page",
+        "ar": "صفحة مشروع RIDI"
+      },
+      "summary": {
+        "en": "In a preregistered retrieval experiment, five standard retrieval metrics were identical, yet benchmark-defined answer correctness changed for 17.27% of 800 queries. Registered extensions, an exact control frontier and a production update test the limits of that result. Submission-ready; not peer reviewed, accepted or published.",
+        "ar": "في تجربة استرجاع مسجّلة مسبقًا تطابقت خمسة مقاييس استرجاع قياسية، ومع ذلك تغيّرت صحة الإجابة في 17.27% من 800 استعلام. وتختبر امتدادات مسجّلة وحدّ تحكم دقيق وتحديث في بيئة إنتاج حدود هذه النتيجة. المخطوطة جاهزة للتقديم، وليست محكّمة أو مقبولة أو منشورة."
       },
       "featured": true
     },
