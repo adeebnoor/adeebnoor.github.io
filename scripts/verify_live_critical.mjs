@@ -10,7 +10,7 @@ const identity=json('data/site_identity.json');
 const projects=json('data/featured-projects.json');
 const articles=json('data/ideas-content.json').articles;
 const dates=json('data/essay-dates.json');
-const paths=['/','/index.html','/ar/','/ar/index.html','/contact.html','/ar/contact.html','/writing/','/ar/writing/','/ideas/','/ar/ideas/'];
+const paths=['/','/index.html','/ar/','/ar/index.html','/contact.html','/ar/contact.html','/writing/','/ar/writing/','/ideas/','/ar/ideas/','/healthx/','/ar/healthx/'];
 const filename=path=>(path.endsWith('/')?path+'index.html':path).slice(1);
 const publicPath=(page,ar)=>(ar?'/ar/':'/')+page.replace(/index\.html$/,'');
 mkdirSync('live-critical',{recursive:true});
@@ -62,6 +62,14 @@ try{
      if(item.reviewUrl)assert.ok(card.links.some(link=>link.href===item.reviewUrl),path+' MIYAR request link');
      if(item.ideaUrl)assert.ok(card.links.some(link=>link.href===(ar?'/ar':'')+item.ideaUrl),path+' RIDI essay link');
     }
+   }
+   if(path.endsWith('/healthx/')){
+    assert.equal(await page.locator('.hx-track').count(),5,path+' contribution tracks');
+    assert.equal(await page.locator('.hx-hub h1').count(),1,path+' main heading');
+    assert.equal(await page.locator('.site-links .site-language').getAttribute('href'),ar?'/healthx/':'/ar/healthx/',path+' language pair');
+    assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');
+    assert.ok((await page.locator('#research').innerText()).includes(ar?'قيد المراجعة':'under review'),path+' patent status');
+    assert.equal(await page.locator('#participate a.hx-text-link').getAttribute('href'),(ar?'/ar':'')+'/contact.html#inquiry-form',path+' contribution form');
    }
    if(path.endsWith('/contact.html')){
     assert.equal(view.heroAction,'#inquiry-form',path+' primary action');
