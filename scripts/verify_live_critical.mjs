@@ -79,6 +79,11 @@ try{
     assert.equal(new URL(await page.locator('.site-links .site-language').getAttribute('href'),origin).pathname,ar?'/healthx/':'/ar/healthx/',path+' language pair');
     assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');
     assert.ok((await page.locator('#research').innerText()).includes(ar?'قيد المراجعة':'under review'),path+' patent status');
+    const researchText=await page.locator('#research').innerText();
+    assert.ok(researchText.includes(ar?'قبل الإيداع الرسمي':'before formal patent filing'),path+' disclosure is not a filed patent');
+    assert.ok(researchText.includes(ar?'أذن المشرف ببدء البرمجة':'authorized coding to begin'),path+' current master’s milestone');
+    assert.ok(researchText.includes(ar?'وليست تحققًا سريريًا مكتملًا':'not completed clinical validation'),path+' planned versus measured results');
+    assert.ok((await page.locator('.hx-hub').innerText()).includes(ar?'جسر بين المعرفة السريرية والأصول القابلة للترخيص':'A bridge from clinical knowledge to licensable assets'),path+' original concept');
     assert.equal(await page.locator('#participate a.hx-text-link').getAttribute('href'),(ar?'/ar':'')+'/contact.html#inquiry-form',path+' contribution form');
    }
    if(path.endsWith('/contact.html')){
