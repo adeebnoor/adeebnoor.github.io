@@ -65,6 +65,16 @@ try{
    }
    if(path.endsWith('/healthx/')){
     assert.equal(await page.locator('.hx-track').count(),5,path+' contribution tracks');
+    const pictures=page.locator('.hx-pillar-image');
+    assert.equal(await pictures.count(),5,path+' pillar illustrations');
+    for(const picture of await pictures.all()){
+     assert.ok(await picture.getAttribute('alt'),path+' illustration description');
+     await picture.scrollIntoViewIfNeeded();
+     await picture.evaluate(img=>img.decode());
+     assert.ok(await picture.evaluate(img=>img.naturalWidth>0),path+' broken illustration');
+    }
+    assert.equal(await page.locator('.hx-benefit').count(),20,path+' problem value impact and assessment');
+    await page.evaluate(()=>window.scrollTo(0,0));
     assert.equal(await page.locator('.hx-hub h1').count(),1,path+' main heading');
     assert.equal(new URL(await page.locator('.site-links .site-language').getAttribute('href'),origin).pathname,ar?'/healthx/':'/ar/healthx/',path+' language pair');
     assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');

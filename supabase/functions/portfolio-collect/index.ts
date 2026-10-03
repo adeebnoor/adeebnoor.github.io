@@ -34,6 +34,14 @@ const ANCHORS = new Set([
   'mission', 'thrusts', 'systems', 'join',
 ]);
 const DESTINATIONS = new Set([
+  'https://www.who.int/publications/i/item/9789240032705',
+  'https://www.who.int/teams/digital-health-and-innovation/smart-guidelines',
+  'https://www.unesco.org/en/articles/recommendation-ethics-artificial-intelligence',
+  'https://www.who.int/teams/health-ethics-governance/emerging-technologies/big-data-and-artificial-intelligence',
+  'https://innovationexchange.mayoclinic.org/about/',
+  'https://biodesign.stanford.edu/about-us/process.html',
+  'https://www.bme.jhu.edu/academics/bme-design/design-education/',
+
   'https://github.com/adeebnoor',
   'https://github.com/adeebnoor/ridi',
   'https://adeebnoor.github.io/ridi/',

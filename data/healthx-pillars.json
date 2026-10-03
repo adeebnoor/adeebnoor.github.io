@@ -1,0 +1,240 @@
+[
+  {
+    "id": "clinical",
+    "image": "/healthx/images/clinical.svg",
+    "value": {
+      "en": "Turn clinical experience into a clearly defined unmet need.",
+      "ar": "تحويل الخبرة السريرية إلى حاجة غير ملبّاة محدّدة بوضوح."
+    },
+    "impact": {
+      "en": "Help clinicians and patients shape solutions around real care needs.",
+      "ar": "إشراك الممارسين والمرضى في توجيه الحلول نحو احتياجات الرعاية الفعلية."
+    },
+    "measure": {
+      "en": "Clinician agreement on the problem, relevance of the proposed outcome and usability feedback.",
+      "ar": "اتفاق الممارسين على المشكلة، وملاءمة النتيجة المقترحة، وملاحظات سهولة الاستخدام."
+    },
+    "alt": {
+      "en": "A clinician and a patient discussing a care pathway",
+      "ar": "رسم توضيحي لممارس صحي ومريض يناقشان مسار الرعاية"
+    },
+    "problem": {
+      "en": "Clinical observations can remain isolated ideas, without an agreed care problem or a meaningful outcome to test.",
+      "ar": "قد تبقى الملاحظات السريرية أفكارًا منفصلة دون اتفاق على مشكلة الرعاية أو نتيجة مفيدة يمكن اختبارها."
+    },
+    "question": {
+      "en": "Can a structured needs-discovery method produce problems and endpoints that different clinicians consistently prioritize?",
+      "ar": "هل تساعد منهجية منظّمة لاكتشاف الاحتياجات على تحديد مشكلات ومؤشرات نتائج يتفق الممارسون على أولويتها؟"
+    },
+    "context": {
+      "en": "Patient-safety priorities and needs-led innovation are useful reference points for selecting the first hospital use case.",
+      "ar": "تمثّل أولويات سلامة المرضى والابتكار المنطلق من الاحتياج مرجعًا لاختيار أول حالة استخدام بالمستشفى."
+    },
+    "references": [
+      {
+        "url": "https://www.who.int/publications/i/item/9789240032705",
+        "label": {
+          "en": "WHO · Global Patient Safety Action Plan 2021–2030",
+          "ar": "منظمة الصحة العالمية · خطة العمل العالمية لسلامة المرضى 2021–2030"
+        }
+      },
+      {
+        "url": "https://biodesign.stanford.edu/about-us/process.html",
+        "label": {
+          "en": "Stanford Biodesign · Innovation process",
+          "ar": "ستانفورد بايوديزاين · عملية الابتكار"
+        }
+      }
+    ],
+    "referencesChecked": "2026-10-03"
+  },
+  {
+    "id": "ai",
+    "image": "/healthx/images/ai.svg",
+    "value": {
+      "en": "Make clinical knowledge structured, traceable and easier to review.",
+      "ar": "جعل المعرفة السريرية منظّمة وقابلة للتتبّع وأسهل للمراجعة."
+    },
+    "impact": {
+      "en": "Support researchers and clinical reviewers in finding evidence and checking AI outputs.",
+      "ar": "مساعدة الباحثين والمراجعين السريريين على الوصول إلى الأدلة وفحص مخرجات الذكاء الاصطناعي."
+    },
+    "measure": {
+      "en": "Extraction accuracy, source traceability and errors identified during expert review.",
+      "ar": "دقة الاستخراج، وإمكانية تتبّع المصدر، والأخطاء المكتشفة أثناء مراجعة المختصين."
+    },
+    "alt": {
+      "en": "Evidence documents connected to an AI model and a human review screen",
+      "ar": "رسم توضيحي لوثائق أدلة مرتبطة بنموذج ذكاء اصطناعي وشاشة مراجعة بشرية"
+    },
+    "problem": {
+      "en": "AI-generated clinical knowledge can be difficult to trace to its source or challenge when context is missing.",
+      "ar": "قد يصعب تتبّع المعرفة السريرية التي يولّدها الذكاء الاصطناعي إلى مصادرها أو مراجعتها عند غياب السياق."
+    },
+    "question": {
+      "en": "Does source-linked extraction improve expert review compared with an unstructured AI summary?",
+      "ar": "هل يحسّن الاستخراج المرتبط بالمصادر مراجعة المختصين مقارنة بملخص غير منظّم يولّده الذكاء الاصطناعي؟"
+    },
+    "context": {
+      "en": "WHO health-AI governance and UNESCO AI ethics provide reference principles for human oversight, accountability and evaluation.",
+      "ar": "توفّر حوكمة الذكاء الاصطناعي الصحي لدى منظمة الصحة العالمية وأخلاقياته لدى اليونسكو مبادئ مرجعية للإشراف البشري والمساءلة والتقييم."
+    },
+    "references": [
+      {
+        "url": "https://www.who.int/teams/health-ethics-governance/emerging-technologies/big-data-and-artificial-intelligence",
+        "label": {
+          "en": "WHO · Ethics and governance of AI for health",
+          "ar": "منظمة الصحة العالمية · أخلاقيات وحوكمة الذكاء الاصطناعي للصحة"
+        }
+      },
+      {
+        "url": "https://www.unesco.org/en/articles/recommendation-ethics-artificial-intelligence?hub=83541",
+        "label": {
+          "en": "UNESCO · Recommendation on the Ethics of AI",
+          "ar": "اليونسكو · التوصية بشأن أخلاقيات الذكاء الاصطناعي"
+        }
+      }
+    ],
+    "referencesChecked": "2026-10-03"
+  },
+  {
+    "id": "protocols",
+    "image": "/healthx/images/protocols.svg",
+    "value": {
+      "en": "Make the reasoning, exceptions and evidence behind a protocol explicit.",
+      "ar": "إظهار المنطق والاستثناءات والأدلة التي يستند إليها البروتوكول."
+    },
+    "impact": {
+      "en": "Help care teams review pathways consistently and identify gaps before testing changes.",
+      "ar": "مساعدة فرق الرعاية على مراجعة المسارات باتساق واكتشاف الفجوات قبل اختبار التغييرات."
+    },
+    "measure": {
+      "en": "Completeness of the protocol model, reviewer agreement and coverage of exception cases.",
+      "ar": "اكتمال تمثيل البروتوكول، واتفاق المراجعين، وتغطية الحالات الاستثنائية."
+    },
+    "alt": {
+      "en": "A medical protocol with connected decision steps and an evidence checklist",
+      "ar": "رسم توضيحي لبروتوكول طبي يتضمن خطوات قرار مترابطة وقائمة مراجعة للأدلة"
+    },
+    "problem": {
+      "en": "Turning narrative clinical guidance into digital workflows can lose conditions, exceptions and the evidence behind a decision.",
+      "ar": "قد يفقد تحويل الإرشادات السريرية النصية إلى مسارات رقمية بعض الشروط والاستثناءات والأدلة التي يستند إليها القرار."
+    },
+    "question": {
+      "en": "How faithfully can a protocol representation preserve decision logic and exceptions across independent reviewers?",
+      "ar": "إلى أي مدى يحافظ تمثيل البروتوكول على منطق القرار والاستثناءات عند مراجعته من مختصين مستقلين؟"
+    },
+    "context": {
+      "en": "WHO SMART Guidelines address the translation of guidance into reusable digital specifications. HEALTHx proposes to use this as a methodological reference.",
+      "ar": "تتناول إرشادات SMART تحويل الإرشادات إلى مواصفات رقمية قابلة لإعادة الاستخدام. ويقترح HEALTHx الاسترشاد بها منهجيًا."
+    },
+    "references": [
+      {
+        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
+        "label": {
+          "en": "WHO · SMART Guidelines",
+          "ar": "منظمة الصحة العالمية · إرشادات SMART"
+        }
+      }
+    ],
+    "referencesChecked": "2026-10-03"
+  },
+  {
+    "id": "governance",
+    "image": "/healthx/images/governance.svg",
+    "value": {
+      "en": "Clarify who decides, what evidence is needed and when a project can advance.",
+      "ar": "توضيح صاحب القرار والأدلة المطلوبة وشروط انتقال المشروع إلى المرحلة التالية."
+    },
+    "impact": {
+      "en": "Help health organizations coordinate innovation with accountable decisions and clearer handoffs.",
+      "ar": "مساعدة الجهات الصحية على تنسيق الابتكار بقرارات واضحة المسؤولية وانتقال منظّم بين الفرق."
+    },
+    "measure": {
+      "en": "Time to a documented review decision, handoff completeness and unresolved responsibilities.",
+      "ar": "الوقت اللازم لاتخاذ قرار مراجعة موثّق، واكتمال تسليم المهام، والمسؤوليات غير المحسومة."
+    },
+    "alt": {
+      "en": "An institutional review board with a responsibility map and approval gates",
+      "ar": "رسم توضيحي للحوكمة المؤسسية يتضمن خريطة مسؤوليات ونقاط اعتماد"
+    },
+    "problem": {
+      "en": "Innovation can stall when clinical, technical, ethical and business teams lack explicit review criteria and decision ownership.",
+      "ar": "قد يتعطّل الابتكار عندما لا تتضح معايير المراجعة ومسؤولية القرار بين الفرق السريرية والتقنية والأخلاقية والتجارية."
+    },
+    "question": {
+      "en": "Can explicit decision gates improve review completeness and clarify responsibility without adding unnecessary delay?",
+      "ar": "هل تحسّن نقاط القرار المحدّدة اكتمال المراجعة ووضوح المسؤولية دون إضافة تأخير غير ضروري؟"
+    },
+    "context": {
+      "en": "UNESCO ethics and WHO patient-safety planning offer reference points for accountable, multidisciplinary review.",
+      "ar": "توفّر أخلاقيات اليونسكو وتخطيط سلامة المرضى لدى منظمة الصحة العالمية مراجع للمراجعة متعددة التخصصات وواضحة المسؤولية."
+    },
+    "references": [
+      {
+        "url": "https://www.unesco.org/en/articles/recommendation-ethics-artificial-intelligence?hub=83541",
+        "label": {
+          "en": "UNESCO · Recommendation on the Ethics of AI",
+          "ar": "اليونسكو · التوصية بشأن أخلاقيات الذكاء الاصطناعي"
+        }
+      },
+      {
+        "url": "https://www.who.int/publications/i/item/9789240032705",
+        "label": {
+          "en": "WHO · Global Patient Safety Action Plan 2021–2030",
+          "ar": "منظمة الصحة العالمية · خطة العمل العالمية لسلامة المرضى 2021–2030"
+        }
+      }
+    ],
+    "referencesChecked": "2026-10-03"
+  },
+  {
+    "id": "commercialization",
+    "image": "/healthx/images/commercialization.svg",
+    "value": {
+      "en": "Test whether an innovation solves a problem that users and partners value.",
+      "ar": "اختبار ما إذا كان الابتكار يحل مشكلة ذات قيمة للمستخدمين والشركاء."
+    },
+    "impact": {
+      "en": "Help innovators and partners choose a credible route to adoption before committing to scale.",
+      "ar": "مساعدة المبتكرين والشركاء على اختيار مسار واقعي للتبنّي قبل التوسّع."
+    },
+    "measure": {
+      "en": "User interviews, tested value assumptions, adoption barriers and pilot partner interest.",
+      "ar": "مقابلات المستخدمين، وفرضيات القيمة المختبرة، وعوائق التبنّي، واهتمام شركاء التجارب الأولية."
+    },
+    "alt": {
+      "en": "A prototype moving toward healthcare adoption through partner collaboration",
+      "ar": "رسم توضيحي لنموذج أولي ينتقل إلى التبنّي الصحي من خلال تعاون الشركاء"
+    },
+    "problem": {
+      "en": "A promising prototype may have no validated user need, adoption pathway or workable business model.",
+      "ar": "قد يفتقر النموذج الأولي الواعد إلى حاجة مستخدم متحقّق منها أو مسار تبنٍّ أو نموذج أعمال قابل للتنفيذ."
+    },
+    "question": {
+      "en": "Which customer, workflow and purchasing assumptions must hold for a hospital-tested solution to be adopted elsewhere?",
+      "ar": "ما الافتراضات المتعلقة بالمستخدم ومسار العمل والشراء التي يجب تحققها لتبنّي حل اختُبر في مستشفى لدى جهات أخرى؟"
+    },
+    "context": {
+      "en": "Mayo Clinic’s innovation exchange and Johns Hopkins’ design education illustrate connections between clinical expertise, development and commercialization.",
+      "ar": "توضّح منصة الابتكار في مايو كلينك وتعليم التصميم لدى جونز هوبكنز الصلة بين الخبرة السريرية والتطوير والتسويق التجاري."
+    },
+    "references": [
+      {
+        "url": "https://innovationexchange.mayoclinic.org/about/",
+        "label": {
+          "en": "Mayo Clinic · Berg Innovation Exchange",
+          "ar": "مايو كلينك · منصة بيرغ لتبادل الابتكار"
+        }
+      },
+      {
+        "url": "https://www.bme.jhu.edu/academics/bme-design/design-education/",
+        "label": {
+          "en": "Johns Hopkins · Biomedical design education",
+          "ar": "جونز هوبكنز · تعليم التصميم الطبي الحيوي"
+        }
+      }
+    ],
+    "referencesChecked": "2026-10-03"
+  }
+]
