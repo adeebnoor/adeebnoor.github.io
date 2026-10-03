@@ -1,0 +1,68 @@
+"""Build the paired HEALTHx project hub while retaining shared navigation/privacy."""
+from pathlib import Path
+from html import escape as e
+from urllib.parse import quote
+import re
+ROOT=Path(__file__).resolve().parents[1]
+def pair(en,ar): return {'en':en,'ar':ar}
+C={
+'kicker':pair('An open innovation project · Saudi Arabia','مشروع ابتكار مفتوح للمشاركة · المملكة العربية السعودية'),
+'headline':pair('Clinical insight. Shared expertise. National ambition.','خبرة سريرية. تكامل تخصصات. طموح وطني.'),
+'deck':pair('HEALTHx brings medicine, AI and innovation management together to turn clinical knowledge into structured, testable opportunities for digital health. An ongoing project with room for many contributors—not a finished platform.','يجمع HEALTHx الطب والذكاء الاصطناعي وإدارة الابتكار لتحويل المعرفة السريرية إلى فرص منظّمة قابلة للاختبار في الصحة الرقمية. مشروع مستمر يتّسع لمساهمات متعددة، ويُبنى على مراحل.'),
+'join':pair('Find your contribution','اكتشف مجال مساهمتك'), 'progress':pair('See work in progress','تعرّف على العمل الجاري'),
+'vision':pair('A national ambition, built through focused contributions.','طموح وطني يُبنى بمساهمات محدّدة.'),
+'vision_body':pair('Valuable knowledge lives in clinical protocols, diagnostic reasoning, hospital workflows and research. HEALTHx explores how to capture that knowledge, evaluate its readiness and develop responsible paths to implementation. The ambition is to grow a Saudi collaboration network spanning universities, healthcare organizations and industry.','توجد معرفة قيّمة داخل البروتوكولات السريرية ومنطق التشخيص ومسارات العمل بالمستشفيات ومخرجات الأبحاث. يستكشف HEALTHx كيفية توثيق هذه المعرفة وتقييم جاهزيتها وتطوير مسارات مسؤولة لتطبيقها. والطموح هو بناء شبكة تعاون سعودية تجمع الجامعات والجهات الصحية والقطاع الخاص.'),
+'ambition_note':pair('National ambition describes the project’s intended reach; it does not denote a government mandate or an announced national program.','الطموح الوطني يعبّر عن نطاق الأثر المستهدف للمشروع، ولا يعني تكليفًا حكوميًا أو برنامجًا وطنيًا معلنًا.'),
+'current':pair('Research is already underway.','البحث جارٍ بالفعل.'),
+'majed':pair('Majed · Ongoing master’s research','ماجد · بحث ماجستير جارٍ'),
+'majed_body':pair('Majed is working on the first stage: discovering and documenting innovation. His research explores how clinical protocols, diagnostic logic, workflows and research outputs can be represented in a structured form for assessment, protection and further development.','يعمل ماجد على المرحلة الأولى: اكتشاف الابتكار وتوثيقه. يستكشف بحثه كيفية تمثيل البروتوكولات السريرية ومنطق التشخيص ومسارات العمل ومخرجات الأبحاث في صورة منظّمة تتيح تقييمها وحمايتها وتطويرها.'),
+'ip':pair('Patent under review','براءة اختراع قيد المراجعة'),
+'ip_body':pair('The project owner reports that a patent is under review. This is not a granted patent or a confirmed determination of novelty. Detailed inventive mechanisms are not disclosed on this public page.','بحسب إفادة صاحب المشروع، توجد براءة اختراع قيد المراجعة. ولا يعني ذلك منح البراءة أو حسم أصالة الفكرة. لا تُعرض تفاصيل الآليات الابتكارية في هذه الصفحة العامة.'),
+'paths':pair('One project. Five ways to move it forward.','مشروع واحد. خمسة مسارات للمساهمة.'),
+'paths_body':pair('Medical students are welcome alongside clinicians, researchers, engineers and innovation professionals. Each proposed contribution starts with a bounded question and a tangible output, agreed with the project lead.','نرحّب بطلاب الطب إلى جانب الممارسين الصحيين والباحثين والمهندسين والمتخصصين في الابتكار. تبدأ كل مساهمة مقترحة بسؤال محدّد ومخرج عملي يُتفق عليه مع قائد المشروع.'),
+'output':pair('Possible first output','مخرج أولي مقترح'), 'path_cta':pair('Discuss this track','ناقش هذا المسار'),
+'road':pair('From a question to a responsible pilot.','من سؤال بحثي إلى تجربة أولية مسؤولة.'),
+'road_note':pair('Discovery research is active. Later stages are proposed workstreams, dependent on evidence, partners and the relevant approvals; no deployment timeline is claimed.','البحث في مرحلة الاكتشاف جارٍ. أما المراحل اللاحقة فهي مسارات عمل مقترحة تعتمد على الأدلة والشركاء والموافقات اللازمة، دون الادعاء بجدول نشر محدّد.'),
+'join_heading':pair('Bring a question worth working on.','شارك بسؤال يستحق العمل عليه.'),
+'join_body':pair('Tell us your field, the track that interests you, a problem you have observed and the time you can contribute. Students can propose a focused research question; organizations can propose a use case or a validation partnership.','عرّفنا بتخصصك والمسار الذي يهمك ومشكلة لاحظتها والوقت الذي تستطيع تخصيصه. يمكن للطلاب اقتراح سؤال بحثي محدّد، وللجهات اقتراح حالة استخدام أو شراكة للتحقق والتقييم.'),
+'contact':pair('Propose a contribution','اقترح مساهمتك'), 'form':pair('Use the contact form','استخدم نموذج التواصل'),
+'join_note':pair('Expressions of interest are reviewed to agree scope, supervision, contribution credit and IP arrangements. Participation does not automatically confer a funded position or thesis supervision. Please send a non-confidential introduction; do not include patient information or unpublished invention details.','تُراجع طلبات الاهتمام للاتفاق على النطاق والإشراف ونَسب المساهمات وترتيبات الملكية الفكرية. المشاركة لا تعني تلقائيًا وظيفة ممولة أو إشرافًا على رسالة. أرسل تعريفًا غير سري، دون معلومات مرضى أو تفاصيل اختراع غير منشورة.'),
+'lead':pair('Project lead · Prof. Adeeb Noor','قائد المشروع · أ.د. أديب نور'),
+}
+TRACKS=[
+('Clinical perspective','المنظور السريري','Clinicians, medical students and health researchers','الأطباء وطلاب الطب والباحثون الصحيون','Identify a real clinical need and define how a useful solution would be assessed.','حدّد حاجة سريرية واقعية وكيفية تقييم فائدة الحل المقترح.','A problem brief and a clinician-reviewed evaluation question.','وصف للمشكلة وسؤال تقييم يراجعه مختص سريري.'),
+('AI & knowledge representation','الذكاء الاصطناعي وتمثيل المعرفة','AI, NLP, informatics and software contributors','المتخصصون في الذكاء الاصطناعي ومعالجة اللغة والمعلوماتية والبرمجيات','Explore structured extraction and traceable representations of clinical knowledge, with human review.','استكشف استخراج المعرفة السريرية وتمثيلها بصورة منظّمة قابلة للتتبّع مع مراجعة بشرية.','A prototype using public or synthetic examples and an error-analysis plan.','نموذج أولي بأمثلة عامة أو اصطناعية وخطة لتحليل الأخطاء.'),
+('Medical protocols','البروتوكولات الطبية','Medicine, nursing, pharmacy and clinical informatics','الطب والتمريض والصيدلة والمعلوماتية السريرية','Map a protocol’s steps, evidence, exceptions and version history into a reviewable structure.','حوّل خطوات بروتوكول وأدلته واستثناءاته وسجل نسخه إلى بنية قابلة للمراجعة.','An annotated protocol template using material approved for this purpose.','قالب بروتوكول مشروح باستخدام مواد مصرح بها لهذا الغرض.'),
+('Administration & governance','الإدارة والحوكمة','Health administration, operations and innovation teams','إدارة الخدمات الصحية والعمليات وفرق الابتكار','Define responsibilities, review gates and the handoffs from an idea to a pilot.','حدّد المسؤوليات ونقاط المراجعة والانتقال من الفكرة إلى التجربة الأولية.','A workflow map with decision owners and readiness criteria.','خريطة سير عمل تحدّد أصحاب القرار ومعايير الجاهزية.'),
+('Commercialization & adoption','التسويق التجاري والتبنّي','Health economics, business, IP and industry partners','اقتصاديات الصحة والأعمال والملكية الفكرية وشركاء الصناعة','Test who would use an innovation, what value it provides and which route to adoption is plausible.','اختبر من سيستخدم الابتكار وما القيمة التي يقدّمها وأي مسار لتبنّيه يبدو قابلًا للتنفيذ.','A stakeholder map and a testable adoption or value hypothesis.','خريطة أصحاب المصلحة وفرضية قابلة للاختبار بشأن التبنّي أو القيمة.')]
+STEPS=[('Discover','اكتشف','Capture a clinical need and its knowledge context.','وثّق الحاجة السريرية وسياقها المعرفي.'),('Structure','نظّم','Make evidence, assumptions and ownership explicit.','وضّح الأدلة والافتراضات والملكية.'),('Evaluate','قيّم','Review clinical relevance, technical feasibility and IP.','راجع الأهمية السريرية والجدوى التقنية والملكية الفكرية.'),('Pilot','جرّب','Agree a bounded study with partners and approvals.','اتفق على دراسة محدّدة مع الشركاء والموافقات.'),('Translate','طوّر التطبيق','Explore adoption and commercialization based on evidence.','استكشف التبنّي والتسويق التجاري بناءً على الأدلة.')]
+for lang in ('en','ar'):
+ ar=lang=='ar'; prefix='/ar' if ar else ''; p=ROOT/(('ar/' if ar else '')+'healthx/index.html'); s=p.read_text(); t=lambda k:e(C[k][lang]); ix=1 if ar else 0
+ def mail(track=''):
+  body=('التخصص:\nالمسار: '+track+'\nالمشكلة أو السؤال:\nالمساهمة المقترحة:\nالوقت المتاح:\n' if ar else 'Field:\nTrack: '+track+'\nProblem or question:\nProposed contribution:\nAvailability:\n')
+  return e('mailto:arnoor@kau.edu.sa?subject='+quote('HEALTHx | '+track if track else ('HEALTHx | طلب مشاركة' if ar else 'HEALTHx | Collaboration'))+'&body='+quote(body),quote=True)
+ cards=''
+ for n,r in enumerate(TRACKS,1):
+  title,audience,desc,out=(e(r[j+ix]) for j in (0,2,4,6))
+  cards+=f'<article class="hx-track"><span class="hx-number">0{n}</span><h3>{title}</h3><p class="hx-audience">{audience}</p><p>{desc}</p><div class="hx-output"><b>{t("output")}</b><p>{out}</p></div><a href="{mail(r[ix])}" data-contact-owner="site">{t("path_cta")} <span aria-hidden="true">↗</span></a></article>'
+ steps=''.join(f'<li><span>0{n}</span><h3>{e(r[ix])}</h3><p>{e(r[2+ix])}</p></li>' for n,r in enumerate(STEPS,1))
+ content=f'''<main id="main-content" class="hx-hub"><section class="hx-hero"><div class="hx-container"><p class="hx-kicker">{t('kicker')}</p><div class="hx-hero-grid"><div><div class="hx-wordmark" dir="ltr">HEALTH<span>x</span></div><h1>{t('headline')}</h1><p class="hx-deck">{t('deck')}</p><div class="hx-actions"><a class="hx-button" href="#participate">{t('join')}</a><a class="hx-text-link" href="#research">{t('progress')} ↓</a></div></div><aside class="hx-blueprint" aria-label="{'مسار الابتكار المقترح' if ar else 'Proposed innovation pathway'}"><p class="hx-kicker">{'من المعرفة إلى الأثر' if ar else 'Knowledge → impact'}</p><ol>{steps}</ol><p class="hx-blueprint-note">{'مسارات متكاملة · مساهمات متعددة' if ar else 'Connected disciplines · Shared contributions'}</p></aside></div></div></section>
+<nav class="hx-jump" aria-label="{'أقسام المشروع' if ar else 'Project sections'}"><div class="hx-container"><a href="#mission">{'الطموح' if ar else 'Ambition'}</a><a href="#research">{'العمل الجاري' if ar else 'In progress'}</a><a href="#programs">{'مسارات المشاركة' if ar else 'Contribution tracks'}</a><a href="#participate">{'انضم للمشروع' if ar else 'Get involved'}</a></div></nav>
+<div class="hx-container"><section class="hx-section hx-split" id="mission"><div><p class="hx-kicker">01 / {'الرؤية' if ar else 'The vision'}</p><h2>{t('vision')}</h2></div><div><p class="hx-lead">{t('vision_body')}</p><p class="hx-note">{t('ambition_note')}</p></div></section>
+<section class="hx-section" id="research"><p class="hx-kicker">02 / {'حالة المشروع' if ar else 'Project status'}</p><h2>{t('current')}</h2><div class="hx-status-grid"><article><span class="hx-status">{'بحث مستمر' if ar else 'Active research'}</span><h3>{t('majed')}</h3><p>{t('majed_body')}</p></article><article><span class="hx-status hx-pending">{'قيد المراجعة' if ar else 'Under review'}</span><h3>{t('ip')}</h3><p>{t('ip_body')}</p></article></div></section>
+<section class="hx-section" id="programs"><p class="hx-kicker">03 / {'تخصصك يصنع فرقًا' if ar else 'Where you fit'}</p><h2>{t('paths')}</h2><p class="hx-lead">{t('paths_body')}</p><div class="hx-tracks">{cards}</div></section>
+<section class="hx-section hx-split" id="systems"><div><p class="hx-kicker">04 / {'طريقة العمل' if ar else 'How we work'}</p><h2>{t('road')}</h2></div><div><p class="hx-lead">{t('road_note')}</p><p>{'تُحدّد متطلبات الأخلاقيات والخصوصية والمراجعة السريرية والملكية الفكرية لكل مساهمة قبل بدء العمل الذي يتطلبها.' if ar else 'Ethics, privacy, clinical review and IP requirements are scoped for each contribution before work requiring those approvals begins.'}</p></div></section>
+<section class="hx-invite" id="participate"><p class="hx-kicker">05 / {'دعوة للمشاركة' if ar else 'An invitation to contribute'}</p><h2>{t('join_heading')}</h2><p class="hx-lead">{t('join_body')}</p><div class="hx-actions"><a class="hx-button" href="{mail()}" data-contact-owner="site">{t('contact')} ↗</a><a class="hx-text-link" href="{prefix}/contact.html#inquiry-form">{t('form')}</a></div><p class="hx-note">{t('join_note')}</p><p class="hx-lead-name">{t('lead')}</p></section></div></main>'''
+ # Replace the legacy hero/main, or the previous generated hub, retaining shared site chrome.
+ if '<main id="main-content" class="hx-hub">' in s:
+  s=re.sub(r'<main id="main-content" class="hx-hub">.*?</main>',lambda _:content,s,count=1,flags=re.S)
+ else:
+  s=re.sub(r'<section class="hero">.*?</main>',lambda _:content,s,count=1,flags=re.S)
+ s=re.sub(r'<style>.*?</style>','',s,flags=re.S)
+ s=re.sub(r'<link rel="stylesheet" href="/healthx/project.css[^" ]*">','',s)
+ s=s.replace('</head>','<link rel="stylesheet" href="/healthx/project.css?v=20261003-1"></head>')
+ s=re.sub(r'<title>.*?</title>',f'<title>HEALTHx — {"مشروع للابتكار الصحي والمشاركة البحثية" if ar else "Health Innovation & Open Research Collaboration"}</title>',s)
+ s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{t("deck")}">',s)
+ s=re.sub(r'<footer class="footer">.*?</footer>',f'<footer class="footer">HEALTHx · {t("lead")} · {"جدة، المملكة العربية السعودية" if ar else "Jeddah, Saudi Arabia"}</footer>',s,flags=re.S)
+ p.write_text(s)
+print('Built paired HEALTHx project hubs with five contribution tracks.')
