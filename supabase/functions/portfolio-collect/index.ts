@@ -31,7 +31,7 @@ const ANCHORS = new Set([
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
   'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones', 'latest-research',
   'programs', 'research-record', 'inventions', 'participate', 'research-lineage', 'kamin',
-  'mission', 'thrusts', 'systems', 'join',
+  'mission', 'thrusts', 'systems', 'join', 'different', 'researchers', 'faq',
 ]);
 const DESTINATIONS = new Set([
   'https://www.who.int/publications/i/item/9789240032705',
