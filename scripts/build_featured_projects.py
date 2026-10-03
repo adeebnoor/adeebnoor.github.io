@@ -25,7 +25,7 @@ for lang, page in [('en','index.html'),('ar','ar/index.html')]:
             if item.get('fallbackImage'):
                 handler='this.onerror=null;this.src='+json.dumps(item['fallbackImage'])+';this.alt='+json.dumps(copy['fallbackAlt'],ensure_ascii=False)+';'
                 fallback=' onerror="'+escape(handler,quote=True)+'"'
-            image_src=item['image']
+            image_src=item.get('image_'+lang, item['image'])  # language-specific screenshot when available
             if item.get('id')=='sultan' and image_src.endswith('.svg'):
                 image_src=image_src[:-4]+'.webp'
             visual=f'<img class="{image_class}" src="{image_src}" alt="{escape(copy["alt"])}" width="{item.get("imageWidth",960)}" height="{item.get("imageHeight",640)}" loading="lazy" decoding="async"{fallback}>'

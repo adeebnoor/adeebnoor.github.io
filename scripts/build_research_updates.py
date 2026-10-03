@@ -49,7 +49,7 @@ def card(item,lang,compact=False):
 
 def home_section(lang):
     ar=lang=='ar'
-    items=[x for x in DATA['items'] if x.get('featured')][:3]
+    items=[x for x in DATA['items'] if x.get('featured')][:4]
     kicker='البحث الحالي وأحدث المنشورات' if ar else 'Current research & publications'
     heading='أسئلة جديدة، وأعمال منشورة.' if ar else 'New questions. Published work.'
     intro=('تحديثات من البحث الجاري والنسخ الأولية والأعمال المنشورة، مع توضيح مرحلة كل عمل. '

@@ -1,8 +1,6 @@
 {
   "product": "SULTAN",
-  "version": "0.7.2",
-  "sourceRepository": "adeebnoor/SulTaN",
-  "sourceCommit": "71105469ecad78ace8473aa222ff5323868e32a8",
-  "sha256": "9cc0e27ee78391ff3baccbf0fc6b2b6082485ed3954804c406bfa5916b062ece",
-  "release": "https://github.com/adeebnoor/SulTaN/releases/tag/v0.7.2"
+  "status": "redirect",
+  "target": "https://sultan-strategy-beta.onrender.com/",
+  "note": "The live public beta (0.13 and later) is served from Render; this path redirects there."
 }

@@ -1,48 +1,229 @@
 [
   {
+    "id": "sultan",
+    "name": "SULTAN",
+    "image": "/assets/sultan-en.webp",
+    "url": "/ventures.html#sultan",
+    "hideSecondary": true,
+    "en": {
+      "name": "SULTAN",
+      "stage": "Public beta 0.13 · Strategy-building workspace",
+      "domain": "Strategy architecture & decision governance",
+      "description": "Start with three lines: your organisation, your goal and the main obstacle. SULTAN returns a decision draft with a first step and a measure of progress, then builds the full strategy with explicit choices, authority, initiatives, council review, board packs and strategic services. Free, Arabic/English, no sign-up.",
+      "cta": "Explore SULTAN",
+      "alt": "SULTAN home page: Your goal. A plan you can start.",
+      "liveCta": "Open SULTAN"
+    },
+    "ar": {
+      "name": "سلطان · SULTAN",
+      "stage": "نسخة تجريبية عامة 0.13 · مساحة عمل لبناء الاستراتيجية",
+      "domain": "هندسة الاستراتيجية وحوكمة القرار",
+      "description": "ابدأ بثلاثة أسطر: جهتك وهدفك والعائق الأساسي. يعطيك سلطان مسودة قرار فيها أول خطوة ومؤشر للتقدم، ثم يبني الاستراتيجية كاملة بخيارات صريحة وصلاحيات ومبادرات ومراجعة مجلس وحزم للمجلس وخدمات استراتيجية. مجاني، عربي وإنجليزي، دون تسجيل.",
+      "cta": "استكشف سلطان",
+      "alt": "الصفحة الرئيسية لسلطان: هدفك يتحوّل إلى خطة تبدأ بها",
+      "liveCta": "افتح سلطان"
+    },
+    "actualImage": true,
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "liveUrl": {
+      "en": "https://sultan-strategy-beta.onrender.com",
+      "ar": "https://sultan-strategy-beta.onrender.com"
+    },
+    "state": {
+      "en": "Public Beta",
+      "ar": "Public Beta"
+    },
+    "updated": {
+      "en": "Updated Oct 2026",
+      "ar": "محدّث أكتوبر 2026"
+    },
+    "role": {
+      "en": "My contribution: strategy architecture and product direction.",
+      "ar": "إسهامي: هندسة الاستراتيجية وتوجيه المنتج."
+    },
+    "image_ar": "/assets/sultan-ar.webp"
+  },
+  {
     "id": "miyar",
     "name": "MIYAR",
-    "image": "/assets/miyar-actual.webp",
+    "image": "/assets/miyar-en.webp",
     "url": "/ventures.html#miyar",
     "en": {
       "name": "MIYAR",
-      "stage": "Public pilot · Under evaluation",
+      "stage": "Release 6.0 · Public pilot",
       "domain": "Strategy-to-workforce intelligence",
-      "description": "Connect strategy, organization design, job evaluation, workforce planning, compensation and institutional approval in a bilingual working prototype with explicit assumptions and human review.",
+      "description": "Describe what the organisation needs to achieve in one sentence; MIYAR suggests a reviewable role reference and opens the right next step across organisation design, job evaluation, workforce planning, compensation and approval. Bilingual, with two-step sign-in, an isolated demo and human review.",
       "cta": "Explore MIYAR",
-      "alt": "Actual MIYAR interface: workforce architecture and position design",
+      "alt": "MIYAR 6.0 home page: describe the goal, and let Miyar guide the next step",
       "liveCta": "Open MIYAR",
       "reviewCta": "Create a position request"
     },
     "ar": {
       "name": "مِعيار · MIYAR",
-      "stage": "إصدار تجريبي عام · قيد التقييم",
+      "stage": "الإصدار 6.0 · تجربة أولية عامة",
       "domain": "من الاستراتيجية إلى تخطيط القوى العاملة",
-      "description": "يربط الاستراتيجية والتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد المؤسسي في نموذج أولي ثنائي اللغة، بافتراضات واضحة ومراجعة بشرية.",
+      "description": "صِف ما تريد المؤسسة تحقيقه بجملة واحدة؛ يقترح معيار مرجعًا وظيفيًا قابلًا للمراجعة ويفتح الخطوة التالية في التصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد. ثنائي اللغة، مع تحقق بخطوتين وبيئة تجريبية معزولة ومراجعة بشرية.",
       "cta": "استكشف مِعيار",
-      "alt": "واجهة مِعيار الفعلية لهندسة القوى العاملة وتصميم المناصب",
+      "alt": "الصفحة الرئيسية لمعيار 6.0: صِف الهدف ودع معيار يقودك للخطوة التالية",
       "liveCta": "افتح مِعيار",
       "reviewCta": "إنشاء طلب منصب"
     },
     "actualImage": true,
-    "imageWidth": 1348,
-    "imageHeight": 926,
+    "imageWidth": 1280,
+    "imageHeight": 720,
     "liveUrl": {
       "en": "https://adeebnoor.github.io/Miyar/",
       "ar": "https://adeebnoor.github.io/Miyar/"
     },
     "reviewUrl": "https://adeebnoor.github.io/Miyar/#enterprise/create",
     "state": {
-      "en": "Prototype",
-      "ar": "Prototype"
+      "en": "Public Pilot",
+      "ar": "Public Pilot"
     },
     "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
+      "en": "Updated Sep 2026",
+      "ar": "محدّث سبتمبر 2026"
     },
     "role": {
       "en": "My contribution: co-development with Ahmad Raza Khan.",
       "ar": "إسهامي: التطوير المشترك مع أحمد رضا خان."
+    },
+    "image_ar": "/assets/miyar-ar.webp"
+  },
+  {
+    "id": "kamin",
+    "name": "Kamin",
+    "url": "/ventures.html#kamin",
+    "image": "/assets/kamin-en.webp",
+    "actualImage": true,
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "en": {
+      "name": "Kamin",
+      "stage": "Kamin 1.0 · Public release",
+      "domain": "Evidence-backed capability network",
+      "description": "Instead of an opaque fit score, Kamin connects coursework, projects and interests to traceable capabilities and pathways, showing the evidence, the gap and why a recommendation appeared. Transcripts are read in the browser and the profile stays with the learner.",
+      "cta": "Explore Kamin",
+      "alt": "Kamin home page: People. Interests. Capabilities. Opportunities.",
+      "liveCta": "Open Kamin"
+    },
+    "ar": {
+      "name": "كامن · Kamin",
+      "stage": "كامن 1.0 · إصدار عام",
+      "domain": "شبكة قدرات مدعومة بالأدلة",
+      "description": "بدل درجة ملاءمة غامضة، يربط كامن المقررات والمشاريع والاهتمامات بقدرات ومسارات يمكن تتبّعها، ويُظهر الدليل والفجوة وسبب ظهور التوصية. يُقرأ السجل الأكاديمي داخل المتصفح، ويبقى الملف ملكًا للمتعلّم.",
+      "cta": "استكشف كامن",
+      "alt": "الصفحة الرئيسية لكامن: الناس، الاهتمامات، القدرات، الفرص",
+      "liveCta": "افتح كامن"
+    },
+    "liveUrl": {
+      "en": "https://kamin-12mf.onrender.com/?lang=en",
+      "ar": "https://kamin-12mf.onrender.com/?lang=ar"
+    },
+    "state": {
+      "en": "Public Release",
+      "ar": "Public Release"
+    },
+    "updated": {
+      "en": "Updated Oct 2026",
+      "ar": "محدّث أكتوبر 2026"
+    },
+    "role": {
+      "en": "My contribution: project concept and capability-network design.",
+      "ar": "إسهامي: فكرة المشروع وتصميم شبكة القدرات."
+    },
+    "image_ar": "/assets/kamin-ar.webp"
+  },
+  {
+    "id": "ridi",
+    "name": "RIDI",
+    "url": "/demo/",
+    "en": {
+      "name": "RIDI",
+      "stage": "Research project · open toolkit · open data",
+      "domain": "AI evaluation & decision identity",
+      "description": "Equal evaluation scores do not certify equivalent AI behaviour. RIDI measures what an AI system actually selects and computes the minimum change an update requires. Submission-ready manuscript, ridi-audit on PyPI and an open reproducibility package.",
+      "cta": "Explore RIDI",
+      "alt": "RIDI project page: Equal evaluation scores do not certify equivalent AI behaviour",
+      "ideaCta": "Why selection change needs a budget",
+      "liveCta": "Open RIDI"
+    },
+    "ar": {
+      "name": "RIDI",
+      "stage": "مشروع بحثي · أداة مفتوحة · بيانات مفتوحة",
+      "domain": "تقييم الذكاء الاصطناعي وهوية القرار",
+      "description": "تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي. يقيس RIDI ما يختاره النظام فعلًا، ويحسب الحد الأدنى من التغيير الذي يتطلبه التحديث. مخطوطة جاهزة للتقديم، وحزمة ridi-audit على PyPI، وحزمة بيانات مفتوحة لإعادة الإنتاج.",
+      "cta": "استكشف RIDI",
+      "alt": "صفحة مشروع RIDI: تساوي درجات التقييم لا يضمن تكافؤ سلوك الذكاء الاصطناعي",
+      "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية",
+      "liveCta": "افتح RIDI"
+    },
+    "ideaUrl": "/ideas/position.html#beyond-the-average",
+    "repoUrl": "https://github.com/adeebnoor/ridi",
+    "osfUrl": "https://osf.io/txwdv/",
+    "state": {
+      "en": "Open toolkit",
+      "ar": "Open toolkit"
+    },
+    "updated": {
+      "en": "Updated Sep 2026",
+      "ar": "محدّث سبتمبر 2026"
+    },
+    "role": {
+      "en": "My contribution: research lead and audit-toolkit architecture.",
+      "ar": "إسهامي: قيادة البحث وهندسة أداة التدقيق."
+    },
+    "image": "/assets/ridi-actual.webp",
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "actualImage": true,
+    "liveUrl": {
+      "en": "https://adeebnoor.github.io/ridi/",
+      "ar": "https://adeebnoor.github.io/ridi/"
+    }
+  },
+  {
+    "id": "iscarb",
+    "name": "iSCARB",
+    "image": "/assets/iscarb-lecture.webp",
+    "url": "/teaching.html#iscarb",
+    "en": {
+      "name": "iSCARB",
+      "stage": "Live course · Open preprint",
+      "domain": "Defensible engineering judgment",
+      "description": "Story-led lectures for Chapters 12–20 make each chapter a decision case, with executable labs, a two-minute ownership check and an AI study coach: AI is the practice layer, judgment is what is assessed. IMAM provides an optional contextualization layer.",
+      "cta": "Explore iSCARB",
+      "alt": "iSCARB story-led lecture, Chapter 12 Safety Engineering: Episode 1, Every command within limits",
+      "liveCta": "Open iSCARB"
+    },
+    "ar": {
+      "name": "iSCARB",
+      "stage": "مقرر متاح · ورقة أولية منشورة",
+      "domain": "الحكم الهندسي القابل للدفاع",
+      "description": "محاضرات قصصية للفصول 12–20 تجعل كل فصل حالة قرار، مع معامل تطبيقية وتحقق ملكية في دقيقتين ومدرّب دراسة بالذكاء الاصطناعي: الذكاء الاصطناعي للتدريب، والحكم الهندسي هو ما يُقيَّم. ويتيح IMAM طبقة اختيارية لتكييف السياق.",
+      "cta": "استكشف iSCARB",
+      "alt": "محاضرة iSCARB القصصية، الفصل 12 هندسة السلامة: الحلقة الأولى «كل أمر ضمن حدوده»",
+      "liveCta": "افتح iSCARB"
+    },
+    "liveUrl": {
+      "en": "https://adeebnoor.github.io/CPIT/iscarb.html",
+      "ar": "https://adeebnoor.github.io/CPIT/iscarb.html"
+    },
+    "actualImage": true,
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "state": {
+      "en": "Live",
+      "ar": "Live"
+    },
+    "updated": {
+      "en": "Updated Oct 2026",
+      "ar": "محدّث أكتوبر 2026"
+    },
+    "role": {
+      "en": "My contribution: method creator and course lead.",
+      "ar": "إسهامي: مطوّر المنهجية وقائد المقرر."
     }
   },
   {
@@ -87,130 +268,37 @@
     }
   },
   {
-    "id": "sultan",
-    "name": "SULTAN",
-    "image": "/assets/sultan-strategy-logo.svg",
-    "viewBox": "310 60 242 146",
-    "url": "/SulTaN/",
-    "hideSecondary": true,
+    "id": "healthx",
+    "name": "HEALTHx",
+    "viewBox": "570 623 244 146",
+    "url": "/healthx/",
     "en": {
-      "name": "SULTAN",
-      "stage": "Public beta · Strategy-building workspace",
-      "domain": "Strategy architecture & decision governance",
-      "description": "Build or improve strategy by connecting institutional identity and ambition to explicit choices, authority, annual transitions, initiatives, funding context and a reviewable strategy.",
-      "cta": "Explore SULTAN",
-      "alt": "SULTAN Strategy blue and gold horse-and-arrow logo",
-      "liveCta": "Open SULTAN"
+      "name": "HEALTHx",
+      "stage": "Platform concept",
+      "domain": "Clinical innovation",
+      "description": "Exploring how hospital innovation can become reusable digital-health services and research-backed products.",
+      "cta": "Explore HEALTHx",
+      "alt": "Illustration of a clinician exploring digital-health information"
     },
     "ar": {
-      "name": "سلطان · SULTAN",
-      "stage": "نسخة تجريبية عامة · مساحة عمل لبناء الاستراتيجية",
-      "domain": "هندسة الاستراتيجية وحوكمة القرار",
-      "description": "ابنِ استراتيجية جديدة أو حسّن القائمة عبر ربط هوية الجهة وطموحها بالخيارات الصريحة والصلاحيات والتحولات السنوية والمبادرات وسياق التمويل واستراتيجية قابلة للمراجعة.",
-      "cta": "استكشف سلطان",
-      "alt": "شعار سلطان للاستراتيجية بالأزرق والذهبي مع الحصان والسهم",
-      "liveCta": "افتح سلطان"
-    },
-    "actualImage": true,
-    "imageWidth": 1254,
-    "imageHeight": 741,
-    "liveUrl": {
-      "en": "https://sultan-strategy-beta.onrender.com",
-      "ar": "https://sultan-strategy-beta.onrender.com"
+      "name": "HEALTHx",
+      "stage": "تصوّر لمنصة",
+      "domain": "الابتكار السريري",
+      "description": "استكشاف تحويل ابتكارات المستشفيات إلى خدمات صحية رقمية قابلة لإعادة الاستخدام ومنتجات تستند إلى البحث.",
+      "cta": "استكشف HEALTHx",
+      "alt": "رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"
     },
     "state": {
-      "en": "Public Beta",
-      "ar": "Public Beta"
+      "en": "In Development",
+      "ar": "In Development"
     },
     "updated": {
       "en": "Updated 2026",
       "ar": "محدّث 2026"
     },
     "role": {
-      "en": "My contribution: strategy architecture and product direction.",
-      "ar": "إسهامي: هندسة الاستراتيجية وتوجيه المنتج."
-    }
-  },
-  {
-    "id": "ridi",
-    "name": "RIDI",
-    "viewBox": "50 623 247 146",
-    "url": "/demo/",
-    "en": {
-      "name": "RIDI",
-      "stage": "Research & open-source audit toolkit",
-      "domain": "Ranking update governance",
-      "description": "Measure how much a ranking update changes the selected items, then compute the exact minimum turnover compatible with a declared utility budget.",
-      "cta": "Explore RIDI",
-      "alt": "RIDI: measuring selection change and the identity–utility frontier",
-      "ideaCta": "Why selection change needs a budget"
-    },
-    "ar": {
-      "name": "RIDI",
-      "stage": "بحث وأداة تدقيق مفتوحة المصدر",
-      "domain": "حوكمة تحديث أنظمة الترتيب",
-      "description": "قياس مقدار تغيّر العناصر المختارة بعد تحديث نظام الترتيب، ثم حساب الحد الأدنى الدقيق للتغيّر المتوافق مع ميزانية منفعة معلنة.",
-      "cta": "استكشف RIDI",
-      "alt": "RIDI: قياس تغيّر الاختيار وجبهة الهوية–المنفعة",
-      "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية"
-    },
-    "ideaUrl": "/ideas/position.html#beyond-the-average",
-    "repoUrl": "https://github.com/adeebnoor/ridi",
-    "osfUrl": "https://osf.io/txwdv/",
-    "state": {
-      "en": "Prototype",
-      "ar": "Prototype"
-    },
-    "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
-    },
-    "role": {
-      "en": "My contribution: research lead and audit-toolkit architecture.",
-      "ar": "إسهامي: قيادة البحث وهندسة أداة التدقيق."
-    }
-  },
-  {
-    "id": "kamin",
-    "name": "Kamin",
-    "url": "/ventures.html#kamin",
-    "image": "/assets/kamin-actual.jpg",
-    "actualImage": true,
-    "imageWidth": 1348,
-    "imageHeight": 926,
-    "en": {
-      "name": "Kamin",
-      "stage": "Public pilot · Under evaluation",
-      "domain": "Learner-owned capability networks",
-      "description": "Connect interests, goals and reviewed academic evidence with learning and career pathways. Explore the relationships, evidence gaps and next steps in a profile the learner controls.",
-      "cta": "Explore Kamin",
-      "alt": "Kamin public pilot: interests, capabilities and evidence connected in a learning and career network",
-      "liveCta": "Open Kamin"
-    },
-    "ar": {
-      "name": "كامن · Kamin",
-      "stage": "إصدار تجريبي عام · قيد التقييم",
-      "domain": "شبكة قدرات يملكها المتعلّم",
-      "description": "يربط الاهتمامات والأهداف والأدلة الأكاديمية المراجعة بمسارات التعلم والعمل، ويشرح العلاقات وفجوات الأدلة والخطوة التالية داخل ملف يتحكم فيه المتعلّم.",
-      "cta": "استكشف كامن",
-      "alt": "واجهة كامن التجريبية: شبكة تربط الاهتمامات والقدرات والأدلة بمسارات التعلم والعمل",
-      "liveCta": "افتح كامن"
-    },
-    "liveUrl": {
-      "en": "https://kamin-12mf.onrender.com/?lang=en",
-      "ar": "https://kamin-12mf.onrender.com/?lang=ar"
-    },
-    "state": {
-      "en": "Public Pilot",
-      "ar": "Public Pilot"
-    },
-    "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
-    },
-    "role": {
-      "en": "My contribution: project concept and capability-network design.",
-      "ar": "إسهامي: فكرة المشروع وتصميم شبكة القدرات."
+      "en": "My contribution: platform concept and clinical-innovation architecture.",
+      "ar": "إسهامي: مفهوم المنصة وهندسة الابتكار السريري."
     }
   },
   {
@@ -257,83 +345,6 @@
     },
     "imageWidth": 1200,
     "imageHeight": 800
-  },
-  {
-    "id": "iscarb",
-    "name": "iSCARB",
-    "image": "/assets/iscarb-actual.webp",
-    "url": "/teaching.html#iscarb",
-    "en": {
-      "name": "iSCARB",
-      "stage": "Live course · Open preprint",
-      "domain": "Defensible engineering judgment",
-      "description": "Nine software-engineering chapters train learners to justify a choice, state its limits, inspect evidence and revise after a changed condition. IMAM provides an optional contextualization layer.",
-      "cta": "Explore iSCARB",
-      "alt": "Actual iSCARB interface for interactive software engineering lectures",
-      "liveCta": "Open iSCARB"
-    },
-    "ar": {
-      "name": "iSCARB",
-      "stage": "مقرر متاح · ورقة أولية منشورة",
-      "domain": "الحكم الهندسي القابل للدفاع",
-      "description": "تسعة فصول في هندسة البرمجيات يتدرّب فيها الطالب على تبرير الاختيار وتحديد حدوده وفحص الأدلة ومراجعة القرار عند تغيّر الظروف. ويتيح IMAM طبقة اختيارية لتكييف السياق.",
-      "cta": "استكشف iSCARB",
-      "alt": "واجهة iSCARB الفعلية للمحاضرات التفاعلية في هندسة البرمجيات",
-      "liveCta": "افتح iSCARB"
-    },
-    "liveUrl": {
-      "en": "https://adeebnoor.github.io/CPIT/iscarb.html",
-      "ar": "https://adeebnoor.github.io/CPIT/iscarb.html"
-    },
-    "actualImage": true,
-    "imageWidth": 1348,
-    "imageHeight": 926,
-    "state": {
-      "en": "Live",
-      "ar": "Live"
-    },
-    "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
-    },
-    "role": {
-      "en": "My contribution: method creator and course lead.",
-      "ar": "إسهامي: مطوّر المنهجية وقائد المقرر."
-    }
-  },
-  {
-    "id": "healthx",
-    "name": "HEALTHx",
-    "viewBox": "570 623 244 146",
-    "url": "/healthx/",
-    "en": {
-      "name": "HEALTHx",
-      "stage": "Platform concept",
-      "domain": "Clinical innovation",
-      "description": "Exploring how hospital innovation can become reusable digital-health services and research-backed products.",
-      "cta": "Explore HEALTHx",
-      "alt": "Illustration of a clinician exploring digital-health information"
-    },
-    "ar": {
-      "name": "HEALTHx",
-      "stage": "تصوّر لمنصة",
-      "domain": "الابتكار السريري",
-      "description": "استكشاف تحويل ابتكارات المستشفيات إلى خدمات صحية رقمية قابلة لإعادة الاستخدام ومنتجات تستند إلى البحث.",
-      "cta": "استكشف HEALTHx",
-      "alt": "رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"
-    },
-    "state": {
-      "en": "In Development",
-      "ar": "In Development"
-    },
-    "updated": {
-      "en": "Updated 2026",
-      "ar": "محدّث 2026"
-    },
-    "role": {
-      "en": "My contribution: platform concept and clinical-innovation architecture.",
-      "ar": "إسهامي: مفهوم المنصة وهندسة الابتكار السريري."
-    }
   },
   {
     "id": "genomefit",

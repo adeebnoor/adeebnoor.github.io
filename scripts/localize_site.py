@@ -26,6 +26,10 @@ TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
     TRANSLATIONS.update(json.loads(file.read_text()))
 
+TRANSLATIONS.setdefault('ventures.html', {}).setdefault('text', {}).update({
+    'Public beta 0.13 starts with three lines (organisation, goal, main obstacle) and returns a decision draft with a first step and a measure of progress. It adds council review, editable board packs, strategic services and an optional offline app.': 'تبدأ النسخة التجريبية العامة 0.13 بثلاثة أسطر (الجهة، والهدف، والعائق الأساسي) وتعيد مسودة قرار فيها أول خطوة ومؤشر للتقدم. وتضيف مراجعة المجلس، وحزمًا قابلة للتحرير للمجلس، وخدمات استراتيجية، وتطبيقًا اختياريًا يعمل دون اتصال.',
+})
+
 # Current research copy lives with the English source; bibliographic titles retain
 # their published or manuscript wording in both languages.
 TRANSLATIONS['research.html']['text'].update({
@@ -48,6 +52,12 @@ TRANSLATIONS['research.html']['text'].update({
     'Current manuscripts & preprints': 'المخطوطات والنسخ الأولية الحالية',
     'Performance equivalence does not imply action equivalence in AI systems': 'Performance equivalence does not imply action equivalence in AI systems',
     'Work in progress · Not published or accepted': 'بحث جارٍ · غير منشور أو مقبول للنشر',
+    'Current manuscript:': 'المخطوطة الحالية:',
+    'Equal evaluation scores do not certify equivalent AI behaviour': 'Equal evaluation scores do not certify equivalent AI behaviour',
+    '. In a preregistered experiment, five retrieval metrics were identical while answer correctness changed for 17.27% of 800 queries. Submission-ready; not peer reviewed.': '. في تجربة مسجّلة مسبقًا تطابقت خمسة مقاييس استرجاع، بينما تغيّرت صحة الإجابة في 17.27% من 800 استعلام. المخطوطة جاهزة للتقديم وغير محكّمة.',
+    'RIDI project page →': 'صفحة مشروع RIDI ←',
+    'Open data (Zenodo) →': 'البيانات المفتوحة (Zenodo) ←',
+    'Submission-ready manuscript · Not peer reviewed · Open data: Zenodo DOI 10.5281/zenodo.22974727': 'مخطوطة جاهزة للتقديم · غير محكّمة · بيانات مفتوحة: Zenodo DOI 10.5281/zenodo.22974727',
     'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation': 'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation',
     'Zenodo v1.0 · Preprint · Not peer reviewed': 'Zenodo v1.0 · نسخة أولية · غير محكّمة',
     'Research translation': 'تحويل البحث إلى تطبيق',

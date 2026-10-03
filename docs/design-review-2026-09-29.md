@@ -18,3 +18,12 @@ Goal: make the homepage work as a business front door while keeping every existi
 ## Not changed (owner decisions)
 - Content, numbers and claims are unchanged; financial figures stay off the homepage by owner decision. No testimonials or client logos were invented.
 - To change or add a recommendation, edit `data/testimonials.json` and run `python scripts/build_site.py`.
+
+## Update — 3 October 2026 (RIDI and iSCARB)
+- **RIDI:** current manuscript title *Equal evaluation scores do not certify equivalent AI behaviour* (submission-ready, not peer reviewed); new open dataset on Zenodo (record 22974727, CC BY 4.0) added to latest research, research page, ventures and CV blocks; project card links to the RIDI project page with a real screenshot (`assets/ridi-actual.webp`).
+- **iSCARB:** story-led lectures (Chapters 12–20), executable labs, two-minute ownership check and AI study coach reflected on the project card, teaching, ventures and CV blocks; card image is a real Chapter 12 lecture slide (`assets/iscarb-lecture.webp`).
+- Homepage "New questions. Published work." now shows four featured records.
+- `supabase/functions/portfolio-collect/index.ts` allows the new Zenodo link. Redeploy `portfolio-collect` so clicks on it are counted; the site works without the redeploy.
+- **SULTAN 0.13, MIYAR 6.0.1, Kamin 1.0:** cards, ventures and partnerships text reflect the latest releases (three-line start, council review, board packs and strategic services; one-sentence start, two-step sign-in and isolated demo; evidence-backed capability network). Cards use real screenshots in each language (`assets/{sultan,miyar,kamin}-{en,ar}.webp`; `image_ar` in `data/featured-projects.json`).
+- **Project order:** products first (SULTAN, MIYAR, Kamin), then research and teaching (RIDI, iSCARB, Kinetic HR), then HEALTHx and the earlier SHIFAA and GenomeFit.
+- `/SulTaN/` now redirects to the live SULTAN beta (0.13+) instead of serving the stale 0.7.2 copy; the `sultan-sync.yml` workflow, which could only publish the old single-file release format, is removed (recoverable from git history).

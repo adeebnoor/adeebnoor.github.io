@@ -52,7 +52,7 @@ def bump_assets(source):
     source = re.sub(r'/site-nav\.js(?:\?v=[^"\s>]+)?', f'/site-nav.js?v={VERSION}', source)
     return source
 
-AR_STATES = {'Live':'متاح', 'Public Beta':'نسخة تجريبية عامة', 'Public Pilot':'تجربة أولية عامة', 'Prototype':'نموذج أولي', 'In Development':'قيد التطوير'}
+AR_STATES = {'Live':'متاح', 'Public Beta':'نسخة تجريبية عامة', 'Public Pilot':'تجربة أولية عامة', 'Prototype':'نموذج أولي', 'In Development':'قيد التطوير', 'Open toolkit':'أداة مفتوحة', 'Public Release':'إصدار عام'}
 
 def normalize_home(source, arabic=False):
     if arabic:
@@ -69,7 +69,7 @@ def normalize_home(source, arabic=False):
     return source
 
 PROJECTS = {
-    'miyar': ('Prototype','2026',
+    'miyar': ('Public Pilot','2026',
         'My role: co-development with Ahmad Raza Khan.',
         'دوري: التطوير المشترك مع أحمد رضا خان.'),
     'kinetic-hr': ('Prototype','2026',
@@ -78,10 +78,10 @@ PROJECTS = {
     'sultan': ('Public Beta','2026',
         'My role: strategy architecture and product direction.',
         'دوري: هندسة الاستراتيجية وتوجيه المنتج.'),
-    'ridi-system': ('Prototype','2026',
+    'ridi-system': ('Open toolkit','2026',
         'My role: research lead and audit-toolkit architecture.',
         'دوري: قيادة البحث وهندسة أداة التدقيق.'),
-    'kamin': ('Public Pilot','2026',
+    'kamin': ('Public Release','2026',
         'My role: project concept and capability-network design.',
         'دوري: فكرة المشروع وتصميم شبكة القدرات.'),
     'shifaa': ('Live','2019',
