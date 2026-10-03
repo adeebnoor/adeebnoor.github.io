@@ -36,11 +36,11 @@
       "title_ar": "تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي",
       "venue": "RIDI research project",
       "venue_ar": "مشروع RIDI البحثي",
-      "url": "https://github.com/adeebnoor/ridi",
-      "url_ar": "https://github.com/adeebnoor/ridi",
+      "url": "https://adeebnoor.github.io/ridi/",
+      "url_ar": "https://adeebnoor.github.io/ridi/",
       "source": {
-        "en": "GitHub · RIDI",
-        "ar": "GitHub · RIDI"
+        "en": "RIDI project page",
+        "ar": "صفحة مشروع RIDI"
       },
       "summary": {
         "en": "In a preregistered retrieval experiment, five standard retrieval metrics were identical, yet benchmark-defined answer correctness changed for 17.27% of 800 queries. Registered extensions, an exact control frontier and a production update test the limits of that result. Submission-ready; not peer reviewed, accepted or published.",

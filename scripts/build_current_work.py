@@ -34,7 +34,7 @@ COPY = {
   'hub': 'Explore iSCARB', 'paper': 'Read the open preprint', 'method': 'Method & evidence', 'alignmentLink': 'Read the alignment note',
   'ridiBody': 'RIDI is the research project behind the manuscript “Equal evaluation scores do not certify equivalent AI behaviour”, with an open toolkit (ridi-audit) for selection-change auditing and the exact identity–utility frontier. It asks how systems can retain aggregate performance while changing their actions, and how much change an explicit objective actually requires.',
   'ridiStatus': 'The manuscript is submission-ready and not peer reviewed. Source data and a reproducibility package are open on Zenodo (CC BY 4.0); code, demonstrations and research records are linked separately from publication claims.',
-  'ridiLink': 'Explore RIDI', 'ridiProject': 'RIDI on GitHub', 'ridiData': 'Open data (Zenodo)', 'background': 'Research context', 'contact': 'Discuss a pilot',
+  'ridiLink': 'Explore RIDI', 'ridiProject': 'RIDI project page', 'ridiData': 'Open data (Zenodo)', 'background': 'Research context', 'contact': 'Discuss a pilot',
   'cvHeading': 'Current systems & research · October 2026',
   'cvResearch': 'Submission-ready manuscript (not peer reviewed): Equal evaluation scores do not certify equivalent AI behaviour, with open source data on Zenodo (DOI 10.5281/zenodo.22974727). I examine action identity, evidence and the distinction between observed and necessary change.',
   'cvIsCarb': 'iSCARB integrates IMAM as an optional contextualization layer. Current implementation spans nine software-engineering chapters, with story-led lectures from Chapter 12, executable labs and an open preprint.',
@@ -61,7 +61,7 @@ COPY = {
   'hub': 'استكشف iSCARB', 'paper': 'اقرأ الورقة الأولية', 'method': 'المنهجية والأدلة', 'alignmentLink': 'اقرأ مذكرة المواءمة',
   'ridiBody': 'RIDI هو المشروع البحثي وراء مخطوطة «تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي»، ومعه أداة مفتوحة (ridi-audit) لتدقيق تغيّر الاختيارات وحساب جبهة الهوية–المنفعة الدقيقة. يسأل: كيف تحافظ الأنظمة على أدائها الإجمالي بينما تتغير أفعالها، وما مقدار التغيير الذي يتطلبه هدف معلن فعلًا؟',
   'ridiStatus': 'المخطوطة جاهزة للتقديم وغير محكّمة. بيانات المصدر وحزمة إعادة الإنتاج متاحة مفتوحة على Zenodo (CC BY 4.0)، وتُعرض الشفرة والعروض والموارد البحثية مع تمييزها عن حالة النشر العلمي.',
-  'ridiLink': 'استكشف RIDI', 'ridiProject': 'RIDI على GitHub', 'ridiData': 'البيانات المفتوحة (Zenodo)', 'background': 'السياق البحثي', 'contact': 'ناقش تجربة أولية',
+  'ridiLink': 'استكشف RIDI', 'ridiProject': 'صفحة مشروع RIDI', 'ridiData': 'البيانات المفتوحة (Zenodo)', 'background': 'السياق البحثي', 'contact': 'ناقش تجربة أولية',
   'cvHeading': 'الأنظمة والأبحاث الحالية · أكتوبر 2026',
   'cvResearch': 'مخطوطة جاهزة للتقديم (غير محكّمة): تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي، مع بيانات مصدر مفتوحة على Zenodo (DOI 10.5281/zenodo.22974727). أدرس هوية الأفعال وأدلتها والتمييز بين التغيير المرصود والتغيير الضروري.',
   'cvIsCarb': 'يضم iSCARB طبقة IMAM الاختيارية للسياق. يشمل التطبيق الحالي تسعة فصول لهندسة البرمجيات، مع محاضرات قصصية من الفصل الثاني عشر ومعامل تطبيقية وورقة أولية مفتوحة.',
@@ -107,7 +107,7 @@ for lang in ('en', 'ar'):
         s = s.replace('<section class="venture-stack">', '<section class="venture-stack">'+venture('kamin', lang), 1)
     iscarb = '<article class="theme-card" id="iscarb-project"><div class="theme-no">iSCARB</div><h2>'+escape(c['iscarbTitle'])+'</h2>'+paras([c['iscarbBody']])+'<h3 id="imam">'+escape(c['imamTitle'])+'</h3>'+paras([c['imamBody'], c['paperStatus']])+'<div class="venture-links">'+a(CPIT+'iscarb.html', c['hub'], True)+a(PAPER,c['paper'])+'</div></article>'
     s = replace_card(s, 'iscarb-project', iscarb)
-    ridi = '<article class="theme-card" id="ridi-system"><div class="theme-no">RIDI</div><h2>RIDI</h2>'+paras([c['ridiBody'], c['ridiStatus']])+'<div class="venture-links">'+a('https://github.com/adeebnoor/ridi',c['ridiProject'],True)+a(public+'/demo/',c['ridiLink'])+a('https://zenodo.org/records/22974727',c['ridiData'])+a(public+'/research.html#ridi',c['background'])+'</div></article>'
+    ridi = '<article class="theme-card" id="ridi-system"><div class="theme-no">RIDI</div><h2>RIDI</h2>'+paras([c['ridiBody'], c['ridiStatus']])+'<div class="venture-links">'+a('https://adeebnoor.github.io/ridi/',c['ridiProject'],True)+a(public+'/demo/',c['ridiLink'])+a('https://zenodo.org/records/22974727',c['ridiData'])+a(public+'/research.html#ridi',c['background'])+'</div></article>'
     p.write_text(replace_card(s, 'ridi-system', ridi))
 
     p = ROOT/(prefix+'teaching.html'); s = p.read_text()

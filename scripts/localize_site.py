@@ -55,7 +55,7 @@ TRANSLATIONS['research.html']['text'].update({
     'Current manuscript:': 'المخطوطة الحالية:',
     'Equal evaluation scores do not certify equivalent AI behaviour': 'Equal evaluation scores do not certify equivalent AI behaviour',
     '. In a preregistered experiment, five retrieval metrics were identical while answer correctness changed for 17.27% of 800 queries. Submission-ready; not peer reviewed.': '. في تجربة مسجّلة مسبقًا تطابقت خمسة مقاييس استرجاع، بينما تغيّرت صحة الإجابة في 17.27% من 800 استعلام. المخطوطة جاهزة للتقديم وغير محكّمة.',
-    'RIDI on GitHub →': 'RIDI على GitHub ←',
+    'RIDI project page →': 'صفحة مشروع RIDI ←',
     'Open data (Zenodo) →': 'البيانات المفتوحة (Zenodo) ←',
     'Submission-ready manuscript · Not peer reviewed · Open data: Zenodo DOI 10.5281/zenodo.22974727': 'مخطوطة جاهزة للتقديم · غير محكّمة · بيانات مفتوحة: Zenodo DOI 10.5281/zenodo.22974727',
     'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation': 'From Answer Production to Defensible Engineering Judgment in AI-Containing Systems: The iSCARB Framework and a Nine-Chapter Software Engineering Implementation',

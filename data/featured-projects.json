@@ -145,7 +145,7 @@
       "domain": "AI evaluation & decision identity",
       "description": "Equal evaluation scores do not certify equivalent AI behaviour. RIDI measures what an AI system actually selects and computes the minimum change an update requires. Submission-ready manuscript, ridi-audit on PyPI and an open reproducibility package.",
       "cta": "Explore RIDI",
-      "alt": "RIDI: Equal evaluation scores do not certify equivalent AI behaviour",
+      "alt": "RIDI project page: Equal evaluation scores do not certify equivalent AI behaviour",
       "ideaCta": "Why selection change needs a budget",
       "liveCta": "Open RIDI"
     },
@@ -155,7 +155,7 @@
       "domain": "تقييم الذكاء الاصطناعي وهوية القرار",
       "description": "تساوي درجات التقييم لا يضمن تكافؤ سلوك أنظمة الذكاء الاصطناعي. يقيس RIDI ما يختاره النظام فعلًا، ويحسب الحد الأدنى من التغيير الذي يتطلبه التحديث. مخطوطة جاهزة للتقديم، وحزمة ridi-audit على PyPI، وحزمة بيانات مفتوحة لإعادة الإنتاج.",
       "cta": "استكشف RIDI",
-      "alt": "RIDI: تساوي درجات التقييم لا يضمن تكافؤ سلوك الذكاء الاصطناعي",
+      "alt": "صفحة مشروع RIDI: تساوي درجات التقييم لا يضمن تكافؤ سلوك الذكاء الاصطناعي",
       "ideaCta": "لماذا يحتاج تغيّر الاختيار إلى ميزانية",
       "liveCta": "افتح RIDI"
     },
@@ -179,8 +179,8 @@
     "imageHeight": 720,
     "actualImage": true,
     "liveUrl": {
-      "en": "https://github.com/adeebnoor/ridi",
-      "ar": "https://github.com/adeebnoor/ridi"
+      "en": "https://adeebnoor.github.io/ridi/",
+      "ar": "https://adeebnoor.github.io/ridi/"
     }
   },
   {
