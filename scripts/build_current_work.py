@@ -17,11 +17,12 @@ COPY = {
  'en': {
   'miyar': ('From strategy to an approved workforce decision.', [
    'MI’YĀR connects strategy, organizational design, job evaluation, workforce planning, compensation and approval. Developed with Ahmad Raza Khan, it makes assumptions, role responsibilities and review steps visible across the workflow.',
+   'Release 6.0 starts from one sentence: describe the goal or problem and MI’YĀR suggests a reviewable role reference and the next action. It adds two-step sign-in, an isolated demo organization and a guided ten-minute tour.',
    'The public prototype supports exploration and evaluation. Institutional pilots should validate data, approval rules and integration needs in their own setting.'
   ], [('Strategy & structure', 'Translate strategic intent into organization and job architecture.'), ('Scenarios & cost', 'Explore workforce plans, job evaluation and compensation assumptions.'), ('Review & approval', 'Carry the evidence and responsibilities into an explicit approval workflow.')]),
   'kamin': ('Understand your capabilities. Explain your next step.', [
    'Kamin connects a student’s interests, goals and reviewed academic evidence in a capability network. Its user-controlled profile explains how learning and career pathways relate to the person, where evidence is missing and what to explore next.',
-   'The public pilot includes a knowledge explorer and traceable semantic relationships. Current pathways are reference examples; recommendation quality is an active validation question.'
+   'Kamin 1.0 is a public release built around an evidence-backed capability network: every relation shows its source, and transcripts are read in the browser rather than sent to a server. Current pathways are reference examples; recommendation quality is an active validation question.'
   ], [('Start with the person', 'Connect interests and goals with the evidence the student chooses to add.'), ('Explain the connection', 'Inspect the sources and relationships behind a suggested pathway.'), ('Own the next step', 'Review the profile and turn evidence gaps into a learning plan.')]),
   'iscarbTitle': 'iSCARB — defensible engineering judgment',
   'iscarbBody': 'When AI can generate an answer, students still need to explain why it is justified and when it stops being justified. iSCARB is implemented across nine software-engineering chapters and assignments, connecting a choice to its assumptions, boundaries, action and evidence. From Chapter 12, story-led lectures turn each chapter into a decision case, supported by executable labs, a two-minute ownership check and an AI study coach: AI is the practice layer, and engineering judgment is what is assessed.',
@@ -43,11 +44,12 @@ COPY = {
  'ar': {
   'miyar': ('من الاستراتيجية إلى قرار معتمد للقوى العاملة.', [
    'يربط معيار الاستراتيجية بالتصميم التنظيمي وتقييم الوظائف وتخطيط القوى العاملة والتعويضات والاعتماد. طُوّر بالتعاون مع أحمد رضا خان، ويُظهر الافتراضات ومسؤوليات الوظائف وخطوات المراجعة عبر مسار العمل.',
+   'يبدأ الإصدار 6.0 من جملة واحدة: صِف الهدف أو المشكلة، فيقترح معيار مرجعًا وظيفيًا قابلًا للمراجعة والإجراء التالي. ويضيف التحقق بخطوتين ومؤسسة تجريبية معزولة وجولة موجّهة في عشر دقائق.',
    'تتيح النسخة الأولية العامة الاستكشاف والتقييم. وتحتاج التجارب المؤسسية إلى التحقق من البيانات وقواعد الاعتماد ومتطلبات التكامل في بيئتها الفعلية.'
   ], [('الاستراتيجية والهيكل', 'ترجمة التوجه الاستراتيجي إلى تصميم تنظيمي وهندسة وظائف.'), ('السيناريوهات والتكلفة', 'استكشاف خطط القوى العاملة وتقييم الوظائف وافتراضات التعويضات.'), ('المراجعة والاعتماد', 'نقل الأدلة والمسؤوليات إلى مسار اعتماد واضح.')]),
   'kamin': ('افهم قدراتك. واعرف سبب خطوتك القادمة.', [
    'يربط كامن اهتمامات الطالب وأهدافه وأدلته الأكاديمية التي راجعها في شبكة قدرات. ويوضح ملف يتحكم فيه المستخدم علاقة مسارات التعلم والعمل بالشخص، وأين تنقص الأدلة، وما الخطوة التي يمكن استكشافها.',
-   'يتضمن الإصدار التجريبي العام مستكشفًا للمعرفة وعلاقات دلالية يمكن تتبّعها. المسارات الحالية أمثلة مرجعية، وجودة التوصيات موضوع للتحقق البحثي.'
+   'كامن 1.0 إصدار عام مبني على شبكة قدرات مدعومة بالأدلة: لكل علاقة مصدر ظاهر، ويُقرأ السجل الأكاديمي داخل المتصفح دون إرساله إلى خادم. المسارات الحالية أمثلة مرجعية، وجودة التوصيات موضوع للتحقق البحثي.'
   ], [('البداية من الشخص', 'ربط الاهتمامات والأهداف بالأدلة التي يختار الطالب إضافتها.'), ('تفسير العلاقة', 'فحص المصادر والعلاقات وراء المسار المقترح.'), ('امتلاك الخطوة التالية', 'مراجعة الملف وتحويل فجوات الأدلة إلى خطة تعلم.')]),
   'iscarbTitle': 'iSCARB — حكم هندسي يمكن الدفاع عنه',
   'iscarbBody': 'عندما يستطيع الذكاء الاصطناعي توليد إجابة، يبقى على الطالب تفسير سبب صلاحيتها ومتى تتوقف عن الصلاحية. يُطبّق iSCARB في تسعة فصول وتكليفات لهندسة البرمجيات، ويربط الخيار بافتراضاته وحدوده وإجراءاته وأدلته. ومن الفصل الثاني عشر، تحوّل المحاضرات القصصية كل فصل إلى حالة قرار، تدعمها معامل تطبيقية قابلة للتشغيل وتحقق من ملكية العمل في دقيقتين ومدرّب دراسة بالذكاء الاصطناعي: الذكاء الاصطناعي للتدريب، والحكم الهندسي هو ما يُقيَّم.',

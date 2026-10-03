@@ -26,6 +26,10 @@ TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):
     TRANSLATIONS.update(json.loads(file.read_text()))
 
+TRANSLATIONS.setdefault('ventures.html', {}).setdefault('text', {}).update({
+    'Public beta 0.13 starts with three lines (organisation, goal, main obstacle) and returns a decision draft with a first step and a measure of progress. It adds council review, editable board packs, strategic services and an optional offline app.': 'تبدأ النسخة التجريبية العامة 0.13 بثلاثة أسطر (الجهة، والهدف، والعائق الأساسي) وتعيد مسودة قرار فيها أول خطوة ومؤشر للتقدم. وتضيف مراجعة المجلس، وحزمًا قابلة للتحرير للمجلس، وخدمات استراتيجية، وتطبيقًا اختياريًا يعمل دون اتصال.',
+})
+
 # Current research copy lives with the English source; bibliographic titles retain
 # their published or manuscript wording in both languages.
 TRANSLATIONS['research.html']['text'].update({
