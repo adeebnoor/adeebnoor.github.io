@@ -23,7 +23,7 @@ jobs:
           python scripts/validate_ideas.py
           python scripts/validate_analytics.py
           python scripts/validate_audit.py
-          node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs scripts/test_inquiries.mjs
+          node --test scripts/test_analytics.mjs scripts/test_dashboard.mjs scripts/test_inquiries.mjs scripts/test_public_count.mjs
           python scripts/build_site.py
           git diff --exit-code
           node --check nav.js
@@ -32,5 +32,6 @@ jobs:
           node --check ar/writing/share.js
           node --check analytics/dashboard.js
           node --check privacy.js
+          node --check visitor-count.js
           node --check contact-form.js
           node --check inquiries/inbox.js
