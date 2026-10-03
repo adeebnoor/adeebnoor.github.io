@@ -19,6 +19,10 @@ QUOTES_BLOCK = re.compile(r'<!-- polish:testimonials:start -->.*?<!-- polish:tes
 GATEWAY = re.compile(r'(<!-- ideas-gateway:start -->)(.*?)(<!-- ideas-gateway:end -->)', re.S)
 AUDIENCES = re.compile(r'<section class="section" id="collaboration">.*?</section>', re.S)
 RESOURCES = re.compile(r'<section class="section partners-section"><div class="wrap">(?:(?!</section>).)*?<nav class="quick".*?</section>', re.S)
+VISITORS_BLOCK = re.compile(r'<!-- polish:visitors:start -->.*?<!-- polish:visitors:end -->', re.S)
+PRIVACY_END = re.compile(r'</div>(<!-- site-privacy:end -->)')
+COUNT_ENDPOINT = 'https://xcirpzxpcpbxpowjbpiq.supabase.co/functions/v1/portfolio-public-count'
+JS_VERSION = hashlib.sha256((ROOT/'visitor-count.js').read_bytes()).hexdigest()[:10]
 SERVICES = re.compile(r'<!-- site-audit:home-services:start -->.*?<!-- site-audit:home-services:end -->', re.S)
 
 CTA = {
@@ -127,6 +131,10 @@ for path in sorted(ROOT.rglob('*.html')):
         continue
     source = CSS_BLOCK.sub('', original)
     source = source.replace('</head>', f'<!-- polish:css:start --><link rel="stylesheet" href="/polish.css?v={CSS_VERSION}"><!-- polish:css:end --></head>', 1)
+    # Aggregate visitor count beside the privacy link (hidden until the public endpoint answers).
+    source = VISITORS_BLOCK.sub('', source)
+    source = PRIVACY_END.sub(lambda m: '<!-- polish:visitors:start --><span class="visitor-count" data-visitor-count data-endpoint="' + COUNT_ENDPOINT
+                             + '" hidden></span><script defer src="/visitor-count.js?v=' + JS_VERSION + '"></script><!-- polish:visitors:end --></div>' + m[1], source, count=1)
     if rel in ('index.html', 'ar/index.html'):
         source = polish_home(source, 'ar' if rel.startswith('ar/') else 'en')
     if source != original:

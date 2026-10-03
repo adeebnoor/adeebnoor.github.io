@@ -32,5 +32,6 @@ jobs:
           node --check ar/writing/share.js
           node --check analytics/dashboard.js
           node --check privacy.js
+          node --check visitor-count.js
           node --check contact-form.js
           node --check inquiries/inbox.js

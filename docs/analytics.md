@@ -31,3 +31,9 @@ Run `python scripts/build_site.py`, all `scripts/validate_*.py` validators and `
 Both analytics tables intentionally have RLS enabled with no browser policies, and table/RPC grants are revoked from `anon` and `authenticated`. Service-role access exists only inside server functions. The informational Supabase lint about RLS without policies reflects this deliberate deny-by-default design.
 
 For key rotation, generate a new 32-byte random token, replace `admin_key_hash` on the single private settings row with its SHA-256 digest, and deliver the token privately. Existing dashboard sessions using the former key will fail authentication. Never commit keys or real activity exports to this public repository.
+
+## Public visitor count
+
+- `supabase/functions/portfolio-public-count/index.ts`: deploy as `portfolio-public-count` with gateway JWT verification disabled. It calls `portfolio_analytics_stats(90)` with the service role and returns only `{"visitors_90d": N}`, cached for 15 minutes, to the site origin.
+- `visitor-count.js` shows that number beside the footer privacy link on every page. It sends no identifiers, omits credentials and referrer, and stays hidden until the function is deployed or if it fails.
+- Deploy: `supabase functions deploy portfolio-public-count --no-verify-jwt`.

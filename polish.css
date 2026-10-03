@@ -184,3 +184,6 @@ html[lang=ar] .polish-cta h2{line-height:1.5}
   .polish-quote{flex:0 0 86%;scroll-snap-align:start}
   .polish-aud .partner-promise{font-size:14px}
 }
+.site-privacy{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px}
+.visitor-count{font:13px/1.5 var(--sans);color:#9aa3a6}
+.visitor-count:not([hidden])::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#5fbf8a;margin-inline-end:8px;vertical-align:middle}
