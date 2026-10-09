@@ -174,7 +174,9 @@
       "GenomeFit · TAQADAM funding": "GenomeFit · تمويل TAQADAM",
       "KAUST documented that GenomeFit, co-established to support genetic screening and drug-response decisions, received funding from the TAQADAM University Startup Accelerator to further develop its service and business model.": "وثقت كاوست أن GenomeFit، الذي شاركت في تأسيسه لدعم الفحص الجيني وقرارات الاستجابة الدوائية، حصل على تمويل من مسرعة TAQADAM الجامعية لتطوير الخدمة ونموذج العمل.",
       "Read the KAUST feature →": "اقرأ تقرير كاوست ←",
-      "based in Jeddah. I am a Professor of Data Science and Artificial Intelligence at King Abdulaziz University, working across research, AI ethics and responsible AI, public-sector transformation, healthcare technology, AI strategy and venture building.": "ومقيم في جدة. أنا أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز، وأعمل عبر البحث وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والتحول في القطاع العام وتقنيات الرعاية الصحية واستراتيجية الذكاء الاصطناعي وبناء المشاريع."
+      "based in Jeddah. I am a Professor of Data Science and Artificial Intelligence at King Abdulaziz University, working across research, AI ethics and responsible AI, public-sector transformation, healthcare technology, AI strategy and venture building.": "ومقيم في جدة. أنا أستاذ علوم البيانات والذكاء الاصطناعي في جامعة الملك عبدالعزيز، وأعمل عبر البحث وأخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والتحول في القطاع العام وتقنيات الرعاية الصحية واستراتيجية الذكاء الاصطناعي وبناء المشاريع.",
+      "My research in AI ethics builds on doctoral work in biomedical knowledge representation and drug–drug interaction inference at the University of Colorado Boulder (2015). I now focus that foundation on justice, accountability and the limits of delegation in AI-assisted decisions.": "يبني بحثي في أخلاقيات الذكاء الاصطناعي على عملي في الدكتوراه حول تمثيل المعرفة الطبية والاستدلال على التداخلات الدوائية في جامعة كولورادو بولدر عام 2015. أركز هذه الأسس اليوم على العدالة والمساءلة وحدود التفويض في القرارات المدعومة بالذكاء الاصطناعي.",
+      "AI ethics: justice, accountability and human agency, grounded in biomedical evidence and inference.": "أخلاقيات الذكاء الاصطناعي: العدالة والمساءلة وسلطة الإنسان، انطلاقًا من الأدلة الطبية والاستدلال."
     },
     "attrs": {
       "Adeeb Noor — Saudi Professor of Data Science and Artificial Intelligence, researcher, executive advisor and builder working across AI, digital health, education and institutional transformation.": "أديب نور — أستاذ دكتور سعودي في علم البيانات والذكاء الاصطناعي، وباحث ومستشار تنفيذي ومؤسس مشاريع في الذكاء الاصطناعي والصحة الرقمية والتعليم والتحول المؤسسي.",
@@ -726,7 +728,12 @@
       "Scholar": "الباحث العلمي",
       "Speaking": "المحاضرات",
       "© 2026 Adeeb Noor": "© 2026 أديب نور",
-      "Research · Advisory · Ventures": "الأبحاث · الاستشارات · المشاريع"
+      "Research · Advisory · Ventures": "الأبحاث · الاستشارات · المشاريع",
+      "From biomedical evidence to AI ethics.": "من الأدلة الطبية إلى أخلاقيات الذكاء الاصطناعي.",
+      "My 2015 PhD in Computer Science at the University of Colorado Boulder investigated drug–drug interactions through statistical inference and Semantic Web technologies. I build on that biomedical foundation today to study the evidence, judgment and responsibility behind AI-assisted decisions.": "بحثت في دكتوراه علوم الحاسب بجامعة كولورادو بولدر عام 2015 التداخلات الدوائية بالاستدلال الإحصائي وتقنيات الويب الدلالي. وأبني اليوم على هذا الأساس الطبي لدراسة الدليل والحكم والمسؤولية وراء القرارات المدعومة بالذكاء الاصطناعي.",
+      "D3 and D4 connect biomedical evidence to mechanistic inference. My current AI ethics agenda develops that concern into questions of justice, accountability and human agency, with RIDI as one current strand.": "يربط D3 وD4 الأدلة الطبية بالاستدلال على الآليات. ويطوّر برنامجي الحالي في أخلاقيات الذكاء الاصطناعي هذا الاهتمام إلى أسئلة العدالة والمساءلة وسلطة الإنسان، مع RIDI بوصفه أحد المسارات الحالية.",
+      "<b>D3 / D4</b>": "<b>D3 / D4</b>",
+      "Connecting biomedical knowledge, prediction and mechanistic explanation.": "ربط المعرفة الطبية بالتنبؤ وتفسير الآليات."
     },
     "attrs": {
       "Adeeb Noor's doctoral foundations at the University of Colorado Boulder: D3 Pharmacovigilance, James H. Martin, Michel Dumontier, biomedical informatics and Semantic Web research.": "الأسس البحثية لدكتوراه أديب نور في جامعة كولورادو بولدر: D3 لليقظة الدوائية، وجيمس إتش. مارتن، وميشيل دومونتييه، والمعلوماتية الطبية الحيوية، وأبحاث الويب الدلالي.",

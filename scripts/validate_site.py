@@ -62,3 +62,17 @@ if art[:4] != b'RIFF' or art[8:12] != b'WEBP' or int.from_bytes(art[4:8], 'littl
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'Validated {len(pages)} HTML pages, {checked} local references/anchors, JSON and original artwork.')
+
+# Late-stage homepage generators must not overwrite the agreed research identity.
+from html import escape
+program = json.loads((ROOT / 'data/research-program.json').read_text())
+for lang in ('en', 'ar'):
+    prefix = 'ar/' if lang == 'ar' else ''
+    home = (ROOT / (prefix + 'index.html')).read_text()
+    research = (ROOT / (prefix + 'research.html')).read_text()
+    assert escape(program[lang]['homeThesis']) in home, f'{lang}: research identity overwritten'
+    assert f'href="/{prefix}research.html#research-lineage"' in home, f'{lang}: missing doctoral pathway'
+    assert escape(program[lang]['lineageNote']) in research, f'{lang}: missing historical scope distinction'
+    for item in program[lang]['timeline']:
+        assert escape(item['href'], quote=True) in research, f'{lang}: missing lineage source'
+print('Validated bilingual research identity, doctoral sources and historical scope.')

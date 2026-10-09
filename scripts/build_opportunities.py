@@ -113,7 +113,9 @@ def patch_home(lang):
     ar = lang == 'ar'
     path = ROOT / (('ar/' if ar else '') + 'index.html')
     source = strip(strip(strip(path.read_text(), 'head'), 'home'), 'recog')
-    h = DATA['home'][lang]
+    h = dict(DATA['home'][lang])
+    research = json.loads((ROOT/'data/research-program.json').read_text())[lang]
+    h.update(eyebrow=research['identity'], title=research['homeTitle'], thesis=research['homeThesis'])
     source = source.replace('</head>', block('head', f'<link rel="stylesheet" href="{CSS}">') + '</head>', 1)
     old = re.search(r'<title>(.*?)</title>', source, re.S)[1]
     new = e(h['title'])
@@ -123,7 +125,9 @@ def patch_home(lang):
     hero = re.search(r'<section class="hero">.*?</section>', source, re.S)
     part = hero[0]
     part = re.sub(r'<div class="eyebrow">.*?</div>', f'<div class="eyebrow">{e(h["eyebrow"])}</div>', part, count=1, flags=re.S)
-    actions = (f'<div class="actions"><a class="button primary" href="{public_path("advisory.html", ar)}">{e(h["cta_roles"])}</a>'
+    research_label = "المسار البحثي منذ الدكتوراه ←" if ar else "My research, from PhD to today →"
+    actions = (f'<div class="actions"><a class="button primary" href="{public_path("research.html", ar)}#research-lineage">{research_label}</a>'
+               f'<a class="button" href="{public_path("advisory.html", ar)}">{e(h["cta_roles"])}</a>'
                f'<a class="button" href="{public_path("partnerships.html", ar)}">{e(h["cta_investors"])}</a></div>')
     part = re.sub(r'<div class="actions">.*?</div>', actions, part, count=1, flags=re.S)
     position = public_path('ideas/position.html', ar)

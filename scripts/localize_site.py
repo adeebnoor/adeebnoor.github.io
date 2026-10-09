@@ -20,7 +20,7 @@ PAGES = ['index.html','about.html','impact.html','research.html','publications.h
          'healthx/index.html','demo/index.html','404.html','collaborate.html']
 IDEAS_FILE = ROOT/'data/ideas-content.json'
 IDEAS_CONTENT = json.loads(IDEAS_FILE.read_text()) if IDEAS_FILE.exists() else {}
-MANAGED_PAGES = ['advisory.html','partnerships.html','engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
+MANAGED_PAGES = ['research.html','advisory.html','partnerships.html','engagements.html','inquiries/index.html','ideas/index.html','ideas/position.html','writing/index.html','analytics/index.html','privacy.html'] + [a['path'].lstrip('/') for a in IDEAS_CONTENT.get('articles', [])]
 PAGES = list(dict.fromkeys(PAGES + MANAGED_PAGES))
 TRANSLATIONS = {}
 for file in (ROOT/'i18n/ar').glob('*.json'):

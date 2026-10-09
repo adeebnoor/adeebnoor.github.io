@@ -1,0 +1,317 @@
+{
+  "updated": "2026-10-09",
+  "en": {
+    "identity": "AI Ethics · Evidence, decisions & responsibility",
+    "heading": "When AI informs a decision, who can justify it?",
+    "lead": "I study the ethics of AI-assisted decisions: who bears their consequences, what evidence makes them defensible, and where human authority must remain.",
+    "statement": "My research in AI ethics builds on doctoral work in biomedical knowledge representation and drug–drug interaction inference at the University of Colorado Boulder (2015). I now focus that foundation on justice, accountability and the limits of delegation in AI-assisted decisions.",
+    "homeThesis": "I study AI ethics: how evidence becomes a decision, who is affected, and who remains responsible.",
+    "homeIntro": "Building on my doctoral work in biomedical informatics (2015), my research connects evidence and inference to justice, accountability and human judgment. I bring these questions into institutional strategy, workforce systems and digital health.",
+    "homeTitle": "Prof. Adeeb Noor — AI Ethics, Evidence & Accountable Decisions",
+    "description": "Adeeb Noor’s AI ethics research: justice, accountability and human agency, building on doctoral work in biomedical informatics at Colorado Boulder in 2015.",
+    "lineageKicker": "Research foundations · 2015–today",
+    "lineageHeading": "An enduring question, a sharper focus.",
+    "lineageIntro": "My doctoral research asked how heterogeneous biomedical evidence could support explainable inference. I carry that concern into AI ethics today: what warrants a decision, what its evaluation leaves unseen, and who can challenge it.",
+    "lineageNote": "The early work is biomedical informatics. The connection to AI ethics is the research direction I develop from that foundation; these publications retain their original scope and status.",
+    "programsHeading": "Three questions define my current agenda.",
+    "programsIntro": "I connect empirical audits of AI behaviour with questions about legitimate decisions. The studies below are directions for collaboration, alongside the existing work linked in each pillar.",
+    "labels": {
+      "question": "Research question",
+      "study": "Study to develop",
+      "foundation": "Existing foundation",
+      "read": "Read the record",
+      "programs": "Research pillars",
+      "lineage": "From my PhD to today",
+      "participate": "Collaborate",
+      "record": "Selected work",
+      "recordHeading": "Evidence behind the agenda.",
+      "recordIntro": "Published articles, preprints, manuscripts and open data are identified separately. The full publications page covers my wider collaborative record.",
+      "allPublications": "All publications & profiles",
+      "statusDate": "Research statuses as recorded on 26 September 2026; linked records provide the source.",
+      "applications": "Research in practice",
+      "applicationsHeading": "Places to test the questions.",
+      "applicationsIntro": "These projects provide contexts for future ethics research and co-development. Each has its own development and validation stage.",
+      "audiences": "Work with me",
+      "audiencesHeading": "A shared question. Different contributions.",
+      "audiencesIntro": "I welcome collaboration across computer science, philosophy, medicine, law and public policy. Start with a decision problem, the evidence available and a question we can investigate together."
+    },
+    "pillars": [
+      {
+        "id": "justice",
+        "title": "Justice beyond aggregate performance",
+        "question": "Who experiences a different outcome when systems receive the same evaluation score?",
+        "body": "I examine how model updates, rankings and selection rules change who or what is chosen. I treat these changes as a reason to investigate their justification and distribution; change alone does not establish unfairness.",
+        "study": "Compare equivalent-performing systems at the level of affected individuals, then examine which changes are necessary, avoidable or unjustified.",
+        "foundation": "RIDI · evaluation and selection-change audits",
+        "href": "#ridi"
+      },
+      {
+        "id": "accountability",
+        "title": "Accountability through inspectable evidence",
+        "question": "What must be recorded so that a person can question an AI-assisted decision?",
+        "body": "I connect the representation and provenance of evidence to the reasons offered for a decision. The goal is to make its assumptions, missing knowledge and limits open to scrutiny.",
+        "study": "Trace how changes in source data, terminology or evidence alter a recommendation, and evaluate whether the resulting explanation supports meaningful review.",
+        "foundation": "Doctoral research · D3 · D4 · biomedical inference",
+        "href": "#research-lineage"
+      },
+      {
+        "id": "human-agency",
+        "title": "Human agency and limits of delegation",
+        "question": "Which judgments may an institution delegate to AI, and which responsibilities must people retain?",
+        "body": "I study how people can own, defend and revise a judgment when AI produces part of the answer. Oversight must involve the ability and authority to intervene.",
+        "study": "Evaluate when people can detect a system’s limits, challenge its advice and revise their decisions under changed conditions.",
+        "foundation": "iSCARB · defensible engineering judgment",
+        "href": "/teaching.html#iscarb"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2015",
+        "title": "Doctoral foundations: evidence and inference",
+        "status": "PhD · Computer Science · University of Colorado Boulder",
+        "body": "I investigated drug–drug interaction characterization through statistical inference and Semantic Web technologies. This established my foundation in connecting heterogeneous evidence to an explainable inference.",
+        "reference": "Characterization of Drug-Drug Interactions through Statistical Inference and Semantic Web Technologies",
+        "href": "https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/cz30ps92j",
+        "label": "Dissertation record",
+        "related": "/phd.html",
+        "relatedLabel": "Doctoral foundations"
+      },
+      {
+        "year": "2017",
+        "title": "D3: making the mechanism visible",
+        "status": "Peer-reviewed article · JAMIA · online 2016, issue 2017",
+        "body": "D3 integrated biomedical knowledge and inference rules to propose explanations for drug interactions. The question carried forward is how a prediction can be supported by an inspectable chain of evidence.",
+        "reference": "Drug-drug interaction discovery and demystification using Semantic Web technologies",
+        "href": "https://doi.org/10.1093/jamia/ocw128",
+        "label": "JAMIA article"
+      },
+      {
+        "year": "2020",
+        "title": "D4: connecting prediction to explanation",
+        "status": "bioRxiv preprint · not peer reviewed",
+        "body": "D4 connected deep-learning predictions with mechanistic inference using D3. It extended the effort to examine what lies behind a predicted interaction.",
+        "reference": "D4: Deep Drug-drug interaction Discovery and Demystification",
+        "href": "https://doi.org/10.1101/2020.04.08.032011",
+        "label": "D4 preprint"
+      },
+      {
+        "year": "2026",
+        "title": "Biomedical inference remains an active foundation",
+        "status": "Peer-reviewed article · Journal of Clinical Pharmacology",
+        "body": "My ontology-enhanced DDI study combines structured biomedical knowledge with deep learning for mechanistic prediction. It continues the work on making the basis of an inference interpretable.",
+        "reference": "Ontology-Enhanced Deep Learning for Mechanistic Prediction of Drug-Drug Interactions: A Clinically Interpretable Framework",
+        "href": "https://doi.org/10.1002/jcph.70220",
+        "label": "Published article"
+      },
+      {
+        "year": "Today",
+        "title": "A focused AI ethics agenda",
+        "status": "Current research · empirical and normative questions",
+        "body": "I now examine what evaluation permits us to conclude about a decision, whose outcomes it conceals and who remains responsible. RIDI contributes to the evaluation question; iSCARB contributes to human-owned judgment. Together they support a wider agenda in justice, accountability and delegation.",
+        "reference": "RIDI manuscript and iSCARB preprint: current work with separate research status",
+        "href": "#research-record",
+        "label": "Current work & status"
+      }
+    ],
+    "ridi": {
+      "kicker": "A current strand · RIDI",
+      "heading": "What does an unchanged score leave unseen?",
+      "body": "RIDI examines the gap between measured performance and the actions or selections of an AI system. I use this work to motivate an ethical question: what evidence would justify the consequences of changing a system?",
+      "limit": "The current experiment concerns retrieval and answer correctness. It does not by itself demonstrate discrimination, clinical benefit or the fairness of an institutional decision.",
+      "page": "Project & manuscript",
+      "data": "Open data",
+      "demo": "Interactive demo"
+    },
+    "applications": [
+      {
+        "title": "HEALTHx · clinical innovation",
+        "body": "A development context for studying how clinical knowledge, protocols and AI-supported workflows can be documented, evaluated and governed with hospital partners. Partner and clinical validation remain work to establish.",
+        "href": "/healthx/",
+        "label": "Explore HEALTHx"
+      },
+      {
+        "title": "MIYAR · workforce decisions",
+        "body": "A working prototype for organizational and workforce decisions. It offers a context for studying how categories, evaluation rules and approval authority shape consequential choices.",
+        "href": "/ventures.html#miyar",
+        "label": "Explore MIYAR"
+      }
+    ],
+    "audiences": [
+      {
+        "title": "Researchers & faculty",
+        "body": "Joint empirical and conceptual studies, independent replication, evaluation design and co-supervision. Bring a method or disciplinary perspective that helps test the question.",
+        "href": "/academic.html",
+        "label": "Academic collaboration"
+      },
+      {
+        "title": "Students",
+        "body": "Thesis and project questions in AI ethics, evaluation, evidence provenance and human judgment. A starting proposal should identify a decision, a feasible method and the evidence needed.",
+        "href": "/students.html",
+        "label": "Research opportunities"
+      },
+      {
+        "title": "Hospitals, companies & public institutions",
+        "body": "Co-develop research around a real decision process: domain expertise, appropriate data access, evaluation criteria and clear human responsibilities.",
+        "href": "/partnerships.html",
+        "label": "Discuss a partnership"
+      }
+    ]
+  },
+  "ar": {
+    "identity": "أخلاقيات الذكاء الاصطناعي · الدليل والقرار والمسؤولية",
+    "heading": "حين يوجّه الذكاء الاصطناعي القرار، من يستطيع تبريره؟",
+    "lead": "أدرس أخلاقيات القرارات المدعومة بالذكاء الاصطناعي: من يتحمل آثارها، وما الدليل الذي يجعلها قابلة للتبرير، وأين يجب أن تبقى سلطة الحكم بيد الإنسان.",
+    "statement": "يبني بحثي في أخلاقيات الذكاء الاصطناعي على عملي في الدكتوراه حول تمثيل المعرفة الطبية والاستدلال على التداخلات الدوائية في جامعة كولورادو بولدر عام 2015. أركز هذه الأسس اليوم على العدالة والمساءلة وحدود التفويض في القرارات المدعومة بالذكاء الاصطناعي.",
+    "homeThesis": "أبحث في أخلاقيات الذكاء الاصطناعي: كيف يتحول الدليل إلى قرار، ومن يتأثر به، ومن يتحمل مسؤوليته.",
+    "homeIntro": "امتدادًا لبحث الدكتوراه في المعلوماتية الطبية عام 2015، أربط الدليل والاستدلال بأسئلة العدالة والمساءلة والحكم البشري، وأحمل هذه الأسئلة إلى الاستراتيجية المؤسسية وأنظمة القوى العاملة والصحة الرقمية.",
+    "homeTitle": "أ.د. أديب نور — أخلاقيات الذكاء الاصطناعي والدليل والقرار المسؤول",
+    "description": "أبحاث أديب نور في أخلاقيات الذكاء الاصطناعي: العدالة والمساءلة وسلطة الإنسان، امتدادًا لبحث الدكتوراه في المعلوماتية الطبية بجامعة كولورادو بولدر عام 2015.",
+    "lineageKicker": "الجذور البحثية · منذ 2015",
+    "lineageHeading": "سؤال ممتد، وتركيز أكثر تحديدًا.",
+    "lineageIntro": "بحثت في الدكتوراه كيف تسند الأدلة الطبية المتباينة استدلالًا يمكن تفسيره. وأحمل هذا الاهتمام اليوم إلى أخلاقيات الذكاء الاصطناعي: ما الذي يبرر القرار، وماذا يخفي تقييمه، ومن يستطيع الاعتراض عليه؟",
+    "lineageNote": "الأعمال المبكرة أبحاث في المعلوماتية الطبية. أما صلتها بأخلاقيات الذكاء الاصطناعي فهي المسار الذي أطوّره انطلاقًا من تلك الأسس؛ وتحتفظ المنشورات بنطاقها العلمي وحالتها الأصلية.",
+    "programsHeading": "ثلاثة أسئلة تحدد أجندتي الحالية.",
+    "programsIntro": "أربط الفحص التجريبي لسلوك الأنظمة بأسئلة مشروعية القرارات. الدراسات المقترحة أدناه اتجاهات للتعاون، إلى جانب الأعمال القائمة المرتبطة بكل محور.",
+    "labels": {
+      "question": "السؤال البحثي",
+      "study": "دراسة مقترحة للتطوير",
+      "foundation": "الأساس القائم",
+      "read": "اقرأ السجل",
+      "programs": "المحاور البحثية",
+      "lineage": "من الدكتوراه إلى اليوم",
+      "participate": "تعاون معي",
+      "record": "أعمال مختارة",
+      "recordHeading": "الأعمال التي تسند هذا المسار.",
+      "recordIntro": "أميز بين المقالات المنشورة والنسخ الأولية والمخطوطات والبيانات المفتوحة. وتعرض صفحة المنشورات سجلًا أوسع للأعمال والتعاون العلمي.",
+      "allPublications": "جميع المنشورات والملفات العلمية",
+      "statusDate": "حالات الأبحاث وفق السجل المؤرخ في 26 سبتمبر 2026؛ الروابط تحيل إلى مصادرها.",
+      "applications": "البحث في سياق التطبيق",
+      "applicationsHeading": "سياقات لاختبار الأسئلة.",
+      "applicationsIntro": "تتيح هذه المشاريع سياقات لأبحاث الأخلاقيات والتطوير المشترك. ولكل مشروع مرحلته الخاصة في التطوير والتحقق.",
+      "audiences": "اعمل معي",
+      "audiencesHeading": "سؤال مشترك، ومساهمات متعددة.",
+      "audiencesIntro": "أرحب بالتعاون بين علوم الحاسب والفلسفة والطب والقانون والسياسات العامة. البداية مشكلة قرار، وأدلة متاحة، وسؤال نستطيع بحثه معًا."
+    },
+    "pillars": [
+      {
+        "id": "justice",
+        "title": "العدالة وراء الأداء الإجمالي",
+        "question": "من تتغير نتيجته عندما تحصل الأنظمة على درجة التقييم نفسها؟",
+        "body": "أدرس كيف تغيّر تحديثات النماذج والترتيب وقواعد الاختيار الأشخاص أو العناصر المختارة. هذا التغيّر يستدعي فحص توزيعه ومبرراته؛ ولا يكفي وحده لإثبات غياب العدالة.",
+        "study": "مقارنة أنظمة متكافئة الأداء على مستوى الأفراد المتأثرين، ثم فحص التغيّرات الضرورية وتلك التي يمكن تجنبها أو لا تستند إلى مبرر.",
+        "foundation": "RIDI · تدقيق التقييم وتغيّر الاختيارات",
+        "href": "#ridi"
+      },
+      {
+        "id": "accountability",
+        "title": "المساءلة بأدلة قابلة للفحص",
+        "question": "ما الذي يجب توثيقه حتى يتمكن الإنسان من مساءلة قرار مدعوم بالذكاء الاصطناعي؟",
+        "body": "أربط تمثيل الأدلة ومصادرها بالأسباب المقدّمة لتبرير القرار. والغاية أن تصبح افتراضاته والمعرفة الناقصة فيه وحدوده قابلة للفحص.",
+        "study": "تتبّع أثر تغيّر البيانات أو المصطلحات أو الأدلة في التوصية، وتقييم ما إذا كان تفسيرها يتيح مراجعة ذات معنى.",
+        "foundation": "الدكتوراه · D3 · D4 · الاستدلال الطبي",
+        "href": "#research-lineage"
+      },
+      {
+        "id": "human-agency",
+        "title": "سلطة الإنسان وحدود التفويض",
+        "question": "أي أحكام يجوز للمؤسسة تفويضها للذكاء الاصطناعي، وأي مسؤوليات يجب أن تبقى بيد الإنسان؟",
+        "body": "أدرس كيف يتملك الإنسان حكمه ويبرره ويراجعه عندما ينتج الذكاء الاصطناعي جزءًا من الإجابة. الإشراف يتطلب قدرة فعلية على التدخل وسلطة تتيحه.",
+        "study": "تقييم قدرة الأشخاص على اكتشاف حدود النظام، والاعتراض على توصياته، ومراجعة قراراتهم عند تغيّر الشروط.",
+        "foundation": "iSCARB · الحكم الهندسي القابل للدفاع عنه",
+        "href": "/teaching.html#iscarb"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2015",
+        "title": "جذور الدكتوراه: الدليل والاستدلال",
+        "status": "دكتوراه علوم الحاسب · جامعة كولورادو بولدر",
+        "body": "بحثت توصيف التداخلات الدوائية بالاستدلال الإحصائي وتقنيات الويب الدلالي. وأسس هذا العمل اهتمامي بربط الأدلة المتباينة باستدلال يمكن تفسيره.",
+        "reference": "توصيف التداخلات الدوائية بالاستدلال الإحصائي وتقنيات الويب الدلالي",
+        "href": "https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/cz30ps92j",
+        "label": "سجل الأطروحة",
+        "related": "/phd.html",
+        "relatedLabel": "أسس الدكتوراه"
+      },
+      {
+        "year": "2017",
+        "title": "D3: إظهار الآلية وراء النتيجة",
+        "status": "مقالة محكّمة · JAMIA · إلكترونيًا 2016، العدد 2017",
+        "body": "جمع D3 المعرفة الطبية وقواعد الاستدلال لاقتراح تفسيرات للتداخلات الدوائية. والسؤال الممتد منه هو: كيف يستند التنبؤ إلى سلسلة أدلة يمكن فحصها؟",
+        "reference": "اكتشاف التداخلات الدوائية وتفسيرها باستخدام تقنيات الويب الدلالي",
+        "href": "https://doi.org/10.1093/jamia/ocw128",
+        "label": "مقالة JAMIA"
+      },
+      {
+        "year": "2020",
+        "title": "D4: ربط التنبؤ بالتفسير",
+        "status": "نسخة أولية في bioRxiv · غير محكّمة",
+        "body": "ربط D4 تنبؤات التعلم العميق بالاستدلال الآلي باستخدام D3، امتدادًا لفحص ما وراء التداخل الدوائي المتوقّع.",
+        "reference": "D4: اكتشاف التداخلات الدوائية وتفسيرها بالتعلم العميق",
+        "href": "https://doi.org/10.1101/2020.04.08.032011",
+        "label": "النسخة الأولية لـD4"
+      },
+      {
+        "year": "2026",
+        "title": "الاستدلال الطبي أساس بحثي مستمر",
+        "status": "مقالة محكّمة · مجلة علم الأدوية السريري",
+        "body": "تجمع دراستي للتداخلات الدوائية المعززة بالأنطولوجيا المعرفة الطبية المنظّمة والتعلم العميق للتنبؤ بالآليات. وهي امتداد للعمل على جعل أساس الاستدلال قابلًا للتفسير.",
+        "reference": "التعلم العميق المعزّز بالأنطولوجيا للتنبؤ بآليات التداخلات الدوائية: إطار قابل للتفسير سريريًا",
+        "href": "https://doi.org/10.1002/jcph.70220",
+        "label": "المقالة المنشورة"
+      },
+      {
+        "year": "اليوم",
+        "title": "أجندة محددة في أخلاقيات الذكاء الاصطناعي",
+        "status": "بحث جارٍ · أسئلة تجريبية وأخلاقية",
+        "body": "أبحث اليوم ما الذي يجيز لنا التقييم استنتاجه عن القرار، ونتائج مَن يخفيها، ومن يبقى مسؤولًا عنه. يسهم RIDI في سؤال التقييم، ويسهم iSCARB في الحكم الذي يتحمل الإنسان مسؤوليته؛ ضمن أجندة أوسع للعدالة والمساءلة والتفويض.",
+        "reference": "مخطوطة RIDI ونسخة iSCARB الأولية: أعمال حالية بحالات بحثية منفصلة",
+        "href": "#research-record",
+        "label": "الأعمال الحالية وحالاتها"
+      }
+    ],
+    "ridi": {
+      "kicker": "أحد المسارات الحالية · RIDI",
+      "heading": "ماذا تخفي درجة تقييم لم تتغيّر؟",
+      "body": "يفحص RIDI الفجوة بين الأداء المقاس وأفعال النظام أو اختياراته. أنطلق منه إلى سؤال أخلاقي: ما الأدلة التي تبرر الآثار المترتبة على تغيير النظام؟",
+      "limit": "تتعلق التجربة الحالية بالاسترجاع وصحة الإجابة. ولا تثبت وحدها وجود تمييز أو منفعة سريرية أو عدالة قرار مؤسسي.",
+      "page": "المشروع والمخطوطة",
+      "data": "البيانات المفتوحة",
+      "demo": "العرض التفاعلي"
+    },
+    "applications": [
+      {
+        "title": "HEALTHx · الابتكار السريري",
+        "body": "سياق تطوير لدراسة توثيق المعرفة السريرية والبروتوكولات ومسارات العمل المدعومة بالذكاء الاصطناعي وتقييمها وحوكمتها مع شركاء من المستشفيات. وتظل الشراكات والتحقق السريري عملًا مطلوبًا.",
+        "href": "/healthx/",
+        "label": "استكشف HEALTHx"
+      },
+      {
+        "title": "معيار · قرارات القوى العاملة",
+        "body": "نموذج أولي عامل لقرارات التنظيم والقوى العاملة. يتيح سياقًا لدراسة أثر التصنيفات وقواعد التقييم وسلطة الاعتماد في القرارات ذات التبعات.",
+        "href": "/ventures.html#miyar",
+        "label": "استكشف معيار"
+      }
+    ],
+    "audiences": [
+      {
+        "title": "الباحثون وأعضاء هيئة التدريس",
+        "body": "دراسات تجريبية ومفاهيمية مشتركة، وإعادة اختبار مستقلة، وتصميم تقييم، وإشراف مشترك. أرحب بمنهج أو منظور تخصصي يساعدنا على اختبار السؤال.",
+        "href": "/academic.html",
+        "label": "التعاون الأكاديمي"
+      },
+      {
+        "title": "الطلاب",
+        "body": "أسئلة رسائل ومشاريع في أخلاقيات الذكاء الاصطناعي والتقييم ومصادر الأدلة والحكم البشري. يحدد المقترح الأولي قرارًا ومنهجًا قابلًا للتنفيذ والأدلة اللازمة.",
+        "href": "/students.html",
+        "label": "فرص البحث"
+      },
+      {
+        "title": "المستشفيات والشركات والجهات الحكومية",
+        "body": "تطوير بحث مشترك حول قرار واقعي، بخبرة تخصصية وإتاحة مناسبة للبيانات ومعايير تقييم ومسؤوليات بشرية واضحة.",
+        "href": "/partnerships.html",
+        "label": "ناقش شراكة"
+      }
+    ]
+  }
+}

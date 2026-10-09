@@ -6,14 +6,14 @@
     "ar": {
       "name": "الجهات المانحة",
       "promise": "موّل سؤالًا يمكن اختباره وقرارًا يمكن مساءلته.",
-      "contribution": "ثلاثة اتجاهات بحثية جاهزة للنقاش في تدقيق قرارات الذكاء الاصطناعي، واكتمال المعرفة الطبية، وأدلة الجاهزية في التعليم المدعوم بالذكاء الاصطناعي.",
+      "contribution": "ثلاثة اتجاهات بحثية في أخلاقيات الذكاء الاصطناعي للتطوير المشترك: العدالة وراء الأداء الإجمالي، والمساءلة بالدليل، وحدود التفويض.",
       "evidence": "السجل والاتجاهات المقترحة",
       "cta": "ناقش فرصة تمويل"
     },
     "en": {
       "name": "Funders",
       "promise": "Fund a testable question and an accountable decision.",
-      "contribution": "Three research directions are ready for discussion across public-sector AI decision audits, biomedical knowledge completeness and evidence of readiness in AI-enabled education.",
+      "contribution": "Three AI ethics research directions to shape together: justice beyond aggregate performance, accountability through evidence and limits of delegation.",
       "evidence": "Track record and proposed directions",
       "cta": "Discuss a funding opportunity"
     }
@@ -44,14 +44,14 @@
     "ar": {
       "name": "الجامعات العالمية",
       "promise": "تعاون حول سؤال علمي يتجاوز حدود التخصص.",
-      "contribution": "بيان بحثي وتدريسي موجز، والسيرة الأكاديمية، ومسارات للتعاون في الذكاء الاصطناعي والمعلوماتية الطبية والتعليم.",
+      "contribution": "بيان بحثي في أخلاقيات الذكاء الاصطناعي، بجذوره في الدكتوراه وسجله الأكاديمي ومسارات التعاون بين التخصصات.",
       "evidence": "الملف الأكاديمي والتعاون",
       "cta": "ناقش تعاونًا أكاديميًا"
     },
     "en": {
       "name": "Universities",
       "promise": "Collaborate around a question that crosses disciplinary boundaries.",
-      "contribution": "A concise research and teaching statement, academic record and collaboration routes across AI, biomedical informatics and education.",
+      "contribution": "A research statement in AI ethics, with doctoral foundations, academic record and routes for interdisciplinary collaboration.",
       "evidence": "Academic profile and collaboration",
       "cta": "Discuss academic collaboration"
     }
@@ -81,16 +81,16 @@
     "evidenceUrl": "/research.html",
     "ar": {
       "name": "الباحثون والتعاون",
-      "promise": "أسئلة بحثية تتصل بقرارات حقيقية.",
-      "contribution": "تعاون في تقييم الذكاء الاصطناعي والمعلوماتية الطبية والتعليم، بفرضيات واضحة وأدلة قابلة للفحص.",
-      "evidence": "اطّلع على RIDI وأبحاث التداخلات الدوائية",
+      "promise": "أخلاقيات ذكاء اصطناعي مرتبطة بالدليل والقرار.",
+      "contribution": "تعاون في العدالة والمساءلة وسلطة الإنسان، امتدادًا للأدلة الطبية وتقييم الذكاء الاصطناعي.",
+      "evidence": "استكشف المسار منذ الدكتوراه والأبحاث الحالية",
       "cta": "اقترح تعاونًا بحثيًا"
     },
     "en": {
       "name": "Researchers & Collaborators",
-      "promise": "Research connected to real decisions.",
-      "contribution": "Collaborate on AI evaluation, biomedical informatics and education through clear hypotheses and evidence that can be examined.",
-      "evidence": "Explore RIDI and drug-interaction research",
+      "promise": "AI ethics grounded in evidence and real decisions.",
+      "contribution": "Collaborate on justice, accountability and human agency, building on biomedical evidence and AI evaluation.",
+      "evidence": "Explore the doctoral lineage and current research",
       "cta": "Propose research collaboration"
     }
   },

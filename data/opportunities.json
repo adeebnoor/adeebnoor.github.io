@@ -1,13 +1,10 @@
 {
-  "_note": "Source for /advisory.html and /partnerships.html (EN/AR) plus the homepage and contact entry points. Rendered by scripts/build_opportunities.py. Edit text here, then run python scripts/build_site.py.",
+  "_note": "Source for /advisory.html and /partnerships.html (EN/AR) plus the homepage and contact entry points. Rendered by scripts/build_opportunities.py. Edit text here, then run python scripts/build_site.py. Homepage research identity is inherited from data/research-program.json.",
   "home": {
     "en": {
-      "eyebrow": "What the Score Hides",
-      "title": "Prof. Adeeb Noor — AI, Data & Institutional Leadership | King Abdulaziz University",
       "cta_roles": "Leadership & advisory →",
       "cta_investors": "Ventures & partnerships →",
       "position_link": "Read my position",
-      "thesis": "I help institutions make fairer, more accurate decisions about people — with data and AI that can be held to account.",
       "stat_labels": [
         [
           "Educators within the reported scope of national programs",
@@ -65,12 +62,9 @@
       }
     },
     "ar": {
-      "eyebrow": "ما يخفيه الرقم",
-      "title": "أ.د. أديب نور — الذكاء الاصطناعي والبيانات والقيادة المؤسسية | جامعة الملك عبدالعزيز",
       "cta_roles": "القيادة والاستشارات ←",
       "cta_investors": "المشاريع والشراكات ←",
       "position_link": "اقرأ أطروحتي",
-      "thesis": "أساعد الجهات على اتخاذ قرارات أدق وأكثر عدلًا بشأن الناس، باستخدام البيانات والذكاء الاصطناعي بطريقة قابلة للمساءلة.",
       "stat_labels": [
         [
           "معلم ومعلمة ضمن نطاق البرامج الوطنية المبلّغ عنه",
