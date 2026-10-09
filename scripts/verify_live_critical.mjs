@@ -80,9 +80,10 @@ try{
     assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');
     assert.ok((await page.locator('#research').innerText()).includes(ar?'قيد المراجعة':'under review'),path+' patent status');
     const researchText=await page.locator('#research').innerText();
-    assert.ok(researchText.includes(ar?'قبل الإيداع الرسمي':'before formal patent filing'),path+' disclosure is not a filed patent');
-    assert.ok(researchText.includes(ar?'أذن المشرف ببدء البرمجة':'authorized coding to begin'),path+' current master’s milestone');
-    assert.ok(researchText.includes(ar?'وليست تحققًا سريريًا مكتملًا':'not completed clinical validation'),path+' planned versus measured results');
+    assert.ok(researchText.includes(ar?'الإفصاح عن الاختراع':'invention disclosure') && researchText.includes(ar?'تمهيدًا للإيداع الرسمي لطلب البراءة':'ahead of a formal patent filing'),path+' disclosure is not a filed patent');
+    assert.ok(researchText.includes(ar?'أنجز مراجعة الأدبيات وبروتوكول التقييم':'completed the literature review and evaluation protocol') && researchText.includes(ar?'بدأت مرحلة التطوير في أكتوبر 2026':'development began in October 2026'),path+' current master’s milestone');
+    const conceptText=await page.locator('.hx-hub').innerText();
+    assert.ok(conceptText.includes(ar?'نطاق التطوير والتقييم المقترح، وليست وظائف منتج مكتمل':'proposed development and evaluation scope, not a finished product') && conceptText.includes(ar?'لا يَعِد بنتائج قبل قياسها':'outcomes are not promised before measurement'),path+' planned versus measured results');
     assert.ok((await page.locator('.hx-hub').innerText()).includes(ar?'جسر بين المعرفة السريرية والأصول القابلة للترخيص':'A bridge from clinical knowledge to licensable assets'),path+' original concept');
     assert.equal(await page.locator('#participate a.hx-text-link').getAttribute('href'),(ar?'/ar':'')+'/contact.html#inquiry-form',path+' contribution form');
    }
