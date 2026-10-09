@@ -1,0 +1,49 @@
+/* A quieter homepage using the existing palette, typography and original artwork. */
+.focus-gateway{padding-block:30px;background:#f4f3ec;border-bottom:1px solid var(--line)}
+.focus-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.focus-path{min-width:0}
+.focus-path+.focus-path{border-inline-start:1px solid var(--line);padding-inline-start:32px}
+.focus-path h3{font-size:clamp(22px,2.2vw,29px);font-weight:400;line-height:1.3;margin:10px 0}
+.focus-path p{font:16px/1.65 var(--sans);color:var(--muted);margin:0 0 12px}
+.focus-path a,.focus-audiences a{font:600 14px/1.6 var(--sans);text-decoration:underline;text-underline-offset:4px;color:#6a5024;display:inline-flex;align-items:center;min-height:44px}
+.focus-featured .project-meta{margin-bottom:14px}
+.focus-featured .card h3{margin:0 0 16px}
+.focus-project-facts{margin:0 0 16px;font:15px/1.65 var(--sans)}
+.focus-project-facts dt{font-size:12px;font-weight:700;color:#6a5024;margin-bottom:4px}
+.focus-project-facts dd{margin:0 0 14px;color:var(--ink)}
+.focus-featured .card .project-role{font:14px/1.65 var(--sans);border-top:1px solid var(--line);padding-top:14px;margin-bottom:20px;color:var(--muted)}
+.focus-featured .project-actions{margin-top:auto}
+.focus-audiences{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;border-top:1px solid var(--line);margin-top:28px;padding-top:16px}
+.focus-audiences span{font:14px/1.6 var(--sans);color:var(--muted)}
+.focus-catalog{padding-bottom:48px;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.focus-catalog h2{font:400 clamp(28px,3vw,39px)/1.3 var(--serif);margin:8px 0 12px}
+.focus-catalog-intro{font:16px/1.65 var(--sans);color:var(--muted);max-width:760px;margin:0 0 26px}
+.focus-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.focus-catalog-card{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fffefa;box-shadow:var(--shadow-sm)}
+.focus-catalog .project-visual-link{display:block;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.focus-catalog .project-image{display:block;width:100%;height:auto;aspect-ratio:247/146;object-fit:cover;overflow:hidden;background:#0a151a}
+.focus-catalog .project-image-actual{object-fit:contain;background:#f5f8f7}
+.focus-catalog .project-open{position:absolute;inset-inline-end:12px;bottom:12px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#0a151aeb;color:#dfc184;border:1px solid #dfc184;font:24px/1 var(--sans)}
+.focus-catalog .project-visual-link:focus-visible{outline-offset:-4px;outline-width:4px}
+.focus-catalog-copy{display:flex;flex-direction:column;flex:1;padding:20px}
+.focus-catalog .project-meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.focus-catalog .project-meta span{display:inline-block;font:600 11px/1.6 var(--sans);padding:4px 8px;border:1px solid #ddd8cd;border-radius:20px;background:#f4f3ee;color:#555e62}
+.focus-catalog .project-meta .project-state{background:#f8f1df;border-color:#c9aa6e;color:#5f481c}
+.focus-catalog h3{font:400 26px/1.3 var(--serif);margin:14px 0 6px}
+.focus-catalog-copy>p{font:15px/1.6 var(--sans);color:var(--muted);margin:0 0 20px}
+.focus-catalog .project-actions{display:flex;align-items:flex-start;flex-direction:column;gap:12px;margin-top:auto}
+.focus-catalog .button{display:inline-flex;align-items:center;min-height:44px;border:1px solid #c9aa6e;padding:10px 15px;font:600 14px/1.6 var(--sans);border-radius:8px;background:linear-gradient(120deg,#ddbd80,#efdab0);color:#211b0f}
+.focus-catalog .project-context{font:14px/1.6 var(--sans);text-decoration:underline;text-underline-offset:4px;color:#615333}
+@media(min-width:801px){.cards.focus-featured{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.focus-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.cards.focus-featured{grid-template-columns:1fr}.focus-featured .project-image{aspect-ratio:16/9}}
+@media(max-width:640px){
+  .focus-gateway{padding-block:24px}
+  .focus-paths{grid-template-columns:1fr;gap:18px}
+  .focus-path+.focus-path{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line);padding-top:20px}
+  .focus-path h3{font-size:24px}
+  .focus-path p{font-size:15px}
+  .focus-audiences{gap:4px 20px}
+  .focus-audiences span{width:100%}
+  .focus-catalog-grid{grid-template-columns:1fr}
+}

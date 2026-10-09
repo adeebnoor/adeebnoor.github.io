@@ -6,6 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 IDEAS=json.loads((ROOT/'data/ideas-content.json').read_text())
 DATES=json.loads((ROOT/'data/essay-dates.json').read_text())
 PROJECTS=json.loads((ROOT/'data/featured-projects.json').read_text())
+FOCUS=json.loads((ROOT/'data/homepage-focus.json').read_text())
 class DateCards(HTMLParser):
     def __init__(self,source):
         super().__init__();self.cards={};self.slug=None;self.feed(source)
@@ -27,18 +28,22 @@ for lang in ('en','ar'):
         assert 'I will date new essays' not in source and 'سأؤرّخ المقالات الجديدة' not in source
     home=(ROOT/(prefix+'index.html')).read_text()
     assert home.count('id="work-and-ideas"')==1
-    assert len(re.findall('data-project=',home))==len(PROJECTS)
-    assert 'data-project="kamin"' in home and 'data-project="sultan"' in home
+    assert re.findall(r'data-project="([^"]+)"',home)==FOCUS['projects']
+    catalog=(ROOT/(prefix+'ventures.html')).read_text()
+    assert re.findall(r'data-project="([^"]+)"',catalog)==[p['id'] for p in PROJECTS]
+    assert 'data-project="kamin"' in catalog and 'data-project="sultan"' in catalog
     assert 'data-project="imam"' not in home, 'IMAM belongs within iSCARB, not a separate homepage project'
     iscarb = next(item for item in PROJECTS if item['id'] == 'iscarb')
     assert 'IMAM' in iscarb[lang]['description'], 'The iSCARB project must explain its IMAM contextualization layer'
     teaching = (ROOT/(prefix+'teaching.html')).read_text()
     assert 'id="iscarb"' in teaching and 'IMAM' in teaching, 'Teaching must retain the integrated iSCARB / IMAM context'
     for item in PROJECTS:
-        if item.get('reviewUrl'): assert 'href="'+item['reviewUrl']+'"' in home
-        if item.get('ideaUrl'): assert 'href="'+('/ar' if lang=='ar' else '')+item['ideaUrl']+'"' in home
+        locations=[catalog,home] if item['id'] in FOCUS['projects'] else [catalog]
+        for location in locations:
+            if item.get('reviewUrl'): assert 'href="'+item['reviewUrl']+'"' in location
+            if item.get('ideaUrl'): assert 'href="'+('/ar' if lang=='ar' else '')+item['ideaUrl']+'"' in location
     contact=(ROOT/(prefix+'contact.html')).read_text()
     assert contact.index('id="inquiry-form"') < contact.index('id="engagement-options"')
     assert re.search(r'<div class="hero-actions"><a class="primary" href="#inquiry-form">',contact)
     assert contact.count('data-inquiry-form')==1
-print(f'Follow-up passed: 16 dated archive cards; two matched gateways, {len(PROJECTS)}-project grids and form-first Contact pages.')
+print(f'Follow-up passed: 16 dated archive cards; matched gateways, {len(FOCUS["projects"])} home projects, {len(PROJECTS)} catalog projects and form-first Contact pages.')

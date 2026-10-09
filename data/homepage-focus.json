@@ -1,0 +1,57 @@
+{
+  "projects": ["ridi", "shifaa", "miyar"],
+  "en": {
+    "label": "Selected work",
+    "title": "Research. Delivery. Practical tools.",
+    "intro": "Three examples of how I connect evidence, institutional needs and working systems.",
+    "all": "Explore all projects",
+    "valueLabel": "The value",
+    "resultLabel": "What exists today",
+    "gatewayTitle": "Ideas and execution",
+    "paths": [
+      {"label": "Ideas & positions", "title": "What the score hides", "text": "I study how evidence makes decisions about people accountable.", "url": "/ideas/position.html", "cta": "Read my position"},
+      {"label": "Leadership & implementation", "title": "From evidence to institutional capability", "text": "My executive record across government, healthcare and higher education.", "url": "/impact.html", "cta": "Explore leadership & impact"}
+    ],
+    "audienceLabel": "Find your next step",
+    "audiences": [
+      {"label": "Researchers", "url": "/research.html"},
+      {"label": "Students", "url": "/students.html"},
+      {"label": "Companies & public institutions", "url": "/partnerships.html"}
+    ],
+    "galleryLabel": "Explore the portfolio",
+    "galleryTitle": "Projects, at a glance.",
+    "galleryIntro": "Open an image to explore the project. Each card states its current stage and links to the work or its background.",
+    "work": {
+      "ridi": {"value": "Reveal changes in who an AI system selects, even when its evaluation score stays the same.", "result": "An open audit toolkit and reproducibility package, with a submission-ready manuscript that is not yet peer reviewed."},
+      "shifaa": {"value": "Give patients a digital route to King Abdulaziz University Hospital services.", "result": "An institutional patient portal, founded as part of the hospital’s digital modernization."},
+      "miyar": {"value": "Turn an organizational priority into a role proposal that people can review and approve.", "result": "A bilingual public pilot connecting organization design, job evaluation, workforce planning and compensation."}
+    }
+  },
+  "ar": {
+    "label": "أعمال مختارة",
+    "title": "بحث. تنفيذ. أدوات عملية.",
+    "intro": "ثلاثة أمثلة على الربط بين الدليل واحتياج المؤسسة وبناء الأنظمة.",
+    "all": "استكشف جميع المشاريع",
+    "valueLabel": "القيمة",
+    "resultLabel": "ما أُنجز حتى الآن",
+    "gatewayTitle": "الفكرة والتنفيذ",
+    "paths": [
+      {"label": "الأفكار والمواقف", "title": "ما يخفيه الرقم", "text": "أبحث كيف يجعل الدليل القرارات التي تمس الناس قابلة للمساءلة.", "url": "/ideas/position.html", "cta": "اقرأ أطروحتي"},
+      {"label": "القيادة والتنفيذ", "title": "من الدليل إلى القدرة المؤسسية", "text": "سجلي التنفيذي في الحكومة والصحة والتعليم العالي.", "url": "/impact.html", "cta": "استكشف القيادة والأثر"}
+    ],
+    "audienceLabel": "اختر خطوتك التالية",
+    "audiences": [
+      {"label": "الباحثون", "url": "/research.html"},
+      {"label": "الطلاب", "url": "/students.html"},
+      {"label": "الشركات والجهات الحكومية", "url": "/partnerships.html"}
+    ],
+    "galleryLabel": "استكشف الأعمال",
+    "galleryTitle": "المشاريع في نظرة واحدة.",
+    "galleryIntro": "افتح الصورة لاستكشاف المشروع. توضّح كل بطاقة مرحلة العمل الحالية وتربطك بالمشروع أو بخلفيته.",
+    "work": {
+      "ridi": {"value": "كشف التغيّر في الأشخاص الذين يختارهم نظام الذكاء الاصطناعي، حتى حين تبقى درجة تقييمه متساوية.", "result": "أداة تدقيق مفتوحة وحزمة لإعادة إنتاج النتائج، مع مخطوطة جاهزة للتقديم لم تخضع للتحكيم بعد."},
+      "shifaa": {"value": "إتاحة مسار رقمي للمرضى للوصول إلى خدمات مستشفى جامعة الملك عبدالعزيز.", "result": "بوابة مؤسسية لخدمات المرضى، أُسّست ضمن التحديث الرقمي للمستشفى."},
+      "miyar": {"value": "تحويل أولوية المؤسسة إلى مقترح دور وظيفي قابل للمراجعة والاعتماد البشري.", "result": "تجربة أولية عامة باللغتين تربط التصميم التنظيمي بتقييم الوظائف وتخطيط القوى العاملة والتعويضات."}
+    }
+  }
+}
