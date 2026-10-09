@@ -26,7 +26,7 @@ const ANCHORS = new Set([
   'content', 'main-content', 'roles', 'delivered', 'career', 'start', 'ventures-open', 'track-record', 'bring', 'direct-routes', 'projects', 'research', 'investors', 'organizations',
   'researchers', 'students', 'iscarb', 'philosophy', 'educator-scope', 'experience-basis',
   'platform-reach', 'evidence', 'beyond-the-average', 'imam', 'ridi', 'genomefit',
-  'miyar', 'shifaa', 'healthx', 'leadership', 'metric-sources', 'work-and-ideas',
+  'miyar', 'shifaa', 'healthx', 'kinetic-hr', 'leadership', 'metric-sources', 'work-and-ideas',
   'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
   'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones', 'latest-research',

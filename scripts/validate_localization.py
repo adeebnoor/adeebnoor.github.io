@@ -33,6 +33,8 @@ class Page(HTMLParser):
 
 errors = []
 projects = json.loads((ROOT/'data/featured-projects.json').read_text())
+focus_ids = json.loads((ROOT/'data/homepage-focus.json').read_text())['projects']
+focused = [next(p for p in projects if p['id'] == key) for key in focus_ids]
 english_paths = {public_path(p) for p in PAGES} | {'/' + p for p in PAGES}
 for page in PAGES:
     for arabic in (False, True):
@@ -63,13 +65,21 @@ for page in PAGES:
             target = urlsplit(urljoin(ORIGIN + '/' + name, href))
             if target.netloc == 'adeebnoor.github.io' and target.path in english_paths:
                 errors.append(f'{name}: Arabic navigation escapes to {href}')
-        if page == 'index.html' and len(document.images) != len(projects):
-            errors.append(f'{name}: expected one illustration per featured project')
-        if page == 'index.html':
+        if page in ('index.html', 'ventures.html'):
+            expected_projects = focused if page == 'index.html' else projects
+            if len(document.images) != len(expected_projects):
+                errors.append(f'{name}: expected one original illustration per project')
             image_links = [a for a in document.links if 'project-visual-link' in a.get('class','').split()]
-            expected = [p.get('liveUrl',{}).get('ar' if arabic else 'en',('/ar' if arabic else '')+p['url']) for p in projects]
+            expected = [p.get('liveUrl',{}).get('ar' if arabic else 'en',('/ar' if arabic else '')+p['url']) for p in expected_projects]
             if [a.get('href') for a in image_links] != expected:
                 errors.append(f'{name}: project images must open the intended project destinations')
+            for attrs, project in zip(document.images, expected_projects):
+                lang = 'ar' if arabic else 'en'
+                if project.get('image'):
+                    if attrs.get('src') != project.get('image_'+lang, project['image']):
+                        errors.append(f'{name}: changed original image for {project["id"]}')
+                elif attrs.get('viewbox') != project['viewBox']:
+                    errors.append(f'{name}: changed original illustration crop for {project["id"]}')
             for a in image_links:
                 if urlsplit(a.get('href','')).netloc and (a.get('target')!='_blank' or 'noopener' not in a.get('rel','').split()):
                     errors.append(f'{name}: external project image needs safe new-tab behavior')

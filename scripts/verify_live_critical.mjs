@@ -8,9 +8,11 @@ const json=p=>JSON.parse(readFileSync(p,'utf8'));
 const navigation=json('data/site-navigation.json');
 const identity=json('data/site_identity.json');
 const projects=json('data/featured-projects.json');
+const focusIds=json('data/homepage-focus.json').projects;
+const homeProjects=focusIds.map(id=>projects.find(p=>p.id===id));
 const articles=json('data/ideas-content.json').articles;
 const dates=json('data/essay-dates.json');
-const paths=['/','/index.html','/ar/','/ar/index.html','/contact.html','/ar/contact.html','/writing/','/ar/writing/','/ideas/','/ar/ideas/','/healthx/','/ar/healthx/'];
+const paths=['/','/index.html','/ar/','/ar/index.html','/ventures.html','/ar/ventures.html','/contact.html','/ar/contact.html','/writing/','/ar/writing/','/ideas/','/ar/ideas/','/healthx/','/ar/healthx/'];
 const filename=path=>(path.endsWith('/')?path+'index.html':path).slice(1);
 const publicPath=(page,ar)=>(ar?'/ar/':'/')+page.replace(/index\.html$/,'');
 mkdirSync('live-critical',{recursive:true});
@@ -55,10 +57,23 @@ try{
    assert.equal(view.overflow,false,path+' overflow');assert.equal(view.oldDatingPromise,false,path+' obsolete dating promise');
    if(['/','/index.html','/ar/','/ar/index.html'].includes(path)){
     assert.ok(view.gateway,path+' two entry paths');
-    assert.deepEqual(view.projects.map(p=>p.id),projects.map(p=>p.id),path+' project grid');
+   }
+   if(['/','/index.html','/ar/','/ar/index.html','/ventures.html','/ar/ventures.html'].includes(path)){
+    const expectedProjects=path.endsWith('/ventures.html')?projects:homeProjects;
+    assert.deepEqual(view.projects.map(p=>p.id),expectedProjects.map(p=>p.id),path+' project grid');
     assert.ok(view.projects.every(p=>p.visible),path+' hidden project');
-    for(const item of projects){
+    for(const item of expectedProjects){
      const card=view.projects.find(p=>p.id===item.id);
+     const visual=page.locator('[data-project="'+item.id+'"] .project-image');
+     assert.equal(await visual.count(),1,path+' original project visual');
+     if(item.image){
+      assert.equal(await visual.getAttribute('src'),item['image_'+lang]||item.image,path+' original image');
+      await visual.scrollIntoViewIfNeeded();
+      await visual.evaluate(img=>img.decode());
+      assert.ok(await visual.evaluate(img=>img.naturalWidth>0),path+' broken project image');
+     }else{
+      assert.equal(await visual.getAttribute('viewBox'),item.viewBox,path+' original illustration crop');
+     }
      if(item.reviewUrl)assert.ok(card.links.some(link=>link.href===item.reviewUrl),path+' MIYAR request link');
      if(item.ideaUrl)assert.ok(card.links.some(link=>link.href===(ar?'/ar':'')+item.ideaUrl),path+' RIDI essay link');
     }

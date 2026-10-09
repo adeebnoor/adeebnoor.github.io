@@ -21,10 +21,13 @@ class Doc(HTMLParser):
   if tag=='script' and self.script is not None:self.scripts.append(json.loads(self.script));self.script=None
 ideas=json.loads((ROOT/'data/ideas-content.json').read_text())
 featured_projects=json.loads((ROOT/'data/featured-projects.json').read_text())
+focus_ids=json.loads((ROOT/'data/homepage-focus.json').read_text())['projects']
 for lang in ('en','ar'):
  prefix='ar/' if lang=='ar' else ''
  home=(ROOT/(prefix+'index.html')).read_text()
- assert len(re.findall('data-project=',home))==len(featured_projects) and all(f'data-project="{p["id"]}"' in home for p in featured_projects)
+ assert re.findall(r'data-project="([^"]+)"',home)==focus_ids
+ catalog=(ROOT/(prefix+'ventures.html')).read_text()
+ assert re.findall(r'data-project="([^"]+)"',catalog)==[p['id'] for p in featured_projects]
  assert home.count('id="work-and-ideas"')==1
  for page in ('index.html','about.html'):
   docs=Doc((ROOT/(prefix+page)).read_text());people=[]
