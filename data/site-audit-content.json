@@ -219,9 +219,10 @@
       "name": "ANTI-DDI",
       "url": "https://github.com/adeebnoor/ANTI-DDI",
       "body": {
-        "en": "Drug-interaction knowledge research.",
-        "ar": "بحث في معرفة التداخلات الدوائية."
-      }
+        "en": "Historical research repository. The associated 2022 article was retracted in 2023; it is not used here as validated evidence.",
+        "ar": "مستودع بحثي تاريخي. سُحبت المقالة المرتبطة به، المنشورة عام 2022، في عام 2023؛ ولا يُستند إليها هنا كدليل متحقق منه."
+      },
+      "statusUrl": "https://doi.org/10.1155/2023/9892301"
     },
     {
       "name": "CPIT",

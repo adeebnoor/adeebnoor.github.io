@@ -62,7 +62,7 @@ def proof(lang):
 
 
 def repositories(lang):
-    return '<section class="audit-section" id="open-source"><div class="audit-kicker">'+text('Open work','عمل مفتوح',lang)+'</div><h2>'+text('Explore the code and research resources.','استكشف الكود والموارد البحثية.',lang)+'</h2><div class="audit-grid">'+''.join('<article class="audit-card"><h3>'+link(item['url'],item['name'],lang)+'</h3><p>'+value(item['body'],lang)+'</p></article>' for item in DATA['repositories'])+'</div><p>'+link(DATA['github'],text('View my GitHub profile →','حسابي على GitHub ←',lang),lang)+'</p></section>'
+    return '<section class="audit-section" id="open-source"><div class="audit-kicker">'+text('Open work','عمل مفتوح',lang)+'</div><h2>'+text('Explore the code and research resources.','استكشف الكود والموارد البحثية.',lang)+'</h2><div class="audit-grid">'+''.join('<article class="audit-card"><h3>'+link(item['url'],item['name'],lang)+'</h3><p>'+value(item['body'],lang)+'</p>'+ (link(item['statusUrl'],text('Publisher status notice →','إشعار الناشر ←',lang),lang) if item.get('statusUrl') else '')+'</article>' for item in DATA['repositories'])+'</div><p>'+link(DATA['github'],text('View my GitHub profile →','حسابي على GitHub ←',lang),lang)+'</p></section>'
 
 
 def input_field(name, label, lang, type_='text', required=False, max_=160, autocomplete='off', full=False, min_=None):

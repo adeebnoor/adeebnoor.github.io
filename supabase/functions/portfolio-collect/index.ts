@@ -30,10 +30,15 @@ const ANCHORS = new Set([
   'open-source', 'inquiry-form', 'inquiry-privacy', 'engagement-options', 'institutional-context', 'essay-updates',
   'national-workforce', 'hospital-modernization', 'genomefit-translation',
   'essays', 'capacity-is-a-choice', 'institutional-meaning', 'readiness-needs-evidence', 'recognition', 'career-milestones', 'latest-research',
+  'justice', 'accountability', 'human-agency',
   'programs', 'research-record', 'inventions', 'participate', 'research-lineage', 'kamin',
   'mission', 'thrusts', 'systems', 'join', 'different', 'researchers', 'faq',
 ]);
 const DESTINATIONS = new Set([
+  'https://doi.org/10.1093/jamia/ocw128',
+  'https://doi.org/10.1101/2020.04.08.032011',
+  'https://doi.org/10.1002/jcph.70220',
+  'https://doi.org/10.1155/2023/9892301',
   'https://www.who.int/publications/i/item/9789240032705',
   'https://www.who.int/teams/digital-health-and-innovation/smart-guidelines',
   'https://www.unesco.org/en/articles/recommendation-ethics-artificial-intelligence',

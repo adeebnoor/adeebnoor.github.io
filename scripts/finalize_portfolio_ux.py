@@ -7,6 +7,7 @@ generators/localizers. The pass is intentionally idempotent so a second build is
 from pathlib import Path
 from html import escape
 import re
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://adeebnoor.github.io"
@@ -159,7 +160,10 @@ HOME = {
         'twitter':'الأستاذ الدكتور أديب نور — الذكاء الاصطناعي والقرار والتحول المؤسسي',
     }
 }
+RESEARCH_PROGRAM = json.loads((ROOT/'data/research-program.json').read_text())
 for lang,cfg in HOME.items():
+    cfg['description'] = RESEARCH_PROGRAM[lang]['description']
+    cfg['twitter'] = RESEARCH_PROGRAM[lang]['homeTitle']
     p=ROOT/cfg['path']; source=p.read_text()
     source=normalize_home(source,lang=='ar')
     source=social_meta(source,description=cfg['description'],image=cfg['image'],locale=cfg['locale'],twitter_title=cfg['twitter'])

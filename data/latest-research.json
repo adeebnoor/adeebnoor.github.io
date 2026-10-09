@@ -89,7 +89,8 @@
         "en": "With Redhwan Nour, this study evaluates selective, context-aware AI assistance for chest X-ray interpretation rather than assuming AI should always be shown.",
         "ar": "بالتعاون مع رضوان نور، تقيّم الدراسة المساعدة الانتقائية والمدركة للسياق بالذكاء الاصطناعي في تفسير أشعة الصدر بدل افتراض أن عرض الذكاء الاصطناعي مفيد دائمًا."
       },
-      "featured": true
+      "featured": true,
+      "title_ar": "المساعدة المدركة للسياق بالذكاء الاصطناعي تقلل الخطأ التشخيصي في تفسير أشعة الصدر"
     },
     {
       "id": "ontology-ddi-2026",
@@ -109,7 +110,8 @@
         "en": "A clinically interpretable DDI framework combining ontology-based embeddings with deep learning to predict pharmacokinetic and pharmacodynamic interaction mechanisms.",
         "ar": "إطار قابل للتفسير سريريًا للتنبؤ بالتداخلات الدوائية، يجمع تضمينات مبنية على الأنطولوجيا مع التعلم العميق للتنبؤ بآليات التداخل الحركية والديناميكية الدوائية."
       },
-      "featured": true
+      "featured": true,
+      "title_ar": "التعلم العميق المعزّز بالأنطولوجيا للتنبؤ بآليات التداخلات الدوائية: إطار قابل للتفسير سريريًا"
     },
     {
       "id": "biouner-2026",

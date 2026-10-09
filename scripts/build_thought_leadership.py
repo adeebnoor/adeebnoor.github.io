@@ -10,7 +10,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://adeebnoor.github.io'
-TODAY = '2026-09-29'
+TODAY = '2026-10-09'
+RESEARCH_PROGRAM = json.loads((ROOT/'data/research-program.json').read_text())
 PROFILE_BLOCK = re.compile(r'<!-- site-audit:person:start -->.*?<!-- site-audit:person:end -->', re.S)
 STYLE_BLOCK = re.compile(r'<!-- thought-leadership:style:start -->.*?<!-- thought-leadership:style:end -->', re.S)
 
@@ -88,22 +89,22 @@ def home_gateway(lang):
 
 def home_copy(lang):
     ar = lang == 'ar'
-    if ar:
-        return ('<div class="hero-copy"><div class="eyebrow">ما يخفيه الرقم</div><h1><span>أديب</span> نور</h1>'
-                '<p class="role">أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز</p>'
-                '<p class="hero-thesis">أساعد المؤسسات على تحويل الاستراتيجية ورأس المال البشري والذكاء الاصطناعي إلى قرارات وقدرات قابلة للتنفيذ.</p>'
-                '<p class="intro">الاستراتيجية والحوكمة · رأس المال البشري وذكاء القوى العاملة · الذكاء الاصطناعي وذكاء القرار · الصحة الرقمية والتحول المؤسسي.</p>'
-                '<p class="location">جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية</p>'
-                '<div class="actions"><a class="button primary" href="/ar/ideas/position.html">اقرأ أطروحتي ←</a><a class="button" href="/ar/contact.html#inquiry-form">اعمل معي ←</a></div>'
-                '<p class="hero-cv-links"><a href="/ar/executive-cv.html">السيرة التنفيذية</a><span aria-hidden="true"> · </span><a href="/ar/academic-cv.html">السيرة الأكاديمية</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
-    return ('<div class="hero-copy"><div class="eyebrow">What the Score Hides</div><h1><span>Adeeb</span> Noor</h1>'
-            '<p class="role">Professor of Data Science &amp; AI, King Abdulaziz University</p>'
-            '<p class="hero-thesis">I help institutions turn strategy, human capital and AI into accountable decisions and executable capability.</p>'
-            '<p class="intro">Strategy &amp; governance · Human capital &amp; workforce intelligence · AI &amp; decision intelligence · Digital health &amp; institutional transformation.</p>'
-            '<p class="location">King Abdulaziz University · Jeddah, Saudi Arabia</p>'
-            '<div class="actions"><a class="button primary" href="/ideas/position.html">Read my position →</a><a class="button" href="/contact.html#inquiry-form">Work with me →</a></div>'
-            '<p class="hero-cv-links"><a href="/executive-cv.html">Executive CV</a><span aria-hidden="true"> · </span><a href="/academic-cv.html">Academic CV</a></p><p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
-
+    c = RESEARCH_PROGRAM[lang]
+    p = '/ar' if ar else ''
+    arrow = '←' if ar else '→'
+    name = '<span>أديب</span> نور' if ar else '<span>Adeeb</span> Noor'
+    role = 'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز' if ar else 'Professor of Data Science &amp; AI, King Abdulaziz University'
+    location = 'جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية' if ar else 'King Abdulaziz University · Jeddah, Saudi Arabia'
+    primary = 'المسار البحثي منذ الدكتوراه' if ar else 'My research, from PhD to today'
+    contact = 'اعمل معي' if ar else 'Work with me'
+    executive = 'السيرة التنفيذية' if ar else 'Executive CV'
+    academic = 'السيرة الأكاديمية' if ar else 'Academic CV'
+    return (f'<div class="hero-copy"><div class="eyebrow">{escape(c["identity"])}</div><h1>{name}</h1>'
+            f'<p class="role">{role}</p><p class="hero-thesis">{escape(c["homeThesis"])}</p>'
+            f'<p class="intro">{escape(c["homeIntro"])}</p><p class="location">{location}</p>'
+            f'<div class="actions"><a class="button primary" href="{p}/research.html#research-lineage">{primary} {arrow}</a><a class="button" href="{p}/contact.html#inquiry-form">{contact} {arrow}</a></div>'
+            f'<p class="hero-cv-links"><a href="{p}/executive-cv.html">{executive}</a><span aria-hidden="true"> · </span><a href="{p}/academic-cv.html">{academic}</a></p>'
+            '<p class="hero-trust-links"><a href="https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en">Google Scholar</a><span>·</span><a href="https://orcid.org/0000-0002-8251-1853">ORCID</a><span>·</span><a href="https://www.linkedin.com/in/adeeb-noor">LinkedIn</a><span>·</span><a href="https://github.com/adeebnoor">GitHub</a></p></div>')
 
 
 def home_expertise(lang):
@@ -116,7 +117,7 @@ def home_expertise(lang):
         <div class="expertise-grid">
         <article><span>01</span><h3>الاستراتيجية والحوكمة</h3><p>هندسة الاستراتيجية، الأولويات، الحوكمة ونماذج التنفيذ.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN ←</a></article>
         <article><span>02</span><h3>رأس المال البشري وذكاء القوى العاملة</h3><p>تخطيط القوى العاملة، التصميم التنظيمي، هندسة الوظائف والقدرات.</p><a href="/ar/ventures.html#miyar">MIYAR وKinetic HR ←</a></article>
-        <article><span>03</span><h3>الذكاء الاصطناعي وذكاء القرار</h3><p>تقييم الأنظمة، الذكاء الاصطناعي المسؤول وتحويل المخرجات إلى قرارات قابلة للمراجعة.</p><a href="/ar/research.html#ridi">RIDI والأبحاث ←</a></article>
+        <article><span>03</span><h3>أخلاقيات الذكاء الاصطناعي والقرار المسؤول</h3><p>العدالة والأدلة القابلة للفحص والمسؤولية البشرية في القرارات المدعومة بالذكاء الاصطناعي.</p><a href="/ar/research.html#programs">البرنامج البحثي ←</a></article>
         <article><span>04</span><h3>الصحة الرقمية والتحول المؤسسي</h3><p>المنصات الصحية، الابتكار السريري وقيادة التحول الرقمي.</p><a href="/ar/impact.html#institutional-context">SHIFAA وLEDD ←</a></article>
         </div></div></section><!-- expertise-map:end -->'''
     return '''<!-- expertise-map:start --><section class="section expertise-map" id="expertise"><div class="wrap">
@@ -126,7 +127,7 @@ def home_expertise(lang):
     <div class="expertise-grid">
     <article><span>01</span><h3>Strategy &amp; Governance</h3><p>Strategy architecture, priorities, governance and execution models.</p><a href="https://sultan-strategy-beta.onrender.com">SULTAN →</a></article>
     <article><span>02</span><h3>Human Capital &amp; Workforce Intelligence</h3><p>Workforce planning, organizational design, job architecture and capability.</p><a href="/ventures.html#miyar">MIYAR &amp; Kinetic HR →</a></article>
-    <article><span>03</span><h3>AI &amp; Decision Intelligence</h3><p>System evaluation, responsible AI and accountable decision design.</p><a href="/research.html#ridi">RIDI &amp; research →</a></article>
+    <article><span>03</span><h3>AI Ethics &amp; Accountable Decisions</h3><p>Justice, inspectable evidence and human responsibility in AI-assisted decisions.</p><a href="/research.html#programs">Research agenda →</a></article>
     <article><span>04</span><h3>Digital Health &amp; Institutional Transformation</h3><p>Health platforms, clinical innovation and digital transformation leadership.</p><a href="/impact.html#institutional-context">SHIFAA &amp; LEDD →</a></article>
     </div></div></section><!-- expertise-map:end -->'''
 
@@ -202,6 +203,8 @@ def apply_home(path, lang, image_url):
         title='Prof. Adeeb Noor — What the Score Hides | AI & Decisions, King Abdulaziz University'
         desc='Prof. Adeeb Noor — Saudi professor and builder working across AI and decision intelligence, strategy and governance, workforce intelligence, digital health, research and institutional transformation.'
         locale='en_US'
+    title=RESEARCH_PROGRAM[lang]["homeTitle"]
+    desc=RESEARCH_PROGRAM[lang]["description"]
     source=put_title(source,title)
     for attr,key,val in [('name','description',desc),('property','og:title',title),('property','og:description',desc),('property','og:locale',locale)]: source=put_meta(source,attr,key,val)
     if image_url:
