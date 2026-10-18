@@ -8,7 +8,7 @@ The supplied `index (3).html` is the visual reference. Its original embedded Web
 - Executive experience dates and roles: authored CV. Ministry advisory 2019–2024; hospital IT leadership 2016–2018; KAU research-and-innovation strategy advisory from 2025.
 - Independent historical support for ministry consulting, hospital IT leadership and founding SHIFAA: https://cemse.kaust.edu.sa/profiles/adeeb-noor
 - Historical hospital/doctoral biography: https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor
-- KAUST affiliation is **former visiting professor**, consistent with the current authored CV. Older biographies may retain outdated academic rank.
+- KAUST affiliation is a **current visiting professor (2016–present)** in the Bio-Ontology Research Group, consistent with the public KAUST profile and the authored CV. Older biographies may retain an outdated academic rank at KAU.
 - Homepage emphasizes fields of responsibility. Reach and financial figures elsewhere remain attributed to the authored executive CV; do not recast program reach as personally attributable outcomes or independently audited results.
 
 ## Project stages

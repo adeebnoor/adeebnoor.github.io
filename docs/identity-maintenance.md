@@ -17,6 +17,10 @@ experience headlines, visible CV guidance, per-metric source links, and the actu
 existence of the linked evidence anchors. Add new personal pages to the existing
 `localize_site.PAGES` registry to include both language versions automatically.
 
+The KAUST visiting professorship is current (2016–present), matching the public
+KAUST profile. Do not describe that role as former. `validate_identity.py` checks
+the public pages, CV source, and Arabic dictionary for that wording.
+
 The experience total is explicitly self-reported; do not automatically increment
 it from the earliest job date because the CV has gaps and overlapping roles.
 The 540,000 figure describes national program coverage during 2021–2024. The
