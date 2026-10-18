@@ -129,6 +129,8 @@
       "AI ethics, responsible AI, decision intelligence, biomedical informatics, data governance and research systems.": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وذكاء القرار والمعلوماتية الطبية الحيوية وحوكمة البيانات وأنظمة البحث.",
       "2016–Present": "2016–حتى الآن",
       "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "Former Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر سابق — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "2016–2026": "2016–2026",
       "AI ETHICS & RESPONSIBLE AI": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
       "Accountable AI for consequential decisions": "ذكاء اصطناعي خاضع للمساءلة في القرارات عالية الأثر",
       "My experience includes AI ethics, responsible AI and the governance of high-stakes decision systems, with emphasis on transparency, human oversight, data governance and institutional accountability.": "تشمل خبرتي أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول وحوكمة أنظمة القرار عالية الأثر، مع التركيز على الشفافية والإشراف البشري وحوكمة البيانات والمساءلة المؤسسية.",
@@ -447,8 +449,11 @@
       "Academic CV": "السيرة الأكاديمية",
       "2016–Present": "2016–حتى الآن",
       "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "Former Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر سابق — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "2016–2026": "2016–2026",
       "AI ethics, responsible AI, predictive analytics, graph/knowledge systems and decision support.": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول والتحليلات التنبؤية وأنظمة الرسوم البيانية/المعرفة ودعم القرار.",
-      "Visiting Professor · Bio-Ontology Research Group": "أستاذ زائر · مجموعة أبحاث الأنطولوجيا الحيوية"
+      "Visiting Professor · Bio-Ontology Research Group": "أستاذ زائر · مجموعة أبحاث الأنطولوجيا الحيوية",
+      "Former Visiting Professor · Bio-Ontology Research Group": "أستاذ زائر سابق · مجموعة أبحاث الأنطولوجيا الحيوية"
     },
     "attrs": {
       "Academic CV of Adeeb Noor — Professor at King Abdulaziz University working across AI, decision intelligence, biomedical informatics, digital health and education.": "السيرة الأكاديمية لأديب نور — أستاذ دكتور بجامعة الملك عبدالعزيز يعمل في الذكاء الاصطناعي وذكاء القرار والمعلوماتية الطبية الحيوية والصحة الرقمية والتعليم.",
@@ -591,7 +596,9 @@
       "Executive CV": "السيرة التنفيذية",
       "AI Ethics & Responsible AI": "أخلاقيات الذكاء الاصطناعي والذكاء الاصطناعي المسؤول",
       "2016–Present": "2016–حتى الآن",
-      "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست"
+      "Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "Former Visiting Professor — Bio-Ontology Research Group, KAUST": "أستاذ زائر سابق — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست",
+      "2016–2026": "2016–2026"
     },
     "attrs": {
       "Executive CV of Adeeb Noor — Professor at King Abdulaziz University and executive advisor across AI, research and innovation, digital health and institutional transformation.": "السيرة التنفيذية لأديب نور — أستاذ دكتور بجامعة الملك عبدالعزيز ومستشار تنفيذي في الذكاء الاصطناعي والبحث والابتكار والصحة الرقمية والتحول المؤسسي.",
