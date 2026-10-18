@@ -274,17 +274,17 @@
     "url": "/healthx/",
     "en": {
       "name": "HEALTHx",
-      "stage": "Platform concept",
+      "stage": "Founded company",
       "domain": "Clinical innovation",
-      "description": "Exploring how hospital innovation can become reusable digital-health services and research-backed products.",
+      "description": "clinical innovation platform; patent application pending",
       "cta": "Explore HEALTHx",
       "alt": "Illustration of a clinician exploring digital-health information"
     },
     "ar": {
       "name": "HEALTHx",
-      "stage": "تصوّر لمنصة",
+      "stage": "شركة مؤسَّسة",
       "domain": "الابتكار السريري",
-      "description": "استكشاف تحويل ابتكارات المستشفيات إلى خدمات صحية رقمية قابلة لإعادة الاستخدام ومنتجات تستند إلى البحث.",
+      "description": "منصة للابتكار السريري؛ طلب براءة اختراع قيد النظر",
       "cta": "استكشف HEALTHx",
       "alt": "رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"
     },
@@ -297,8 +297,8 @@
       "ar": "محدّث 2026"
     },
     "role": {
-      "en": "My contribution: founder; platform concept and clinical-innovation architecture.",
-      "ar": "إسهامي: التأسيس، ومفهوم المنصة وهندسة الابتكار السريري."
+      "en": "Founder, HEALTHx",
+      "ar": "مؤسس، HEALTHx"
     }
   },
   {

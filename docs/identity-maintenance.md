@@ -21,6 +21,14 @@ The KAUST visiting professorship is current (2016–present), matching the publi
 KAUST profile. Do not describe that role as former. `validate_identity.py` checks
 the public pages, CV source, and Arabic dictionary for that wording.
 
+The King Abdulaziz University research-and-innovation advisory title is exactly
+“Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)”.
+Where Arabic is published, use “كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار”.
+Do not revert that role to Senior Strategy Advisor, Chief Transformation Advisor, or “Office of the VP”.
+
+HEALTHx is a company he founded. Identity lines use “Founder, HEALTHx” and
+“clinical innovation platform; patent application pending”. Do not add revenue or funding figures for it.
+
 The experience total is explicitly self-reported; do not automatically increment
 it from the earliest job date because the CV has gaps and overlapping roles.
 The 540,000 figure describes national program coverage during 2021–2024. The

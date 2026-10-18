@@ -140,7 +140,7 @@
           "title": "Institutional leadership",
           "text": "Leading technology, data and strategy functions in government, a university hospital and a university research office.",
           "fit": [
-            "Chief Strategy Advisor — Research & Innovation, KAU",
+            "Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)",
             "Senior Executive Advisor — Ministry of Education",
             "IT Director — King Abdulaziz University Hospital"
           ],
@@ -207,8 +207,8 @@
       "career": [
         {
           "when": "2025–present",
-          "role": "Chief Strategy Advisor",
-          "org": "Office of the VP for Research & Innovation, King Abdulaziz University"
+          "role": "Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)",
+          "org": ""
         },
         {
           "when": "2024–present",
@@ -273,7 +273,7 @@
           "title": "القيادة المؤسسية",
           "text": "قيادة وظائف التقنية والبيانات والاستراتيجية في جهة حكومية ومستشفى جامعي ومكتب البحث والابتكار بالجامعة.",
           "fit": [
-            "كبير المستشارين الاستراتيجيين — البحث والابتكار، جامعة الملك عبدالعزيز",
+            "كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار",
             "مستشار تنفيذي أول — وزارة التعليم",
             "مدير تقنية المعلومات — مستشفى جامعة الملك عبدالعزيز"
           ],
@@ -340,8 +340,8 @@
       "career": [
         {
           "when": "2025–الآن",
-          "role": "كبير المستشارين الاستراتيجيين",
-          "org": "مكتب وكيل الجامعة للبحث والابتكار، جامعة الملك عبدالعزيز"
+          "role": "كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار",
+          "org": ""
         },
         {
           "when": "2024–الآن",
@@ -466,10 +466,10 @@
           "stage": "In Development",
           "stage_class": "",
           "sector": "Digital health · Clinical innovation",
-          "text": "A platform to turn hospital innovation into licensable digital-health IP, APIs, AI models and health-as-a-service offerings.",
-          "role": "Founder; platform concept & clinical-innovation architecture",
-          "built": "Platform concept and architecture",
-          "seeking": "Health-system, technology and investment partners",
+          "text": "clinical innovation platform; patent application pending",
+          "role": "Founder, HEALTHx",
+          "built": "In development",
+          "seeking": "Health-system and technology partners",
           "link": "/healthx/",
           "link_text": "HEALTHx concept →",
           "updated": "2026"
@@ -623,10 +623,10 @@
           "stage": "In Development",
           "stage_class": "",
           "sector": "الصحة الرقمية · الابتكار السريري",
-          "text": "منصة لتحويل ابتكارات المستشفيات إلى ملكية فكرية قابلة للترخيص وواجهات برمجية ونماذج ذكاء اصطناعي وخدمات صحية.",
-          "role": "التأسيس، ومفهوم المنصة ومعمارية الابتكار السريري",
-          "built": "مفهوم المنصة ومعماريتها",
-          "seeking": "شركاء من الأنظمة الصحية وقطاع التقنية والاستثمار",
+          "text": "منصة للابتكار السريري؛ طلب براءة اختراع قيد النظر",
+          "role": "مؤسس، HEALTHx",
+          "built": "قيد التطوير",
+          "seeking": "شركاء من الأنظمة الصحية وقطاع التقنية",
           "link": "/ar/healthx/",
           "link_text": "مفهوم HEALTHx ←",
           "updated": "2026"
