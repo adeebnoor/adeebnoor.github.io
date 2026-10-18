@@ -102,6 +102,49 @@ def validate():
             if page == 'impact.html' and re.search(r'<b>SHIFAA</b><span>[^<]*1,000,000', source):
                 errors.append(f'{name}: aggregated platform reach wrongly assigned entirely to SHIFAA')
 
+    # The KAUST visiting professorship is current (2016–present). Do not let a
+    # closed date or a "former" label return on the public pages or their sources.
+    kaust_current = {
+        'about.html': ('2016–Present', 'Visiting Professor — Bio-Ontology Research Group, KAUST'),
+        'ar/about.html': ('2016–حتى الآن', 'أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست'),
+        'academic-cv.html': ('2016–Present', 'Visiting Professor — Bio-Ontology Research Group, KAUST', 'Visiting Professor · Bio-Ontology Research Group'),
+        'ar/academic-cv.html': ('2016–حتى الآن', 'أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست', 'أستاذ زائر · مجموعة أبحاث الأنطولوجيا الحيوية'),
+        'executive-cv.html': ('2016–Present', 'Visiting Professor — Bio-Ontology Research Group, KAUST'),
+        'ar/executive-cv.html': ('2016–حتى الآن', 'أستاذ زائر — مجموعة أبحاث الأنطولوجيا الحيوية، كاوست'),
+        'advisory.html': ('Visiting Professor, KAUST (since 2016)',),
+        'ar/advisory.html': ('أستاذ زائر في KAUST منذ 2016',),
+    }
+    kaust_forbidden = (
+        'Former Visiting Professor',
+        'Visiting Professor (former)',
+        'former visiting professor',
+        'Former visiting-professor',
+        'أستاذ زائر سابق',
+        'زائر سابقًا',
+        'ملف الأستاذ الزائر السابق',
+    )
+    for name, phrases in kaust_current.items():
+        source = (ROOT / name).read_text()
+        for phrase in phrases:
+            if phrase not in source:
+                errors.append(f'{name}: KAUST visiting role must stay current ({phrase})')
+    opportunities = json.loads((ROOT / 'data/opportunities.json').read_text())
+    for phrase in ('Visiting Professor, KAUST (since 2016)', 'أستاذ زائر في KAUST منذ 2016'):
+        if phrase not in json.dumps(opportunities, ensure_ascii=False):
+            errors.append(f'data/opportunities.json: missing current KAUST role ({phrase})')
+    master = json.loads((ROOT / 'data/master_cv.json').read_text())
+    kaust_roles = [item for item in master['experience'] if 'Visiting Professor' in item.get('title', '')]
+    if len(kaust_roles) != 1 or kaust_roles[0]['date'] != '2016–Present' or '(former)' in kaust_roles[0]['title'].lower():
+        errors.append('data/master_cv.json: KAUST visiting professorship must be current (2016–Present)')
+    scan_roots = [ROOT / 'data', ROOT / 'i18n', ROOT / 'docs']
+    scan_files = [path for root in scan_roots for path in root.rglob('*') if path.suffix.lower() in ('.json', '.md', '.html')]
+    scan_files.extend(path for path in ROOT.glob('*.html'))
+    scan_files.extend(path for path in (ROOT / 'ar').rglob('*.html'))
+    for path in scan_files:
+        lowered = path.read_text(encoding='utf-8').lower()
+        if any(phrase.lower() in lowered for phrase in kaust_forbidden):
+            errors.append(f'{path.relative_to(ROOT)}: KAUST visiting role is described as former')
+
     # Source links must resolve within the published language and to real notes.
     for name, doc in documents.items():
         for link in doc.links:
