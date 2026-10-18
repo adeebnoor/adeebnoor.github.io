@@ -16,7 +16,7 @@ The supplied `index (3).html` is the visual reference. Its original embedded Web
 - RIDI: research software and interactive demo; no claim of peer-reviewed acceptance. https://github.com/adeebnoor/ridi and https://adeebnoor.github.io/demo/
 - MIYAR: workforce architecture / position-management prototype by Adeeb Noor and Ahmad Raza Khan. Do not imply government adoption or a fully deployed enterprise API. https://github.com/adeebnoor/Miyar/blob/main/README.md
 - iSCARB: teaching system linking in-class learning, after-class reasoning and evidence. Do not imply measured learning gains. https://adeebnoor.github.io/CPIT/iscarb.html
-- HEALTHx: public platform concept and research-translation opportunity. Use only public material at https://adeebnoor.github.io/healthx/ .
+- HEALTHx: a company he founded. Public lines use “Founder, HEALTHx” and “clinical innovation platform; patent application pending”, without revenue or funding figures. Use only public material at https://adeebnoor.github.io/healthx/ .
 - GenomeFit: venture co-founded with Imene Boudellioua. KAUST's May 24, 2017 feature confirms TAQADAM support for service/business-model development, not present commercial operation or clinical validation. https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor
 - SHIFAA: institutional patient-portal experience, independently described in the KAUST profile above.
 

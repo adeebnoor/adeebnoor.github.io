@@ -54,7 +54,7 @@ def page_opportunities(lang):
         f'<article class="opp-card"><h3>{e(r["title"])}</h3><p>{e(r["text"])}</p>{ul(r["fit"])}'
         f'{link(r["link"], r["link_text"], "opp-link")}</article>' for r in c['roles'])
     stats = ''.join(f'<div class="opp-stat"><b>{e(p["value"])}</b><span>{e(p["label"])}</span></div>' for p in c['proof'])
-    career = ''.join(f'<li><time>{e(x["when"])}</time><div><b>{e(x["role"])}</b><span>{e(x["org"])}</span></div></li>' for x in c['career'])
+    career = ''.join(f'<li><time>{e(x["when"])}</time><div><b>{e(x["role"])}</b>'+(f'<span>{e(x["org"])}</span>' if x.get("org") else '')+'</div></li>' for x in c['career'])
     cv = public_path('executive-cv.html', ar)
     body = (
         f'<section class="opp-hero"><div class="opp-wrap"><p class="opp-kicker">{e(c["kicker"])}</p><h1>{e(c["h1"])}</h1>'

@@ -1,4 +1,5 @@
 """Fail the build if shared public identity or evidence/navigation contracts drift."""
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, urljoin
@@ -144,6 +145,41 @@ def validate():
         lowered = path.read_text(encoding='utf-8').lower()
         if any(phrase.lower() in lowered for phrase in kaust_forbidden):
             errors.append(f'{path.relative_to(ROOT)}: KAUST visiting role is described as former')
+
+    # The KAU research-office advisory title and the HEALTHx founder line are canonical.
+    kau_title = 'Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)'
+    kau_ar = 'كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار'
+    healthx_line = 'clinical innovation platform; patent application pending'
+    for name in ('executive-cv.html', 'about.html', 'advisory.html'):
+        if kau_title not in unescape((ROOT / name).read_text()):
+            errors.append(f'{name}: KAU advisory title must read exactly: {kau_title}')
+    for name in ('ar/executive-cv.html', 'ar/about.html', 'ar/advisory.html'):
+        if kau_ar not in (ROOT / name).read_text():
+            errors.append(f'{name}: Arabic KAU advisory title missing')
+    if kau_title not in json.dumps(master, ensure_ascii=False):
+        errors.append('data/master_cv.json: KAU advisory title missing')
+    opportunity_text = json.dumps(opportunities, ensure_ascii=False)
+    if kau_title not in opportunity_text or kau_ar not in opportunity_text:
+        errors.append('data/opportunities.json: KAU advisory title missing')
+    if 'Founder, HEALTHx' not in unescape((ROOT / 'executive-cv.html').read_text()) or healthx_line not in unescape((ROOT / 'executive-cv.html').read_text()):
+        errors.append('executive-cv.html: HEALTHx must be presented as Founder, HEALTHx with the modest platform line')
+    healthx_record = next(item for item in master['ventures'] if 'HEALTHx' in item[0])
+    if healthx_record != ['Founder, HEALTHx', healthx_line]:
+        errors.append('data/master_cv.json: HEALTHx must stay Founder, HEALTHx — clinical innovation platform; patent application pending')
+    obsolete_titles = (
+        'Senior Strategy Advisor',
+        'Chief Transformation Advisor',
+        'Chief Strategy Advisor —',
+        'Chief Strategy Advisor -',
+        'Office of the VP for Research',
+        'كبير المستشارين الاستراتيجيين',
+    )
+    identity_files = [ROOT / 'data/master_cv.json', ROOT / 'data/opportunities.json', ROOT / 'executive-cv.html', ROOT / 'about.html', ROOT / 'advisory.html', ROOT / 'ar/executive-cv.html', ROOT / 'ar/about.html', ROOT / 'ar/advisory.html']
+    for path in identity_files:
+        text = path.read_text(encoding='utf-8')
+        for phrase in obsolete_titles:
+            if phrase in text:
+                errors.append(f'{path.relative_to(ROOT)}: obsolete KAU advisory title remains ({phrase})')
 
     # Source links must resolve within the published language and to real notes.
     for name, doc in documents.items():
