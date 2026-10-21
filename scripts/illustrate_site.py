@@ -10,8 +10,17 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 SKIP = ('kinetic-hr/', 'SulTaN/', 'healthx/', 'ar/healthx/')
 ART_DIR = ROOT/'assets'/'illustrations'
-ART = {f.stem: re.sub(r'\s(?:width|height)="\d+"', '', f.read_text(encoding='utf-8').strip()) for f in ART_DIR.glob('*.svg')}
-RIDI_MARK = re.sub(r'\s(?:width|height)="\d+"', '', (ROOT/'assets'/'brand'/'ridi-mark.svg').read_text(encoding='utf-8').strip())
+
+
+def inline_svg(path):
+    # Drop the intrinsic size from the root <svg> only; inner shapes keep their width/height.
+    text = path.read_text(encoding='utf-8').strip()
+    head, rest = text.split('>', 1)
+    return re.sub(r'\s(?:width|height)="\d+"', '', head) + '>' + rest
+
+
+ART = {f.stem: inline_svg(f) for f in ART_DIR.glob('*.svg')}
+RIDI_MARK = inline_svg(ROOT/'assets'/'brand'/'ridi-mark.svg')
 ART_CLEAN = re.compile(r'<(span|div|figure) class="t-art[^"]*"[^>]*>.*?</\1>', re.S)
 PAGE_ART = {'research': 'art-research', 'publications': 'art-research', 'phd': 'art-research', 'academic': 'art-research',
             'advisory': 'art-advisory', 'engagements': 'art-advisory', 'impact': 'art-advisory', 'executive-cv': 'art-advisory', 'partnerships': 'art-advisory', 'ventures': 'art-advisory',
