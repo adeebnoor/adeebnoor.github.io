@@ -111,11 +111,31 @@ def record(urn, text):
     return url
 
 
+def test_report(text, link, payload):
+    # Dry run: validate everything that can be validated without posting, including the token.
+    lines = [f'Post text accepted ({len(text)} characters).', 'Link: ' + (link or 'none') + '.']
+    token = os.environ.get('LINKEDIN_ACCESS_TOKEN', '').strip()
+    if not token:
+        lines.append('LINKEDIN_ACCESS_TOKEN is missing from the repository secrets; the post could not be sent yet.')
+    else:
+        try:
+            with urlopen(Request('https://api.linkedin.com/v2/userinfo', headers={'Authorization': 'Bearer ' + token}), timeout=30) as response:
+                info = json.loads(response.read())
+            urn = 'urn:li:person:' + str(info.get('sub', ''))
+            match = 'matches' if urn == payload['author'] else 'does NOT match'
+            lines.append(f'Token valid; signed in as {info.get("name", "?")}; LINKEDIN_PERSON_URN {match} this account.')
+        except HTTPError as error:
+            lines.append(f'Token rejected by LinkedIn (HTTP {error.code}); generate a new token and update LINKEDIN_ACCESS_TOKEN.')
+    Path('test-report.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    print('\n'.join(lines))
+
+
 def main(event_path):
     event = json.loads(Path(event_path).read_text(encoding='utf-8'))
     text, link, payload = build(event)
     if os.environ.get('LINKEDIN_DRY_RUN') == '1':
         print(json.dumps(payload, ensure_ascii=False, indent=2))
+        test_report(text, link, payload)
         return
     urn = post(payload)
     url = record(urn, text)

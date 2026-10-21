@@ -39,4 +39,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # data/linkedin-mode.txt: "test" checks everything without posting; "live" publishes.
+          if [ "$(tr -d '[:space:]' < data/linkedin-mode.txt 2>/dev/null)" = "test" ]; then
+            export LINKEDIN_DRY_RUN=1
+            echo "Test mode: nothing will be posted."
+          fi
           bash scripts/linkedin_publish_pending.sh
