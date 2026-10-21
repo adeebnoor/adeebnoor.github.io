@@ -1,0 +1,65 @@
+name: Publish to LinkedIn and the site
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: site-content-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    # Only the site owner's issue-form submissions are posted.
+    if: github.event.issue.user.login == github.repository_owner && contains(github.event.issue.labels.*.name, 'linkedin-publish')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deterministic social-card renderer
+        run: python -m pip install 'pillow==11.3.0'
+      - name: Post to LinkedIn and record it
+        id: post
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_VERSION: ${{ vars.LINKEDIN_VERSION }}
+        run: |
+          if python scripts/linkedin_publish.py "$GITHUB_EVENT_PATH"; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+            python scripts/build_site.py
+            python scripts/validate_site.py
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish the site
+        if: steps.post.outputs.failed != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset -q -- error.txt post-url.txt 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "site: show LinkedIn post (#${ISSUE})"
+          git push origin HEAD:main
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+      - name: Report back on the issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          FAILED: ${{ steps.post.outputs.failed }}
+        run: |
+          if [ "$FAILED" = "true" ] || [ ! -f post-url.txt ]; then
+            { echo "Not published:"; echo; cat error.txt 2>/dev/null || echo "The workflow stopped before posting."; echo; echo "Fix the cause and open a new issue; nothing was posted to LinkedIn unless a link appears above."; } > comment.txt
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+          else
+            { echo "Published on LinkedIn: $(cat post-url.txt)"; echo; echo "It appears on https://adeebnoor.github.io/ within a few minutes."; } > comment.txt
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+            gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
+          fi

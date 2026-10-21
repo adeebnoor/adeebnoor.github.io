@@ -1,0 +1,18 @@
+name: Publish to LinkedIn and the site
+description: Write once here; it is posted to LinkedIn and shown in "From LinkedIn" on adeebnoor.github.io
+title: "Publish to LinkedIn"
+labels: ["linkedin-publish"]
+body:
+  - type: textarea
+    id: text
+    attributes:
+      label: Post text
+      description: The post as it should appear on LinkedIn (Arabic or English, up to 3000 characters). Hashtags like #AI stay live.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link (optional)
+      description: A page to attach as the post's link preview, for example https://adeebnoor.github.io/healthx/
+      placeholder: https://adeebnoor.github.io/
