@@ -148,17 +148,6 @@
           "link_text": "Executive CV →"
         },
         {
-          "title": "AI update accountability",
-          "text": "Review before sign-off: what changed when the system changed, against a repeat-execution baseline, and what the acceptance criterion must record.",
-          "fit": [
-            "Pre-specified acceptance criteria for AI updates (FDA change-control plans, EU AI Act Art. 43(4))",
-            "Paired case-level change against an execution baseline, not aggregate scores alone",
-            "An update report: the changes, the baseline, and the evidence the model actually read"
-          ],
-          "link": "https://adeebnoor.github.io/ridi/",
-          "link_text": "RIDI toolkit →"
-        },
-        {
           "title": "Strategic advisory",
           "text": "AI strategy and governance, national workforce planning, research-to-market operating models and digital-health transformation.",
           "fit": [
@@ -168,6 +157,17 @@
           ],
           "link": "/engagements.html",
           "link_text": "Selected engagements →"
+        },
+        {
+          "title": "AI update accountability",
+          "text": "Review before sign-off: what changed when the system changed, against a repeat-execution baseline, and what the acceptance criterion must record.",
+          "fit": [
+            "Pre-specified acceptance criteria for AI updates (FDA change-control plans, EU AI Act Art. 43(4))",
+            "Paired case-level change against an execution baseline, not aggregate scores alone",
+            "An update report: the changes, the baseline, and the evidence the model actually read"
+          ],
+          "link": "https://adeebnoor.github.io/ridi/",
+          "link_text": "RIDI toolkit →"
         },
         {
           "title": "Boards & expert committees",
@@ -292,17 +292,6 @@
           "link_text": "السيرة التنفيذية ←"
         },
         {
-          "title": "مساءلة تحديثات الذكاء الاصطناعي",
-          "text": "مراجعة قبل التوقيع: ماذا تغيّر عندما تغيّر النظام، مقارنةً بحد التشغيل المتكرر، وما الذي يجب أن يسجّله معيار القبول.",
-          "fit": [
-            "معايير قبول محددة مسبقًا لتحديثات الذكاء الاصطناعي (خطط التحكم في التغيير لدى FDA، والمادة 43(4) من قانون الذكاء الاصطناعي الأوروبي)",
-            "التغيّر المزدوج على مستوى الحالة مقابل حد التشغيل، لا الدرجة الإجمالية وحدها",
-            "تقرير التحديث: التغيّرات، وحد الأساس، والأدلة التي قرأها النموذج فعلًا"
-          ],
-          "link": "https://adeebnoor.github.io/ridi/",
-          "link_text": "أداة RIDI ←"
-        },
-        {
           "title": "الاستشارات الاستراتيجية",
           "text": "استراتيجية الذكاء الاصطناعي وحوكمته، وتخطيط القوى العاملة الوطنية، ونماذج تحويل البحث إلى السوق، وتحول الصحة الرقمية.",
           "fit": [
@@ -312,6 +301,17 @@
           ],
           "link": "/ar/engagements.html",
           "link_text": "نماذج من العمل ←"
+        },
+        {
+          "title": "مساءلة تحديثات الذكاء الاصطناعي",
+          "text": "مراجعة قبل التوقيع: ماذا تغيّر عندما تغيّر النظام، مقارنةً بحد التشغيل المتكرر، وما الذي يجب أن يسجّله معيار القبول.",
+          "fit": [
+            "معايير قبول محددة مسبقًا لتحديثات الذكاء الاصطناعي (خطط التحكم في التغيير لدى FDA، والمادة 43(4) من قانون الذكاء الاصطناعي الأوروبي)",
+            "التغيّر المزدوج على مستوى الحالة مقابل حد التشغيل، لا الدرجة الإجمالية وحدها",
+            "تقرير التحديث: التغيّرات، وحد الأساس، والأدلة التي قرأها النموذج فعلًا"
+          ],
+          "link": "https://adeebnoor.github.io/ridi/",
+          "link_text": "أداة RIDI ←"
         },
         {
           "title": "المجالس ولجان الخبراء",
