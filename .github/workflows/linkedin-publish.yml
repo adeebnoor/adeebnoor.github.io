@@ -1,7 +1,8 @@
 name: Publish to LinkedIn and the site
 on:
   issues:
-    types: [opened]
+    # Reopening a failed issue retries it (after fixing the cause, for example a missing secret).
+    types: [opened, reopened]
 permissions:
   contents: write
   issues: write
@@ -22,8 +23,22 @@ jobs:
           python-version: '3.12'
       - name: Install deterministic social-card renderer
         run: python -m pip install 'pillow==11.3.0'
+      - name: Skip an issue that was already published
+        id: dedupe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE/comments" --paginate --jq '.[].body' | grep -q '^Published on LinkedIn: '; then
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            echo "This issue was already published; nothing to do." | gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file -
+            gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
+          else
+            echo "done=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Post to LinkedIn and record it
         id: post
+        if: steps.dedupe.outputs.done != 'true'
         env:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
@@ -37,7 +52,7 @@ jobs:
             echo "failed=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Publish the site
-        if: steps.post.outputs.failed != 'true'
+        if: steps.dedupe.outputs.done != 'true' && steps.post.outputs.failed != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -49,15 +64,16 @@ jobs:
         env:
           ISSUE: ${{ github.event.issue.number }}
       - name: Report back on the issue
-        if: always()
+        if: always() && steps.dedupe.outputs.done != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
           FAILED: ${{ steps.post.outputs.failed }}
         run: |
           if [ "$FAILED" = "true" ] || [ ! -f post-url.txt ]; then
-            { echo "Not published:"; echo; cat error.txt 2>/dev/null || echo "The workflow stopped before posting."; echo; echo "Fix the cause and open a new issue; nothing was posted to LinkedIn unless a link appears above."; } > comment.txt
+            { echo "Not published:"; echo; cat error.txt 2>/dev/null || echo "The workflow stopped before posting."; echo; echo "Nothing was posted to LinkedIn. Fix the cause, then close and reopen this issue to retry."; } > comment.txt
             gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+            exit 1
           else
             { echo "Published on LinkedIn: $(cat post-url.txt)"; echo; echo "It appears on https://adeebnoor.github.io/ within a few minutes."; } > comment.txt
             gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
