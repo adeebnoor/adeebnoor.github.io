@@ -9,7 +9,7 @@
     "resultLabel": "What exists today",
     "gatewayTitle": "Ideas and execution",
     "paths": [
-      {"label": "Ideas & positions", "title": "What the score hides", "text": "I study how evidence makes decisions about people accountable.", "url": "/ideas/position.html", "cta": "Read my position"},
+      {"label": "Ideas & positions", "title": "What the score hides", "text": "What changes when an AI system changes, and who signs off.", "url": "/ideas/position.html", "cta": "Read my position"},
       {"label": "Leadership & implementation", "title": "From evidence to institutional capability", "text": "My executive record across government, healthcare and higher education.", "url": "/impact.html", "cta": "Explore leadership & impact"}
     ],
     "audienceLabel": "Find your next step",
@@ -22,7 +22,7 @@
     "galleryTitle": "Projects, at a glance.",
     "galleryIntro": "Open an image to explore the project. Each card states its current stage and links to the work or its background.",
     "work": {
-      "ridi": {"value": "Reveal changes in who an AI system selects, even when its evaluation score stays the same.", "result": "An open audit toolkit and reproducibility package, with a submission-ready manuscript that is not yet peer reviewed."},
+      "ridi": {"value": "Show which answers or selections change after an AI update, even when every evaluation score stays the same.", "result": "A preregistered experiment (scores identical, about one answer in six changed), an open audit toolkit, and a submission-ready manuscript not yet peer reviewed."},
       "shifaa": {"value": "Give patients a digital route to King Abdulaziz University Hospital services.", "result": "An institutional patient portal, founded as part of the hospital’s digital modernization."},
       "miyar": {"value": "Turn an organizational priority into a role proposal that people can review and approve.", "result": "A bilingual public pilot connecting organization design, job evaluation, workforce planning and compensation."}
     }
@@ -36,7 +36,7 @@
     "resultLabel": "ما أُنجز حتى الآن",
     "gatewayTitle": "الفكرة والتنفيذ",
     "paths": [
-      {"label": "الأفكار والمواقف", "title": "ما يخفيه الرقم", "text": "أبحث كيف يجعل الدليل القرارات التي تمس الناس قابلة للمساءلة.", "url": "/ideas/position.html", "cta": "اقرأ أطروحتي"},
+      {"label": "الأفكار والمواقف", "title": "ما يخفيه الرقم", "text": "ماذا يتغيّر عندما يتغيّر نظام الذكاء الاصطناعي، ومن يوقّع.", "url": "/ideas/position.html", "cta": "اقرأ أطروحتي"},
       {"label": "القيادة والتنفيذ", "title": "من الدليل إلى القدرة المؤسسية", "text": "سجلي التنفيذي في الحكومة والصحة والتعليم العالي.", "url": "/impact.html", "cta": "استكشف القيادة والأثر"}
     ],
     "audienceLabel": "اختر خطوتك التالية",
@@ -49,7 +49,7 @@
     "galleryTitle": "المشاريع في نظرة واحدة.",
     "galleryIntro": "افتح الصورة لاستكشاف المشروع. توضّح كل بطاقة مرحلة العمل الحالية وتربطك بالمشروع أو بخلفيته.",
     "work": {
-      "ridi": {"value": "كشف التغيّر في الأشخاص الذين يختارهم نظام الذكاء الاصطناعي، حتى حين تبقى درجة تقييمه متساوية.", "result": "أداة تدقيق مفتوحة وحزمة لإعادة إنتاج النتائج، مع مخطوطة جاهزة للتقديم لم تخضع للتحكيم بعد."},
+      "ridi": {"value": "كشف الإجابات أو الاختيارات التي تتغيّر بعد تحديث نظام الذكاء الاصطناعي، حتى حين تبقى كل درجات التقييم متساوية.", "result": "تجربة مسجلة مسبقًا (الدرجات متطابقة، وتغيّرت إجابة من كل ست)، وأداة تدقيق مفتوحة، ومخطوطة جاهزة للتقديم لم تخضع للتحكيم بعد."},
       "shifaa": {"value": "إتاحة مسار رقمي للمرضى للوصول إلى خدمات مستشفى جامعة الملك عبدالعزيز.", "result": "بوابة مؤسسية لخدمات المرضى، أُسّست ضمن التحديث الرقمي للمستشفى."},
       "miyar": {"value": "تحويل أولوية المؤسسة إلى مقترح دور وظيفي قابل للمراجعة والاعتماد البشري.", "result": "تجربة أولية عامة باللغتين تربط التصميم التنظيمي بتقييم الوظائف وتخطيط القوى العاملة والتعويضات."}
     }

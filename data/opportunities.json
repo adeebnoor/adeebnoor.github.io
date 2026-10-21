@@ -128,13 +128,13 @@
       "description": "The leadership and advisory record of Prof. Adeeb Noor across government, universities and healthcare: strategy, workforce intelligence, AI and digital health.",
       "kicker": "Leadership & Advisory",
       "h1": "Leadership across government, universities and healthcare.",
-      "lead": "I help institutions make fairer, more accurate decisions about people — with data and AI that can be held to account. My record spans national workforce planning at the Ministry of Education, hospital digital modernization, and research and innovation strategy at King Abdulaziz University, where I am Professor of Data Science & AI.",
+      "lead": "I help institutions see what changes when their AI changes, before anyone signs off — with data and AI that can be held to account. My record spans national workforce planning at the Ministry of Education, hospital digital modernization, and research and innovation strategy at King Abdulaziz University, where I am Professor of Data Science & AI.",
       "mail_subject": "Invitation",
       "cta_cv": "Executive CV",
       "cta_second": "Selected engagements",
       "cta_second_link": "/engagements.html",
       "roles_h2": "Areas of service",
-      "roles_intro": "Four areas in which I have served, each with a record that can be examined.",
+      "roles_intro": "Five areas in which I serve, each with a record that can be examined.",
       "roles": [
         {
           "title": "Institutional leadership",
@@ -157,6 +157,17 @@
           ],
           "link": "/engagements.html",
           "link_text": "Selected engagements →"
+        },
+        {
+          "title": "AI update accountability",
+          "text": "Review before sign-off: what changed when the system changed, against a repeat-execution baseline, and what the acceptance criterion must record.",
+          "fit": [
+            "Pre-specified acceptance criteria for AI updates (FDA change-control plans, EU AI Act Art. 43(4))",
+            "Paired case-level change against an execution baseline, not aggregate scores alone",
+            "An update report: the changes, the baseline, and the evidence the model actually read"
+          ],
+          "link": "https://adeebnoor.github.io/ridi/",
+          "link_text": "RIDI toolkit →"
         },
         {
           "title": "Boards & expert committees",
@@ -261,13 +272,13 @@
       "description": "السجل القيادي والاستشاري للأستاذ الدكتور أديب نور في الجهات الحكومية والجامعات والقطاع الصحي: الاستراتيجية وذكاء القوى العاملة والذكاء الاصطناعي والصحة الرقمية.",
       "kicker": "القيادة والاستشارات",
       "h1": "مسيرة قيادية في الجهات الحكومية والجامعات والقطاع الصحي.",
-      "lead": "أساعد الجهات على اتخاذ قرارات أدق وأكثر عدلًا بشأن الناس، باستخدام البيانات والذكاء الاصطناعي بطريقة قابلة للمساءلة. تمتد مسيرتي من تخطيط القوى العاملة الوطنية في وزارة التعليم، إلى التحديث الرقمي في المستشفى الجامعي، إلى استراتيجية البحث والابتكار في جامعة الملك عبدالعزيز حيث أعمل أستاذًا لعلوم البيانات والذكاء الاصطناعي.",
+      "lead": "أساعد الجهات على أن ترى ما يتغيّر عندما يتغيّر ذكاؤها الاصطناعي قبل أن يوقّع أحد، باستخدام البيانات والذكاء الاصطناعي بطريقة قابلة للمساءلة. تمتد مسيرتي من تخطيط القوى العاملة الوطنية في وزارة التعليم، إلى التحديث الرقمي في المستشفى الجامعي، إلى استراتيجية البحث والابتكار في جامعة الملك عبدالعزيز حيث أعمل أستاذًا لعلوم البيانات والذكاء الاصطناعي.",
       "mail_subject": "دعوة",
       "cta_cv": "السيرة التنفيذية",
       "cta_second": "نماذج من العمل",
       "cta_second_link": "/ar/engagements.html",
       "roles_h2": "مجالات الإسهام",
-      "roles_intro": "أربعة مجالات خدمتُ فيها، ولكل منها سجل يمكن الرجوع إليه.",
+      "roles_intro": "خمسة مجالات أخدم فيها، ولكل منها سجل يمكن الرجوع إليه.",
       "roles": [
         {
           "title": "القيادة المؤسسية",
@@ -290,6 +301,17 @@
           ],
           "link": "/ar/engagements.html",
           "link_text": "نماذج من العمل ←"
+        },
+        {
+          "title": "مساءلة تحديثات الذكاء الاصطناعي",
+          "text": "مراجعة قبل التوقيع: ماذا تغيّر عندما تغيّر النظام، مقارنةً بحد التشغيل المتكرر، وما الذي يجب أن يسجّله معيار القبول.",
+          "fit": [
+            "معايير قبول محددة مسبقًا لتحديثات الذكاء الاصطناعي (خطط التحكم في التغيير لدى FDA، والمادة 43(4) من قانون الذكاء الاصطناعي الأوروبي)",
+            "التغيّر المزدوج على مستوى الحالة مقابل حد التشغيل، لا الدرجة الإجمالية وحدها",
+            "تقرير التحديث: التغيّرات، وحد الأساس، والأدلة التي قرأها النموذج فعلًا"
+          ],
+          "link": "https://adeebnoor.github.io/ridi/",
+          "link_text": "أداة RIDI ←"
         },
         {
           "title": "المجالس ولجان الخبراء",
