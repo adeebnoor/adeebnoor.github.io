@@ -37,7 +37,8 @@ for n in $issues; do
       report=$(cat error.txt 2>/dev/null || echo "The check stopped before validating.")
     fi
     { echo "Test only, nothing was posted:"; echo; echo "$report"; echo; echo "Change data/linkedin-mode.txt to \"live\" to publish for real."; } > comment.txt
-    if ! grep -qF -- "$report" <<< "$bot_comments"; then
+    # Whole-block comparison: a report counts as repeated only when all of it was already commented.
+    if [[ "$bot_comments" != *"$report"* ]]; then
       gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
     else
       echo "Same test result as last time; not repeating the comment."
@@ -69,7 +70,7 @@ for n in $issues; do
     reason=$(cat error.txt 2>/dev/null || echo "The workflow stopped before posting.")
     { echo "Not published:"; echo; echo "$reason"; echo; echo "Nothing was posted to LinkedIn. Fix the cause; the site retries this issue every hour (or close and reopen it to retry now)."; } > comment.txt
     last=$(tail -n 12 <<< "$bot_comments" | tr -d '\r')
-    if ! grep -qF -- "$reason" <<< "$last"; then
+    if [[ "$last" != *"$reason"* ]]; then
       gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
     else
       echo "Same failure as last time; not repeating the comment: $reason"
