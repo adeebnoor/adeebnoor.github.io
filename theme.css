@@ -167,3 +167,38 @@ html[lang=ar] .t-post time{letter-spacing:0}
 .t-post p{margin:0;flex:1;color:var(--t-text);line-height:1.6}
 .t-post a{align-self:flex-start;font-weight:600;color:var(--t-green)!important;text-decoration:underline;text-underline-offset:4px}
 @media (max-width:900px){.t-post-grid{grid-template-columns:1fr}}
+
+/* ---------- Illustrations (inline SVG, decorative) ---------- */
+.t-art{display:block;line-height:0}
+.t-art svg{display:block;width:100%;height:auto}
+.hero .portrait{position:relative}
+.t-hero-art{position:absolute;left:50%;top:46%;width:170%;transform:translate(-50%,-50%);z-index:0;opacity:.85;pointer-events:none}
+.hero .portrait{max-width:400px!important}
+.hero .portrait .art,.hero .portrait blockquote{position:relative;z-index:1}
+.t-ico{width:56px;height:56px;margin-bottom:14px}
+.t-ico-lg{width:64px;height:64px;margin:0 20px 0 0;flex-shrink:0}
+html[lang=ar] .t-ico-lg{margin:0 0 0 20px}
+.latest-home-head{align-items:center!important}
+.t-stat-ico{width:40px;height:40px;margin-bottom:10px}
+.t-illus{max-width:360px;margin:26px 0 0}
+.t-cta-art{width:150px;flex-shrink:0;margin-inline:auto}
+.polish-cta .wrap{display:grid!important;grid-template-columns:minmax(0,1fr) 150px auto;align-items:center;gap:32px}
+.t-page-art{position:absolute;inset-inline-end:max(16px,calc((100% - 1220px)/2));top:50%;transform:translateY(-50%);width:min(34vw,380px);z-index:1;pointer-events:none;opacity:.95}
+:is(.page-hero,.opp-hero,.ideas-hero){position:relative;overflow:hidden}
+:is(.page-hero,.opp-hero,.ideas-hero) :is(.wrap,.opp-wrap,.ideas-wrap){position:relative;z-index:2;padding-inline-end:min(36vw,420px)}
+.t-ridi-badge{position:absolute;inset-inline-start:14px;bottom:14px;width:48px;height:48px;z-index:2;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
+.project-visual-link{position:relative;display:block}
+.t-ridi-mark{display:block;width:72px;height:72px;margin:0 0 18px}
+@media (max-width:900px){
+  .polish-cta .wrap{grid-template-columns:1fr}
+  .t-cta-art{width:120px;margin:0}
+  .t-page-art{position:static;transform:none;width:min(60vw,260px);margin:0 auto 18px}
+  :is(.page-hero,.opp-hero,.ideas-hero) :is(.wrap,.opp-wrap,.ideas-wrap){padding-inline-end:0}
+  .t-illus{max-width:280px}
+}
+@media (max-width:640px){
+  .t-hero-art{display:none}
+  .t-stat-ico{width:28px;height:28px}
+  .t-ico{width:44px;height:44px}
+  .t-ico-lg{display:none}
+}
