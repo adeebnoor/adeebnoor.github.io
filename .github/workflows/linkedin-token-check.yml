@@ -1,0 +1,41 @@
+name: Remind before the LinkedIn token expires
+on:
+  schedule:
+    - cron: '41 6 * * 1'
+  workflow_dispatch:
+permissions:
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the token and open a reminder when needed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+          LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+        run: |
+          python - <<'PY' > status.txt
+          import json, os, time
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+          token, cid, secret = (os.environ.get(k, '') for k in ('LINKEDIN_ACCESS_TOKEN', 'LINKEDIN_CLIENT_ID', 'LINKEDIN_CLIENT_SECRET'))
+          if not (token and cid and secret):
+              print('skip'); raise SystemExit
+          body = urlencode({'token': token, 'client_id': cid, 'client_secret': secret}).encode()
+          with urlopen(Request('https://www.linkedin.com/oauth/v2/introspectToken', data=body, headers={'Content-Type': 'application/x-www-form-urlencoded'}), timeout=30) as r:
+              info = json.loads(r.read())
+          days = (int(info.get('expires_at', 0)) - time.time()) / 86400
+          print('expired' if not info.get('active') else f'{days:.0f}')
+          PY
+          STATUS=$(cat status.txt)
+          echo "token status: $STATUS"
+          if [ "$STATUS" = "skip" ]; then exit 0; fi
+          if [ "$STATUS" = "expired" ] || [ "$STATUS" -le 10 ]; then
+            if [ -z "$(gh issue list --repo "$GITHUB_REPOSITORY" --label linkedin-token --state open --json number --jq '.[0].number')" ]; then
+              gh issue create --repo "$GITHUB_REPOSITORY" --label linkedin-token --title "Renew the LinkedIn access token" \
+                --body "The LinkedIn access token used to publish posts is $( [ "$STATUS" = "expired" ] && echo expired || echo "expiring in about $STATUS days"). Run python scripts/linkedin_auth.py on your computer and update the LINKEDIN_ACCESS_TOKEN secret, then close this issue."
+            fi
+          fi
