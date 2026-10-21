@@ -26,8 +26,24 @@ for n in $issues; do
     gh issue close "$n" --repo "$GITHUB_REPOSITORY"
     continue
   fi
-  rm -f error.txt post-url.txt
+  rm -f error.txt post-url.txt test-report.txt
   git pull -q --rebase origin main
+  if [ "${LINKEDIN_DRY_RUN:-}" = "1" ]; then
+    # Test mode (data/linkedin-mode.txt says "test"): validate and check the token, post nothing, keep the issue open.
+    if python scripts/linkedin_publish.py event-issue.json; then
+      report=$(cat test-report.txt)
+    else
+      failed=1
+      report=$(cat error.txt 2>/dev/null || echo "The check stopped before validating.")
+    fi
+    { echo "Test only, nothing was posted:"; echo; echo "$report"; echo; echo "Change data/linkedin-mode.txt to \"live\" to publish for real."; } > comment.txt
+    if ! grep -qF -- "$report" <<< "$bot_comments"; then
+      gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+    else
+      echo "Same test result as last time; not repeating the comment."
+    fi
+    continue
+  fi
   if python scripts/linkedin_publish.py event-issue.json; then
     # Posted. Whatever happens to the build now, the post is recorded so it is never posted twice.
     url=$(cat post-url.txt)
@@ -60,6 +76,6 @@ for n in $issues; do
     fi
   fi
 done
-rm -f event-issue.json comment.txt error.txt post-url.txt
+rm -f event-issue.json comment.txt error.txt post-url.txt test-report.txt
 if [ "$failed" = 1 ] && [ "${STRICT:-false}" = "true" ]; then exit 1; fi
 exit 0
