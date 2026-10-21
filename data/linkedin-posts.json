@@ -1,0 +1,5 @@
+{
+  "_note": "Posts shown in the homepage 'From LinkedIn' section. Add one through the 'LinkedIn post' issue form (scripts/add_linkedin_post.py) or edit this file and run python scripts/build_site.py. Newest first.",
+  "profile": "https://www.linkedin.com/in/adeeb-noor",
+  "posts": []
+}
