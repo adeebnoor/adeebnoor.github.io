@@ -1,0 +1,54 @@
+name: Publish a LinkedIn post on the site
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: site-content-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    # Only the site owner's issue-form submissions are published.
+    if: github.event.issue.user.login == github.repository_owner && contains(github.event.issue.labels.*.name, 'linkedin-post')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deterministic social-card renderer
+        run: python -m pip install 'pillow==11.3.0'
+      - name: Add the post and rebuild the site
+        id: add
+        run: |
+          python scripts/add_linkedin_post.py "$GITHUB_EVENT_PATH" 2> error.txt || { echo "failed=true" >> "$GITHUB_OUTPUT"; cat error.txt; exit 0; }
+          python scripts/build_site.py
+          python scripts/validate_site.py
+      - name: Publish
+        if: steps.add.outputs.failed != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "site: show LinkedIn post (#${ISSUE})"
+          git push origin HEAD:main
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+      - name: Report back on the issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          FAILED: ${{ steps.add.outputs.failed }}
+        run: |
+          if [ "$FAILED" = "true" ]; then
+            { echo "The post was not added:"; echo; cat error.txt; echo; echo "Edit the details and open a new issue."; } > comment.txt
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+          else
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "Published. It appears on https://adeebnoor.github.io/ within a few minutes."
+            gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
+          fi

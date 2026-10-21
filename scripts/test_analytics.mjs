@@ -80,7 +80,7 @@ function element(tag, attrs = {}, classes = []) {
     hasAttribute: key => Object.hasOwn(attrs, key),
     classList: { contains: name => classes.includes(name) },
     closest(selector) {
-      if (selector === '[data-analytics-ignore]') return attrs.ignore ? node : null;
+      if (selector === '[data-analytics-ignore]') return (attrs.ignore || Object.hasOwn(attrs, 'data-analytics-ignore')) ? node : null;
       if (selector === 'a[href], button') return node;
       return null;
     }

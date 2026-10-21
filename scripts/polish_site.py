@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP = ('kinetic-hr/', 'SulTaN/')
 DESIGN_SKIP = ('healthx/', 'ar/healthx/')
 CSS_VERSION = hashlib.sha256((ROOT/'polish.css').read_bytes()).hexdigest()[:10]
+THEME_VERSION = hashlib.sha256((ROOT/'theme.css').read_bytes()).hexdigest()[:10]
 CSS_BLOCK = re.compile(r'<!-- polish:css:start -->.*?<!-- polish:css:end -->', re.S)
 CTA_BLOCK = re.compile(r'<!-- polish:cta:start -->.*?<!-- polish:cta:end -->', re.S)
 TESTIMONIALS = json.loads((ROOT/'data'/'testimonials.json').read_text(encoding='utf-8'))
@@ -108,8 +109,63 @@ def merge_gateway(source, lang):
     return GATEWAY.sub(lambda m: m[1] + body + m[3], source, count=1)
 
 
+LINKEDIN = json.loads((ROOT/'data'/'linkedin-posts.json').read_text(encoding='utf-8'))
+LINKEDIN_BLOCK = re.compile(r'<!-- polish:linkedin:start -->.*?<!-- polish:linkedin:end -->', re.S)
+MONTHS = {'en': ['January','February','March','April','May','June','July','August','September','October','November','December'],
+          'ar': ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']}
+
+
+def excerpt(text, limit=240):
+    text = ' '.join(text.split())
+    return text if len(text) <= limit else text[:limit].rsplit(' ', 1)[0] + '…'
+
+
+def linkedin(lang):
+    posts = LINKEDIN['posts'][:3]
+    if not posts:
+        return ''
+    ar = lang == 'ar'
+    cards = ''
+    for post in posts:
+        y, m, d = (int(x) for x in post['date'].split('-'))
+        date = f'{d} {MONTHS[lang][m-1]} {y}'
+        direction = 'rtl' if post.get('lang') == 'ar' else 'ltr'
+        cards += (f'<article class="t-post"><time datetime="{post["date"]}">{date}</time>'
+                  f'<p lang="{escape(post.get("lang","en"))}" dir="{direction}">{escape(excerpt(post["text"]))}</p>'
+                  f'<a href="{escape(post["url"], quote=True)}" target="_blank" rel="noopener noreferrer" data-analytics-ignore>'
+                  f'{"اقرأ على LinkedIn" if ar else "Read on LinkedIn"} <span aria-hidden="true">↗</span></a></article>')
+    head = ('<div class="section-heading"><div><div class="label">' + ('من LinkedIn' if ar else 'From LinkedIn') + '</div><h2>'
+            + ('آخر ما كتبت.' if ar else 'Latest writing and updates.') + '</h2></div><a href="' + LINKEDIN['profile'] + '">'
+            + ('تابعني على LinkedIn ←' if ar else 'Follow on LinkedIn →') + '</a></div>')
+    return ('<!-- polish:linkedin:start --><section class="section t-linkedin" id="linkedin" aria-label="LinkedIn"><div class="wrap">'
+            + head + '<div class="t-post-grid">' + cards + '</div></div></section><!-- polish:linkedin:end -->')
+
+
+DOTS_BLOCK = re.compile(r'<!-- polish:dots:start -->.*?<!-- polish:dots:end -->', re.S)
+
+
+def dots():
+    # Original decorative motif: one continuous path with accent dots (green, lilac, sand).
+    path = 'M0 70 C80 10 140 130 220 70 S360 10 440 70 S580 130 660 70 S800 10 880 70 S1020 130 1100 70 S1180 30 1220 60'
+    marks = [(40, 44, '#005a36', 9), (180, 98, '#c88cff', 11), (300, 40, '#e2d1bf', 8), (420, 66, '#005a36', 7), (520, 104, '#c88cff', 9),
+             (640, 66, '#e2d1bf', 11), (760, 34, '#005a36', 9), (880, 70, '#c88cff', 7), (1000, 104, '#e2d1bf', 9), (1120, 66, '#005a36', 11)]
+    circles = ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{c}"/>' for x, y, c, r in marks)
+    return ('<!-- polish:dots:start --><div class="wrap" aria-hidden="true"><svg class="t-dots" viewBox="0 0 1220 140" focusable="false">'
+            f'<path d="{path}" fill="none" stroke="#141414" stroke-width="1" opacity=".35"/>{circles}</svg></div><!-- polish:dots:end -->')
+
+
 def polish_home(source, lang):
     source = CTA_BLOCK.sub('', source)
+    source = DOTS_BLOCK.sub('', source)
+    source = LINKEDIN_BLOCK.sub('', source)
+    stats = re.search(r'<section class="stats".*?</section>', source, re.S)
+    feed = linkedin(lang)
+    if stats and feed:
+        # News first: the latest LinkedIn posts follow the hero and key numbers.
+        source = source[:stats.end()] + feed + source[stats.end():]
+    hero = re.search(r'<section class="hero">.*?</section>', source, re.S)
+    if hero:
+        source = source[:hero.end()] + dots() + source[hero.end():]
     source = QUOTES_BLOCK.sub('', source)
     source = merge_gateway(source, lang)
     leadership = re.search(r'<section class="section partners-section" id="leadership">.*?</section>', source, re.S)
@@ -141,7 +197,7 @@ for path in sorted(ROOT.rglob('*.html')):
         source = source.replace('</head>', VISITORS_STYLE + '</head>', 1)
     else:
         source = CSS_BLOCK.sub('', source)
-        source = source.replace('</head>', f'<!-- polish:css:start --><link rel="stylesheet" href="/polish.css?v={CSS_VERSION}"><!-- polish:css:end --></head>', 1)
+        source = source.replace('</head>', f'<!-- polish:css:start --><link rel="stylesheet" href="/polish.css?v={CSS_VERSION}"><link rel="stylesheet" href="/theme.css?v={THEME_VERSION}"><!-- polish:css:end --></head>', 1)
     # Aggregate visitor count beside the privacy link (hidden until the public endpoint answers).
     source = VISITORS_BLOCK.sub('', source)
     source = PRIVACY_END.sub(lambda m: '<!-- polish:visitors:start --><span class="visitor-count" data-visitor-count data-endpoint="' + COUNT_ENDPOINT

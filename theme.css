@@ -1,0 +1,169 @@
+/* Light editorial theme, loaded after polish.css on every public page.
+   Warm creme surfaces, Inter, deep-green pill actions, lilac and sand accents,
+   generously rounded panels. Remove this file's <link> to return to the dark theme. */
+
+@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-400.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-500.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-600.woff2) format("woff2")}
+
+:root{
+  --t-bg:#f7f6f2; --t-surface:#ffffff; --t-sand:#efe7dc; --t-sand-strong:#e2d1bf;
+  --t-ink:#141414; --t-text:#2b2b2b; --t-muted:#5a5a55; --t-line:#e4ded3;
+  --t-green:#005a36; --t-green-hover:#00452a; --t-green-soft:#dcebe3;
+  --t-lilac:#c88cff; --t-lilac-soft:#f4e8ff; --t-lilac-ink:#5b2a86;
+  --t-radius:28px; --t-radius-sm:18px;
+  --t-font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --navy:#f7f6f2; --paper:#f7f6f2; --gold:#005a36; --gold-dark:#005a36; --line:#e4ded3;
+  --sans:var(--t-font); --serif:var(--t-font); --ink:#141414; --muted:#5a5a55; --gold-deep:#005a36;
+}
+
+/* ---------- Base type ---------- */
+html body{background:var(--t-bg)!important;color:var(--t-text)!important;font-family:var(--t-font)!important}
+html:not([lang=ar]) body :is(h1,h2,h3,h4,p,li,a,span,b,strong,small,blockquote,figcaption,label,button,input,select,textarea,summary,dt,dd,td,th,div):not(.site-brand):not(svg *){font-family:var(--t-font)!important}
+html:not([lang=ar]) :is(h1,h2){font-weight:400!important;letter-spacing:-.025em!important;color:var(--t-ink)}
+html:not([lang=ar]) h3{font-weight:600;letter-spacing:-.01em;color:var(--t-ink)}
+html[lang=ar] :is(h1,h2){font-weight:700;color:var(--t-ink)}
+a{color:inherit}
+:is(.label,.eyebrow,.kicker,.audit-kicker,.opp-kicker,.ideas-kicker,.hx-kicker,.theme-no){color:var(--t-green)!important;letter-spacing:.08em}
+html[lang=ar] :is(.label,.eyebrow,.kicker,.audit-kicker,.opp-kicker,.ideas-kicker){letter-spacing:0}
+.label:after{background:var(--t-green)!important;opacity:.35}
+
+/* ---------- Header ---------- */
+.site-header{background:rgba(247,246,242,.92)!important;color:var(--t-ink)!important;border-bottom:1px solid var(--t-line)!important;backdrop-filter:saturate(1.2) blur(10px)!important}
+.site-header a{color:var(--t-ink)!important;font-weight:500!important}
+.site-header a:hover,.site-header a[aria-current=page]{color:var(--t-green)!important}
+.site-header .site-brand{border-color:var(--t-ink)!important;color:var(--t-ink)!important;background:transparent!important}
+.site-header .site-brand:hover{background:var(--t-ink)!important;color:#fff!important}
+.site-header :is(.site-contact,a.site-contact){background:var(--t-green)!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:9px 18px!important;text-decoration:none!important}
+.site-header :is(.site-contact,a.site-contact):hover{background:var(--t-green-hover)!important;color:#fff!important}
+.site-header .site-language{color:var(--t-ink)!important;border-color:var(--t-line)!important}
+.site-header summary,.site-header .site-mobile summary{color:var(--t-ink)!important;border-color:var(--t-ink)!important;border-radius:999px!important}
+.site-header .site-mobile nav,.site-header details nav{background:var(--t-bg)!important;border:1px solid var(--t-line)!important;box-shadow:0 18px 40px rgba(20,20,20,.12)!important}
+
+/* ---------- Buttons: pills ---------- */
+:is(.button,.audit-button,.hero-actions a,.polish-cta-actions a,.opp-btn,.ideas-button,a.primary,.go-link.primary){border-radius:999px!important}
+:is(.button.primary,.hero-actions a.primary,.hero-actions .primary,.polish-cta-actions a.primary,.audit-button,a.primary){background:var(--t-green)!important;color:#fff!important;border:1px solid var(--t-green)!important;box-shadow:none!important}
+:is(.button.primary,.hero-actions a.primary,.polish-cta-actions a.primary,.audit-button,a.primary):hover{background:var(--t-green-hover)!important;color:#fff!important}
+:is(.button:not(.primary),.hero-actions a:not(.primary),.polish-cta-actions a:not(.primary)){background:transparent!important;color:var(--t-ink)!important;border:1px solid var(--t-ink)!important}
+:is(.button:not(.primary),.hero-actions a:not(.primary),.polish-cta-actions a:not(.primary)):hover{background:var(--t-ink)!important;color:#fff!important}
+
+/* ---------- Homepage hero ---------- */
+.hero{background:var(--t-bg)!important;color:var(--t-ink)!important;padding:40px 0 30px}
+.hero::before,.hero::after{display:none!important}
+.hero .eyebrow{color:var(--t-green)!important}
+.hero h1{color:var(--t-ink)!important;font-weight:400!important;letter-spacing:-.04em!important}
+.hero h1 span{color:var(--t-green)!important}
+.hero .role{color:var(--t-text)!important;font-weight:400!important}
+.hero .hero-thesis{color:var(--t-ink)!important;font-weight:500!important;font-size:clamp(20px,1.9vw,26px)!important;line-height:1.35!important;letter-spacing:-.01em}
+.hero .intro,.hero .location{color:var(--t-muted)!important}
+.hero-cv-links a,.hero-trust-links a{color:var(--t-ink)!important;text-decoration-color:rgba(0,90,54,.45)!important}
+.hero-trust-links{color:var(--t-muted)!important}
+.portrait .art{border-radius:var(--t-radius)!important;box-shadow:none!important}
+.portrait blockquote{background:var(--t-lilac-soft)!important;color:var(--t-lilac-ink)!important;border:0!important;border-radius:var(--t-radius-sm)!important;margin-top:12px!important;font-style:normal!important;font-weight:500}
+
+/* Decorative dot network (original artwork), beneath the hero */
+.t-dots{display:block;width:100%;height:auto;margin:6px auto 0;max-width:1220px}
+
+/* ---------- Sections & cards ---------- */
+.section,.expertise-map,.partners-section,.opp-recog,.stats,.polish-quotes{background:transparent!important;border:0!important}
+.stats{padding:8px 0 20px}
+.stat-grid{background:var(--t-surface);border-radius:var(--t-radius);padding:22px 28px!important}
+.stat{border-color:var(--t-line)!important}
+.stat b{color:var(--t-ink)!important;font-weight:400!important}
+.stat a{color:var(--t-green)!important}
+:is(.card,.partner,.opp-recog-item,.audit-card,.audit-section,.identity-path,.polish-quote,.expertise-grid article,.quick a,.theme-card,.opp-card,.latest-card,.ideas-card,.compact-program-card,.research-record-panel,.cv-section){border-radius:var(--t-radius-sm)!important;border:1px solid var(--t-line)!important;box-shadow:none!important;background:var(--t-surface)!important}
+.expertise-grid article{border-top:0!important;background:var(--t-sand)!important;border-color:transparent!important}
+.expertise-grid article>span{color:var(--t-green)!important}
+.expertise-grid a,.partner-cta,.opp-recog-more a,.section-heading>a,.latest-all-link{color:var(--t-green)!important}
+#engagement-options{background:var(--t-lilac-soft)!important;border:0!important;border-radius:var(--t-radius)!important;padding:44px!important}
+#engagement-options .audit-card{background:var(--t-surface)!important}
+#engagement-options .audit-card a{color:var(--t-green)!important}
+.identity-path-primary,.identity-path:not(.identity-path-primary){background:var(--t-surface)!important;color:var(--t-text)!important}
+.identity-path :is(h3,p,a){color:inherit!important}
+.identity-path a{color:var(--t-green)!important}
+.identity-path:last-child{background:var(--t-sand)!important;border-color:transparent!important}
+.polish-resources a{border-radius:999px!important;background:var(--t-surface)!important}
+.status-chip,.project-state,.project-updated{border-radius:999px!important}
+.project-state{background:var(--t-green-soft)!important;color:var(--t-green)!important;border-color:transparent!important}
+.project-role{background:var(--t-sand)!important;border-color:var(--t-sand-strong)!important;color:var(--t-ink)!important;border-radius:12px}
+#projects .card .button{background:var(--t-green)!important;color:#fff!important;border-color:var(--t-green)!important}
+#projects .card .button:hover{background:var(--t-green-hover)!important}
+.project-open{background:var(--t-ink)!important;color:#fff!important}
+.project-image-actual{background:var(--t-sand)!important}
+
+/* Latest research: from dark band to light list */
+.latest-updates{background:transparent!important;color:var(--t-text)!important;border:0!important}
+.latest-updates :is(h2,h3){color:var(--t-ink)!important}
+.latest-intro,.latest-row-main p,.latest-row-date span{color:var(--t-muted)!important}
+.latest-row-date time{color:var(--t-green)!important}
+.latest-list{border-top:1px solid var(--t-line)!important}
+.latest-row{border-bottom:1px solid var(--t-line)!important}
+.latest-row-link{border-color:var(--t-ink)!important;color:var(--t-ink)!important}
+.latest-row-link:hover{background:var(--t-green)!important;border-color:var(--t-green)!important;color:#fff!important}
+.latest-follow a{color:var(--t-ink)!important}
+.latest-meta,.latest-venue,.latest-source{color:var(--t-green)!important}
+
+/* Leadership & recommendations */
+.experience-list li{border-color:var(--t-line)!important}
+.experience-list span{color:var(--t-green)!important}
+.polish-quotes{padding:40px 0!important}
+.polish-quote blockquote:before{color:var(--t-lilac)!important}
+.polish-quote blockquote p{font-weight:400}
+.polish-avatar{background:var(--t-green)!important;color:#fff!important}
+
+/* Closing call to action: lilac panel */
+.polish-cta{background:transparent!important;color:var(--t-ink)!important;padding:24px 0 56px!important}
+.polish-cta .wrap{background:var(--t-lilac-soft);border-radius:var(--t-radius);padding:48px}
+.polish-cta h2{color:var(--t-ink)!important}
+.polish-cta p{color:var(--t-text)!important}
+
+/* ---------- Inner-page heroes ---------- */
+:is(.page-hero,.opp-hero,.ideas-hero,.analytics-heading){background:var(--t-bg)!important;color:var(--t-ink)!important}
+:is(.page-hero,.opp-hero,.ideas-hero)::after,:is(.page-hero,.opp-hero,.ideas-hero)::before{display:none!important}
+:is(.page-hero,.opp-hero,.ideas-hero) :is(h1,h2){color:var(--t-ink)!important;font-weight:400!important}
+:is(.page-hero,.opp-hero,.ideas-hero) :is(p,.crumb,li){color:var(--t-text)!important}
+:is(.page-hero,.opp-hero,.ideas-hero) a:not(.primary):not(.button){color:var(--t-ink)!important;border-color:var(--t-ink)!important}
+.page-hero .hero-actions a:not(.primary){background:transparent!important;color:var(--t-ink)!important;border:1px solid var(--t-ink)!important}
+
+/* ---------- Footer ---------- */
+body>.footer,.footer,.audit-footer,.site-privacy{background:var(--t-bg)!important;color:var(--t-text)!important;border-color:var(--t-line)!important}
+body>.footer{border-top:1px solid var(--t-line)!important}
+.footer .brand{color:var(--t-ink)!important}
+.footer :is(p,.fine),.footer-nav a,.audit-footer a,.site-privacy a,.visitor-count{color:var(--t-text)!important}
+.footer .fine{border-top-color:var(--t-line)!important}
+.audit-footer{border-top:1px solid var(--t-line)!important}
+.audit-footer a:hover,.footer-nav a:hover{color:var(--t-green)!important}
+
+/* ---------- Focus ---------- */
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--t-green)!important;outline-offset:3px}
+
+@media (max-width:640px){
+  .stat-grid{padding:6px 14px!important}
+  #engagement-options{padding:24px 16px!important}
+  .polish-cta .wrap{padding:28px 20px}
+}
+@media print{html body{background:#fff!important}}
+
+/* Former dark feature panels become light lilac/sand panels */
+:is(.rp-ridi,.opp-contact,.student-boundaries,.now-panel,.ai-lab-independence,.ideas-footer,.feature-card){background:var(--t-lilac-soft)!important;color:var(--t-text)!important;border:0!important;border-radius:var(--t-radius)!important;box-shadow:none!important}
+:is(.rp-ridi,.opp-contact,.student-boundaries,.now-panel,.ai-lab-independence,.ideas-footer,.feature-card) :is(h2,h3,h4,p,li,span,b,strong,dt,dd,small,div:not(.kicker)){color:var(--t-ink)!important}
+:is(.rp-ridi,.opp-contact,.student-boundaries,.now-panel,.ai-lab-independence,.ideas-footer,.feature-card) .kicker{color:var(--t-lilac-ink)!important}
+:is(.rp-ridi,.opp-contact,.student-boundaries,.now-panel,.ai-lab-independence,.ideas-footer,.feature-card) a{color:var(--t-green)!important;border-color:var(--t-green)!important}
+:is(.cta-band a,.ai-lab-cta-links a,.opp-btn.dark,.share-btn.primary,.cv-toolbar .primary){background:var(--t-green)!important;color:#fff!important;border-color:var(--t-green)!important;border-radius:999px!important}
+.ai-lab-mark{color:var(--t-green)!important;background:var(--t-green-soft)!important;border-color:var(--t-green)!important}
+.ai-lab-name{color:var(--t-ink)!important}
+.footer .tagline,.tagline{color:var(--t-text)!important}
+/* CV pages: keep warm accents but meet AA on the light page */
+.cv-note,.cv-when{color:#5f5648!important}
+.cv-title{color:#6f5016!important}
+main :is(article,.theme-card,.ai-system-grid>*)>a:not(.primary):not(.button):not(.project-visual-link),.go-link:not(.primary){color:var(--t-green)!important}
+
+/* From LinkedIn */
+.t-linkedin{padding:28px 0!important}
+.t-post-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px}
+.t-post{display:flex;flex-direction:column;gap:12px;background:var(--t-surface);border:1px solid var(--t-line);border-radius:var(--t-radius-sm);padding:22px}
+.t-post time{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--t-green)}
+html[lang=ar] .t-post time{letter-spacing:0}
+.t-post p{margin:0;flex:1;color:var(--t-text);line-height:1.6}
+.t-post a{align-self:flex-start;font-weight:600;color:var(--t-green)!important;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:900px){.t-post-grid{grid-template-columns:1fr}}
