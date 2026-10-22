@@ -75,7 +75,7 @@ def build(event):
         'isReshareDisabledByAuthor': False,
     }
     if link:
-        payload['content'] = {'article': {'source': link}}
+        payload['content'] = {'article': {'source': link, 'title': (issue.get('title') or link)[:200]}}
     return text, link, payload
 
 
