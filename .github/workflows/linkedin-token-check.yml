@@ -21,9 +21,18 @@ jobs:
           import json, os, time
           from urllib.parse import urlencode
           from urllib.request import Request, urlopen
+          from urllib.error import HTTPError
           token, cid, secret = (os.environ.get(k, '') for k in ('LINKEDIN_ACCESS_TOKEN', 'LINKEDIN_CLIENT_ID', 'LINKEDIN_CLIENT_SECRET'))
-          if not (token and cid and secret):
+          if not token:
               print('skip'); raise SystemExit
+          if not (cid and secret):
+              # Without the app secret the expiry date is unknown; still catch an expired or revoked token.
+              try:
+                  urlopen(Request('https://api.linkedin.com/v2/userinfo', headers={'Authorization': 'Bearer ' + token}), timeout=30).read()
+                  print('skip')
+              except HTTPError as error:
+                  print('expired' if error.code == 401 else 'skip')
+              raise SystemExit
           body = urlencode({'token': token, 'client_id': cid, 'client_secret': secret}).encode()
           with urlopen(Request('https://www.linkedin.com/oauth/v2/introspectToken', data=body, headers={'Content-Type': 'application/x-www-form-urlencoded'}), timeout=30) as r:
               info = json.loads(r.read())
