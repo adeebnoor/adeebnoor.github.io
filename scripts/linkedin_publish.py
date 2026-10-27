@@ -103,7 +103,8 @@ def post(payload):
 def record(urn, text):
     data = json.loads(DATA.read_text(encoding='utf-8'))
     url = f'https://www.linkedin.com/feed/update/{urn}/'
-    lang = 'ar' if re.search(r'[؀-ۿ]', text) else 'en'
+    # Mixed posts (an English post with an Arabic summary) follow the majority script.
+    lang = 'ar' if len(re.findall(r'[؀-ۿ]', text)) > len(re.findall(r'[A-Za-z]', text)) else 'en'
     data['posts'] = [p for p in data['posts'] if p['url'] != url]
     data['posts'].append({'url': url, 'date': datetime.now(timezone.utc).strftime('%Y-%m-%d'), 'lang': lang, 'text': text, 'source': 'site'})
     data['posts'] = sorted(data['posts'], key=lambda p: p['date'], reverse=True)[:30]

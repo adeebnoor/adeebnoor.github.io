@@ -1,13 +1,13 @@
 name: LinkedIn post
-description: Show a LinkedIn post in the "From LinkedIn" section of adeebnoor.github.io
+description: Show posts you already published on LinkedIn in the "From LinkedIn" section of adeebnoor.github.io (paste the links only)
 title: "LinkedIn post"
 labels: ["linkedin-post"]
 body:
-  - type: input
+  - type: textarea
     id: url
     attributes:
-      label: Post link
-      description: On LinkedIn, open the post menu (…) → Copy link to post, then paste it here.
+      label: Post links
+      description: On LinkedIn, open each post's menu (…) → Copy link to post, and paste it here. One link per line; several posts at once are fine. The site reads the text and date from the public post.
       placeholder: https://www.linkedin.com/posts/adeeb-noor_...
     validations:
       required: true
@@ -15,12 +15,10 @@ body:
     id: text
     attributes:
       label: Post text
-      description: Paste the text of the post. The site shows the first lines and links to LinkedIn for the rest.
-    validations:
-      required: true
+      description: Optional, for a single link only. Leave empty and the text is taken from LinkedIn.
   - type: input
     id: date
     attributes:
       label: Date (optional)
-      description: YYYY-MM-DD. Leave empty to use today's date.
+      description: Optional, for a single link only. YYYY-MM-DD. Leave empty to use the post's own date.
       placeholder: "2026-10-21"
