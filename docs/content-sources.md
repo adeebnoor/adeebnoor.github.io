@@ -2,6 +2,15 @@
 
 The supplied `index (3).html` is the visual reference. Its original embedded WebP is preserved byte for byte in `assets/portfolio-art.webp`. Native HTML supplies the text and links; SVG view boxes display the original portrait and four project illustrations. `portfolio.css` is shared by the English and Arabic homepages.
 
+## Standing wording rules (from 27 October 2026)
+
+Every new or edited text on this site and the RIDI site follows these rules, in English and Arabic:
+
+- **RIDI figures** come only from the RIDI page, verbatim: five standard retrieval metrics stayed identical, and correctness changed in 17.27% of 800 queries. Do not round them ("about one in six") and do not name a journal.
+- **Unreviewed manuscripts and preprints** are "not yet peer reviewed" (لم تخضع للتحكيم بعد), never "not peer reviewed".
+- **HEALTHx status** is "invention disclosure under review" (إفصاح عن اختراع قيد المراجعة), never "patent application pending".
+- **Advisory title**: Chief Strategy Advisor, Office of the Vice President for Research and Innovation.
+
 ## Professional record
 
 - Current title and KAU affiliation: authored `data/master_cv.json` and `data/site_identity.json`. Use **Professor**, not Associate Professor.
@@ -16,7 +25,7 @@ The supplied `index (3).html` is the visual reference. Its original embedded Web
 - RIDI: research software and interactive demo; no claim of peer-reviewed acceptance. https://github.com/adeebnoor/ridi and https://adeebnoor.github.io/demo/
 - MIYAR: workforce architecture / position-management prototype by Adeeb Noor and Ahmad Raza Khan. Do not imply government adoption or a fully deployed enterprise API. https://github.com/adeebnoor/Miyar/blob/main/README.md
 - iSCARB: teaching system linking in-class learning, after-class reasoning and evidence. Do not imply measured learning gains. https://adeebnoor.github.io/CPIT/iscarb.html
-- HEALTHx: a company he founded. Public lines use “Founder, HEALTHx” and “clinical innovation platform; patent application pending”, without revenue or funding figures. Use only public material at https://adeebnoor.github.io/healthx/ .
+- HEALTHx: a company he founded. Public lines use “Founder, HEALTHx” and “clinical innovation platform; invention disclosure under review”, without revenue or funding figures. Use only public material at https://adeebnoor.github.io/healthx/ .
 - GenomeFit: venture co-founded with Imene Boudellioua. KAUST's May 24, 2017 feature confirms TAQADAM support for service/business-model development, not present commercial operation or clinical validation. https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor
 - SHIFAA: institutional patient-portal experience, independently described in the KAUST profile above.
 

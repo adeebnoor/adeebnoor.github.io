@@ -22,12 +22,12 @@ KAUST profile. Do not describe that role as former. `validate_identity.py` check
 the public pages, CV source, and Arabic dictionary for that wording.
 
 The King Abdulaziz University research-and-innovation advisory title is exactly
-“Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)”.
+“Chief Strategy Advisor, Office of the Vice President for Research and Innovation, King Abdulaziz University (2025–Present)”.
 Where Arabic is published, use “كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار”.
 Do not revert that role to Senior Strategy Advisor, Chief Transformation Advisor, or “Office of the VP”.
 
 HEALTHx is a company he founded. Identity lines use “Founder, HEALTHx” and
-“clinical innovation platform; patent application pending”. Do not add revenue or funding figures for it.
+“clinical innovation platform; invention disclosure under review”. Do not add revenue or funding figures for it.
 
 The experience total is explicitly self-reported; do not automatically increment
 it from the earliest job date because the CV has gaps and overlapping roles.

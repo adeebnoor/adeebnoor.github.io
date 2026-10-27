@@ -147,7 +147,7 @@ def validate():
             errors.append(f'{path.relative_to(ROOT)}: KAUST visiting role is described as former')
 
     # The KAU research-office advisory title and the HEALTHx founder line are canonical.
-    kau_title = 'Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)'
+    kau_title = 'Chief Strategy Advisor, Office of the Vice President for Research and Innovation, King Abdulaziz University (2025–Present)'
     kau_ar = 'كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار'
     healthx_line = 'clinical innovation platform; invention disclosure under review'
     for name in ('executive-cv.html', 'about.html', 'advisory.html'):

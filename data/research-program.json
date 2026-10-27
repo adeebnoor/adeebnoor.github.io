@@ -88,7 +88,7 @@
       {
         "year": "2020",
         "title": "D4: connecting prediction to explanation",
-        "status": "bioRxiv preprint · not peer reviewed",
+        "status": "bioRxiv preprint · not yet peer reviewed",
         "body": "D4 connected deep-learning predictions with mechanistic inference using D3. It extended the effort to examine what lies behind a predicted interaction.",
         "reference": "D4: Deep Drug-drug interaction Discovery and Demystification",
         "href": "https://doi.org/10.1101/2020.04.08.032011",
@@ -116,7 +116,7 @@
     "ridi": {
       "kicker": "A current strand · RIDI",
       "heading": "What does an unchanged score leave unseen?",
-      "body": "RIDI measures what an unchanged evaluation score leaves unseen. In a preregistered, open experiment, every retrieval score stayed identical while about one answer in six changed correctness, far above the repeat-execution floor. Regulators now ask for pre-specified acceptance criteria before an AI update; I use this work to ask what such a criterion must record before anyone signs off.",
+      "body": "RIDI measures what an unchanged evaluation score leaves unseen. In a preregistered, open experiment, five standard retrieval metrics stayed identical while correctness changed in 17.27% of 800 queries, far above the repeat-execution floor. Regulators now ask for pre-specified acceptance criteria before an AI update; I use this work to ask what such a criterion must record before anyone signs off.",
       "limit": "The current experiment concerns retrieval and answer correctness. It does not by itself demonstrate discrimination, clinical benefit or the fairness of an institutional decision.",
       "page": "Project & manuscript",
       "data": "Open data",
@@ -125,7 +125,7 @@
     "applications": [
       {
         "title": "HEALTHx · clinical innovation",
-        "body": "Founder, HEALTHx — clinical innovation platform; patent application pending. A development context for studying how clinical knowledge, protocols and AI-supported workflows can be documented, evaluated and governed with hospital partners. Partner and clinical validation remain work to establish.",
+        "body": "Founder, HEALTHx — clinical innovation platform; invention disclosure under review. A development context for studying how clinical knowledge, protocols and AI-supported workflows can be documented, evaluated and governed with hospital partners. Partner and clinical validation remain work to establish.",
         "href": "/healthx/",
         "label": "Explore HEALTHx"
       },
@@ -245,7 +245,7 @@
       {
         "year": "2020",
         "title": "D4: ربط التنبؤ بالتفسير",
-        "status": "نسخة أولية في bioRxiv · غير محكّمة",
+        "status": "نسخة أولية في bioRxiv · لم تخضع للتحكيم بعد",
         "body": "ربط D4 تنبؤات التعلم العميق بالاستدلال الآلي باستخدام D3، امتدادًا لفحص ما وراء التداخل الدوائي المتوقّع.",
         "reference": "D4: اكتشاف التداخلات الدوائية وتفسيرها بالتعلم العميق",
         "href": "https://doi.org/10.1101/2020.04.08.032011",
@@ -273,7 +273,7 @@
     "ridi": {
       "kicker": "أحد المسارات الحالية · RIDI",
       "heading": "ماذا تخفي درجة تقييم لم تتغيّر؟",
-      "body": "يقيس RIDI ما تتركه درجة تقييم لم تتغيّر خارج النظر. في تجربة مفتوحة مسجلة مسبقًا بقيت كل درجات الاسترجاع متطابقة، ومع ذلك تغيّرت صحة إجابة من كل ست، بفارق كبير عن حد التشغيل المتكرر. تطلب الجهات التنظيمية اليوم معايير قبول محددة مسبقًا قبل تحديث أي نظام ذكاء اصطناعي، وأنطلق من هذا العمل لأسأل: ما الذي يجب أن يسجّله المعيار قبل أن يوقّع أحد؟",
+      "body": "يقيس RIDI ما تتركه درجة تقييم لم تتغيّر خارج النظر. في تجربة مفتوحة مسجلة مسبقًا بقيت خمسة مقاييس استرجاع معيارية متطابقة، ومع ذلك تغيّرت صحة الإجابة في 17.27% من 800 سؤال، بفارق كبير عن حد التشغيل المتكرر. تطلب الجهات التنظيمية اليوم معايير قبول محددة مسبقًا قبل تحديث أي نظام ذكاء اصطناعي، وأنطلق من هذا العمل لأسأل: ما الذي يجب أن يسجّله المعيار قبل أن يوقّع أحد؟",
       "limit": "تتعلق التجربة الحالية بالاسترجاع وصحة الإجابة. ولا تثبت وحدها وجود تمييز أو منفعة سريرية أو عدالة قرار مؤسسي.",
       "page": "المشروع والمخطوطة",
       "data": "البيانات المفتوحة",
@@ -282,7 +282,7 @@
     "applications": [
       {
         "title": "HEALTHx · الابتكار السريري",
-        "body": "مؤسس، HEALTHx — منصة للابتكار السريري؛ طلب براءة اختراع قيد النظر. سياق تطوير لدراسة توثيق المعرفة السريرية والبروتوكولات ومسارات العمل المدعومة بالذكاء الاصطناعي وتقييمها وحوكمتها مع شركاء من المستشفيات. وتظل الشراكات والتحقق السريري عملًا مطلوبًا.",
+        "body": "مؤسس، HEALTHx — منصة للابتكار السريري؛ إفصاح عن اختراع قيد المراجعة. سياق تطوير لدراسة توثيق المعرفة السريرية والبروتوكولات ومسارات العمل المدعومة بالذكاء الاصطناعي وتقييمها وحوكمتها مع شركاء من المستشفيات. وتظل الشراكات والتحقق السريري عملًا مطلوبًا.",
         "href": "/healthx/",
         "label": "استكشف HEALTHx"
       },
