@@ -1,7 +1,8 @@
 name: Publish a LinkedIn post on the site
 on:
   issues:
-    types: [opened]
+    # Reopening an issue retries it.
+    types: [opened, reopened]
 permissions:
   contents: write
   issues: write
@@ -34,6 +35,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          git reset -q -- error.txt report.txt 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "site: show LinkedIn post (#${ISSUE})"
           git push origin HEAD:main
@@ -46,9 +48,11 @@ jobs:
           FAILED: ${{ steps.add.outputs.failed }}
         run: |
           if [ "$FAILED" = "true" ]; then
-            { echo "The post was not added:"; echo; cat error.txt; echo; echo "Edit the details and open a new issue."; } > comment.txt
+            { echo "Nothing was added:"; echo; cat error.txt; echo; echo "Edit the issue and close and reopen it to retry."; } > comment.txt
             gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
+            exit 1
           else
-            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "Published. It appears on https://adeebnoor.github.io/ within a few minutes."
+            { cat report.txt 2>/dev/null; echo; echo "These appear on https://adeebnoor.github.io/ within a few minutes."; } > comment.txt
+            gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file comment.txt
             gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
           fi

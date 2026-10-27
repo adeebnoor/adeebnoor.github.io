@@ -1,11 +1,11 @@
 {
-  "_note": "Posts shown in the homepage 'From LinkedIn' section. Add one through the 'LinkedIn post' issue form (scripts/add_linkedin_post.py) or edit this file and run python scripts/build_site.py. Newest first.",
+  "_note": "Posts shown in the homepage 'From LinkedIn' section, newest first. Posts published through the 'Publish to LinkedIn and the site' form are added automatically; add posts written on LinkedIn by pasting their links into the 'LinkedIn post' form (scripts/add_linkedin_post.py).",
   "profile": "https://www.linkedin.com/in/adeeb-noor",
   "posts": [
     {
       "url": "https://www.linkedin.com/feed/update/urn:li:share:7518935128258166784/",
       "date": "2026-10-22",
-      "lang": "ar",
+      "lang": "en",
       "text": "Regulators now expect AI updates to be planned before they ship. They do not yet say what the plan must check.\n\nFDA's final PCCP guidance asks for \"pre-defined acceptance criteria\" (Section V.A). If \"the predefined acceptance criteria for a specific modification are not met\", then \"the specific modification(s) will not be implemented\" (p.27).\n\nThe EU AI Act, Art. 43(4), says changes \"pre-determined by the provider at the moment of the initial conformity assessment\" and documented under Annex IV 2(f) \"shall not constitute a substantial modification\".\n\nBoth require the criterion. Neither says what it must contain.\n\nOften, today:\n→ an aggregate score above a threshold\n→ no drop against the previous version\n\nWhat it must contain:\n→ paired case-level change, in both directions\n→ a repeat-execution baseline, so run-to-run noise is not read as change\n→ the evidence the model actually read\n\nWhy it matters: in my preregistered, open experiment, five standard retrieval metrics were identical, yet correctness changed in 17.27% of queries. A criterion built on those scores would have approved the update without seeing which cases changed.\n\nMy role: I measure what the score leaves undetermined. I turn that into acceptance criteria a named person can sign.\n\nA score is not a decision.\n\nadeebnoor.github.io/ridi\n\nالخلاصة: FDA وقانون الذكاء الاصطناعي الأوروبي يطلبان معايير قبول محددة مسبقاً قبل تحديث النموذج، لكنهما لا يحددان ما يجب أن تتضمنه.\nفي تجربتي المسجلة مسبقاً بقيت مقاييس الاسترجاع متطابقة، بينما تغيّرت صحة الإجابة في 17.27% من الأسئلة.\nالمعيار يجب أن يسجّل التغيّر حالةً بحالة، وخط أساس التكرار، والدليل الذي قرأه النموذج.",
       "source": "site"
     }

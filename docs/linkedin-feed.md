@@ -13,12 +13,14 @@ One-time setup (about ten minutes):
 LinkedIn access tokens last 60 days and apps outside LinkedIn's partner programme get no refresh tokens, so step 3 repeats every two months (two minutes). `data/linkedin-mode.txt` switches the whole flow: `test` validates each pending issue and checks the token against LinkedIn without posting anything (the issue gets a "Test only" comment and stays open); `live` publishes. A failed post is never lost: the issue gets a comment naming the cause and the run shows as failed; the workflow then retries every open `linkedin-publish` issue hourly (quietly, repeating the comment only when the cause changes), or close and reopen the issue to retry now. An issue that already carries a "Published on LinkedIn" comment is never posted twice. `LINKEDIN_VERSION` (repository variable, `YYYYMM`) overrides the API version if LinkedIn retires the default (previous month).
 
 
-LinkedIn does not offer a public API or feed for a member's own posts. An automatic sync would need either an approved LinkedIn partner app or a third-party widget that loads LinkedIn/vendor scripts on every visit. Instead, posts are added in one step and published automatically:
+## Posts written directly on LinkedIn: paste the link only
 
-1. Publish the post on LinkedIn, then open its menu (…) → **Copy link to post**.
+LinkedIn does not offer a free API or feed for a member's own posts, and the public profile and its activity list sit behind a login wall, so posts written on LinkedIn cannot be discovered automatically. They are added by link, in one step:
+
+1. On LinkedIn, open the post's menu (…) → **Copy link to post**. Several posts can go in one go.
 2. Open https://github.com/adeebnoor/adeebnoor.github.io/issues/new?template=linkedin-post.yml (works in the GitHub mobile app).
-3. Paste the link and the post text, then submit.
+3. Paste the link(s), one per line, and submit. Text and date are optional.
 
-`.github/workflows/linkedin-post.yml` runs only for issues opened by the repository owner with the `linkedin-post` label. It validates the URL, stores the post in `data/linkedin-posts.json` (`scripts/add_linkedin_post.py`), rebuilds and validates the site, pushes to `main`, comments on the issue and closes it. The homepage "From LinkedIn" section (EN/AR) shows the three newest posts and is hidden while the list is empty.
+`.github/workflows/linkedin-post.yml` runs only for issues opened by the repository owner with the `linkedin-post` label. `scripts/add_linkedin_post.py` validates each URL, reads the text and publish date from the public post page, and adds the post only when that page names `linkedin.com/in/adeeb-noor` as the author. A post already shown (same link or same text) is updated, not duplicated. The workflow rebuilds and validates the site, pushes to `main`, comments a line per link on the issue and closes it; on failure it explains why and the issue can be reopened to retry. The homepage "From LinkedIn" section (EN/AR) shows the three newest posts and is hidden while the list is empty. A post's direction (RTL/LTR) follows the majority script of its text.
 
 The cards are plain text with a link; no LinkedIn script or iframe loads on the site, and post links carry `data-analytics-ignore`, so no collector change is needed. To remove a post, delete it from `data/linkedin-posts.json` and run `python scripts/build_site.py`.
