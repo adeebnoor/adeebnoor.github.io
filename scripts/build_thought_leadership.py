@@ -93,7 +93,7 @@ def home_copy(lang):
     p = '/ar' if ar else ''
     arrow = '←' if ar else '→'
     name = '<span>أديب</span> نور' if ar else '<span>Adeeb</span> Noor'
-    role = 'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز' if ar else 'Professor of Data Science &amp; AI, King Abdulaziz University; Visiting Professor, KAUST; Chief Strategy Advisor, Office of the Vice President for Research &amp; Innovation, KAU; Founder, HEALTHx (patent application pending)'
+    role = 'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز' if ar else 'Professor of Data Science &amp; AI, King Abdulaziz University; Visiting Professor, KAUST; Chief Strategy Advisor, Office of the Vice President for Research &amp; Innovation, KAU; Founder, HEALTHx (invention disclosure under review)'
     location = 'جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية' if ar else 'King Abdulaziz University · Jeddah, Saudi Arabia'
     primary = 'المسار البحثي منذ الدكتوراه' if ar else 'My research, from PhD to today'
     contact = 'اعمل معي' if ar else 'Work with me'

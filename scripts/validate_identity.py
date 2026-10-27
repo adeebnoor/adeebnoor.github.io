@@ -149,7 +149,7 @@ def validate():
     # The KAU research-office advisory title and the HEALTHx founder line are canonical.
     kau_title = 'Chief Strategy Advisor, Office of the Vice President for Research & Innovation, King Abdulaziz University (2025–Present)'
     kau_ar = 'كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار'
-    healthx_line = 'clinical innovation platform; patent application pending'
+    healthx_line = 'clinical innovation platform; invention disclosure under review'
     for name in ('executive-cv.html', 'about.html', 'advisory.html'):
         if kau_title not in unescape((ROOT / name).read_text()):
             errors.append(f'{name}: KAU advisory title must read exactly: {kau_title}')
@@ -165,7 +165,7 @@ def validate():
         errors.append('executive-cv.html: HEALTHx must be presented as Founder, HEALTHx with the modest platform line')
     healthx_record = next(item for item in master['ventures'] if 'HEALTHx' in item[0])
     if healthx_record != ['Founder, HEALTHx', healthx_line]:
-        errors.append('data/master_cv.json: HEALTHx must stay Founder, HEALTHx — clinical innovation platform; patent application pending')
+        errors.append('data/master_cv.json: HEALTHx must stay Founder, HEALTHx — clinical innovation platform; invention disclosure under review')
     obsolete_titles = (
         'Senior Strategy Advisor',
         'Chief Transformation Advisor',
