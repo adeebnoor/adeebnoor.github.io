@@ -94,7 +94,7 @@ try{
     assert.equal(new URL(await page.locator('.site-links .site-language').getAttribute('href'),origin).pathname,ar?'/healthx/':'/ar/healthx/',path+' language pair');
     assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');
     const researchText=await page.locator('#research').innerText();
-    assert.ok(researchText.includes(ar?'طلب براءة اختراع قيد النظر':'Patent application pending'),path+' patent status');
+    assert.ok(researchText.includes(ar?'إفصاح عن اختراع قيد المراجعة':'Invention disclosure under review'),path+' patent status');
     assert.ok(!/granted patent|patent granted|براءة ممنوحة/i.test(researchText) && researchText.includes(ar?'اتفاقية سرية':'confidentiality agreement'),path+' pending patent, mechanisms confidential');
     assert.ok(researchText.includes(ar?'أنجز مراجعة الأدبيات وبروتوكول التقييم':'completed the literature review and evaluation protocol') && researchText.includes(ar?'بدأت مرحلة التطوير في أكتوبر 2026':'development began in October 2026'),path+' current master’s milestone');
     const conceptText=await page.locator('.hx-hub').innerText();
