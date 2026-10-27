@@ -22,7 +22,7 @@
     "galleryTitle": "Projects, at a glance.",
     "galleryIntro": "Open an image to explore the project. Each card states its current stage and links to the work or its background.",
     "work": {
-      "ridi": {"value": "Show which answers or selections change after an AI update, even when every evaluation score stays the same.", "result": "A preregistered experiment (scores identical, about one answer in six changed), an open audit toolkit, and a submission-ready manuscript not yet peer reviewed."},
+      "ridi": {"value": "Show which answers or selections change after an AI update. In RIDI's preregistered experiment, five standard retrieval metrics stayed identical while correctness changed in 17.27% of 800 queries.", "result": "A preregistered experiment (five standard retrieval metrics stayed identical; correctness changed in 17.27% of 800 queries), an open audit toolkit, and a submission-ready manuscript not yet peer reviewed."},
       "shifaa": {"value": "Give patients a digital route to King Abdulaziz University Hospital services.", "result": "An institutional patient portal, founded as part of the hospital’s digital modernization."},
       "miyar": {"value": "Turn an organizational priority into a role proposal that people can review and approve.", "result": "A bilingual public pilot connecting organization design, job evaluation, workforce planning and compensation."}
     }
@@ -49,7 +49,7 @@
     "galleryTitle": "المشاريع في نظرة واحدة.",
     "galleryIntro": "افتح الصورة لاستكشاف المشروع. توضّح كل بطاقة مرحلة العمل الحالية وتربطك بالمشروع أو بخلفيته.",
     "work": {
-      "ridi": {"value": "كشف الإجابات أو الاختيارات التي تتغيّر بعد تحديث نظام الذكاء الاصطناعي، حتى حين تبقى كل درجات التقييم متساوية.", "result": "تجربة مسجلة مسبقًا (الدرجات متطابقة، وتغيّرت إجابة من كل ست)، وأداة تدقيق مفتوحة، ومخطوطة جاهزة للتقديم لم تخضع للتحكيم بعد."},
+      "ridi": {"value": "كشف الإجابات أو الاختيارات التي تتغيّر بعد تحديث نظام الذكاء الاصطناعي. في تجربة RIDI المسجّلة مسبقًا، بقيت خمسة مقاييس استرجاع معيارية متطابقة بينما تغيّرت صحة الإجابة في 17.27% من 800 سؤال.", "result": "تجربة مسجّلة مسبقًا (بقيت خمسة مقاييس استرجاع معيارية متطابقة، وتغيّرت صحة الإجابة في 17.27% من 800 سؤال)، وأداة تدقيق مفتوحة، ومخطوطة جاهزة للتقديم لم تخضع للتحكيم بعد."},
       "shifaa": {"value": "إتاحة مسار رقمي للمرضى للوصول إلى خدمات مستشفى جامعة الملك عبدالعزيز.", "result": "بوابة مؤسسية لخدمات المرضى، أُسّست ضمن التحديث الرقمي للمستشفى."},
       "miyar": {"value": "تحويل أولوية المؤسسة إلى مقترح دور وظيفي قابل للمراجعة والاعتماد البشري.", "result": "تجربة أولية عامة باللغتين تربط التصميم التنظيمي بتقييم الوظائف وتخطيط القوى العاملة والتعويضات."}
     }
