@@ -53,7 +53,7 @@ try{
    const result={path,mode,status:response.status(),sameAsRepository:html===readFileSync(filename(path),'utf8'),sha256:createHash('sha256').update(html).digest('hex'),...view};
    evidence.pages.push(result);
    assert.equal(result.status,200,path);assert.ok(result.sameAsRepository,'Live file differs: '+path+' '+mode);
-   assert.deepEqual(view.nav,navigation.map(item=>({label:item.identity_label?identity[item.identity_label][lang]:item[lang],path:publicPath(item.page,ar)})),path+' navigation');
+   assert.deepEqual(view.nav,navigation.map(item=>({label:item.identity_label?identity[item.identity_label][lang]:item[lang],path:item.href?new URL(item.href[lang],'https://adeebnoor.github.io').pathname:publicPath(item.page,ar)})),path+' navigation');
    assert.equal(view.overflow,false,path+' overflow');assert.equal(view.oldDatingPromise,false,path+' obsolete dating promise');
    if(['/','/index.html','/ar/','/ar/index.html'].includes(path)){
     assert.ok(view.gateway,path+' two entry paths');
