@@ -10,7 +10,7 @@ import re
 from html import escape
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = ('kinetic-hr/', 'SulTaN/')
+SKIP = ('kinetic-hr/', 'SulTaN/', 'lab/')
 DESIGN_SKIP = ('healthx/', 'ar/healthx/')
 CSS_VERSION = hashlib.sha256((ROOT/'polish.css').read_bytes()).hexdigest()[:10]
 THEME_VERSION = hashlib.sha256((ROOT/'theme.css').read_bytes()).hexdigest()[:10]

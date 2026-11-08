@@ -167,7 +167,7 @@ def patch_contact(lang):
     path.write_text(source)
 def patch_footers():
     for path in ROOT.rglob('*.html'):
-        if any(p in {'.git', 'node_modules', 'kinetic-hr', 'SulTaN'} for p in path.parts):
+        if any(p in {'.git', 'node_modules', 'kinetic-hr', 'SulTaN', 'lab'} for p in path.parts):
             continue
         rel = path.relative_to(ROOT)
         ar = rel.parts[0] == 'ar'

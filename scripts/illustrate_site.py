@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = ('kinetic-hr/', 'SulTaN/', 'healthx/', 'ar/healthx/')
+SKIP = ('kinetic-hr/', 'SulTaN/', 'healthx/', 'ar/healthx/', 'lab/')
 ART_DIR = ROOT/'assets'/'illustrations'
 
 

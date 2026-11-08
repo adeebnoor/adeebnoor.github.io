@@ -21,6 +21,8 @@ const PAGES = new Set([...BASE_PAGES.flatMap((p) => [p, '/ar' + p]), '/SulTaN/']
 const TARGET_PAGES = new Set([
   ...PAGES, '/privacy.html', '/ar/privacy.html', '/404.html', '/ar/404.html',
   '/collaborate.html', '/ar/collaborate.html', '/feed.xml', '/ar/feed.xml', '/research-updates.xml',
+  // The bilingual Lab page is a link destination; it does not run the tracker itself.
+  '/lab/',
 ]);
 const ANCHORS = new Set([
   'content', 'main-content', 'roles', 'delivered', 'career', 'start', 'ventures-open', 'track-record', 'bring', 'direct-routes', 'projects', 'research', 'investors', 'organizations',
@@ -33,6 +35,7 @@ const ANCHORS = new Set([
   'justice', 'accountability', 'human-agency',
   'programs', 'research-record', 'inventions', 'participate', 'research-lineage', 'kamin',
   'mission', 'thrusts', 'systems', 'join', 'different', 'researchers', 'faq',
+  'adeeb', 'adeeb-lab',
 ]);
 const DESTINATIONS = new Set([
   'https://doi.org/10.1093/jamia/ocw128',

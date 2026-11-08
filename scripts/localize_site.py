@@ -208,11 +208,12 @@ def nav(page, arabic):
         selected = 'impact.html'
     if page in ('phd.html','publications.html','demo/index.html','adeeb-intelligence.html'):
         selected = 'research.html'
-    if page == 'healthx/index.html':
-        selected = 'ventures.html'
     if page.startswith(('writing/','ideas/')):
         selected = 'ideas/index.html'
-    links = ''.join(f'<a href="{public_path(p,arabic)}"'+(' class="site-contact"' if p=='contact.html' else '')+(' aria-current="page"' if selected==p else '')+f'>{ar if arabic else en}</a>' for p,en,ar in choices)
+    # An item may fix its link per language (the bilingual Lab page has no /ar/ copy).
+    hrefs = {item['page']: item['href'] for item in items if 'href' in item}
+    href = lambda p: hrefs[p]['ar' if arabic else 'en'] if p in hrefs else public_path(p,arabic)
+    links = ''.join(f'<a href="{href(p)}"'+(' data-analytics-ignore' if p in hrefs else '')+(' class="site-contact"' if p=='contact.html' else '')+(' aria-current="page"' if selected==p else '')+f'>{ar if arabic else en}</a>' for p,en,ar in choices)
     language = f'<a class="site-language" href="{public_path(page,not arabic)}" lang="{"en" if arabic else "ar"}" hreflang="{"en" if arabic else "ar"}">{"English" if arabic else "العربية"}</a>'
     cvs = ''.join(f'<a href="{public_path(p,arabic)}">{ar if arabic else en}</a>' for p,en,ar in [('executive-cv.html','Executive CV','السيرة التنفيذية'),('academic-cv.html','Academic CV','السيرة الأكاديمية')])
     return f'''<header class="site-header"><div class="site-wrap"><a class="site-brand" href="{public_path('index.html',arabic)}" aria-label="{'أديب نور — الرئيسية' if arabic else 'Adeeb Noor — Home'}">AN</a><nav class="site-links" aria-label="{'التنقل الرئيسي' if arabic else 'Primary navigation'}">{links}{language}</nav><details class="site-mobile"><summary>{'☰ القائمة' if arabic else '☰ Menu'}</summary><nav aria-label="{'قائمة الجوال' if arabic else 'Mobile navigation'}"><a href="{public_path('index.html',arabic)}">{'الرئيسية' if arabic else 'Home'}</a>{links}{cvs}{language}</nav></details></div></header>'''

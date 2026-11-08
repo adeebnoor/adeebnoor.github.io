@@ -1,0 +1,13 @@
+# Adeeb Lab page (/lab/)
+
+`lab/index.html` is a hand-maintained, single-file bilingual page (Arabic by default; `?lang=en` opens English; the choice is kept in `localStorage` as `adeeblab-lang`). Each text exists twice, in `<span data-l="ar">` and `<span data-l="en">`: always edit both. Project stories open from `#story-ridi`, `#story-pdpl`, `#story-invention`, `#story-ledger`, `#story-phd` and `#story-genomics`; `#projects` returns to the grid. Dark mode follows the device.
+
+Source: the "adeeb-lab-handoff" package of 8 November 2026, integrated with the site's standing wording rules (see `docs/content-sources.md`): RIDI figures as on the RIDI page, "not yet peer reviewed" (لم تخضع للتحكيم بعد), HEALTHx "invention disclosure under review" (the Arabic tag reads «اختراع», not «براءة اختراع»), and the advisory title "Office of the Vice President for Research and Innovation". The structured-data person id is the site-wide `https://adeebnoor.github.io/#person`.
+
+- **Fonts** are self-hosted (`lab/fonts.css`, `lab/fonts/*.woff2`: IBM Plex Sans, Sans Arabic, Serif, Mono and Reem Kufi, Arabic and Latin subsets, SIL OFL 1.1), so no visitor request goes to Google.
+- **Images**: `/assets/adeeb-portrait.jpg` (480 px square, cropped from `assets/portfolio-art.webp`, the homepage portrait) and `/assets/adeeb-lab-card.jpg` (1200×630 share card).
+- **Contrast**: a light-mode block at the end of the page `<style>` darkens tag and status text to meet WCAG AA.
+- **Build**: whole-site rewrite steps skip `lab/` (polish, illustrate, footer and identity passes). `scripts/build_lab_links.py` adds the homepage teaser (after "Ideas and execution"), the pointer lines on Students, Partnerships and About, and `/lab/` in `sitemap.xml`. Menu entries "Lab / المختبر" and "HEALTHx" come from `data/site-navigation.json`; the Lab item links to `/lab/?lang=en` from English pages and `/lab/` from Arabic pages.
+- **Analytics**: the Lab page does not load the tracker. Links into it carry `data-analytics-ignore` until the `portfolio-collect` edge function, which now accepts `/lab/` and the `adeeb`/`adeeb-lab` anchors, is redeployed; after that the attribute can be removed from `scripts/build_lab_links.py` and `scripts/localize_site.py`.
+
+Rules from the handoff that still apply to every edit: no student or collaborator names on the Lab page; no technical detail of the invention before filing and no disclosure numbers; keep boundary statements (not yet peer reviewed, functional testing not clinical validation, illustrative scene); every new figure needs a published source or Prof. Noor's approval; the mandatory HEALTHx sentence stays verbatim wherever HEALTHx is described in detail.

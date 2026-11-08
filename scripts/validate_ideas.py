@@ -45,7 +45,7 @@ for lang in ('en','ar'):
         if page == 'collaborate.html':
             continue
         doc = (ROOT/(prefix+page)).read_text()
-        expected = [{'href':public_path(item['page'],lang=='ar'), 'text':IDENTITY[item['identity_label']][lang] if 'identity_label' in item else item[lang]} for item in NAV]
+        expected = [{'href':item['href'][lang] if 'href' in item else public_path(item['page'],lang=='ar'), 'text':IDENTITY[item['identity_label']][lang] if 'identity_label' in item else item[lang]} for item in NAV]
         if Navigation(doc).links != expected:
             errors.append(prefix+page+': primary navigation differs from the central source')
     for archive in ('ideas/index.html','writing/index.html'):

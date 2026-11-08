@@ -20,9 +20,23 @@
     "ar": "الأبحاث"
   },
   {
+    "page": "lab/index.html",
+    "en": "Lab",
+    "ar": "المختبر",
+    "href": {
+      "en": "/lab/?lang=en",
+      "ar": "/lab/"
+    }
+  },
+  {
     "page": "ventures.html",
     "en": "Projects",
     "ar": "المشاريع"
+  },
+  {
+    "page": "healthx/index.html",
+    "en": "HEALTHx",
+    "ar": "HEALTHx"
   },
   {
     "page": "advisory.html",
