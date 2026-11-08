@@ -16,17 +16,8 @@
   },
   {
     "page": "research.html",
-    "en": "Research",
-    "ar": "الأبحاث"
-  },
-  {
-    "page": "lab/index.html",
-    "en": "Lab",
-    "ar": "المختبر",
-    "href": {
-      "en": "/lab/?lang=en",
-      "ar": "/lab/"
-    }
+    "en": "Research & Lab",
+    "ar": "الأبحاث والمختبر"
   },
   {
     "page": "ventures.html",

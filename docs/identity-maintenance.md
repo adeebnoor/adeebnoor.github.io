@@ -26,8 +26,8 @@ The King Abdulaziz University research-and-innovation advisory title is exactly
 Where Arabic is published, use “كبير مستشاري الاستراتيجية لوكيل الجامعة للبحث والابتكار”.
 Do not revert that role to Senior Strategy Advisor, Chief Transformation Advisor, or “Office of the VP”.
 
-HEALTHx is a company he founded. Identity lines use “Founder, HEALTHx” and
-“clinical innovation platform; invention disclosure under review”. Do not add revenue or funding figures for it.
+HEALTHx is a framework he founded, in research and development. Identity lines use “Founder, HEALTHx” and
+“framework for documenting and tracing health solutions; invention disclosure under review”. Do not add revenue or funding figures for it.
 
 The experience total is explicitly self-reported; do not automatically increment
 it from the earliest job date because the CV has gaps and overlapping roles.
