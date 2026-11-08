@@ -129,3 +129,19 @@ html[lang="ar"] .rp-status{letter-spacing:0}
 .rp-principles strong{display:block;color:var(--t-green,#005a36)}
 @media (max-width:980px){.rp-method{grid-template-columns:repeat(2,minmax(0,1fr))}.rp-steps,.rp-opp{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.rp-projects,.rp-facts,.rp-opp,.rp-steps,.rp-method{grid-template-columns:1fr}.rp-vision,.rp-contact{padding:24px}.rp-journey li{grid-template-columns:60px minmax(0,1fr)}}
+/* Flagships, student topics, funder table (Nov 2026) */
+.rp-flagships{margin-bottom:6px}
+.rp-project.rp-flagship{border:2px solid var(--t-green,#005a36)}
+.rp-rd{border:1.5px solid var(--t-green,#005a36);background:var(--t-green-soft,#dcebe3);border-radius:12px;padding:10px 14px;font-weight:700}
+.research-program .rp-subhead{font-size:22px;margin:28px 0 8px}
+.rp-topics{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:10px}
+.rp-topics li{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;gap:14px;align-items:center;background:var(--t-surface,#fff);border:1px solid var(--t-line,#e4ded3);border-radius:14px;padding:14px 16px}
+.rp-topics li p{margin:0;line-height:1.6;font-weight:600}
+.rp-table{overflow-x:auto;border:1px solid var(--t-line,#e4ded3);border-radius:14px;background:var(--t-surface,#fff);margin-bottom:16px}
+.rp-table:focus-visible{outline:3px solid var(--t-green,#005a36);outline-offset:3px}
+.rp-table table{width:100%;border-collapse:collapse;min-width:640px}
+.rp-table th,.rp-table td{padding:12px 14px;text-align:start;vertical-align:top;border-bottom:1px solid var(--t-line,#e4ded3);line-height:1.55}
+.rp-table thead th{font-size:13px;color:var(--t-muted,#5a5a55);background:var(--t-bg,#f7f6f2)}
+.rp-table tbody th span{display:block;font-weight:600;font-size:13px;color:var(--t-muted,#5a5a55);margin-top:6px}
+.rp-table tr:last-child th,.rp-table tr:last-child td{border-bottom:0}
+@media (max-width:760px){.rp-topics li{grid-template-columns:1fr;gap:8px}}

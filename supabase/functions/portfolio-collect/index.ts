@@ -38,7 +38,7 @@ const ANCHORS = new Set([
   'adeeb', 'adeeb-lab',
   // Research & Lab page (Nov 2026)
   'vision', 'method', 'work', 'principles', 'lab-contact', 'ridi-pdpl', 'clinical-knowledge-sharing',
-  'requirement-ledger', 'image-provenance', 'genomic-reanalysis',
+  'requirement-ledger', 'image-provenance', 'genomic-reanalysis', 'funders',
 ]);
 const DESTINATIONS = new Set([
   'https://doi.org/10.1093/jamia/ocw128',

@@ -26,7 +26,7 @@ SELECTED = ('ontology-ddi-2026', 'action-equivalence-current-research',
 # not reported until the portfolio-collect edge function (which lists them) is redeployed.
 # Outbound destinations added to the collector at the same time, with the same caveat.
 NEW_DESTINATIONS = {'https://pypi.org/project/ridi-audit/', 'https://osf.io/txwdv'}
-NEW_ANCHORS = {'vision', 'method', 'work', 'principles', 'lab-contact'} | {p['id'] for p in PROJECTS if p['id'] != 'ridi'}
+NEW_ANCHORS = {'vision', 'method', 'work', 'principles', 'lab-contact', 'funders'} | {p['id'] for p in PROJECTS if p['id'] != 'ridi'}
 
 
 def build(lang):
@@ -56,29 +56,11 @@ def build(lang):
         ignore = ' data-analytics-ignore' if pid in NEW_ANCHORS else ''
         return f'<a class="rp-chip" href="#{pid}"{ignore}>{t(p["title"])}</a>'
 
-    # 1. Vision and mission
-    body = (f'<section class="rp-vision" id="vision"><div class="kicker">{e(lab["visionKicker"])}</div>'
-            f'<p class="rp-vision-label">{e(lab["visionLabel"])}</p><p class="rp-vision-text">{e(lab["vision"])}</p>'
-            f'<p class="rp-vision-question">{e(lab["question"])}</p>'
-            f'<p><strong>{e(lab["missionLabel"])}</strong> {e(lab["mission"])}</p></section>')
+    STUDENT = '/contact.html?audience=student&engagement=other#inquiry-form'
+    FUNDER = '/contact.html?audience=institution&engagement=venture#inquiry-form'
+    PARTNER = '/contact.html?audience=institution&engagement=research#inquiry-form'
 
-    # 2. Pillars: the Lab's decision life cycle, each with its ethical question
-    body += heading('programs', labels['programs'], c['programsHeading'], lab['pillarsIntro'])
-    body += '<div class="rp-grid rp-pillars">'
-    for n, item in enumerate(c['pillars'], 1):
-        chips = ''.join(project_link(pid) for pid in item['projects'])
-        body += (f'<article class="rp-card" id="{item["id"]}"><span class="rp-number" aria-hidden="true">0{n}</span>'
-                 f'<h3>{e(item["labTitle"])}</h3><p class="rp-question">{e(item["labQuestion"])}</p>'
-                 f'<h4>{e(lab["ethicsQuestion"])} · {e(item["title"])}</h4><p>{e(item["question"])}</p>'
-                 f'<p>{e(item["body"])}</p><h4>{e(labels["study"])}</h4><p>{e(item["study"])}</p>'
-                 f'<h4>{e(lab["labProjects"])}</h4><div class="rp-chips">{chips}</div>'
-                 f'<div class="rp-foundation"><h4>{e(labels["foundation"])}</h4>{link(item["href"], item["foundation"])}</div></article>')
-    body += '</div></section>'
-
-    # 3. Six projects, each with its full story
-    body += heading('projects', lab['projectsKicker'], lab['projectsHeading'], lab['projectsIntro'])
-    body += '<div class="rp-projects">'
-    for p in PROJECTS:
+    def project_card(p, flagship=False):
         tone = ' rp-tag-warm' if p['tagTone'] == 'warm' else ''
         svg = p['svg'].replace('>2 flips<', '>انقلابان<') if ar else p['svg']
         flow = ''.join(f'<li{" class=\"rp-ours\"" if f["ours"] else ""}>{t(f["text"])}'
@@ -93,8 +75,8 @@ def build(lang):
         related = ''.join(project_link(pid) for pid in p['related'])
         pillar = c['pillars'][p['pillar'] - 1]
         story = ''.join(f'<p>{t(x)}</p>' for x in p['story'])
-        body += (
-            f'<article class="rp-project" id="{p["id"]}"><div class="rp-project-head">'
+        return (
+            f'<article class="rp-project{" rp-flagship" if flagship else ""}" id="{p["id"]}"><div class="rp-project-head">'
             f'<p class="rp-project-meta"><span class="rp-tag{tone}">{t(p["tag"])}</span><span>{t(p["stage"])}</span></p>'
             f'<h3>{t(p["title"])}</h3><p class="rp-tagline">{t(p["tagline"])}</p>'
             f'<p><strong>{e(p["five"][0]["q"][lang].split(". ", 1)[-1])}:</strong> {t(p["five"][0]["a"])}</p>'
@@ -115,16 +97,78 @@ def build(lang):
             f'<div class="rp-limits"><h4>{e(lab["claims"])}</h4><ul>{claims}</ul></div>'
             + (f'<h4>{e(lab["outputs"])}</h4><ul class="rp-outputs">{outputs}</ul>' if outputs else '')
             + f'<h4>{e(lab["related"])}</h4><div class="rp-chips">{related}</div>'
-            f'<p class="rp-story-cta">{link("/contact.html#inquiry-form", lab["discuss"])}</p>'
+            f'<p class="rp-story-cta">{link(PARTNER, lab["discuss"])}</p>'
             f'</div></details></article>')
+
+    # 1. Vision and mission
+    body = (f'<section class="rp-vision" id="vision"><div class="kicker">{e(lab["visionKicker"])}</div>'
+            f'<p class="rp-vision-label">{e(lab["visionLabel"])}</p><p class="rp-vision-text">{e(lab["vision"])}</p>'
+            f'<p class="rp-vision-question">{e(lab["question"])}</p>'
+            f'<p><strong>{e(lab["missionLabel"])}</strong> {e(lab["mission"])}</p></section>')
+
+    # 2. Projects: two flagships first (RIDI, the method; HEALTHx, the framework), then the supporting projects
+    healthx = next(item for item in c['applications'] if item['href'] == '/healthx/')
+    units = ''.join(project_link(pid) for pid in ('requirement-ledger', 'clinical-knowledge-sharing'))
+    body += heading('projects', lab['projectsKicker'], lab['projectsHeading'], lab['projectsIntro'])
+    body += (f'<h3 class="rp-subhead">{e(lab["flagships"])}</h3><p class="rp-note">{e(lab["flagshipsIntro"])}</p>'
+             f'<div class="rp-projects rp-flagships">{project_card(by_id["ridi"], True)}'
+             f'<article class="rp-project rp-flagship" id="healthx"><div class="rp-project-head">'
+             f'<p class="rp-project-meta"><span class="rp-tag">HEALTHx</span><span>{e(lab["flagshipKicker"])}</span></p>'
+             f'<h3>HEALTHx</h3><p class="rp-tagline">{e(lab["flagshipBody"])}</p>'
+             f'<p class="rp-rd">{e(lab["flagshipRd"])}</p>'
+             f'<h4>{e(lab["healthxUnits"])}</h4><div class="rp-chips">{units}</div>'
+             f'<p class="rp-story-cta">{link("/healthx/", lab["exploreHealthx"])}</p></div></article></div>'
+             f'<h3 class="rp-subhead">{e(lab["supporting"])}</h3><div class="rp-projects">')
+    body += ''.join(project_card(p) for p in PROJECTS if p['id'] != 'ridi')
     body += '</div></section>'
 
-    # 4. The five-question method
+    # 3. For students: open thesis topics and a direct way to apply
+    rows = ''.join(f'<li><span class="rp-tag">{t(top["level"])}</span><p>{t(top["text"])}</p>{project_link(p["id"])}</li>'
+                   for p in PROJECTS for top in p.get('topics', []))
+    body += heading('join', lab['studentsKicker'], lab['studentsHeading'], lab['studentsIntro'])
+    body += (f'<ul class="rp-topics">{rows}</ul><p class="rp-note">{e(lab["studentsNote"])}</p>'
+             f'<div class="rp-join"><div class="kicker">{e(lab["joinKicker"])}</div><h3>{e(lab["joinHeading"])}</h3><p>{e(lab["joinBody"])}</p>'
+             f'<p class="rp-links">{link(STUDENT, lab["applyStudent"], "primary")}{link("/students.html", lab["studentsPage"])}</p></div></section>')
+
+    # 4. For funders: the fundable next step of each project
+    fund = ''.join(f'<tr><th scope="row">{project_link(p["id"])}<span>{t(p["stage"])}</span></th><td>{t(p["next"])}</td><td>{t(p["gains"][0])}</td></tr>'
+                   for p in PROJECTS)
+    body += heading('funders', lab['fundersKicker'], lab['fundersHeading'], lab['fundersIntro'])
+    body += (f'<div class="rp-table" role="region" aria-label="{e(lab["fundersHeading"], quote=True)}" tabindex="0"><table><thead><tr>'
+             f'<th scope="col">{e(lab["project"])}</th><th scope="col">{e(lab["fundStep"])}</th><th scope="col">{e(lab["fundDelivers"])}</th></tr></thead>'
+             f'<tbody>{fund}</tbody></table></div>'
+             f'<p class="rp-links">{link(FUNDER, lab["applyFunder"], "primary")}{link("/funders.html", lab["fundersPage"])}</p></section>')
+
+    # 5. Work with us: six forms, how an engagement runs, and contact
+    forms = ''.join(f'<article class="rp-card"><p class="rp-status">{e(a)}</p><h3>{e(t_)}</h3><p>{e(b)}</p></article>'
+                    for t_, b, a in lab['forms'])
+    steps = ''.join(f'<li><h4>{e(s)}</h4><p>{e(b)}</p></li>' for s, b in lab['steps'])
+    body += heading('work', lab['workKicker'], lab['workHeading'], lab['workNote'])
+    body += (f'<div class="rp-grid">{forms}</div><h3 class="rp-subhead">{e(lab["stepsHeading"])}</h3><ol class="rp-steps">{steps}</ol>'
+             f'<div class="rp-contact" id="lab-contact"><div class="kicker">{e(lab["contactKicker"])}</div>'
+             f'<h3>{e(lab["contactHeading"])}</h3><p>{e(lab["contactBody"])}</p>'
+             f'<p class="rp-links">{link(PARTNER, lab["partnerCta"], "primary")}'
+             f'<a href="mailto:arnoor@kau.edu.sa">arnoor@kau.edu.sa</a></p></div></section>')
+
+    # 6. Pillars: the Lab's decision life cycle, each with its ethical question
+    body += heading('programs', labels['programs'], c['programsHeading'], lab['pillarsIntro'])
+    body += '<div class="rp-grid rp-pillars">'
+    for n, item in enumerate(c['pillars'], 1):
+        chips = ''.join(project_link(pid) for pid in item['projects'])
+        body += (f'<article class="rp-card" id="{item["id"]}"><span class="rp-number" aria-hidden="true">0{n}</span>'
+                 f'<h3>{e(item["labTitle"])}</h3><p class="rp-question">{e(item["labQuestion"])}</p>'
+                 f'<h4>{e(lab["ethicsQuestion"])} · {e(item["title"])}</h4><p>{e(item["question"])}</p>'
+                 f'<p>{e(item["body"])}</p><h4>{e(labels["study"])}</h4><p>{e(item["study"])}</p>'
+                 f'<h4>{e(lab["labProjects"])}</h4><div class="rp-chips">{chips}</div>'
+                 f'<div class="rp-foundation"><h4>{e(labels["foundation"])}</h4>{link(item["href"], item["foundation"])}</div></article>')
+    body += '</div></section>'
+
+    # 7. The five-question method
     method = ''.join(f'<li><h3>{e(q)}</h3><p>{e(h)}</p></li>' for q, h in lab['method'])
     body += heading('method', lab['methodKicker'], lab['methodHeading'], lab['methodIntro'])
     body += f'<ol class="rp-method">{method}</ol></section>'
 
-    # 5. Research arc since the PhD (unchanged editorial record)
+    # 8. Research arc since the PhD (unchanged editorial record)
     timeline = ''
     for item in c['timeline']:
         links = link(item['href'], item['label'])
@@ -137,7 +181,7 @@ def build(lang):
     body += heading('research-lineage', c['lineageKicker'], c['lineageHeading'], c['lineageIntro'])
     body += f'<ol class="rp-timeline">{timeline}</ol><p class="rp-note">{e(c["lineageNote"])}</p></section>'
 
-    # 6. Selected records
+    # 9. Selected records
     body += heading('research-record', labels['record'], labels['recordHeading'], labels['recordIntro'])
     body += '<div class="rp-records">'
     for id_ in SELECTED:
@@ -150,35 +194,25 @@ def build(lang):
                  f'<p>{e(item["summary"][lang])}</p></div>{link(item.get("url_"+lang,item["url"]),labels["read"])}</article>')
     body += f'</div><p class="rp-note">{e(labels["statusDate"])}</p>{link("/publications.html",labels["allPublications"])}</section>'
 
-    # 7. Places to test the questions: HEALTHx (flagship framework) and MIYAR
+    # 10. Another place to test the questions (HEALTHx is a flagship above)
     body += heading('inventions', labels['applications'], labels['applicationsHeading'], labels['applicationsIntro'])
     body += '<div class="rp-grid rp-two">'
     for item in c['applications']:
+        if item['href'] == '/healthx/':
+            continue
         body += (f'<article class="rp-card"><h3>{e(item["title"])}</h3><p>{e(item["body"])}</p>'
                  f'{link(item["href"],item["label"])}</article>')
     body += '</div></section>'
 
-    # 8. Work with us: six forms and how an engagement runs
-    forms = ''.join(f'<article class="rp-card"><p class="rp-status">{e(a)}</p><h3>{e(t_)}</h3><p>{e(b)}</p></article>'
-                    for t_, b, a in lab['forms'])
-    steps = ''.join(f'<li><h4>{e(s)}</h4><p>{e(b)}</p></li>' for s, b in lab['steps'])
-    body += heading('work', lab['workKicker'], lab['workHeading'], lab['workNote'])
-    body += (f'<div class="rp-grid">{forms}</div><h3 class="rp-subhead">{e(lab["stepsHeading"])}</h3><ol class="rp-steps">{steps}</ol>'
-             f'<div class="rp-contact" id="lab-contact"><div class="kicker">{e(lab["contactKicker"])}</div>'
-             f'<h3>{e(lab["contactHeading"])}</h3><p>{e(lab["contactBody"])}</p>'
-             f'<p class="rp-links">{link("/contact.html#inquiry-form", lab["contactCta"], "primary")}'
-             f'<a href="mailto:arnoor@kau.edu.sa">arnoor@kau.edu.sa</a></p></div></section>')
-
-    # 9. Collaborate: researchers, students, institutions; joining the lab
+    # 11. Collaborate: researchers, students, institutions
     body += heading('participate', labels['audiences'], labels['audiencesHeading'], labels['audiencesIntro'])
     body += '<div class="rp-grid">'
     for item in c['audiences']:
         body += (f'<article class="rp-card"><h3>{e(item["title"])}</h3><p>{e(item["body"])}</p>'
                  f'{link(item["href"],item["label"])}</article>')
-    body += (f'</div><div class="rp-join"><div class="kicker">{e(lab["joinKicker"])}</div><h3>{e(lab["joinHeading"])}</h3>'
-             f'<p>{e(lab["joinBody"])}</p></div></section>')
+    body += '</div></section>'
 
-    # 10. How we work
+    # 12. How we work
     principles = ''.join(f'<li><strong>{e(a)}</strong> {e(b)}</li>' for a, b in lab['principles'])
     body += (f'<section class="rp-section" id="principles"><div class="rp-heading"><div class="kicker">{e(lab["principlesKicker"])}</div>'
              f'<h2>{e(lab["principlesHeading"])}</h2></div><ul class="rp-principles">{principles}</ul></section>')
@@ -189,8 +223,8 @@ def build(lang):
     description = lab['lead']
     css_version = hashlib.sha256((ROOT/'research.css').read_bytes()).hexdigest()[:10]
     origin = 'https://adeebnoor.github.io'
-    actions = (link('#projects', lab['heroProjects'], 'primary') + link('#work', lab['heroWork'])
-               + link('#research-lineage', lab['heroArc']))
+    actions = (link('#projects', lab['heroProjects'], 'primary') + link('#join', lab['heroStudents'])
+               + link('#funders', lab['heroFunders']) + link('#work', lab['heroPartners']))
     doc = f'''<!doctype html><html lang="{lang}"{' dir="rtl"' if ar else ''}><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(description,quote=True)}">
