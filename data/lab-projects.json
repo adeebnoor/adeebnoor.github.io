@@ -274,6 +274,18 @@
    "related": [
     "ridi-pdpl",
     "image-provenance"
+   ],
+   "topics": [
+    {
+     "level": {
+      "en": "MSc or PhD",
+      "ar": "ماجستير أو دكتوراه"
+     },
+     "text": {
+      "en": "Case-level decision-flip audits for Arabic language models after an update",
+      "ar": "تدقيق انقلاب القرار على مستوى الحالة في النماذج اللغوية العربية بعد التحديث"
+     }
+    }
    ]
   },
   {
@@ -498,6 +510,18 @@
    "related": [
     "ridi",
     "clinical-knowledge-sharing"
+   ],
+   "topics": [
+    {
+     "level": {
+      "en": "MSc",
+      "ar": "ماجستير"
+     },
+     "text": {
+      "en": "When does a decision-flip measurement count as evidence in a data-protection impact assessment? Computing with law.",
+      "ar": "متى يصلح قياس انقلاب القرار دليلاً في تقييم أثر حماية البيانات؟ الحاسب مع القانون."
+     }
+    }
    ]
   },
   {
@@ -726,7 +750,8 @@
    "related": [
     "requirement-ledger",
     "ridi-pdpl"
-   ]
+   ],
+   "topics": []
   },
   {
    "id": "requirement-ledger",
@@ -954,6 +979,18 @@
    "related": [
     "genomic-reanalysis",
     "clinical-knowledge-sharing"
+   ],
+   "topics": [
+    {
+     "level": {
+      "en": "MSc",
+      "ar": "ماجستير"
+     },
+     "text": {
+      "en": "Checking that every explicit requirement survives AI-assisted drafting of clinical documents",
+      "ar": "التحقق من بقاء كل متطلب صريح عند صياغة الوثائق السريرية بمساعدة الذكاء الاصطناعي"
+     }
+    }
    ]
   },
   {
@@ -1178,6 +1215,18 @@
    "related": [
     "ridi",
     "clinical-knowledge-sharing"
+   ],
+   "topics": [
+    {
+     "level": {
+      "en": "MSc",
+      "ar": "ماجستير"
+     },
+     "text": {
+      "en": "Diagnostic safety of provenance marks on other public medical-imaging datasets",
+      "ar": "السلامة التشخيصية لعلامات المصدر على مجموعات صور طبية عامة أخرى"
+     }
+    }
    ]
   },
   {
@@ -1406,6 +1455,18 @@
    "related": [
     "requirement-ledger",
     "ridi"
+   ],
+   "topics": [
+    {
+     "level": {
+      "en": "MSc",
+      "ar": "ماجستير"
+     },
+     "text": {
+      "en": "Decision records and consultant sign-off for governed genomic reanalysis",
+      "ar": "سجل القرار وتوقيع الاستشاري في إعادة التحليل الجينومي المحكومة"
+     }
+    }
    ]
   }
  ]
