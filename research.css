@@ -145,3 +145,14 @@ html[lang="ar"] .rp-status{letter-spacing:0}
 .rp-table tbody th span{display:block;font-weight:600;font-size:13px;color:var(--t-muted,#5a5a55);margin-top:6px}
 .rp-table tr:last-child th,.rp-table tr:last-child td{border-bottom:0}
 @media (max-width:760px){.rp-topics li{grid-template-columns:1fr;gap:8px}}
+/* Compact Research & Lab (Nov 2026): forms list, table topic tags, MIYAR line */
+.rp-forms{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rp-forms li{background:var(--t-surface,#fff);border:1px solid var(--t-line,#e4ded3);border-radius:14px;padding:14px 16px;line-height:1.55}
+.rp-forms b{display:block;font-size:17px}
+.rp-forms span{display:block;font-size:12.5px;font-weight:700;color:var(--t-green,#005a36);margin:2px 0 6px}
+.rp-forms p{margin:0;color:var(--t-muted,#5a5a55)}
+.rp-steps li b{display:inline}
+.research-program .rp-how,.research-program .rp-also{margin-top:18px;line-height:1.7}
+.rp-table td .rp-tag{margin-inline-end:6px}
+@media (max-width:900px){.rp-forms{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.rp-forms{grid-template-columns:1fr}}

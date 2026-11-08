@@ -120,15 +120,6 @@
         "reference": "Ontology-Enhanced Deep Learning for Mechanistic Prediction of Drug-Drug Interactions: A Clinically Interpretable Framework",
         "href": "https://doi.org/10.1002/jcph.70220",
         "label": "Published article"
-      },
-      {
-        "year": "Today",
-        "title": "A focused AI ethics agenda",
-        "status": "Current research · empirical and normative questions",
-        "body": "I now examine what evaluation permits us to conclude about a decision, whose outcomes it conceals and who remains responsible. RIDI contributes to the evaluation question; iSCARB contributes to human-owned judgment. Together they support a wider agenda in justice, accountability and delegation.",
-        "reference": "RIDI manuscript and iSCARB preprint: current work with separate research status",
-        "href": "#research-record",
-        "label": "Current work & status"
       }
     ],
     "ridi": {
@@ -202,7 +193,7 @@
       "abstract": "Graphical abstract",
       "projectsKicker": "Current projects",
       "projectsHeading": "What we are working on now",
-      "projectsIntro": "Six projects, each with its story: the problem as people live it, the idea, our five answers, the journey so far, and what we do not claim.",
+      "projectsIntro": "Two flagships, five supporting projects. Each card states the problem; open the story for the idea, our five answers, the journey so far and what we do not claim.",
       "labProjects": "Lab projects",
       "ethicsQuestion": "The ethical question",
       "heroProjects": "Explore the six projects",
@@ -362,7 +353,14 @@
       "partnerCta": "Start a partnership discussion",
       "heroStudents": "For students",
       "heroFunders": "For funders",
-      "heroPartners": "Partner with us"
+      "heroPartners": "Partner with us",
+      "nextKicker": "Join or fund",
+      "nextHeading": "One table: thesis topics and fundable next steps.",
+      "nextIntro": "Topics are proposed and refined with the student; funding steps are scoped in a one-page brief. The lab has no funded positions and no external funding yet: students join through their own programme, scholarship or sponsor, and each project names the first step a funder could support. The invention project opens for theses after filing.",
+      "topicCol": "Open thesis topic",
+      "applyHow": "To apply, send your CV and one paragraph: what is the problem, and how would you solve it?",
+      "howWeWork": "How we work",
+      "alsoTesting": "Another place to test the questions"
     }
   },
   "ar": {
@@ -485,15 +483,6 @@
         "reference": "التعلم العميق المعزّز بالأنطولوجيا للتنبؤ بآليات التداخلات الدوائية: إطار قابل للتفسير سريريًا",
         "href": "https://doi.org/10.1002/jcph.70220",
         "label": "المقالة المنشورة"
-      },
-      {
-        "year": "اليوم",
-        "title": "أجندة محددة في أخلاقيات الذكاء الاصطناعي",
-        "status": "بحث جارٍ · أسئلة تجريبية وأخلاقية",
-        "body": "أبحث اليوم ما الذي يجيز لنا التقييم استنتاجه عن القرار، ونتائج مَن يخفيها، ومن يبقى مسؤولًا عنه. يسهم RIDI في سؤال التقييم، ويسهم iSCARB في الحكم الذي يتحمل الإنسان مسؤوليته؛ ضمن أجندة أوسع للعدالة والمساءلة والتفويض.",
-        "reference": "مخطوطة RIDI ونسخة iSCARB الأولية: أعمال حالية بحالات بحثية منفصلة",
-        "href": "#research-record",
-        "label": "الأعمال الحالية وحالاتها"
       }
     ],
     "ridi": {
@@ -567,7 +556,7 @@
       "abstract": "ملخص بصري",
       "projectsKicker": "المشاريع القائمة",
       "projectsHeading": "ما نعمل عليه الآن",
-      "projectsIntro": "ستة مشاريع، لكل منها قصة: المشكلة كما يعيشها الناس، والفكرة، وإجابات أسئلتنا الخمسة، والرحلة حتى الآن، وما لا ندّعيه.",
+      "projectsIntro": "مشروعان رئيسيان وخمسة داعمة. تعرض كل بطاقة المشكلة، وافتح القصة لتقرأ الفكرة وإجاباتنا الخمس والرحلة حتى الآن وما لا ندّعيه.",
       "labProjects": "مشاريع المختبر",
       "ethicsQuestion": "السؤال الأخلاقي",
       "heroProjects": "تعرّف على المشاريع الستة",
@@ -727,7 +716,14 @@
       "partnerCta": "ابدأ نقاش شراكة",
       "heroStudents": "للطلاب",
       "heroFunders": "لجهات التمويل",
-      "heroPartners": "شاركنا"
+      "heroPartners": "شاركنا",
+      "nextKicker": "انضم أو موّل",
+      "nextHeading": "جدول واحد: موضوعات الرسائل والخطوات القابلة للتمويل.",
+      "nextIntro": "الموضوعات مقترحة وتُضبط مع الطالب، وخطوات التمويل تُحدَّد في موجز من صفحة واحدة. لا توجد في المختبر مقاعد ممولة ولا تمويل خارجي حتى الآن: ينضم الطالب عبر برنامجه أو بعثته أو جهة راعية، ولكل مشروع خطوة أولى يمكن لجهة تمويل أن تدعمها. ويُفتح مشروع الاختراع للرسائل بعد الإيداع.",
+      "topicCol": "موضوع رسالة مفتوح",
+      "applyHow": "للتقديم: أرسل سيرتك الذاتية وفقرة واحدة: ما المشكلة، وكيف ستحلها؟",
+      "howWeWork": "كيف نعمل",
+      "alsoTesting": "مكان آخر لاختبار الأسئلة"
     }
   }
 }
