@@ -1,13 +1,11 @@
-"""Connect the bilingual Adeeb Lab page (/lab/) to the personal site.
+"""Connect Adeeb Lab, now part of the Research & Lab page, to the rest of the site.
 
 Idempotent and marker-delimited, like the other build steps:
-- a Lab teaser on both homepages, after the "Ideas and execution" gateway;
-- a one-line pointer to the Lab's projects at the top of Students and Partnerships;
-- a link to the Lab's "About Adeeb" section on About;
-- /lab/ in sitemap.xml.
-Links into /lab/ carry data-analytics-ignore until the portfolio-collect edge
-function (which now allows /lab/) is redeployed. The Lab page itself is a hand-maintained single file (lab/index.html) and is not
-rewritten here. The menu entries come from data/site-navigation.json.
+- a Lab teaser on both homepages, after the "Ideas and execution" gateway, linking to
+  the six projects on research.html;
+- a one-line pointer to those projects at the top of Students and Partnerships.
+It also removes leftovers of the separate /lab/ page (the About pointer and the
+sitemap entry); /lab/ itself is only a redirect to research.html.
 """
 from pathlib import Path
 import re
@@ -42,7 +40,7 @@ TEASER = {
            '<div class="al-g"><div class="al-c"><b>1 · Decision stability</b><span>Does the decision stay the same for each case?</span></div>'
            '<div class="al-c"><b>2 · Evidence traceability</b><span>Do we know where every element came from and who approved it?</span></div>'
            '<div class="al-c"><b>3 · Evidence through change</b><span>Does the evidence still hold when the model or the science changes?</span></div></div>'
-           '<a class="al-cta" href="/lab/?lang=en" data-analytics-ignore>Explore the lab’s six projects →</a></div></section>'),
+           '<a class="al-cta" href="/research.html#projects">Explore the lab’s six projects →</a></div></section>'),
     'ar': ('<section class="section al-mod" id="adeeb-lab" dir="rtl" lang="ar" aria-labelledby="al-title-ar"><div class="wrap">'
            '<p class="al-k">مختبر أديب · ذكاء القرار المسؤول</p>'
            '<h2 id="al-title-ar">ذراع البحث والتطوير خلف هذا العمل.</h2>'
@@ -51,16 +49,12 @@ TEASER = {
            '<div class="al-g"><div class="al-c"><b>1 · ثبات القرار</b><span>هل يبقى القرار نفسه لكل حالة؟</span></div>'
            '<div class="al-c"><b>2 · تتبّع الدليل</b><span>هل نعرف من أين جاء كل عنصر ومن اعتمده؟</span></div>'
            '<div class="al-c"><b>3 · الدليل مع التغيير</b><span>هل يبقى الدليل صالحاً حين يتغيّر النموذج أو العلم؟</span></div></div>'
-           '<a class="al-cta" href="/lab/" data-analytics-ignore>تعرّف على مشاريع المختبر الستة ←</a></div></section>'),
+           '<a class="al-cta" href="/ar/research.html#projects">تعرّف على مشاريع المختبر الستة ←</a></div></section>'),
 }
 
 POINTER = {
-    'en': '<p class="lab-pointer">Current research projects and partnership opportunities are at <a href="/lab/?lang=en#projects" data-analytics-ignore>Adeeb Lab → Projects</a>.</p>',
-    'ar': '<p class="lab-pointer">المشاريع البحثية القائمة وفرص الشراكة في <a href="/lab/#projects" data-analytics-ignore>مختبر أديب ← المشاريع</a>.</p>',
-}
-ABOUT = {
-    'en': '<p class="lab-pointer">Who Adeeb is in the lab: <a href="/lab/?lang=en#adeeb" data-analytics-ignore>Adeeb Lab → About Adeeb</a>.</p>',
-    'ar': '<p class="lab-pointer">من هو أديب في المختبر: <a href="/lab/#adeeb" data-analytics-ignore>مختبر أديب ← من هو أديب</a>.</p>',
+    'en': '<p class="lab-pointer">Current research projects and partnership opportunities are on <a href="/research.html#projects">Research &amp; Lab → Projects</a>.</p>',
+    'ar': '<p class="lab-pointer">المشاريع البحثية القائمة وفرص الشراكة في <a href="/ar/research.html#projects">الأبحاث والمختبر ← المشاريع</a>.</p>',
 }
 
 
@@ -92,17 +86,17 @@ def main():
                 s = s.replace('<!-- lab-pointer:start --><p class="lab-pointer">', '<!-- lab-pointer:start --><div class="wrap" style="padding-top:18px"><p class="lab-pointer">', 1)
                 s = s.replace('</p><!-- lab-pointer:end -->', '</p></div><!-- lab-pointer:end -->', 1)
             path.write_text(style(s), encoding='utf-8')
-        about = ROOT / prefix / 'about.html'
-        s = put(about.read_text(encoding='utf-8'), 'lab-about', ABOUT[lang], r'<main[^>]*>')
-        about.write_text(style(s), encoding='utf-8')
+        about = ROOT / prefix / 'about.html'  # the separate Lab "About Adeeb" pointer is retired
+        s = re.sub(r'<!-- lab-about:start -->.*?<!-- lab-about:end -->', '', about.read_text(encoding='utf-8'), flags=re.S)
+        s = re.sub(r'<!-- lab-style:start -->.*?<!-- lab-style:end -->', '', s, flags=re.S)
+        about.write_text(s, encoding='utf-8')
 
     sitemap = ROOT / 'sitemap.xml'
     s = sitemap.read_text(encoding='utf-8')
-    entry = f'<url><loc>{ORIGIN}/lab/</loc></url>'
-    if entry not in s:
-        s = s.replace('</urlset>', entry + '</urlset>', 1)
-        sitemap.write_text(s, encoding='utf-8')
-    print('Linked Adeeb Lab from both homepages, Students, Partnerships, About and the sitemap.')
+    entry = f'<url><loc>{ORIGIN}/lab/</loc></url>'  # /lab/ is a redirect: not in the sitemap
+    if entry in s:
+        sitemap.write_text(s.replace(entry, ''), encoding='utf-8')
+    print('Linked the Research & Lab projects from both homepages, Students and Partnerships.')
 
 
 if __name__ == '__main__':

@@ -36,6 +36,9 @@ const ANCHORS = new Set([
   'programs', 'research-record', 'inventions', 'participate', 'research-lineage', 'kamin',
   'mission', 'thrusts', 'systems', 'join', 'different', 'researchers', 'faq',
   'adeeb', 'adeeb-lab',
+  // Research & Lab page (Nov 2026)
+  'vision', 'method', 'work', 'principles', 'lab-contact', 'ridi-pdpl', 'clinical-knowledge-sharing',
+  'requirement-ledger', 'image-provenance', 'genomic-reanalysis',
 ]);
 const DESTINATIONS = new Set([
   'https://doi.org/10.1093/jamia/ocw128',
@@ -69,6 +72,8 @@ const DESTINATIONS = new Set([
   'https://zenodo.org/records/22964248',
   'https://doi.org/10.5281/zenodo.22964248',
   'https://zenodo.org/records/22974727',
+  'https://pypi.org/project/ridi-audit/',
+  'https://osf.io/txwdv',
   'https://cbrcconferences.kaust.edu.sa/speakers/2016-kaust-research-conference-speakers-adeeb-noor',
   'https://cemse.kaust.edu.sa/articles/2017/05/24/one-size-does-not-fit-all-innovative-analytical-tool-will-help-pave-way-tailor',
   'https://cemse.kaust.edu.sa/profiles/adeeb-noor',

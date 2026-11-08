@@ -43,7 +43,13 @@
         "body": "I examine how model updates, rankings and selection rules change who or what is chosen. I treat these changes as a reason to investigate their justification and distribution; change alone does not establish unfairness.",
         "study": "Compare equivalent-performing systems at the level of affected individuals, then examine which changes are necessary, avoidable or unjustified.",
         "foundation": "RIDI · evaluation and selection-change audits",
-        "href": "#ridi"
+        "href": "#ridi",
+        "labTitle": "Decision stability",
+        "labQuestion": "Does the decision stay the same for each case?",
+        "projects": [
+          "ridi",
+          "image-provenance"
+        ]
       },
       {
         "id": "accountability",
@@ -52,7 +58,13 @@
         "body": "I connect the representation and provenance of evidence to the reasons offered for a decision. The goal is to make its assumptions, missing knowledge and limits open to scrutiny.",
         "study": "Trace how changes in source data, terminology or evidence alter a recommendation, and evaluate whether the resulting explanation supports meaningful review.",
         "foundation": "Doctoral research · D3 · D4 · biomedical inference",
-        "href": "#research-lineage"
+        "href": "#research-lineage",
+        "labTitle": "Evidence traceability",
+        "labQuestion": "Do we know where every element came from and who approved it?",
+        "projects": [
+          "requirement-ledger",
+          "clinical-knowledge-sharing"
+        ]
       },
       {
         "id": "human-agency",
@@ -61,7 +73,13 @@
         "body": "I study how people can own, defend and revise a judgment when AI produces part of the answer. Oversight must involve the ability and authority to intervene.",
         "study": "Evaluate when people can detect a system’s limits, challenge its advice and revise their decisions under changed conditions.",
         "foundation": "iSCARB · defensible engineering judgment",
-        "href": "/teaching.html#iscarb"
+        "href": "/teaching.html#iscarb",
+        "labTitle": "Evidence through change",
+        "labQuestion": "Does the evidence still hold when the model or the science changes?",
+        "projects": [
+          "ridi-pdpl",
+          "genomic-reanalysis"
+        ]
       }
     ],
     "timeline": [
@@ -124,8 +142,8 @@
     },
     "applications": [
       {
-        "title": "HEALTHx · clinical innovation",
-        "body": "Founder, HEALTHx — clinical innovation platform; invention disclosure under review. A development context for studying how clinical knowledge, protocols and AI-supported workflows can be documented, evaluated and governed with hospital partners. Partner and clinical validation remain work to establish.",
+        "title": "HEALTHx · flagship framework",
+        "body": "Founder, HEALTHx — a framework that helps health organizations and researchers organize, document and trace clinical, operational and administrative solutions; invention disclosure under review. HEALTHx is currently in research and development. Clinical and commercial outcomes depend on evidence and future partnerships.",
         "href": "/healthx/",
         "label": "Explore HEALTHx"
       },
@@ -155,7 +173,173 @@
         "href": "/partnerships.html",
         "label": "Discuss a partnership"
       }
-    ]
+    ],
+    "lab": {
+      "kicker": "Adeeb Lab · Responsible Decision Intelligence",
+      "story": "The story",
+      "scene": "An illustrative scene",
+      "idea": "The idea",
+      "added": "our added value",
+      "opportunity": "The opportunity",
+      "whyNow": "Why now",
+      "gains": "What a partner gains",
+      "seeking": "Who we are looking for",
+      "ways": "Ways to engage",
+      "five": "Our five questions",
+      "journey": "The journey so far",
+      "done": "Done",
+      "now": "Now",
+      "next": "Next",
+      "claims": "What we do not claim",
+      "outputs": "Open outputs",
+      "related": "Related projects",
+      "program": "Program",
+      "stage": "Stage",
+      "nextStep": "Next step",
+      "pillar": "Pillar",
+      "readStory": "Read the project story",
+      "discuss": "Discuss this opportunity",
+      "abstract": "Graphical abstract",
+      "projectsKicker": "Current projects",
+      "projectsHeading": "What we are working on now",
+      "projectsIntro": "Six projects, each with its story: the problem as people live it, the idea, our five answers, the journey so far, and what we do not claim.",
+      "labProjects": "Lab projects",
+      "ethicsQuestion": "The ethical question",
+      "heroProjects": "Explore the six projects",
+      "heroWork": "Work with us",
+      "heroArc": "From my PhD to today",
+      "contactCta": "Use the contact form",
+      "copy": "Email",
+      "heading": "We make AI decisions auditable before they are adopted.",
+      "lead": "A research and development lab led by Prof. Adeeb Noor that works as the R&D arm for hospitals, government agencies, companies and universities. We test when an AI system's decision changes for an individual case, and build the evidence an organization needs before it adopts or updates a solution.",
+      "visionKicker": "One vision",
+      "visionLabel": "Our vision",
+      "vision": "No decision that affects people, whether made by a person or an AI system, is adopted without evidence that can be checked and traced, before adoption and after every change.",
+      "question": "Our question: what changes when your AI changes?",
+      "missionLabel": "Our mission:",
+      "mission": "We build the methods, tools and evidence that make this possible, and work as the research arm for the organizations that need them.",
+      "pillarsIntro": "Three pillars follow a decision's life cycle, and every project in the lab serves one of them.",
+      "methodKicker": "Our research school",
+      "methodHeading": "Five questions every project starts with",
+      "methodIntro": "We start from the problem, not the tool or the technique. Every project in the lab, and every thesis it supervises, answers these questions in order before the first line of code.",
+      "method": [
+        [
+          "What is the problem?",
+          "Who it affects, and how we know it is real."
+        ],
+        [
+          "How is it solved now?",
+          "The existing solutions in research and practice."
+        ],
+        [
+          "Why is that not good enough?",
+          "The specific gap, shown with evidence."
+        ],
+        [
+          "How will we solve it?",
+          "Our added value, not a repeat of what exists."
+        ],
+        [
+          "What is the impact?",
+          "What changes for those who use the solution, and how we measure it."
+        ]
+      ],
+      "workKicker": "Work with us",
+      "workHeading": "Six ways to work together",
+      "workNote": "Agreements are made through King Abdulaziz University under its policies on intellectual property, publication and research ethics.",
+      "forms": [
+        [
+          "Sponsored research",
+          "A research question the partner defines, with an agreed plan, milestones and deliverables.",
+          "Companies, government agencies"
+        ],
+        [
+          "AI evaluation study",
+          "A RIDI-based review of a model update or decision system, with a report on what changed and for whom. Not a compliance certificate.",
+          "AI vendors, hospitals"
+        ],
+        [
+          "Joint research & grants",
+          "Joint grant proposals, replication and validation studies, researcher and student exchange.",
+          "Universities, research centers"
+        ],
+        [
+          "Advisory & due diligence",
+          "AI and data strategy, research-to-market operating models, and technical review before an investment or purchase.",
+          "Institutions, investors"
+        ],
+        [
+          "Talent & student projects",
+          "Master's and doctoral theses and capstone projects on a partner's real problems, plus workshops for its teams.",
+          "All partners"
+        ],
+        [
+          "Technology licensing",
+          "When intellectual property matures, licensing runs through the university's Innovation & Entrepreneurship Center.",
+          "Companies"
+        ]
+      ],
+      "stepsHeading": "How an engagement runs",
+      "steps": [
+        [
+          "Introduction",
+          "Describe the problem, your organization and what you need, without sensitive data."
+        ],
+        [
+          "Scoping call",
+          "30 minutes to understand the question, available data and what success looks like."
+        ],
+        [
+          "One-page research brief",
+          "Question, method, deliverables, timeline and decision gates."
+        ],
+        [
+          "Agreement",
+          "Confidentiality, IP, publication rights and ethics approvals where needed, through the university."
+        ],
+        [
+          "Gated delivery",
+          "Short stages with a written decision at each gate: continue, adjust or stop."
+        ],
+        [
+          "Deliverables",
+          "A report and a reviewable evidence file, reproducible code, and a paper where agreed."
+        ]
+      ],
+      "principlesKicker": "How we work",
+      "principlesHeading": "What a partner can expect",
+      "principles": [
+        [
+          "Preregistration",
+          "of key analyses before results are seen."
+        ],
+        [
+          "Reproducibility",
+          "with documented code and data, open where the agreement allows."
+        ],
+        [
+          "Claims sized to evidence",
+          "decision stability is not correctness, and an evaluation is never sold as certification."
+        ],
+        [
+          "Data protection",
+          "under Saudi PDPL, and no patient data without ethics approval."
+        ],
+        [
+          "Clear roles",
+          "for every researcher and student under CRediT before work begins."
+        ]
+      ],
+      "flagshipKicker": "Flagship framework",
+      "flagshipBody": "Helps health organizations and researchers organize, document and trace clinical, operational and administrative solutions, so they become more useful, easier to share, and closer to licensing or generating value. HEALTHx does not invent solutions; it helps organize and prepare them.",
+      "flagshipRd": "HEALTHx is currently in research and development. Clinical and commercial outcomes depend on evidence and future partnerships.",
+      "joinKicker": "Join us",
+      "joinHeading": "Students and visiting researchers",
+      "joinBody": "We welcome master's and doctoral students, visiting researchers and collaborators from universities and agencies on AI evaluation and health informatics projects. Send your CV and a paragraph answering questions one and four: what is the problem, and how would you solve it.",
+      "contactKicker": "Contact",
+      "contactHeading": "Have a decision you need to trust?",
+      "contactBody": "Send a short description of the problem and your organization, and we will propose a scoping call. Please do not send patient data or unpublished invention details."
+    }
   },
   "ar": {
     "identity": "أخلاقيات الذكاء الاصطناعي · ماذا يتغيّر عندما يتغيّر الذكاء الاصطناعي",
@@ -200,7 +384,13 @@
         "body": "أدرس كيف تغيّر تحديثات النماذج والترتيب وقواعد الاختيار الأشخاص أو العناصر المختارة. هذا التغيّر يستدعي فحص توزيعه ومبرراته؛ ولا يكفي وحده لإثبات غياب العدالة.",
         "study": "مقارنة أنظمة متكافئة الأداء على مستوى الأفراد المتأثرين، ثم فحص التغيّرات الضرورية وتلك التي يمكن تجنبها أو لا تستند إلى مبرر.",
         "foundation": "RIDI · تدقيق التقييم وتغيّر الاختيارات",
-        "href": "#ridi"
+        "href": "#ridi",
+        "labTitle": "ثبات القرار",
+        "labQuestion": "هل يبقى القرار نفسه لكل حالة؟",
+        "projects": [
+          "ridi",
+          "image-provenance"
+        ]
       },
       {
         "id": "accountability",
@@ -209,7 +399,13 @@
         "body": "أربط تمثيل الأدلة ومصادرها بالأسباب المقدّمة لتبرير القرار. والغاية أن تصبح افتراضاته والمعرفة الناقصة فيه وحدوده قابلة للفحص.",
         "study": "تتبّع أثر تغيّر البيانات أو المصطلحات أو الأدلة في التوصية، وتقييم ما إذا كان تفسيرها يتيح مراجعة ذات معنى.",
         "foundation": "الدكتوراه · D3 · D4 · الاستدلال الطبي",
-        "href": "#research-lineage"
+        "href": "#research-lineage",
+        "labTitle": "تتبّع الدليل",
+        "labQuestion": "هل نعرف من أين جاء كل عنصر ومن اعتمده؟",
+        "projects": [
+          "requirement-ledger",
+          "clinical-knowledge-sharing"
+        ]
       },
       {
         "id": "human-agency",
@@ -218,7 +414,13 @@
         "body": "أدرس كيف يتملك الإنسان حكمه ويبرره ويراجعه عندما ينتج الذكاء الاصطناعي جزءًا من الإجابة. الإشراف يتطلب قدرة فعلية على التدخل وسلطة تتيحه.",
         "study": "تقييم قدرة الأشخاص على اكتشاف حدود النظام، والاعتراض على توصياته، ومراجعة قراراتهم عند تغيّر الشروط.",
         "foundation": "iSCARB · الحكم الهندسي القابل للدفاع عنه",
-        "href": "/teaching.html#iscarb"
+        "href": "/teaching.html#iscarb",
+        "labTitle": "الدليل مع التغيير",
+        "labQuestion": "هل يبقى الدليل صالحاً حين يتغيّر النموذج أو العلم؟",
+        "projects": [
+          "ridi-pdpl",
+          "genomic-reanalysis"
+        ]
       }
     ],
     "timeline": [
@@ -281,8 +483,8 @@
     },
     "applications": [
       {
-        "title": "HEALTHx · الابتكار السريري",
-        "body": "مؤسس، HEALTHx — منصة للابتكار السريري؛ إفصاح عن اختراع قيد المراجعة. سياق تطوير لدراسة توثيق المعرفة السريرية والبروتوكولات ومسارات العمل المدعومة بالذكاء الاصطناعي وتقييمها وحوكمتها مع شركاء من المستشفيات. وتظل الشراكات والتحقق السريري عملًا مطلوبًا.",
+        "title": "HEALTHx · الإطار الرئيسي",
+        "body": "مؤسس HEALTHx — إطار يساعد المؤسسات الصحية والباحثين على تنظيم الحلول السريرية والتشغيلية والإدارية وتوثيقها وتتبعها؛ إفصاح عن اختراع قيد المراجعة. المنصة حاليًا في مرحلة البحث والتطوير. النتائج السريرية والتجارية تعتمد على الأدلة والشراكات المستقبلية.",
         "href": "/healthx/",
         "label": "استكشف HEALTHx"
       },
@@ -312,6 +514,172 @@
         "href": "/partnerships.html",
         "label": "ناقش شراكة"
       }
-    ]
+    ],
+    "lab": {
+      "kicker": "مختبر أديب · ذكاء القرار المسؤول",
+      "story": "الحكاية",
+      "scene": "مشهد توضيحي",
+      "idea": "الفكرة",
+      "added": "قيمتنا المضافة",
+      "opportunity": "الفرصة",
+      "whyNow": "لماذا الآن",
+      "gains": "ما يحصل عليه الشريك",
+      "seeking": "من نبحث عنه",
+      "ways": "أشكال التعاون",
+      "five": "أسئلتنا الخمسة",
+      "journey": "الرحلة حتى الآن",
+      "done": "أُنجز",
+      "now": "الآن",
+      "next": "القادم",
+      "claims": "ما لا ندّعيه",
+      "outputs": "مخرجات مفتوحة",
+      "related": "مشاريع مرتبطة",
+      "program": "البرنامج",
+      "stage": "المرحلة",
+      "nextStep": "الخطوة القادمة",
+      "pillar": "الركيزة",
+      "readStory": "اقرأ قصة المشروع",
+      "discuss": "ناقش الفرصة معنا",
+      "abstract": "ملخص بصري",
+      "projectsKicker": "المشاريع القائمة",
+      "projectsHeading": "ما نعمل عليه الآن",
+      "projectsIntro": "ستة مشاريع، لكل منها قصة: المشكلة كما يعيشها الناس، والفكرة، وإجابات أسئلتنا الخمسة، والرحلة حتى الآن، وما لا ندّعيه.",
+      "labProjects": "مشاريع المختبر",
+      "ethicsQuestion": "السؤال الأخلاقي",
+      "heroProjects": "تعرّف على المشاريع الستة",
+      "heroWork": "اعمل معنا",
+      "heroArc": "من الدكتوراه إلى اليوم",
+      "contactCta": "استخدم نموذج التواصل",
+      "copy": "البريد",
+      "heading": "نجعل قرارات الذكاء الاصطناعي قابلة للتدقيق قبل اعتمادها.",
+      "lead": "مختبر بحث وتطوير يقوده أ.د. أديب نور، يعمل ذراعاً بحثياً للمستشفيات والجهات الحكومية والشركات والجامعات: نختبر متى يتغيّر قرار النظام الذكي لحالة بعينها، ونبني الأدلة التي تحتاجها الجهة قبل أن تعتمد الحل أو تحدّثه.",
+      "visionKicker": "رؤية واحدة",
+      "visionLabel": "رؤيتنا",
+      "vision": "ألّا يُعتمد قرار يمسّ الناس، من إنسان أو نظام ذكي، دون دليل يمكن فحصه وتتبعه، قبل اعتماده وبعد كل تغيير.",
+      "question": "سؤالنا: ما الذي يتغيّر حين يتغيّر ذكاؤك الاصطناعي؟",
+      "missionLabel": "مهمتنا:",
+      "mission": "نبني الطرق والأدوات والأدلة التي تجعل ذلك ممكناً، ونعمل ذراعاً بحثياً للجهات التي تحتاجها.",
+      "pillarsIntro": "ثلاث ركائز تتبع دورة حياة القرار، وكل مشروع في المختبر يخدم ركيزة منها.",
+      "methodKicker": "مدرستنا البحثية",
+      "methodHeading": "خمسة أسئلة نبدأ بها كل مشروع",
+      "methodIntro": "لا نبدأ من الأداة ولا من التقنية، بل من المشكلة. كل مشروع في المختبر، وكل رسالة يشرف عليها، يجيب عن هذه الأسئلة بالترتيب قبل كتابة أول سطر من الكود.",
+      "method": [
+        [
+          "ما المشكلة؟",
+          "من يتأثر بها، وكيف نعرف أنها حقيقية."
+        ],
+        [
+          "كيف تُحل اليوم؟",
+          "الحلول القائمة في الأدبيات والممارسة."
+        ],
+        [
+          "لماذا لا يكفي الحل الحالي؟",
+          "الفجوة المحددة التي نثبتها بالدليل."
+        ],
+        [
+          "كيف سنحلها؟",
+          "قيمتنا المضافة، لا إعادة ما هو موجود."
+        ],
+        [
+          "ما الأثر؟",
+          "ما يتغيّر لمن يستخدم الحل، وكيف نقيسه."
+        ]
+      ],
+      "workKicker": "اعمل معنا",
+      "workHeading": "ستة أشكال للتعاون",
+      "workNote": "تُبرم الاتفاقيات عبر جامعة الملك عبدالعزيز وفق سياساتها في الملكية الفكرية والنشر وأخلاقيات البحث.",
+      "forms": [
+        [
+          "بحث ممول",
+          "سؤال بحثي تحدده الجهة، بخطة ومراحل ومخرجات متفق عليها.",
+          "للشركات والجهات الحكومية"
+        ],
+        [
+          "دراسة تقييم لنظام ذكي",
+          "فحص تحديث نموذج أو نظام قرار بمنهجية RIDI، وتقرير يبيّن ما تغيّر ولمن. ليس شهادة امتثال.",
+          "لموردي الذكاء الاصطناعي والمستشفيات"
+        ],
+        [
+          "بحث مشترك ومنح",
+          "مقترحات منح مشتركة، ودراسات تكرار وتحقق، وتبادل باحثين وطلاب.",
+          "للجامعات ومراكز البحث"
+        ],
+        [
+          "استشارة وفحص نافٍ للجهالة",
+          "استراتيجية الذكاء الاصطناعي والبيانات، ونماذج نقل البحث إلى السوق، والفحص التقني قبل الاستثمار أو الشراء.",
+          "للجهات والمستثمرين"
+        ],
+        [
+          "مواهب ومشاريع طلابية",
+          "رسائل ماجستير ودكتوراه ومشاريع تخرج على مشكلات حقيقية لدى الجهة، وورش عمل لفرقها.",
+          "لكل الجهات"
+        ],
+        [
+          "ترخيص التقنيات",
+          "حين تنضج الملكية الفكرية، يتم الترخيص عبر مركز الابتكار وريادة الأعمال بالجامعة.",
+          "للشركات"
+        ]
+      ],
+      "stepsHeading": "كيف يبدأ العمل",
+      "steps": [
+        [
+          "رسالة تعريف",
+          "صف المشكلة والجهة وما تحتاجه، دون أي بيانات حساسة."
+        ],
+        [
+          "مكالمة تحديد النطاق",
+          "30 دقيقة لفهم السؤال والبيانات المتاحة ومعيار النجاح."
+        ],
+        [
+          "موجز بحثي من صفحة",
+          "السؤال، والمنهج، والمخرجات، والجدول الزمني، والبوابات."
+        ],
+        [
+          "الاتفاقية",
+          "سرية، وملكية فكرية، وحقوق نشر، وموافقات أخلاقية عند الحاجة، عبر الجامعة."
+        ],
+        [
+          "التنفيذ ببوابات",
+          "مراحل قصيرة بقرار مكتوب عند كل بوابة: نمضي، أو نعدّل، أو نتوقف."
+        ],
+        [
+          "المخرجات",
+          "تقرير وملف أدلة قابل للفحص، وكود قابل لإعادة الإنتاج، وورقة حيث يُتفق."
+        ]
+      ],
+      "principlesKicker": "كيف نعمل",
+      "principlesHeading": "ما يمكن أن تتوقعه الجهة الشريكة",
+      "principles": [
+        [
+          "تسجيل مسبق",
+          "للتحليلات المهمة قبل رؤية النتائج."
+        ],
+        [
+          "قابلية إعادة الإنتاج",
+          "بكود وبيانات موثقة، ومفتوحة حين تسمح الاتفاقية."
+        ],
+        [
+          "ادعاءات بقدر الدليل",
+          "ثبات القرار لا يعني صحته، ولا يُقدَّم التقييم كشهادة امتثال."
+        ],
+        [
+          "حماية البيانات",
+          "وفق نظام حماية البيانات الشخصية، ولا بيانات مرضى دون موافقة أخلاقية."
+        ],
+        [
+          "أدوار واضحة",
+          "لكل باحث وطالب وفق CRediT قبل بدء العمل."
+        ]
+      ],
+      "flagshipKicker": "إطار رئيسي",
+      "flagshipBody": "يساعد المؤسسات الصحية والباحثين على تنظيم الحلول والممارسات السريرية والتشغيلية والإدارية وتوثيقها وتتبعها، لتصبح أكثر فائدة وقابلية للنشر، وأقرب لإمكانية الترخيص أو تحقيق عائد. المنصة لا تخترع الحلول، بل تساعد على تنظيمها وتجهيزها.",
+      "flagshipRd": "المنصة حاليًا في مرحلة البحث والتطوير. النتائج السريرية والتجارية تعتمد على الأدلة والشراكات المستقبلية.",
+      "joinKicker": "انضم إلينا",
+      "joinHeading": "طلاب وباحثون زائرون",
+      "joinBody": "نرحب بطلاب الماجستير والدكتوراه، والباحثين الزائرين، والمتعاونين من الجامعات والجهات، في مشاريع تقييم الذكاء الاصطناعي والمعلوماتية الصحية. أرسل سيرتك وفقرة تجيب فيها عن السؤالين الأول والرابع: ما المشكلة، وكيف ستحلها.",
+      "contactKicker": "تواصل",
+      "contactHeading": "لديك قرار تريد أن تثق به؟",
+      "contactBody": "أرسل وصفاً قصيراً للمشكلة والجهة، وسنقترح مكالمة لتحديد النطاق. لا ترسل بيانات مرضى أو تفاصيل اختراع غير منشورة."
+    }
   }
 }

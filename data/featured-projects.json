@@ -274,17 +274,17 @@
     "url": "/healthx/",
     "en": {
       "name": "HEALTHx",
-      "stage": "Founded company",
+      "stage": "Research & development",
       "domain": "Clinical innovation",
-      "description": "clinical innovation platform; invention disclosure under review",
+      "description": "framework for documenting and tracing health solutions; invention disclosure under review",
       "cta": "Explore HEALTHx",
       "alt": "Illustration of a clinician exploring digital-health information"
     },
     "ar": {
       "name": "HEALTHx",
-      "stage": "شركة مؤسَّسة",
+      "stage": "بحث وتطوير",
       "domain": "الابتكار السريري",
-      "description": "منصة للابتكار السريري؛ إفصاح عن اختراع قيد المراجعة",
+      "description": "إطار لتوثيق الحلول الصحية وتتبعها؛ إفصاح عن اختراع قيد المراجعة",
       "cta": "استكشف HEALTHx",
       "alt": "رسم لمختصة صحية تستكشف المعلومات الصحية الرقمية"
     },
