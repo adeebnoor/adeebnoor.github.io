@@ -18,7 +18,7 @@ ROLE_VARIANTS = (
 
 # This last pass is intentionally language-aware because EN source strings can survive localization.
 for path in ROOT.rglob('*.html'):
-    if any(part in {'.git', 'node_modules', 'audit-artifacts'} for part in path.parts):
+    if any(part in {'.git', 'node_modules', 'audit-artifacts', 'lab'} for part in path.parts):
         continue
     relative = path.relative_to(ROOT)
     arabic = relative.parts and relative.parts[0] == 'ar'
@@ -30,7 +30,7 @@ for path in ROOT.rglob('*.html'):
 
 # Guard the language-sensitive public identity after every build.
 for path in ROOT.rglob('*.html'):
-    if any(part in {'.git', 'node_modules', 'audit-artifacts'} for part in path.parts):
+    if any(part in {'.git', 'node_modules', 'audit-artifacts', 'lab'} for part in path.parts):
         continue
     relative = path.relative_to(ROOT)
     source = path.read_text()

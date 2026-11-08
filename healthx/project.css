@@ -14,3 +14,17 @@
 [dir=rtl] .hx-compare thead th{letter-spacing:0}
 @media(max-width:580px){.hx-trust li{font-size:12px}.hx-actions .hx-button{width:100%;text-align:center}}
 @media(max-width:640px){.hx-compare{min-width:0}.hx-compare thead{display:none}.hx-compare tr{display:block;border-bottom:6px solid var(--hx-paper)}.hx-compare tbody th,.hx-compare td{display:block;width:auto;border:0;padding:8px 16px}.hx-compare tbody th{padding-top:16px;font-size:16px}.hx-compare td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6b8078;margin-bottom:2px}[dir=rtl] .hx-compare td::before{letter-spacing:0}.hx-compare td.hx-us{margin:4px 0 0;padding-bottom:14px}.hx-compare-wrap{overflow:visible}}
+/* "What HEALTHx is" block (Adeeb Lab handoff, Nov 2026), scoped to .hx-mod */
+.hx-mod .hx-rd{border:1.5px solid var(--hx-teal);background:#eef7f4;padding:12px 16px;font-weight:700;margin:0 0 24px;max-width:72ch}
+.hx-mod .hx-scope{display:grid;grid-template-columns:1fr;gap:10px;margin:0 0 28px}
+@media (min-width:720px){.hx-mod .hx-scope{grid-template-columns:repeat(4,1fr)}}
+.hx-mod .hx-scope div{background:#fff;border:1px solid var(--hx-line);padding:14px;font-size:14.5px;color:#4f605e}
+.hx-mod .hx-scope b{display:block;color:var(--hx-ink);font-size:15px;margin-bottom:4px}
+.hx-mod .hx-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:720px){.hx-mod .hx-grid{grid-template-columns:repeat(2,1fr)}}
+.hx-mod .hx-card{background:#fff;border:1px solid var(--hx-line);padding:22px}
+.hx-mod .hx-card h3{font-size:19px;line-height:1.35;margin:10px 0 8px}
+.hx-mod .hx-card p{margin:0 0 10px}
+.hx-mod .hx-card ul{margin:0;padding-inline-start:18px;font-size:14.5px;color:#4f605e}
+.hx-mod .hx-chip{display:inline-block;font-size:12px;font-weight:700;background:#e7f2ef;color:var(--hx-teal);border-radius:999px;padding:3px 10px}
+.hx-mod .hx-foot{font-size:13px;color:#536c64;margin:16px 0 0;max-width:80ch}

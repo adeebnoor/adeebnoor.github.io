@@ -92,14 +92,14 @@ try{
     await page.evaluate(()=>window.scrollTo(0,0));
     assert.equal(await page.locator('.hx-hub h1').count(),1,path+' main heading');
     assert.equal(new URL(await page.locator('.site-links .site-language').getAttribute('href'),origin).pathname,ar?'/healthx/':'/ar/healthx/',path+' language pair');
-    assert.ok((await page.locator('#research').innerText()).includes(ar?'ماجد':'Majed'),path+' active research');
+    assert.ok((await page.locator('#research').innerText()).includes(ar?'سجل المتطلبات':'Requirement Ledger'),path+' current research focus');
     const researchText=await page.locator('#research').innerText();
     assert.ok(researchText.includes(ar?'إفصاح عن اختراع قيد المراجعة':'Invention disclosure under review'),path+' patent status');
     assert.ok(!/granted patent|patent granted|براءة ممنوحة/i.test(researchText) && researchText.includes(ar?'اتفاقية سرية':'confidentiality agreement'),path+' pending patent, mechanisms confidential');
-    assert.ok(researchText.includes(ar?'أنجز مراجعة الأدبيات وبروتوكول التقييم':'completed the literature review and evaluation protocol') && researchText.includes(ar?'بدأت مرحلة التطوير في أكتوبر 2026':'development began in October 2026'),path+' current master’s milestone');
+    assert.ok(researchText.includes(ar?'المنصة حاليًا في مرحلة البحث والتطوير. النتائج السريرية والتجارية تعتمد على الأدلة والشراكات المستقبلية.':'HEALTHx is currently in research and development. Clinical and commercial outcomes depend on evidence and future partnerships.'),path+' mandatory research-and-development statement');
     const conceptText=await page.locator('.hx-hub').innerText();
     assert.ok(conceptText.includes(ar?'نطاق التطوير والتقييم المقترح، وليست وظائف منتج مكتمل':'proposed development and evaluation scope, not a finished product') && conceptText.includes(ar?'لا يَعِد بنتائج قبل قياسها':'outcomes are not promised before measurement'),path+' planned versus measured results');
-    assert.ok((await page.locator('.hx-hub').innerText()).includes(ar?'جسر بين المعرفة السريرية والأصول القابلة للترخيص':'A bridge from clinical knowledge to licensable assets'),path+' original concept');
+    assert.ok((await page.locator('.hx-hub').innerText()).includes(ar?'مسار مقترح من المعرفة السريرية إلى أصول قابلة للتتبع والمراجعة':'A proposed path from clinical knowledge to traceable, reviewable assets'),path+' original concept');
     assert.equal(await page.locator('#participate a.hx-text-link').getAttribute('href'),(ar?'/ar':'')+'/contact.html#inquiry-form',path+' contribution form');
    }
    if(path.endsWith('/contact.html')){

@@ -93,7 +93,7 @@ def home_copy(lang):
     p = '/ar' if ar else ''
     arrow = '←' if ar else '→'
     name = '<span>أديب</span> نور' if ar else '<span>Adeeb</span> Noor'
-    role = 'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز' if ar else 'Professor of Data Science &amp; AI, King Abdulaziz University; Visiting Professor, KAUST; Chief Strategy Advisor, Office of the Vice President for Research and Innovation, KAU; Founder, HEALTHx (invention disclosure under review)'
+    role = 'أستاذ علوم البيانات والذكاء الاصطناعي، جامعة الملك عبدالعزيز' if ar else 'Professor of Data Science &amp; AI, King Abdulaziz University; Visiting Professor, KAUST; Chief Strategy Advisor, Office of the Vice President for Research and Innovation, KAU; Founder, <a href="/healthx/">HEALTHx</a> (invention disclosure under review)'
     location = 'جامعة الملك عبدالعزيز · جدة، المملكة العربية السعودية' if ar else 'King Abdulaziz University · Jeddah, Saudi Arabia'
     primary = 'المسار البحثي منذ الدكتوراه' if ar else 'My research, from PhD to today'
     contact = 'اعمل معي' if ar else 'Work with me'
@@ -256,7 +256,7 @@ def cleanup_copy():
         'أستهدف نشر مقال متعمّق كل شهرين مع توضيح التعديلات الجوهرية.':'أستهدف نشر مقال متعمّق كل أسبوعين بالتناوب بين العربية والإنجليزية، مع توضيح التعديلات الجوهرية.'
     }
     for path in ROOT.rglob('*.html'):
-        if any(part in {'.git','node_modules','audit-artifacts'} for part in path.parts): continue
+        if any(part in {'.git','node_modules','audit-artifacts','lab'} for part in path.parts): continue
         source=path.read_text()
         original=source
         for old,new in replacements.items(): source=source.replace(old,new)
