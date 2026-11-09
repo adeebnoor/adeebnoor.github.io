@@ -18,12 +18,15 @@
   function draw(data,key='all'){
     const native=key==='all'||key==='openalex',author=native?'openalex':key,d=native?data:data.authorMetrics?.[key]||{};
     const pubSource=key==='all'?'orcid':author,pubs=pubSource==='openalex'?data:data.authorMetrics?.[pubSource]||{},official=data.authorMetrics?.scival||{};
+    const calculated=data.fwciCalculation||{value:data.fwciMean,count:data.fwciCount,cohortCount:data.fwciCohort};
+    const fwciValue=native?calculated.value:key==='scopus'?official.fwci:null;
+    const fwciDetail=native?`OpenAlex · ${calculated.count}/${calculated.cohortCount}`:key==='scopus'?(official.fwci==null?bi('SciVal · يحتاج صلاحية المصدر','SciVal · source authorization needed'):`SciVal · ${official.window||''}`):bi('غير متاح في المصدر المحدد','Unavailable from this source');
     host.replaceChildren();const wrap=node('div','wrap'),head=node('div','pubmetric-head'),buttons=node('div','pubmetric-sources');
     append(head,node('h2','',bi('الأثر البحثي، مع مصدره','Research impact, with its source')));
     for(const [id,[label]]of Object.entries(sources)){const b=node('button','',label);b.type='button';b.setAttribute('aria-pressed',String(id===key));b.addEventListener('click',()=>draw(data,id));buttons.appendChild(b);}head.appendChild(buttons);wrap.appendChild(head);
     const grid=node('div','pubmetric-grid'),fmt=v=>v==null?'—':Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
     const values=[
-      ['FWCI',fmt(official.fwci),official.fwci==null?bi('SciVal · يحتاج صلاحية المصدر','SciVal · source authorization needed'):`SciVal · ${official.window||''}`],
+      [native?bi('FWCI محسوب','Calculated FWCI'):'FWCI',fmt(fwciValue),fwciDetail],
       ['H-index',fmt(d.hIndex),sources[author][0]],['i10-index',fmt(d.i10Index),sources[author][0]],[bi('الاستشهادات','Citations'),fmt(d.citations),sources[author][0]],
       [bi('سجلات مقالات المجلات','Journal-article records'),fmt(pubs.journalArticles),sources[pubSource][0]],
       [bi('قيادة التأليف','Author leadership'),data.leadership.total?(100*data.leadership.count/data.leadership.total).toFixed(1)+'%':'—',`${data.leadership.count}/${data.leadership.total} · ${bi('الخطة الأساسية','core pipeline')}`]
@@ -31,7 +34,7 @@
     for(const [label,value,detail]of values)grid.appendChild(append(node('div','pubmetric-cell'),node('span','pubmetric-label',label),node('b','pubmetric-value',value),node('span','pubmetric-detail',detail)));wrap.appendChild(grid);
     const status=data.sourceStatus?.[author]?.status;
     const connection=status==='connected'?bi('متصل آلياً','Automatically connected'):status==='rate_limited'?bi('السحب من المصدر محجوب حالياً','Source retrieval currently restricted'):status==='authorization_required'||status==='access_required'?bi('بانتظار صلاحية المصدر المؤسسية','Institutional source authorization needed'):bi('المصدر غير متاح حالياً','Source currently unavailable');
-    const stamp=(native?data.checkedAt:d.checkedAt)?.slice(0,10)||'—';
+    const checkedAt=native?data.checkedAt:d.checkedAt,stamp=checkedAt?new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(checkedAt)):'—';
     const foot=node('div','pubmetric-foot');append(foot,node('p','',bi(`تحديث يومي آلي 04:17 بتوقيت الرياض. ${sources[author][0]}: ${connection} · ${stamp}. كل قيمة تتبع مصدرها؛ الشرطة تعني أن القيمة غير متاحة.`,`Automatic daily refresh at 04:17 Riyadh. ${sources[author][0]}: ${connection} · ${stamp}. Each value retains its source; a dash means unavailable.`)));
     const a=node('a','',bi('المنشورات وتفاصيل المؤشرات ↗','Publications & metric details ↗'));a.href='https://adeebnoor.github.io/publications-dashboard/#impact';foot.appendChild(a);wrap.appendChild(foot);host.appendChild(wrap);
   }
