@@ -1,5 +1,15 @@
 /* Both homepage languages consume the dashboard's public summary; no private APIs. */
 (() => {
+  const trust=document.querySelector('.hero-trust-links');
+  if(trust)for(const [label,href] of [
+    ['ResearchGate','https://www.researchgate.net/profile/Adeeb-Noor-2'],
+    ['Scopus','https://www.scopus.com/authid/detail.uri?authorId=57194327281'],
+    ['Web of Science','https://www.webofscience.com/wos/author/record/AAS-6623-2021']
+  ]){
+    if(Array.from(trust.querySelectorAll('a')).some(a=>a.href===href))continue;
+    if(trust.childElementCount){const dot=document.createElement('span');dot.textContent='·';dot.setAttribute('aria-hidden','true');trust.appendChild(dot);}
+    const a=document.createElement('a');a.href=href;a.textContent=label;a.target='_blank';a.rel='noopener noreferrer';trust.appendChild(a);
+  }
   const host=document.getElementById('research-metrics');if(!host)return;
   const ar=document.documentElement.lang==='ar',bi=(a,b)=>ar?a:b;
   const sources={openalex:['OpenAlex','https://openalex.org/A5052495689'],scholar:['Google Scholar','https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en'],scopus:['Scopus / SciVal','https://www.scopus.com/authid/detail.uri?authorId=57194327281'],wos:['Web of Science','https://www.webofscience.com/wos/author/record/AAS-6623-2021']};
