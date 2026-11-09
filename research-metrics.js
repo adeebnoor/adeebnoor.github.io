@@ -12,28 +12,31 @@
   }
   const host=document.getElementById('research-metrics');if(!host)return;
   const ar=document.documentElement.lang==='ar',bi=(a,b)=>ar?a:b;
-  const sources={openalex:['OpenAlex','https://openalex.org/A5052495689'],scholar:['Google Scholar','https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en'],scopus:['Scopus / SciVal','https://www.scopus.com/authid/detail.uri?authorId=57194327281'],wos:['Web of Science','https://www.webofscience.com/wos/author/record/AAS-6623-2021']};
+  const sources={all:[bi('عرض موحد','Combined'),'https://adeebnoor.github.io/publications-dashboard/#impact'],openalex:['OpenAlex','https://openalex.org/A5052495689'],scholar:['Google Scholar','https://scholar.google.com/citations?user=XUQD1WAAAAAJ&hl=en'],scopus:['Scopus','https://www.scopus.com/authid/detail.uri?authorId=57194327281'],wos:['Web of Science','https://www.webofscience.com/wos/author/record/AAS-6623-2021'],orcid:['ORCID','https://orcid.org/0000-0002-8251-1853']};
   function node(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
   function append(p,...children){children.forEach(c=>p.appendChild(c));return p;}
-  function draw(data,key='openalex'){
-    const native=key==='openalex',d=native?data:data.authorMetrics?.[key]||{};
+  function draw(data,key='all'){
+    const native=key==='all'||key==='openalex',author=native?'openalex':key,d=native?data:data.authorMetrics?.[key]||{};
+    const pubSource=key==='all'?'orcid':author,pubs=pubSource==='openalex'?data:data.authorMetrics?.[pubSource]||{},official=data.authorMetrics?.scival||{};
     host.replaceChildren();const wrap=node('div','wrap'),head=node('div','pubmetric-head'),buttons=node('div','pubmetric-sources');
     append(head,node('h2','',bi('الأثر البحثي، مع مصدره','Research impact, with its source')));
     for(const [id,[label]]of Object.entries(sources)){const b=node('button','',label);b.type='button';b.setAttribute('aria-pressed',String(id===key));b.addEventListener('click',()=>draw(data,id));buttons.appendChild(b);}head.appendChild(buttons);wrap.appendChild(head);
     const grid=node('div','pubmetric-grid'),fmt=v=>v==null?'—':Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
     const values=[
-      [bi('الاستشهادات','Citations'),fmt(d.citations),sources[key][0]],['H-index',fmt(d.hIndex),sources[key][0]],['i10-index',fmt(d.i10Index),sources[key][0]],
-      [bi('h للمقالات الحديثة','Recent-article h'),fmt(d.recentH),native?(d.recentWindow||[]).join('–'):bi('بانتظار مصدر مؤرخ','Awaiting a dated source')],
-      [bi('متوسط FWCI المحسوب','Mean work-level FWCI'),fmt(native?d.fwciMean:d.fwci),native?`OpenAlex · n=${d.fwciCount}/${d.fwciCohort}`:'Scopus / SciVal'],
-      [bi('مقالات المجلات','Journal articles'),fmt(d.journalArticles),native?bi('بعد استبعاد المسحوب','Excludes retracted works'):sources[key][0]],
-      [bi('مسودات وبيانات','Preprints & datasets'),fmt(d.preprintsDatasets),sources[key][0]],
+      ['FWCI',fmt(official.fwci),official.fwci==null?bi('SciVal · يحتاج صلاحية المصدر','SciVal · source authorization needed'):`SciVal · ${official.window||''}`],
+      ['H-index',fmt(d.hIndex),sources[author][0]],['i10-index',fmt(d.i10Index),sources[author][0]],[bi('الاستشهادات','Citations'),fmt(d.citations),sources[author][0]],
+      [bi('سجلات مقالات المجلات','Journal-article records'),fmt(pubs.journalArticles),sources[pubSource][0]],
       [bi('قيادة التأليف','Author leadership'),data.leadership.total?(100*data.leadership.count/data.leadership.total).toFixed(1)+'%':'—',`${data.leadership.count}/${data.leadership.total} · ${bi('الخطة الأساسية','core pipeline')}`]
     ];
     for(const [label,value,detail]of values)grid.appendChild(append(node('div','pubmetric-cell'),node('span','pubmetric-label',label),node('b','pubmetric-value',value),node('span','pubmetric-detail',detail)));wrap.appendChild(grid);
-    const foot=node('div','pubmetric-foot');append(foot,node('p','',native?bi(`OpenAlex · ${data.checkedAt.slice(0,10)}. متوسط FWCI محسوب من قيم المقالات، وليس تصدير SciVal. عدد المقالات يجمع الملفين المرتبطين.`,`OpenAlex · ${data.checkedAt.slice(0,10)}. Mean FWCI is calculated from work-level values, not a SciVal export. Articles combine the linked profiles.`):bi('تظهر أرقام هذا المصدر بعد توفير تصدير مؤرخ؛ لا تُستبدل بأرقام مصدر آخر.','This source needs a dated export; values from another database are not substituted.')));
+    const status=data.sourceStatus?.[author]?.status;
+    const connection=status==='connected'?bi('متصل آلياً','Automatically connected'):status==='rate_limited'?bi('السحب من المصدر محجوب حالياً','Source retrieval currently restricted'):status==='authorization_required'||status==='access_required'?bi('بانتظار صلاحية المصدر المؤسسية','Institutional source authorization needed'):bi('المصدر غير متاح حالياً','Source currently unavailable');
+    const stamp=(native?data.checkedAt:d.checkedAt)?.slice(0,10)||'—';
+    const foot=node('div','pubmetric-foot');append(foot,node('p','',bi(`تحديث يومي آلي 04:17 بتوقيت الرياض. ${sources[author][0]}: ${connection} · ${stamp}. كل قيمة تتبع مصدرها؛ الشرطة تعني أن القيمة غير متاحة.`,`Automatic daily refresh at 04:17 Riyadh. ${sources[author][0]}: ${connection} · ${stamp}. Each value retains its source; a dash means unavailable.`)));
     const a=node('a','',bi('المنشورات وتفاصيل المؤشرات ↗','Publications & metric details ↗'));a.href='https://adeebnoor.github.io/publications-dashboard/#impact';foot.appendChild(a);wrap.appendChild(foot);host.appendChild(wrap);
   }
   fetch('/publications-dashboard/research-metrics.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Unavailable');return r.json();}).then(data=>draw(data)).catch(()=>{
     host.replaceChildren();const wrap=node('div','wrap');const a=node('a','',bi('المنشورات والمؤشرات الأكاديمية ↗','Publications & research metrics ↗'));a.href='https://adeebnoor.github.io/publications-dashboard/';wrap.appendChild(a);host.appendChild(wrap);
   });
 })();
+
