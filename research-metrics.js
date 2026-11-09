@@ -21,9 +21,9 @@
     ];
     for(const [label,value,detail]of values)grid.appendChild(append(node('div','pubmetric-cell'),node('span','pubmetric-label',label),node('b','pubmetric-value',value),node('span','pubmetric-detail',detail)));wrap.appendChild(grid);
     const foot=node('div','pubmetric-foot');append(foot,node('p','',native?bi(`OpenAlex · ${data.checkedAt.slice(0,10)}. متوسط FWCI محسوب من قيم المقالات، وليس تصدير SciVal. عدد المقالات يجمع الملفين المرتبطين.`,`OpenAlex · ${data.checkedAt.slice(0,10)}. Mean FWCI is calculated from work-level values, not a SciVal export. Articles combine the linked profiles.`):bi('تظهر أرقام هذا المصدر بعد توفير تصدير مؤرخ؛ لا تُستبدل بأرقام مصدر آخر.','This source needs a dated export; values from another database are not substituted.')));
-    const a=node('a','',bi('المنشورات وتفاصيل المؤشرات ↗','Publications & metric details ↗'));a.href='/publications-dashboard/#impact';foot.appendChild(a);wrap.appendChild(foot);host.appendChild(wrap);
+    const a=node('a','',bi('المنشورات وتفاصيل المؤشرات ↗','Publications & metric details ↗'));a.href='https://adeebnoor.github.io/publications-dashboard/#impact';foot.appendChild(a);wrap.appendChild(foot);host.appendChild(wrap);
   }
   fetch('/publications-dashboard/research-metrics.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Unavailable');return r.json();}).then(data=>draw(data)).catch(()=>{
-    host.replaceChildren();const wrap=node('div','wrap');const a=node('a','',bi('المنشورات والمؤشرات الأكاديمية ↗','Publications & research metrics ↗'));a.href='/publications-dashboard/';wrap.appendChild(a);host.appendChild(wrap);
+    host.replaceChildren();const wrap=node('div','wrap');const a=node('a','',bi('المنشورات والمؤشرات الأكاديمية ↗','Publications & research metrics ↗'));a.href='https://adeebnoor.github.io/publications-dashboard/';wrap.appendChild(a);host.appendChild(wrap);
   });
 })();
