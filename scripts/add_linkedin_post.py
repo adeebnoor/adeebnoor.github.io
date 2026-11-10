@@ -14,6 +14,7 @@ nothing could be added; partial results are reported line by line.
 from pathlib import Path
 from datetime import datetime, timezone
 from html import unescape
+from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 import json
 import re
@@ -22,7 +23,8 @@ import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data' / 'linkedin-posts.json'
-URL = re.compile(r'^https://(?:www\.)?linkedin\.com/(posts/[A-Za-z0-9_%\-]{3,300}|feed/update/urn:li:(?:activity|share|ugcPost):\d{6,25})/?$')
+# www, a country host such as ae.linkedin.com, or a bare linkedin.com host.
+URL = re.compile(r'^https://(?:(?:www|[a-z]{2})\.)?linkedin\.com/(posts/[A-Za-z0-9_%\-]{3,300}|feed/update/urn:li:(?:activity|share|ugcPost):\d{6,25})/?$')
 DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 OWNER = 'adeeb-noor'          # linkedin.com/in/<OWNER>
 MAX_PAGE = 2_000_000
@@ -62,10 +64,17 @@ def date_from_id(number):
     return moment.strftime('%Y-%m-%d') if 2003 <= moment.year <= datetime.now(timezone.utc).year else ''
 
 
+def on_linkedin(url):
+    host = (urlsplit(url).hostname or '').lower()
+    return urlsplit(url).scheme == 'https' and (host == 'linkedin.com' or host.endswith('.linkedin.com'))
+
+
 def fetch(url):
     request = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; adeebnoor.github.io post importer)', 'Accept-Language': 'en-US,en;q=0.8,ar;q=0.6'})
     with urlopen(request, timeout=30) as response:
-        if not response.geturl().startswith('https://www.linkedin.com/'):
+        # LinkedIn often sends a country host (ae.linkedin.com) for an Arabic post.
+        # That is still the public post; only a hop off linkedin.com is a failure.
+        if not on_linkedin(response.geturl()):
             raise ValueError('LinkedIn redirected away from the post (it may be private or deleted).')
         return response.read(MAX_PAGE).decode('utf-8', 'replace')
 
@@ -82,7 +91,7 @@ def read_public_post(page):
         text = unescape(m.group(1)) if m else ''
     m = re.search(r'"datePublished":"(\d{4}-\d{2}-\d{2})', page)
     date = m.group(1) if m else ''
-    m = re.search(r'<link rel="canonical" href="(https://www\.linkedin\.com/posts/[^"]+)"', page)
+    m = re.search(r'<link rel="canonical" href="(https://(?:(?:www|[a-z]{2})\.)?linkedin\.com/posts/[^"]+)"', page)
     canonical = m.group(1) if m else ''
     author_ok = f'linkedin.com/in/{OWNER}' in page and (not canonical or f'/posts/{OWNER}_' in canonical)
     return clean_text(text), date, canonical, author_ok
